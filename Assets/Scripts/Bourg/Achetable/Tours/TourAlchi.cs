@@ -129,8 +129,7 @@ namespace Bourg.Achetable.Tours
         public void Visualize()
         {
             VisualizeEffect.SetActive(true);
-            mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) mousePosition = VisualizeEffect.normalized * ActiveRange;
             VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, mousePosition, VisualizeEffectSpeed * Time.deltaTime);
