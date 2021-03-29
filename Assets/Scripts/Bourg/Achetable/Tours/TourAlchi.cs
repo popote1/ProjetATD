@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using Scripts.Actors;
 using UnityEngine;
 
-
-namespace Bourg.Achetable.Tours
+namespace Assets.Scripts.Bourg.Achetable.Tours
 {
     public class TourAlchi : Achetables
     {
@@ -12,34 +9,36 @@ namespace Bourg.Achetable.Tours
         public int AutoPhysicDamages;
         public int AutoFireRate;
         public int AutoRange;
+        public CircleCollider2D AutoCollider2D;
+
 
         [Header("Active")]
         public int ActiveRange;
         public float ActiveRate;
         public bool IsReadyToAttack = true;
+        
 
         [Header("Passive")]
         public int PassiveHpIncome;
         public float PassiveRate;
         public float PassiveRange;
+        
 
         [Header("Utilities")]
+        public int SpawnScore;
         public GameObject OutLine;
         public AudioSource AudioSource;
-        public CircleCollider2D AutoCollider2D;
         //TEMP
         public LineRenderer LineRenderer;
-        //TEMP
-        public float LaserLiveTime;
+        public float LaserLiveTime;//
 
         
         [Header("PowerEffects")]
         public GameObject PowerEffect;
         public GameObject VisualizeEffect;
-        public float VisualizeEffectSpped;
+        public float VisualizeEffectSpeed;
         
-        public int SpawnScore;
-
+        
         private float _autoResetTimer;
         private float _passiveTimer;
         private float _activeResetTimer;
@@ -47,6 +46,7 @@ namespace Bourg.Achetable.Tours
         private Vector2 _mousePosition;
         private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
 
+        //Initialisation
         private void Start()
         {
             VisualizeEffect.SetActive(false);
@@ -55,7 +55,7 @@ namespace Bourg.Achetable.Tours
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward*-3);
-            LineRenderer.enabled=false;
+            LineRenderer.enabled=false; //
         }
 
         private void Update()
@@ -73,7 +73,8 @@ namespace Bourg.Achetable.Tours
             }
         }
 
-        //Auto
+        
+        //Auto Attack
         private void Auto()
         {
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
@@ -102,7 +103,7 @@ namespace Bourg.Achetable.Tours
             }
         }
         
-        //Active
+        //Active Power
         public void Active(Vector2 origin)
         {
             if (_activeResetTimer <= 0)
@@ -126,31 +127,30 @@ namespace Bourg.Achetable.Tours
             }
         }
         
-        //Visualize Active
+        
+        //Visualize Active Power Before throw
         private void Visualize()
         {
             VisualizeEffect.SetActive(true);
             _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
-            VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
         }
         
 
-        //Passive
+        //Passive Power
         private void Passive()
         {
             if (_passiveTimer <= 0)
             {
                 _passiveTimer = PassiveRate;
-                foreach (Batiment bat in GameManager.Batiments)
+                foreach (Batiment bat in Pm.Batiments)
                 {
-                    if ((Position - bat.Position).magnitude < PassiveRange)
+                    if (!((Position - bat.Position).magnitude < PassiveRange)) continue;
+                    if (bat.CurrentHp < bat.Hp)
                     {
-                        if (bat.CurrentHp < bat.Hp)
-                        {
-                            bat.Hp += PassiveHpIncome;
-                        }
+                        bat.Hp += PassiveHpIncome;
                     }
                 }
             }
@@ -160,6 +160,7 @@ namespace Bourg.Achetable.Tours
             }
         }
         
+        
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -167,7 +168,6 @@ namespace Bourg.Achetable.Tours
             if (!enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
                 enemiesInRange.Add( other.GetComponent<MoveActorV2>());
         }
-
         //Remove enemies out of range
         private void OnTriggerExit2D(Collider2D other)
         {
@@ -176,7 +176,8 @@ namespace Bourg.Achetable.Tours
                 enemiesInRange.Remove( other.GetComponent<MoveActorV2>());
         }
         
-        //Outline activator
+        
+        //Tower activator
         public void OnSelect()
         {
             _isSelected = true;

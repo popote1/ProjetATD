@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using Scripts.Main;
-using UnityEngine;
-
-namespace Bourg.Achetable
+namespace Assets.Scripts.Bourg.Achetable
 {
 
     public class Murs : Achetables

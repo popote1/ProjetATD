@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bourg.Achetable
+namespace Assets.Scripts.Bourg.Achetable
 {
 
     public class Achetables : Batiment

@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using Scripts.Actors;
 using UnityEngine;
+// ReSharper disable All
 
-
-namespace Bourg.Achetable.Tours
+namespace Assets.Scripts.Bourg.Achetable.Tours
 {
     public class TourGarde : Achetables
     {
@@ -13,6 +11,7 @@ namespace Bourg.Achetable.Tours
         public int AutoFireRate;
         public int AutoRange;
         
+        
         [Header("Active")]
         public int ActiveRange;
         public int ActivePhysicDamages;
@@ -20,20 +19,21 @@ namespace Bourg.Achetable.Tours
         public float ActiveRate;
         public bool IsReadyToAttack = true;
 
+        
         [Header("Utilities")]
+        public int SpawnScore;
         public GameObject OutLine;
         public AudioSource AudioSource;
         public CircleCollider2D AutoCollider2D;
         //TEMP
         public LineRenderer LineRenderer;
-        //TEMP
-        public float LaserLiveTime;
+        public float LaserLiveTime;//
 
+        
         [Header("PowerEffect")]
         public GameObject PowerEffect;
         public GameObject VisualizerEffect;
         
-        public int SpawnScore;
 
         private float _autoResetTimer;
         private float _activeResetTimer;
@@ -41,6 +41,7 @@ namespace Bourg.Achetable.Tours
         private Vector2 _mousePosition;
         private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
 
+        //Initialisation
         private void Start()
         {
             OutLine.SetActive(false);
@@ -49,9 +50,9 @@ namespace Bourg.Achetable.Tours
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward*-3);
-            LineRenderer.enabled=false;
+            LineRenderer.enabled=false;//
         }
-
+        
         private void Update()
         {
             Auto();
@@ -64,11 +65,12 @@ namespace Bourg.Achetable.Tours
             else
             {
                 OutLine.SetActive(false);
-                VisualizeEffect.SetActive(false);
+                VisualizerEffect.SetActive(false);
             }
         }
+        
 
-        //Auto
+        //Auto Attack
         private void Auto()
         {
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
@@ -97,7 +99,8 @@ namespace Bourg.Achetable.Tours
             }
         }
         
-        //Active
+        
+        //Active Power
         public void Active(Vector2 origin)
         {
             if (_activeResetTimer <= 0)
@@ -121,7 +124,8 @@ namespace Bourg.Achetable.Tours
             }
         }
 
-        //Visualize active
+        
+        //Visualize Active Power Before throw
         private void Visualize()
         {
             VisualizerEffect.SetActive(true);
@@ -131,6 +135,7 @@ namespace Bourg.Achetable.Tours
             VisualizerEffect.transform.LookAt(_mousePosition);
         }
         
+        
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -138,7 +143,6 @@ namespace Bourg.Achetable.Tours
             if (!enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
                 enemiesInRange.Add( other.GetComponent<MoveActorV2>());
         }
-
         //Remove enemies out of range
         private void OnTriggerExit2D(Collider2D other)
         {
@@ -146,6 +150,7 @@ namespace Bourg.Achetable.Tours
             if (enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
                 enemiesInRange.Remove( other.GetComponent<MoveActorV2>());
         }
+        
         
         //Outline activator
         public void OnSelect()

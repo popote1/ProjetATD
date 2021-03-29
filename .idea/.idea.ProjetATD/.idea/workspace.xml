@@ -43,6 +43,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrig.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Achetables.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourAlchi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Mairie.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
       </list>
     </option>
   </component>
@@ -63,7 +72,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -93,6 +102,8 @@
       <updated>1616926970545</updated>
       <workItem from="1616927006966" duration="6408000" />
       <workItem from="1617025627342" duration="3341000" />
+      <workItem from="1617046075876" duration="1583000" />
+      <workItem from="1617047767741" duration="923000" />
     </task>
     <servers />
   </component>

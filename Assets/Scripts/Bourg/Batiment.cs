@@ -1,11 +1,9 @@
-using System;
-using System.IO;
 using System.Collections.Generic;
-using Scripts.PlainC;
-using Scripts.Components;
+using Components;
+using PlaneC;
 using UnityEngine;
 
-namespace Bourg
+namespace Assets.Scripts.Bourg
 {
 
     public class Batiment : MonoBehaviour
@@ -13,22 +11,22 @@ namespace Bourg
 	    [Header("Paramètres Batiment")]
     	public int Hp;
         public int CurrentHp;
-    	public PlayGrid Playgrid;
+    	public PlayGrig Playgrid;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
         public Vector2 Position;
-        public PlayerManager Pm;
+        public PlayerManagerComponent Pm;
 
         private void Start()
         {
-	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
-	        if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager");
+	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrig>();
+	        if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManagerComponent>();
 	        Position = new Vector2(transform.position.x, transform.position.y);
         }
 
         private void OnDestroy()
         {
-	        Pm.Batiments.Remove(this);
+	        //Pm.Batiments.Remove(this);
         }
     }
 }
