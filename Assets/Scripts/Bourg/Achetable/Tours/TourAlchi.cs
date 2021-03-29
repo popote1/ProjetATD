@@ -33,18 +33,25 @@ namespace Bourg.Achetable.Tours
         public float LaserLiveTime;
 
         
-        [Header("PowerEffect")]
+        [Header("PowerEffects")]
         public GameObject PowerEffect;
+        public GameObject VisualizeEffect;
+        public float VisualizeEffectSpped;
         
         public int SpawnScore;
 
         private float _autoResetTimer;
         private float _passiveTimer;
         private float _activeResetTimer;
+        private bool _isSelected;
+        private Vector2 _mousePosition;
         private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
 
         private void Start()
         {
+            VisualizeEffect.SetActive(false);
+            OutLine.SetActive(false);
+            _isSelected = false;
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward*-3);
@@ -54,6 +61,16 @@ namespace Bourg.Achetable.Tours
         private void Update()
         {
             Auto();
+            if (_isSelected)
+            {
+                OutLine.SetActive(true);
+                Visualize();
+            }
+            else
+            {
+                OutLine.SetActive(false);
+                VisualizeEffect.SetActive(false);
+            }
         }
 
         //Auto
@@ -107,6 +124,18 @@ namespace Bourg.Achetable.Tours
                 IsReadyToAttack = false;
             }
         }
+        
+        //Visualize Active
+        public void Visualize()
+        {
+            VisualizeEffect.SetActive(true);
+            mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            float Dist = Vector2.Distance(mousePosition, transform.position);
+            if (!(Dist <= ActiveRange)) mousePosition = VisualizeEffect.normalized * ActiveRange;
+            VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+        }
+        
 
         //Passive
         private void Passive()
@@ -150,11 +179,11 @@ namespace Bourg.Achetable.Tours
         //Outline activator
         public void OnSelect()
         {
-            OutLine.SetActive(true);
+            _isSelected = true;
         }
         public void OnDeselect()
         {
-            OutLine.SetActive(false);
+            _isSelected = false;
         }
     }
 }
