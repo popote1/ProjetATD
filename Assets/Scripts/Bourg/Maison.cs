@@ -39,7 +39,7 @@ namespace Bourg
                         }
                     }
                 }
-                GameManager.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
+                Pm.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
             }
             else
             {
