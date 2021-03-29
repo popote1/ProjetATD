@@ -32,15 +32,21 @@ namespace Bourg.Achetable.Tours
 
         [Header("PowerEffect")]
         public GameObject PowerEffect;
+        public GameObject VisualizeEffect;
+        public float VisualizeEffectSpeed;
         
         public int SpawnScore;
 
         private float _autoResetTimer;
         private float _activeResetTimer;
+        private bool _isSelected;
         private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
 
         private void Start()
         {
+            OutLine.SetActive(false);
+            VisualizeEffect.SetActive(false);
+            _isSelected = false;
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward * -3);
@@ -50,6 +56,16 @@ namespace Bourg.Achetable.Tours
         private void Update()
         {
             Auto();
+            if (_isSelected)
+            {
+                OutLine.SetActive(true);
+                Visualize();
+            }
+            else
+            {
+                OutLine.SetActive(false);
+                VisualizeEffect.SetActive(false);
+            }
         }
 
         //Auto
@@ -86,6 +102,7 @@ namespace Bourg.Achetable.Tours
         {
             if (_activeResetTimer <= 0)
             {
+                //TODO: Check in PM closest selected tower to shoot with
                 IsReadyToAttack = true;
 
                 float Dist = Vector2.Distance(this.Position, origin);
@@ -134,6 +151,16 @@ namespace Bourg.Achetable.Tours
                 IsReadyToAttack = false;
             }
         }
+        
+        //Visualize active
+        private void Visualize()
+        {
+            VisualizeEffect.SetActive(true);
+            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float Dist = Vector2.Distance(_mousePosition, transform.position);
+            if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
+            VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+        }
 
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
@@ -155,10 +182,11 @@ namespace Bourg.Achetable.Tours
         public void OnSelect()
         {
             OutLine.SetActive(true);
+            _isSelected = true;
         }
         public void OnDeselect()
         {
-            OutLine.SetActive(false);
+            _isSelected = false;
         }
 
     }

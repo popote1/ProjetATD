@@ -107,6 +107,7 @@ namespace Bourg.Achetable.Tours
         {
             if (_activeResetTimer <= 0)
             {
+                //TODO: Check in PM closest selected tower to shoot with
                 IsReadyToAttack = true;
 
                 float Dist = Vector2.Distance(this.Position, origin);
@@ -126,13 +127,13 @@ namespace Bourg.Achetable.Tours
         }
         
         //Visualize Active
-        public void Visualize()
+        private void Visualize()
         {
             VisualizeEffect.SetActive(true);
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float Dist = Vector2.Distance(mousePosition, transform.position);
-            if (!(Dist <= ActiveRange)) mousePosition = VisualizeEffect.normalized * ActiveRange;
-            VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float Dist = Vector2.Distance(_mousePosition, transform.position);
+            if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
+            VisualizeEffect.position = Vector2.Lerp(VisualizeEffect.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
         }
         
 

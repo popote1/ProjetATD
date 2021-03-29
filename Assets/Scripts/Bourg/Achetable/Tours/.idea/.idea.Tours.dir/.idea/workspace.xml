@@ -10,6 +10,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/TourAlchi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TourMage.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/TourGarde.cs" />
+        <option value="$PROJECT_DIR$/TourMage.cs" />
+        <option value="$PROJECT_DIR$/TourAlchi.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1qQwOJypQCp2bh8RMHmgs9aZOFM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -32,6 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617025089987</updated>
       <workItem from="1617025094621" duration="174000" />
+      <workItem from="1617036439771" duration="1667000" />
     </task>
     <servers />
   </component>
@@ -50,8 +64,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1617037073024">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="943" y="225" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040/-1050.6.1050.1640@0.0.2560.1040" timestamp="1617037073024" />
   </component>
 </project>
