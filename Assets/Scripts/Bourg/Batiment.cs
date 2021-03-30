@@ -11,17 +11,17 @@ namespace Assets.Scripts.Bourg
 	    [Header("Paramètres Batiment")]
     	public int Hp;
         public int CurrentHp;
-    	public PlayGrig Playgrid;
+    	public PlayGrid Playgrid;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
-        public Vector2 Position;
+        public Vector2Int Position;
         public PlayerManagerComponent Pm;
 
         private void Start()
         {
-	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrig>();
+	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
 	        if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManagerComponent>();
-	        Position = new Vector2(transform.position.x, transform.position.y);
+	        Position = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         }
 
         private void OnDestroy()

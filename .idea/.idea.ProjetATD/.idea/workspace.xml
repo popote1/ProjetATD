@@ -44,14 +44,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrig.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Achetables.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourAlchi.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Mairie.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
       </list>
     </option>
   </component>
@@ -103,7 +103,7 @@
       <workItem from="1616927006966" duration="6408000" />
       <workItem from="1617025627342" duration="3341000" />
       <workItem from="1617046075876" duration="1583000" />
-      <workItem from="1617047767741" duration="923000" />
+      <workItem from="1617047767741" duration="13085000" />
     </task>
     <servers />
   </component>
