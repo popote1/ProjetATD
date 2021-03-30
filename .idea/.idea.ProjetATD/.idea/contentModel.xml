@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\GitHub\ProjetATD" t="IncludeRecursive">
+    <e p="C:\Users\yvan.bladet\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\yvan.bladet\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_ProjetATD.1079270643.00" t="ExcludeRecursive" />
+    <e p="C:\Users\yvan.bladet\ProjetATD" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -36,13 +38,28 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Bourg" t="Include">
+            <e p="Achetable" t="Include">
+              <e p="Achetables.cs" t="Include" />
+              <e p="Murs.cs" t="Include" />
+              <e p="Tours" t="Include">
+                <e p="TourAlchi.cs" t="Include" />
+                <e p="TourGarde.cs" t="Include" />
+                <e p="TourMage.cs" t="Include" />
+                <e p="TourSainte.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Batiment.cs" t="Include" />
+            <e p="Mairie.cs" t="Include" />
+            <e p="Maison.cs" t="Include" />
+          </e>
           <e p="Components" t="Include">
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />
-            <e p="PlayGrig.cs" t="Include" />
+            <e p="PlayGrid.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -51,7 +68,5 @@
       <e p="ProjetATD.sln" t="IncludeFlat" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\popotePC2\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\popotePC2\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProjetATD.389731918.00" t="ExcludeRecursive" />
   </component>
 </project>

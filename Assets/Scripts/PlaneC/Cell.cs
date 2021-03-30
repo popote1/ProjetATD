@@ -5,7 +5,7 @@ namespace PlaneC
     public class Cell
     {
         public Vector2Int Position;
-        public PlayGrig PlayGrid;
+        public PlayGrid PlayGrid;
         public int IndividualMoveValue;
         public int MoveValue;
         public bool IsNonWalkable;
@@ -14,9 +14,10 @@ namespace PlaneC
         //public Batiment Batiment;
         public bool IsPlayble;
         public bool IsRoad;
+        public bool IsWall;
         public GameObject ConstructionTile;
 
-        public Cell(Vector2Int position, PlayGrig playGrid)
+        public Cell(Vector2Int position, PlayGrid playGrid)
         {
             Position = position;
             PlayGrid = playGrid;

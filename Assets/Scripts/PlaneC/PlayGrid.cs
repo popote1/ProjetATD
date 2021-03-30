@@ -6,13 +6,13 @@ using Unity.Mathematics;
 
 namespace PlaneC
 {
-    public class PlayGrig
+    public class PlayGrid
     {
         public Cell[,] Cells;
         public int Width;
         public int Height;
 
-        public PlayGrig(int width, int height)
+        public PlayGrid(int width, int height)
         {
             Width = width;
             Height = height;
