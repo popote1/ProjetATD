@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Bourg.Achetable.Tours;
+using Enemies;
 using UnityEngine;
 // ReSharper disable All
 
@@ -8,7 +10,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
     {
         [Header("Auto")]
         public int AutoMagicDamages;
-        public int AutoFireRate;
+        public float AutoFireRate;
         public int AutoRange;
         public CircleCollider2D AutoCollider2D;
 
@@ -16,7 +18,6 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         [Header("Active")]
         public int ActiveRange;
         public int ActiveMagicDamages;
-        public int ActiveDamagesZone;
         public float ActiveRate;
         public bool IsReadyToAttack = true;
         public int AddForceRange;
@@ -42,11 +43,15 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private float _activeResetTimer;
         private bool _isSelected;
         private Vector2 _mousePosition;
-        //private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
+        private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
+        private PowerEffectComponent _powerEffectComponent;
 
         //Initialisation
         private void Start()
         {
+            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            SetPowerEffect();
+            
             OutLine.SetActive(false);
             VisualizeEffect.SetActive(false);
             _isSelected = false;
@@ -56,6 +61,13 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             LineRenderer.enabled=false;//
         }
 
+        private void SetPowerEffect()
+        {
+            _powerEffectComponent.Damages = ActiveMagicDamages;
+            _powerEffectComponent.Rate = ActiveRate;
+            _powerEffectComponent.IsMagic = true;
+        }
+        
         private void Update()
         {
            // Auto();
@@ -73,20 +85,20 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Auto Attack
-      /*  private void Auto()
+        private void Auto()
         {
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
                 enemiesInRange.RemoveAll(o => o == null);
                 if (enemiesInRange.Count > 0)
                 {
-                    //TODO : Enemy TakeMagicDamage
-
                     LineRenderer.enabled = true;
                     LineRenderer.SetPosition(1,enemiesInRange[0].transform.position);
+                    
+                    enemiesInRange[0].TakeMagicDamages(AutoMagicDamages);
+                    
                     _autoResetTimer = 0;
                     AudioSource.Play();
-                    Destroy(enemiesInRange[0].gameObject);
                 }
             }
 
@@ -100,7 +112,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 _autoResetTimer += Time.deltaTime;
             }
         }
-        */
+        
         
         //Active Power
         public void Active(Vector2 origin)
@@ -119,13 +131,14 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
                 Collider2D[] affected = new Collider2D[50];
                 
-                Physics2D.OverlapCircle(origin, ActiveDamagesZone, new ContactFilter2D().NoFilter(), affected);
+                Physics2D.OverlapCircle(origin, ActiveRange, new ContactFilter2D().NoFilter(), affected);
                 foreach (Collider2D col in affected)
                 {
                     if (col == null) continue;
-                    if (col.transform.CompareTag("MoveActor"))
+                    if (col.transform.CompareTag("Enemy"))
                     {
-                        //TODO: One Enemy TakeMagicDamage
+                        EnemyComponent enemy = col.GetComponent<EnemyComponent>();
+                        enemy.TakeMagicDamages(ActiveMagicDamages);
                     }
 
                     if (col.transform.CompareTag("Tree"))
@@ -139,12 +152,14 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 foreach (Collider2D col in affected)
                 {
                     if (col == null) continue;
-                    if (col.transform.CompareTag("MoveActor"))
+                    if (col.transform.CompareTag("Enemy"))
                     {
-                        col.GetComponent<Rigidbody2D>()
-                            .AddForce(
-                                (new Vector2(col.transform.position.x, col.transform.position.y) - origin)
+                        EnemyComponent enemy = col.GetComponent<EnemyComponent>();
+                        if (enemy.CanGetPushed)
+                        {
+                            col.GetComponent<Rigidbody2D>().AddForce((new Vector2(col.transform.position.x, col.transform.position.y) - origin)
                                 .normalized * AddForcePower, ForceMode2D.Impulse);
+                        }
                     }
                 }
             }
@@ -167,27 +182,26 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
         }
 
-        /*
+        
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.GetComponent<MoveActorV2>() == null) return;
-            if (!enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
-                enemiesInRange.Add( other.GetComponent<MoveActorV2>());
+            if (other.GetComponent<EnemyComponent>() == null) return;
+            if (!enemiesInRange.Contains(other.GetComponent<EnemyComponent>()))
+                enemiesInRange.Add( other.GetComponent<EnemyComponent>());
         }
         //Remove enemies out of range
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.GetComponent<MoveActorV2>() == null) return;
-            if (enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
-                enemiesInRange.Remove( other.GetComponent<MoveActorV2>());
+            if (other.GetComponent<EnemyComponent>() == null) return;
+            if (enemiesInRange.Contains(other.GetComponent<EnemyComponent>()))
+                enemiesInRange.Remove( other.GetComponent<EnemyComponent>());
         }
-        */
+        
         
         //Outline activator
         public void OnSelect()
         {
-            OutLine.SetActive(true);
             _isSelected = true;
         }
         public void OnDeselect()

@@ -1,14 +1,16 @@
 using System.Collections.Generic;
+using Assets.Scripts.Bourg.Achetable;
+using Enemies;
 using UnityEngine;
 
-namespace Assets.Scripts.Bourg.Achetable.Tours
+namespace Bourg.Achetable.Tours
 {
     public class TourSainte : Achetables
     {
         [Header("Auto")]
         public int AutoRange;
         public int AutoMagicDamages;
-        public int AutoFireRate;
+        public float AutoFireRate;
         public CircleCollider2D AutoCollider2D;
 
         
@@ -42,25 +44,46 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private float _autoResetTimer;
         private float _passiveTimer;
         private float _activeResetTimer;
-        //private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
+        private bool _isSelected;
+        private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
+        private PowerEffectComponent _powerEffectComponent;
 
         //Initialisation
         private void Start()
         {
+            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            SetPowerEffect();
+            
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward*-3);
             LineRenderer.enabled=false;
         }
 
+        private void SetPowerEffect()
+        {
+            _powerEffectComponent.Damages = ActiveMagicDamage;
+            _powerEffectComponent.Rate = ActiveRate;
+            _powerEffectComponent.IsMagic = true;
+        }
+        
         private void Update()
         {
-            //Auto();
+            Auto();
+            // Auto();
+            if (_isSelected)
+            {
+                OutLine.SetActive(true);
+            }
+            else
+            {
+                OutLine.SetActive(false);
+            }
         }
 
         
         //Auto Attack
-        /*private void Auto()
+        private void Auto()
         {
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
@@ -69,13 +92,13 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 {
                     for (int i = 0; i < enemiesInRange.Count; i++)
                     {
-                        //TODO : All EnemiesInRange TakePhysicDamages
-
                         LineRenderer.enabled = true;
                         LineRenderer.SetPosition(1, enemiesInRange[i].transform.position);
+                        
+                        enemiesInRange[i].TakeMagicDamages(AutoMagicDamages);
+                        
                         _autoResetTimer = 0;
-                        AudioSource.Play();
-                        Destroy(enemiesInRange[0].gameObject);
+                        //AudioSource.Play();
                     }
                 }
             }
@@ -89,7 +112,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             {
                 _autoResetTimer += Time.deltaTime;
             }
-        }*/
+        }
         
         
         //Active Power
@@ -110,15 +133,14 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 foreach (Collider2D col in affected)
                 {
                     if (col == null) continue;
-                    if (!col.transform.CompareTag("MoveActor")) continue;
-                   /* MoveActorV2 enemy = col.GetComponent<MoveActorV2>();
-                    //TODO : All EnemiesInRange TakePhysicDamages
+                    if (!col.transform.CompareTag("Enemy")) continue;
+                    EnemyComponent enemy = col.GetComponent<EnemyComponent>();
                     //AddForce
-                    if (enemy.CanBePushed)
+                    if (enemy.CanGetPushed)
                     {
-                        enemy.GetComponent<Rigidbody2D>().AddForce(
-                            (new Vector2(enemy.transform.position.x, enemy.transform.position.y)-origin).normalized * AddForcePower, ForceMode2D.Impulse);
-                    }*/
+                        col.GetComponent<Rigidbody2D>().AddForce(
+                            (new Vector2(col.transform.position.x, col.transform.position.y)-origin).normalized * AddForcePower, ForceMode2D.Impulse);
+                    }
                 }
             }
 
@@ -129,27 +151,27 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             }
         }
 
-      /*  
+       
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.GetComponent<MoveActorV2>() == null) return;
-            if (!enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
-                enemiesInRange.Add( other.GetComponent<MoveActorV2>());
+            if (other.GetComponent<EnemyComponent>() == null) return;
+            if (!enemiesInRange.Contains(other.GetComponent<EnemyComponent>()))
+                enemiesInRange.Add( other.GetComponent<EnemyComponent>());
         }
         //Remove enemies out of range
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.GetComponent<MoveActorV2>() == null) return;
-            if (enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
-                enemiesInRange.Remove( other.GetComponent<MoveActorV2>());
+            if (other.GetComponent<EnemyComponent>() == null) return;
+            if (enemiesInRange.Contains(other.GetComponent<EnemyComponent>()))
+                enemiesInRange.Remove( other.GetComponent<EnemyComponent>());
         }
-        */
+        
         
         //Outline activator
         public void OnSelect()
         {
-            OutLine.SetActive(true);
+            
         }
         public void OnDeselect()
         {

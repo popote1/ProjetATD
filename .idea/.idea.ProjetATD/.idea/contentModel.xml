@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\yvan.bladet\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\yvan.bladet\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_ProjetATD.1079270643.00" t="ExcludeRecursive" />
-    <e p="C:\Users\yvan.bladet\ProjetATD" t="IncludeRecursive">
+    <e p="C:\Users\arthur.hauton\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\arthur.hauton\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_ProjetATD.-720290481.00" t="ExcludeRecursive" />
+    <e p="C:\Users\arthur.hauton\Dev\ProjetATD" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -43,6 +43,7 @@
               <e p="Achetables.cs" t="Include" />
               <e p="Murs.cs" t="Include" />
               <e p="Tours" t="Include">
+                <e p="PowerEffectComponent.cs" t="Include" />
                 <e p="TourAlchi.cs" t="Include" />
                 <e p="TourGarde.cs" t="Include" />
                 <e p="TourMage.cs" t="Include" />
@@ -56,6 +57,11 @@
           <e p="Components" t="Include">
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
+          </e>
+          <e p="Enemies" t="Include">
+            <e p="EnemyComponent.cs" t="Include" />
+            <e p="EnemySO.cs" t="Include" />
+            <e p="WaveSO.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />

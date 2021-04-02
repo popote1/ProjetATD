@@ -15,19 +15,28 @@ namespace Assets.Scripts.Bourg
         public int CellNeeded;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
-        public Vector2Int Position;
-        //public PlayerManagerComponent Pm;
+        public Vector2 Position;
 
         private void Start()
         {
-	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
-	        //if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManagerComponent>();
-	        Position = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+	        Playgrid ??= GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
+	        Position = new Vector2(transform.position.x, transform.position.y);
+	        CurrentHp = Hp;
         }
 
         private void OnDestroy()
         {
-	        //Pm.Batiments.Remove(this);
+	        PlayerManagerComponent.Batiments.Remove(this);
         }
+
+        public void TakeDamage(int damages)
+        {
+	        CurrentHp -= damages;
+	        if(CurrentHp <= 0)
+	        {
+		        Destroy(this.gameObject);
+	        }
+        }
+        
     }
 }
