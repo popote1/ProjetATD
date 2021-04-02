@@ -26,20 +26,22 @@ namespace Assets.Scripts.Bourg.Achetable
         private MeshRenderer _meshRenderer;
         private Mesh _mesh;
         private Cell _thisCell;
+        private Vector2Int _intPos;
 
         //Initialisation
         private void Start()
         {
            /* _meshRenderer = GetComponent<MeshRenderer>();
             _mesh = GetComponent<Mesh>();
-            
-            _thisCell = Playgrid.GetCell(this.Position);
+            _intPos = OccupiedCells[0];
+
+            _thisCell = Playgrid.GetCell(_intPos);
             _thisCell.IsWall = true; // Ajout du public bool IsWall dans Cell
 
-            _rightCell = Playgrid.GetCell(new Vector2Int(this.Position.x+1, this.Position.y));
-            _leftCell = Playgrid.GetCell(new Vector2Int(this.Position.x-1, this.Position.y));
-            _upCell = Playgrid.GetCell(new Vector2Int(this.Position.x, this.Position.y+1));
-            _downCell = Playgrid.GetCell(new Vector2Int(this.Position.x, this.Position.y-1));
+            _rightCell = Playgrid.GetCell(new Vector2Int(_intPos.x+1, _intPos.y));
+            _leftCell = Playgrid.GetCell(new Vector2Int(_intPos.x-1, _intPos.y));
+            _upCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y+1));
+            _downCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y-1));
 
             CheckAndUpdate();*/
         }

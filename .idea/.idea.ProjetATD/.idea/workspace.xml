@@ -28,31 +28,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/TimeManagerComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/PowerEffectComponent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSO.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySO.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/PowerEffectComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourAlchi.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/Cell.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/TimeManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/TimeManagerComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
@@ -63,6 +55,7 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -104,7 +97,8 @@
       <workItem from="1617025627342" duration="3341000" />
       <workItem from="1617046075876" duration="1583000" />
       <workItem from="1617047767741" duration="13085000" />
-      <workItem from="1617349719446" duration="9528000" />
+      <workItem from="1617349719446" duration="2804000" />
+      <workItem from="1617355067590" duration="15354000" />
     </task>
     <servers />
   </component>
