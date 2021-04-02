@@ -30,7 +30,7 @@ namespace Assets.Scripts.Bourg.Achetable
         //Initialisation
         private void Start()
         {
-           /* _meshRenderer = GetComponent<MeshRenderer>();
+            _meshRenderer = GetComponent<MeshRenderer>();
             _mesh = GetComponent<Mesh>();
             _intPos = OccupiedCells[0];
 
@@ -42,7 +42,7 @@ namespace Assets.Scripts.Bourg.Achetable
             _upCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y+1));
             _downCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y-1));
 
-            CheckAndUpdate();*/
+            CheckAndUpdate();
         }
 
         
