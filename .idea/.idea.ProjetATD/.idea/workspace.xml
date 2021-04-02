@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="" />
+    <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrig.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +36,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrid.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/Cell.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayManagerComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrig.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Achetables.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourAlchi.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Mairie.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
   <component name="ProjectViewState">
@@ -44,7 +63,6 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -54,13 +72,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -69,7 +87,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -84,8 +102,8 @@
       <updated>1616926970545</updated>
       <workItem from="1616927006966" duration="6408000" />
       <workItem from="1617025627342" duration="3341000" />
-      <workItem from="1617090313150" duration="1828000" />
-      <workItem from="1617104030387" duration="1450000" />
+      <workItem from="1617046075876" duration="1583000" />
+      <workItem from="1617047767741" duration="13085000" />
     </task>
     <servers />
   </component>

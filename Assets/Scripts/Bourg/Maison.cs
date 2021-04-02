@@ -1,10 +1,9 @@
-using System;
-using System.IO;
 using System.Collections.Generic;
-using Bourg.Achetable.Tours;
+using Assets.Scripts.Bourg.Achetable.Tours;
+using Components;
 using UnityEngine;
 
-namespace Bourg
+namespace Assets.Scripts.Bourg
 {
 
     public class Maison : Batiment
@@ -13,7 +12,6 @@ namespace Bourg
         public float GoldRate;
         public List<TourMage> TourMages;
         public float DistanceToMage;
-        public Vector2 Position;
         
         private float _goldTimer;
         private int _nombreDeTourInRange;
@@ -29,17 +27,17 @@ namespace Bourg
             {
                 _goldTimer = GoldRate;
                 _nombreDeTourInRange = 0;
-                foreach (Batiment bat in GameManager.Batiments)
+                foreach (Batiment bat in Pm.Batiments)
                 {
                     if (bat is TourMage)
                     {
-                        if ((Position - bat.Position).magnitude < DistanceToMage)
+                        if ((this.Position - bat.Position).magnitude < DistanceToMage)
                         {
                             _nombreDeTourInRange++;
                         }
                     }
                 }
-                GameManager.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
+                Pm.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
             }
             else
             {
