@@ -12,15 +12,16 @@ namespace Assets.Scripts.Bourg
     	public int Hp;
         public int CurrentHp;
     	public PlayGrid Playgrid;
+        public int CellNeeded;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
         public Vector2Int Position;
-        public PlayerManagerComponent Pm;
+        //public PlayerManagerComponent Pm;
 
         private void Start()
         {
 	        if(Playgrid == null) Playgrid = GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
-	        if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManagerComponent>();
+	        //if (Pm == null) Pm = GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManagerComponent>();
 	        Position = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         }
 

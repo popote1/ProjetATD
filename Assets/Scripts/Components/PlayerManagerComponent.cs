@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using PlaneC;
-using Bourg;
-using Bourg.Achetable;
+using Assets.Scripts.Bourg.Achetable;
+using Assets.Scripts.Bourg;
 using Unity.Mathematics;
 
 namespace Components
@@ -89,13 +89,13 @@ namespace Components
             return cells;
         }
         private bool OperateBuildingCell(Vector2Int cell) {
-            if (_playGrid.GetCell(cell).BuildingCell != null && Grid.GetCell(cell).IndividualMoveValue <= 20) {
+            /*if (_playGrid.GetCell(cell).ConstructionTile != null && _playGrid.GetCell(cell).IndividualMoveValue <= 20) {
                 if (!_preselectedCell.Contains(cell)) {
                     _preselectedCell.Add(cell);
                     _playGrid.GetCell(cell).BuildingCell.SetActive(true);
                 }
                 return true;
-            }
+            }*/
             return false;
         }
 

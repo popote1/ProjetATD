@@ -27,7 +27,7 @@ namespace Assets.Scripts.Bourg
             {
                 _goldTimer = GoldRate;
                 _nombreDeTourInRange = 0;
-                foreach (Batiment bat in Pm.Batiments)
+                foreach (Batiment bat in PlayerManagerComponent.Batiments)
                 {
                     if (bat is TourMage)
                     {
@@ -37,7 +37,7 @@ namespace Assets.Scripts.Bourg
                         }
                     }
                 }
-                Pm.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
+                PlayerManagerComponent.Gold += Mathf.FloorToInt(GoldIncome * (1 + _nombreDeTourInRange));
             }
             else
             {

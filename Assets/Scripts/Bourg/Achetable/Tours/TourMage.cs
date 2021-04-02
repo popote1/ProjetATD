@@ -42,7 +42,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private float _activeResetTimer;
         private bool _isSelected;
         private Vector2 _mousePosition;
-        private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
+        //private List<MoveActorV2> enemiesInRange = new List<MoveActorV2>();
 
         //Initialisation
         private void Start()
@@ -58,7 +58,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         private void Update()
         {
-            Auto();
+           // Auto();
             if (_isSelected)
             {
                 OutLine.SetActive(true);
@@ -73,7 +73,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Auto Attack
-        private void Auto()
+      /*  private void Auto()
         {
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
@@ -100,7 +100,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 _autoResetTimer += Time.deltaTime;
             }
         }
-        
+        */
         
         //Active Power
         public void Active(Vector2 origin)
@@ -167,7 +167,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
         }
 
-        
+        /*
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -182,7 +182,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (enemiesInRange.Contains(other.GetComponent<MoveActorV2>()))
                 enemiesInRange.Remove( other.GetComponent<MoveActorV2>());
         }
-        
+        */
         
         //Outline activator
         public void OnSelect()
