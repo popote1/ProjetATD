@@ -9,8 +9,7 @@ namespace Assets.Scripts.Bourg.Achetable
     {
         [Header("Mesh")]
         public Mesh MeshMur;
-        public Mesh MeshHorizontal;
-        public Mesh MeshVertical;
+        public Mesh MeshSecondaire;
 
         [Header("Material")]
         public Material MaterialPrincipal;
@@ -156,7 +155,7 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (!_mursAdjacent.Contains(_upWall) && !_mursAdjacent.Contains(_downWall))
                 {
-                    _mesh = MeshHorizontal;
+                    _mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
                 }
                 else
@@ -171,7 +170,8 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (!_mursAdjacent.Contains(_rightWall) && !_mursAdjacent.Contains(_leftWall))
                 {
-                    _mesh = MeshVertical;
+                    transform.Rotate(0,90,0);
+                    _mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
                 }
                 else
