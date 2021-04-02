@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 2222737070566317523}
   - component: {fileID: 6815689350178101439}
   - component: {fileID: 7587766764414387936}
+  - component: {fileID: 155793645162361224}
   - component: {fileID: 4628152722939624086}
   - component: {fileID: 590259762258691545}
   m_Layer: 0
@@ -339,6 +340,41 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &155793645162361224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051653470505643520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e499a804bf7cf341a81bf3c5064fe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 0
+  CurrentHp: 0
+  CellNeeded: 2
+  OccupiedCells: []
+  IndividualMoveFactor: 0
+  Position: {x: 0, y: 0}
+  Prix: 0
+  AutoPhysicDamages: 0
+  AutoFireRate: 0
+  AutoRange: 0
+  ActiveRange: 0
+  ActivePhysicDamages: 0
+  ActiveDamagesZone: 0
+  ActiveRate: 0
+  IsReadyToAttack: 1
+  SpawnScore: 0
+  OutLine: {fileID: 0}
+  AudioSource: {fileID: 0}
+  AutoCollider2D: {fileID: 0}
+  LineRenderer: {fileID: 0}
+  LaserLiveTime: 0
+  PowerEffect: {fileID: 0}
+  VisualizerEffect: {fileID: 0}
 --- !u!58 &4628152722939624086
 CircleCollider2D:
   m_ObjectHideFlags: 0

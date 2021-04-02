@@ -333,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1655252795
 GameObject:
@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 2048388250}
   - component: {fileID: 2048388249}
   - component: {fileID: 2048388248}
+  - component: {fileID: 2048388251}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -459,9 +460,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManagerComponent: {fileID: 2048388249}
-  InputState: 0
+  InputState: 1
   BuildIndex: 0
-  AchetablesList: []
+  AchetablesList:
+  - {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
   PrefabCursor: {fileID: 5871912498545961184, guid: 983c5e12ed90578439839074dab470d3, type: 3}
   CursorSmoothFactor: 36
   Camera: {fileID: 643360103}
@@ -495,5 +497,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048388251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048388247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32fec95e22fd26488da5706c3ae672b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplicator: 1
+  PhysicsMultiplicator: 0
+  BetaTick:
+    m_PersistentCalls:
+      m_Calls: []
+  PhisicTick:
+    m_PersistentCalls:
+      m_Calls: []
+  DeltaTime: 0
+  PhysicDeltaTime: 0

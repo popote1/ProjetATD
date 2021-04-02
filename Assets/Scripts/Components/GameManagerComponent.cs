@@ -29,7 +29,6 @@ namespace Components
                 PlayGrid = new PlayGrid(Width,Height);
                 for (int x = 0; x < Width; x++) {
                     for (int y = 0; y < Height; y++) {
-                        Debug.Log(" travail sur la case"+PlayGrid.Cells[x,y].Position);
                         PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile = Instantiate(ConstructionTiles,
                             PlayGrid.GetCellCenterWorldPosByCell(new Vector2Int(x, y)), Quaternion.identity);
                         PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile.SetActive(false);
@@ -89,6 +88,7 @@ namespace Components
                 yield return new WaitForSeconds(0.01f);
             }
             _IsReadyToCalculateFlowFlield = true;
+            Debug.Log("FlowField ClaculeTerminer");
             yield return null;
         }
     }

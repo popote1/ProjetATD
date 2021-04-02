@@ -15,7 +15,7 @@ namespace Assets.Scripts.Bourg
         public int CellNeeded;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
-        public Vector2Int Position;
+        public Vector2 Position;
         //public PlayerManagerComponent Pm;
 
         private void Start()

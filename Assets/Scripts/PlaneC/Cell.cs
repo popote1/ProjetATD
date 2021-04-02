@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Bourg;
 
 namespace PlaneC
 {
@@ -11,7 +12,7 @@ namespace PlaneC
         public bool IsNonWalkable;
         public Vector2 MoveVector;
         public float DragFactor;
-        //public Batiment Batiment;
+        public Batiment Batiment;
         public bool IsPlayble;
         public bool IsRoad;
         public bool IsWall;

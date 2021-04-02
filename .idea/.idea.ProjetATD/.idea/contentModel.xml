@@ -56,10 +56,12 @@
           <e p="Components" t="Include">
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
+            <e p="TimeManagerComponent.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />
             <e p="PlayGrid.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
           </e>
         </e>
       </e>
