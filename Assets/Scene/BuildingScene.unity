@@ -464,6 +464,7 @@ MonoBehaviour:
   BuildIndex: 0
   AchetablesList:
   - {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - {fileID: 6276698101224874595, guid: 89c3ad4f4a2084740beda9e136a49aee, type: 3}
   PrefabCursor: {fileID: 5871912498545961184, guid: 983c5e12ed90578439839074dab470d3, type: 3}
   CursorSmoothFactor: 36
   Camera: {fileID: 643360103}
