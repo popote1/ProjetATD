@@ -18,6 +18,7 @@ public class EnemySO : ScriptableObject
     public GameObject PrefabMorts;
     public string Layer;
     public bool CanBePushed;
+    public bool IsMagic;
 
     [Header("Graphics")]
     public Sprite Sprite;

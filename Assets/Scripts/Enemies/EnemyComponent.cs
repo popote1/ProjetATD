@@ -26,6 +26,7 @@ namespace Enemies
         void Start()
         {
             gameObject.layer = LayerMask.NameToLayer(Enemy.Layer);
+
             _playgrid ??= GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
             _rb2D = GetComponent<Rigidbody2D>();
             _col = GetComponent<CircleCollider2D>();
@@ -38,13 +39,22 @@ namespace Enemies
             _attackTimer = Enemy.AttackSpeed;
             transform.localScale = Enemy.Size;
             isBoss = Enemy.IsBoss;
-        
+
             CurrentHp = Enemy.HP;
             canAttack = true;
         }
 
         //Replace w/ BetaUpdate
         void Update()
+        {
+            if (!isBoss)
+            {
+                Move();
+            }
+        }
+
+        //EnemyMove
+        private void Move()
         {
             _transform = transform;
             Vector2Int intPosition = new Vector2Int((int)_transform.position.x, (int)_transform.position.y);
@@ -56,8 +66,8 @@ namespace Enemies
             _rb2D.drag = drag;
             _anim.SetBool("Walking", true);
         }
-    
-        //Attack
+
+        //EnemyAttack
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Batiment"))
@@ -66,7 +76,14 @@ namespace Enemies
                 {
                     _anim.SetBool("Walking", false);
                     _anim.SetBool("Attacking", true);
-                    other.GetComponent<Batiment>().TakeDamage(Enemy.Damages);
+                    if (Enemy.IsMagic)
+                    {
+                        other.GetComponent<Batiment>().TakeMagicDamages(Enemy.Damages);
+                    }
+                    else
+                    {
+                        other.GetComponent<Batiment>().TakePhysicDamages(Enemy.Damages);
+                    }
                     canAttack = false;
                 }
                 else
@@ -108,6 +125,5 @@ namespace Enemies
                 Destroy(this.gameObject);
             }
         }
-    
     }
 }

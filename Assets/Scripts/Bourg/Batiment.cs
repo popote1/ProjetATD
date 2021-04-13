@@ -16,6 +16,8 @@ namespace Assets.Scripts.Bourg
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
         public Vector2 Position;
+        public int PhysicDamagesResistance;
+        public int MagicDamagesResistance;
 
         private void Start()
         {
@@ -29,9 +31,18 @@ namespace Assets.Scripts.Bourg
 	        PlayerManagerComponent.Batiments.Remove(this);
         }
 
-        public void TakeDamage(int damages)
+        public void TakePhysicDamages(int damages)
         {
-	        CurrentHp -= damages;
+	        CurrentHp -= damages - PhysicDamagesResistance;
+	        if(CurrentHp <= 0)
+	        {
+		        Destroy(this.gameObject);
+	        }
+        }
+        
+        public void TakeMagicDamages(int damages)
+        {
+	        CurrentHp -= damages - MagicDamagesResistance;
 	        if(CurrentHp <= 0)
 	        {
 		        Destroy(this.gameObject);

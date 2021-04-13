@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.3.1f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Editor" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.3.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Editor" t="Include">
       <e p="EventSystem" t="Include">
         <e p="EventSystemEditor.cs" t="Include" />
         <e p="EventTriggerEditor.cs" t="Include" />
@@ -49,7 +49,7 @@
       </e>
       <e p="UnityEditor.UI.asmdef" t="Include" />
     </e>
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.3.1f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.3.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime" t="Include">
       <e p="EventSystem" t="Include">
         <e p="EventData" t="Include">
           <e p="AxisEventData.cs" t="Include" />
@@ -207,6 +207,7 @@
               <e p="Achetables.cs" t="Include" />
               <e p="Murs.cs" t="Include" />
               <e p="Tours" t="Include">
+                <e p="PowerEffectComponent.cs" t="Include" />
                 <e p="TourAlchi.cs" t="Include" />
                 <e p="TourGarde.cs" t="Include" />
                 <e p="TourMage.cs" t="Include" />
@@ -220,10 +221,17 @@
           <e p="Components" t="Include">
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
+            <e p="TimeManagerComponent.cs" t="Include" />
+          </e>
+          <e p="Enemies" t="Include">
+            <e p="EnemyComponent.cs" t="Include" />
+            <e p="EnemySO.cs" t="Include" />
+            <e p="WaveSO.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />
-            <e p="PlayGrig.cs" t="Include" />
+            <e p="PlayGrid.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -611,7 +619,7 @@
               <e p="Unity.Mathematics.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.render-pipelines.core@10.3.2" t="Include">
+          <e p="com.unity.render-pipelines.core@10.4.0" t="Include">
             <e p="Editor" t="Include">
               <e p="CameraEditorUtils.cs" t="Include" />
               <e p="ContextualMenuDispatcher.cs" t="Include" />
@@ -892,7 +900,7 @@
               <e p="VolumeRendering.hlsl" t="Include" />
             </e>
           </e>
-          <e p="com.unity.render-pipelines.universal@10.3.2" t="Include">
+          <e p="com.unity.render-pipelines.universal@10.4.0" t="Include">
             <e p="Editor" t="Include">
               <e p="2D" t="Include">
                 <e p="CinemachineUniversalPixelPerfectEditor.cs" t="Include" />
@@ -977,6 +985,7 @@
                 <e p="FBXArnoldSurfaceMaterialDescriptionPreprocessor.cs" t="Include" />
                 <e p="FBXMaterialDescriptionPreprocessor.cs" t="Include" />
                 <e p="MaterialPostprocessor.cs" t="Include" />
+                <e p="ModelPostProcessor.cs" t="Include" />
                 <e p="PhysicalMaterial3DsMaxPreprocessor.cs" t="Include" />
                 <e p="SketchupMaterialDescriptionPostprocessor.cs" t="Include" />
                 <e p="ThreeDSMaterialDescriptionPostprocessor.cs" t="Include" />
@@ -1101,6 +1110,7 @@
                 <e p="LightUtility.cs" t="Include" />
                 <e p="Passes" t="Include">
                   <e p="IRenderPass2D.cs" t="Include" />
+                  <e p="PixelPerfectBackgroundPass.cs" t="Include" />
                   <e p="Render2DLightingPass.cs" t="Include" />
                   <e p="Utility" t="Include">
                     <e p="Light2DLookupTexture.cs" t="Include" />
@@ -1382,7 +1392,7 @@
               <e p="Unity.Searcher.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.shadergraph@10.3.2" t="Include">
+          <e p="com.unity.shadergraph@10.4.0" t="Include">
             <e p="Editor" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="AssetCallbacks" t="Include">
@@ -2223,7 +2233,7 @@
               <e p="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.test-framework@1.1.22" t="Include">
+          <e p="com.unity.test-framework@1.1.24" t="Include">
             <e p="UnityEditor.TestRunner" t="Include">
               <e p="API" t="Include">
                 <e p="CallbacksDelegator.cs" t="Include" />
@@ -2469,6 +2479,7 @@
                   <e p="SetUpTearDownCommand.cs" t="Include" />
                   <e p="TestActionCommand.cs" t="Include" />
                   <e p="TestCommandPcHelper.cs" t="Include" />
+                  <e p="UnityTestMethodCommand.cs" t="Include" />
                 </e>
                 <e p="ConstructDelegator.cs" t="Include" />
                 <e p="Filters" t="Include">
