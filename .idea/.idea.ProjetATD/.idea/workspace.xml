@@ -20,34 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/Readme.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/Readme.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/Help_Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/Help_Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/UniversalIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/UniversalIcon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Layout.wlt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/BesierTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/BesierTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,16 +40,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
   <component name="ProjectViewState">
@@ -96,7 +70,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -105,7 +79,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -126,6 +100,8 @@
       <workItem from="1617355067590" duration="15354000" />
       <workItem from="1618469017212" duration="21306000" />
       <workItem from="1618559200610" duration="694000" />
+      <workItem from="1618567288729" duration="1057000" />
+      <workItem from="1618568391102" duration="10516000" />
     </task>
     <servers />
   </component>

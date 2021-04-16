@@ -28,6 +28,14 @@ namespace CurveTuto
             }
         }
 
+        public bool IsClosed {
+            get => _isClosed;
+            set {
+                _isClosed = value;
+               ToggleClosed();
+            }
+        }
+
         public bool AutoSetControlPoints
         {
             get => autoSetControlPoints;
@@ -60,38 +68,69 @@ namespace CurveTuto
             if (autoSetControlPoints)AutoSetAllAffectedContolPonits(_points.Count-1);
         }
 
+        public void SplitSegment(Vector2 anchorPos, int segmentIndex)
+        {
+            _points.InsertRange(segmentIndex*3+2,new Vector2[]{Vector2.zero, anchorPos, Vector2.zero});
+            if (autoSetControlPoints)
+            {
+                AutoSetAllAffectedContolPonits(segmentIndex*3+3);
+            }
+            else
+            {
+                AutoSetAnchorControlPoints(segmentIndex*3+3);
+            }
+        }
+
+        public void DeleteSemente(int anchorIndex)
+        {
+            if (NumSegments > 2 || !_isClosed && NumSegments > 1)
+            {
+                if (anchorIndex == 0)
+                {
+                    if (_isClosed)
+                    {
+                        _points[_points.Count - 1] = _points[2];
+                    }
+                    _points.RemoveRange(0,3);
+                }
+                else if (anchorIndex == _points.Count - 1 && !_isClosed)
+                {
+                    _points.RemoveRange(anchorIndex -2,3);
+                }
+                else
+                {
+                    _points.RemoveRange(anchorIndex-1,3);
+                }
+            }
+        }
+
         public Vector2[] GetPointsInSegment(int i) {
             return new Vector2[]{_points[i*3],_points[i*3+1],_points[i*3+2],_points[LoopIndex(i*3+3)]};
         }
 
-        public void MovePoints(int i, Vector2 pos)
-        {
+        public void MovePoints(int i, Vector2 pos) {
             Vector2 deltaMove = pos - _points[i];
-            _points[i] = pos;
-
-            if (autoSetControlPoints)
-            {
-                AutoSetAnchorControlPoints(i);
-            }
-            else
-            {
-                if (i % 3 == 0)
-                {
-                    if (i + 1 < _points.Count || _isClosed) _points[LoopIndex(i + 1)] += deltaMove;
-                    if (i - 1 >= 0 || _isClosed) _points[LoopIndex(i - 1)] += deltaMove;
+            if (i % 3 == 0 || !autoSetControlPoints) {
+                _points[i] = pos;
+                if (autoSetControlPoints) {
+                    AutoSetAnchorControlPoints(i);
                 }
-                else
-                {
-                    bool nextPointIsAnchor = (i + 1) % 3 == 0;
-                    int correspondingControlIndex = (nextPointIsAnchor) ? i + 2 : i - 2;
-                    int anchorIndex = (nextPointIsAnchor) ? i + 1 : i - 1;
-
-                    if (correspondingControlIndex >= 0 && correspondingControlIndex < _points.Count || _isClosed)
-                    {
-                        float dst = (_points[LoopIndex(anchorIndex)] - _points[LoopIndex(correspondingControlIndex)])
-                            .magnitude;
-                        Vector2 dir = (_points[LoopIndex(anchorIndex)] - pos).normalized;
-                        _points[LoopIndex(correspondingControlIndex)] = _points[LoopIndex(anchorIndex)] + dir * dst;
+                else {
+                    if (i % 3 == 0) {
+                        if (i + 1 < _points.Count || _isClosed) _points[LoopIndex(i + 1)] += deltaMove;
+                        if (i - 1 >= 0 || _isClosed) _points[LoopIndex(i - 1)] += deltaMove;
+                    }
+                    else {
+                        bool nextPointIsAnchor = (i + 1) % 3 == 0;
+                        int correspondingControlIndex = (nextPointIsAnchor) ? i + 2 : i - 2;
+                        int anchorIndex = (nextPointIsAnchor) ? i + 1 : i - 1;
+                        if (correspondingControlIndex >= 0 && correspondingControlIndex < _points.Count || _isClosed) {
+                            float dst =
+                                (_points[LoopIndex(anchorIndex)] - _points[LoopIndex(correspondingControlIndex)])
+                                .magnitude;
+                            Vector2 dir = (_points[LoopIndex(anchorIndex)] - pos).normalized;
+                            _points[LoopIndex(correspondingControlIndex)] = _points[LoopIndex(anchorIndex)] + dir * dst;
+                        }
                     }
                 }
             }
@@ -99,7 +138,6 @@ namespace CurveTuto
 
         public void ToggleClosed()
         {
-            _isClosed = !_isClosed;
             if (_isClosed)
             {
                 _points.Add(_points[_points.Count-1]*2-_points[_points.Count-2]);
@@ -143,11 +181,11 @@ namespace CurveTuto
                 dir += offset.normalized;
                 neighbourDistances[0] = offset.magnitude;
             }
-            if (anchorIndex -+3 >= 0 || _isClosed)
+            if (anchorIndex +3 >= 0 || _isClosed)
             {
                 Vector2 offset = _points[LoopIndex(anchorIndex +3)] - anchorPos;
                 dir -= offset.normalized;
-                neighbourDistances[1] = offset.magnitude;
+                neighbourDistances[1] = -offset.magnitude;
             }
 
             dir.Normalize();

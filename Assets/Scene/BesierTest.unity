@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -248,23 +248,18 @@ MonoBehaviour:
   Path:
     _points:
     - {x: -1, y: 0}
-    - {x: -0.46736473, y: -0.17768005}
-    - {x: 0.06527054, y: -0.3553601}
+    - {x: -0.5, y: 0.5}
+    - {x: 0.5, y: -0.5}
     - {x: 1, y: 0}
-    - {x: 0.31973958, y: -0.2586175}
-    - {x: 2.8154273, y: 0.98598003}
-    - {x: 2.0879142, y: 0.96694964}
-    - {x: 1.7013406, y: 0.9568376}
-    - {x: 2.7889638, y: 1.1610117}
-    - {x: 3.2973218, y: 0.44976872}
-    - {x: 3.941078, y: -0.45090944}
-    - {x: 3.9789855, y: -1.9588352}
-    - {x: 3.4723673, y: -0.9744683}
-    - {x: 3.0490582, y: -0.15197182}
-    - {x: 2.6957927, y: -0.9610512}
-    - {x: 2.0640442, y: -0.29019785}
     _isClosed: 0
     autoSetControlPoints: 0
+  AnchorCol: {r: 1, g: 0, b: 0, a: 1}
+  ControlCol: {r: 1, g: 1, b: 1, a: 1}
+  SegmentCol: {r: 0, g: 1, b: 0, a: 1}
+  SelectedCol: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AnchorDiamater: 0.1
+  ControlDiameter: 0.075
+  DisplayControlPoints: 1
 --- !u!4 &1032079500
 Transform:
   m_ObjectHideFlags: 0
