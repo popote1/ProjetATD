@@ -17,9 +17,14 @@ namespace Components
         [Header("FlowField Infos")] 
         public Vector2Int Target;
         private bool _IsReadyToCalculateFlowFlield;
+
+        [Header("Home Building")] 
+        public float HomeBuildingTimer;
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
+
+        private float _homeTimer;
 
 
         private void Start()
@@ -90,6 +95,44 @@ namespace Components
             _IsReadyToCalculateFlowFlield = true;
             Debug.Log("FlowField ClaculeTerminer");
             yield return null;
+        }
+
+
+        public void HomeTimer()
+        {
+            _homeTimer += Time.deltaTime;
+            if (_homeTimer > HomeBuildingTimer)
+            {
+                _homeTimer = 0;
+                buildHome();
+            }
+        }
+
+        public void buildHome()
+        {
+            bool homeBuild =false;
+            List<Cell> buildingCell = new List<Cell>();
+            int mexSecurityFactor = Int32.MaxValue;
+            int selectedValue=0;
+            do
+            {
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.IsPlayble && cell.Batiment != null&&cell.SecurityValue < mexSecurityFactor) {
+                        if (cell.SecurityValue > selectedValue) {
+                            buildingCell.Clear();
+                            selectedValue = cell.SecurityValue; 
+                            buildingCell.Add(cell);
+                        }
+                        else if (cell.SecurityValue == selectedValue) {
+                            buildingCell.Add(cell);
+                        }
+                    }
+                }
+                
+            } while (homeBuild == false);
+            
+            
+
         }
     }
 }

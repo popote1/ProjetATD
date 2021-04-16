@@ -17,6 +17,7 @@ namespace PlaneC
         public bool IsRoad;
         public bool IsWall;
         public GameObject ConstructionTile;
+        public int SecurityValue;
 
         public Cell(Vector2Int position, PlayGrid playGrid)
         {

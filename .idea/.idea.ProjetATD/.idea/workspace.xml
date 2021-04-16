@@ -46,6 +46,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlaneC/Cell.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
@@ -100,6 +102,7 @@
       <workItem from="1617047767741" duration="13085000" />
       <workItem from="1617349719446" duration="2804000" />
       <workItem from="1617355067590" duration="15354000" />
+      <workItem from="1617693591742" duration="3945000" />
     </task>
     <servers />
   </component>
