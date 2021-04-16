@@ -19,7 +19,36 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="" />
+    <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/Readme.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/Readme.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/Help_Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/Help_Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/UniversalIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Icons/UniversalIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/originalFiles/TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,24 +58,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/TimeManagerComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/PowerEffectComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Maison.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Murs.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Batiment.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSO.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySO.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/PowerEffectComponent.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourAlchi.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourGarde.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourMage.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Achetable/Tours/TourSainte.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
   <component name="ProjectViewState">
@@ -72,7 +96,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -81,7 +105,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -100,6 +124,8 @@
       <workItem from="1617047767741" duration="13085000" />
       <workItem from="1617349719446" duration="2804000" />
       <workItem from="1617355067590" duration="15354000" />
+      <workItem from="1618469017212" duration="21306000" />
+      <workItem from="1618559200610" duration="694000" />
     </task>
     <servers />
   </component>
@@ -122,5 +148,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1618478538350">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.79.1920.1050/0.0.1920.1050/2861.1159.1920.1050@0.0.1920.1050" timestamp="1618478538350" />
   </component>
 </project>
