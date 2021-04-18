@@ -117,6 +117,7 @@ namespace CurveTuto
                     }
                 }
             }
+            HandleUtility.AddDefaultControl(0);
         }
         private void Draw()
         {

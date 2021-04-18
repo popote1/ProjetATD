@@ -155,6 +155,34 @@ namespace CurveTuto
             }
         }
 
+        public Vector2[] CalculateEvenlySpacePoints(float spacing, float resolition = 1) {
+            List<Vector2> evenlySpacePoints = new List<Vector2>();
+            evenlySpacePoints.Add(_points[0]);
+            Vector2 previousPoint = _points[0];
+            float dstSinceLastEvenPointe = 0;
+            for (int segmentIndex = 0; segmentIndex < NumSegments; segmentIndex++) {
+                Vector2[] p = GetPointsInSegment(segmentIndex);
+                float controlNetLenght = Vector2.Distance(p[0], p[1]) + Vector2.Distance(p[1], p[2]) + Vector2.Distance(p[2], p[3]);
+                float estimatedCurveLenght = Vector2.Distance(p[0], p[3]) + controlNetLenght / 2;
+                int divisions = Mathf.CeilToInt(estimatedCurveLenght * resolition * 10);
+                float t = 0;
+                while (t <= 1) {
+                    t += 1f / divisions;
+                    Vector2 pointOnCurve = Bezier.EvaluateCubic(p[0], p[1], p[2], p[3], t);
+                    dstSinceLastEvenPointe += Vector2.Distance(previousPoint, pointOnCurve);
+                    while (dstSinceLastEvenPointe >= spacing) {
+                        float overShootDst = dstSinceLastEvenPointe - spacing;
+                        Vector2 newEvenlySpacedPoint = pointOnCurve + (previousPoint - pointOnCurve).normalized * overShootDst;
+                        evenlySpacePoints.Add(newEvenlySpacedPoint );
+                        dstSinceLastEvenPointe = overShootDst;
+                        previousPoint = newEvenlySpacedPoint;
+                    }
+                    previousPoint = pointOnCurve;
+                }
+            }
+            return evenlySpacePoints.ToArray();
+        }
+
         private void AutoSetAllAffectedContolPonits(int updatedAnchorIndex)
         {
             for (int i = updatedAnchorIndex - 3; i <= updatedAnchorIndex + 3; i += 3)

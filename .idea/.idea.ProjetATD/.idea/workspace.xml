@@ -21,12 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scene/BesierTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/BesierTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +38,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurveTuto/Bezier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathPlacer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/RaodEditor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathCreator.cs" />
-      <option value="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Bezier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/PathPlacer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/Path.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/RaodEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/PathEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CurveTuto/RoadCreator.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
   <component name="ProjectViewState">
@@ -70,7 +79,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -79,7 +88,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -102,6 +111,7 @@
       <workItem from="1618559200610" duration="694000" />
       <workItem from="1618567288729" duration="1057000" />
       <workItem from="1618568391102" duration="10516000" />
+      <workItem from="1618593621361" duration="12916000" />
     </task>
     <servers />
   </component>
