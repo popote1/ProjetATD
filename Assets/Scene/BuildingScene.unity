@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,6 +428,132 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1774660508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774660511}
+  - component: {fileID: 1774660510}
+  - component: {fileID: 1774660509}
+  m_Layer: 0
+  m_Name: Road
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1774660509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774660508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdf60d1342d8f44ba5cca7083607585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PathCreator: {fileID: 1774660510}
+  TerrainGenerator: {fileID: 2048388254}
+  NewCoordonate: {x: 0, y: 0}
+  RoadPos: []
+  Spacing: 0.5
+  Resolution: 1
+  roadWight: 1.5
+  TargetTopTerrain: 50
+  MaxSegmant: 20
+  StartRoadPos: {x: 5, y: 10}
+  MinOffset: {x: -3, y: 2}
+  MaxOffset: {x: 4, y: 5}
+  Seed: 42
+--- !u!114 &1774660510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774660508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088fcd61fbd8784479685f121a11189f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path:
+    _points:
+    - {x: 5, y: 10}
+    - {x: 5, y: 12}
+    - {x: 2, y: 10}
+    - {x: 2, y: 12}
+    - {x: 2, y: 14}
+    - {x: 2, y: 12}
+    - {x: 2, y: 14}
+    - {x: 2, y: 16}
+    - {x: 4, y: 16}
+    - {x: 4, y: 18}
+    - {x: 4, y: 20}
+    - {x: 4, y: 18}
+    - {x: 4, y: 20}
+    - {x: 4, y: 22}
+    - {x: 6, y: 20}
+    - {x: 6, y: 22}
+    - {x: 6, y: 24}
+    - {x: 4, y: 23}
+    - {x: 4, y: 25}
+    - {x: 4, y: 27}
+    - {x: 3, y: 26}
+    - {x: 3, y: 28}
+    - {x: 3, y: 30}
+    - {x: 5, y: 29}
+    - {x: 5, y: 31}
+    - {x: 5, y: 33}
+    - {x: 2, y: 33}
+    - {x: 2, y: 35}
+    - {x: 2, y: 37}
+    - {x: 3, y: 36}
+    - {x: 3, y: 38}
+    - {x: 3, y: 40}
+    - {x: 5, y: 38}
+    - {x: 5, y: 40}
+    - {x: 5, y: 42}
+    - {x: 6, y: 42}
+    - {x: 6, y: 44}
+    - {x: 6, y: 46}
+    - {x: 6, y: 44}
+    - {x: 6, y: 46}
+    - {x: 6, y: 48}
+    - {x: 7, y: 46}
+    - {x: 7, y: 48}
+    - {x: 7, y: 50}
+    - {x: 10, y: 50}
+    - {x: 10, y: 52}
+    _isClosed: 0
+    autoSetControlPoints: 0
+  AnchorCol: {r: 1, g: 0, b: 0, a: 1}
+  ControlCol: {r: 1, g: 1, b: 1, a: 1}
+  SegmentCol: {r: 1, g: 0, b: 0.711823, a: 1}
+  SelectedCol: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  AnchorDiamater: 0.1
+  ControlDiameter: 0.075
+  DisplayControlPoints: 1
+--- !u!4 &1774660511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774660508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.0367765, y: 11.853465, z: 0.5363722}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2048388247
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 10
   Height: 10
-  SetDefaultGrid: 1
+  SetDefaultGrid: 0
   ConstructionTiles: {fileID: 7431384384895935619, guid: 09d246a5b52286f468345664e76bf1a9, type: 3}
   Target: {x: 0, y: 0}
   PlayManagerComponent: {fileID: 2048388248}
@@ -595,7 +721,7 @@ MonoBehaviour:
   GroundOffSet: {x: -11.1, y: 27.58}
   Gradient:
     serializedVersion: 2
-    key0: {r: 0.15671314, g: 0.9811321, b: 0, a: 1}
+    key0: {r: 0.09899607, g: 0.6037736, b: 0.0028479954, a: 1}
     key1: {r: 0, g: 0.7287984, b: 1, a: 1}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -624,6 +750,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   MinGRoundPos: {x: 5, y: 0}
   MaxGRoundPos: {x: 25, y: 10}
+  GameManagerComponent: {fileID: 2048388249}
   roudsStartPos:
   - {x: 5, y: 9}
   - {x: 25, y: 9}

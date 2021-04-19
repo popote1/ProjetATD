@@ -49,24 +49,34 @@ namespace Components
         {
             if (InputState == InputStat.Building) Building();
             if (InputState == InputStat.AddEnnemis) AddEnnemis();
-                
-            
-          
-            if(_playGrid== null)_playGrid = GameManagerComponent.PlayGrid;
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.ScreenPointToRay(Input.mousePosition), out hit)) {
-                if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point))) {
-                    _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
-                    _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell)+new Vector3(0,0,-0.5f);
+
+
+
+            if (_playGrid != null)
+            {
+                //_playGrid = GameManagerComponent.PlayGrid;
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.ScreenPointToRay(Input.mousePosition), out hit))
+                {
+                    if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point)))
+                    {
+                        _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
+                        _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell) + new Vector3(0, 0, -0.5f);
+                    }
+
+                    if (_cursor != null)
+                        _cursor.transform.position = Vector3.Lerp(_cursor.transform.position, _cursorTaget,
+                            Time.deltaTime * CursorSmoothFactor);
                 }
-                if (_cursor != null)
-                    _cursor.transform.position = Vector3.Lerp(_cursor.transform.position, _cursorTaget,
-                        Time.deltaTime * CursorSmoothFactor);
             }
         }
 
-        [ContextMenu("Build")]
+        public void SetPlayGrid(PlayGrid playGrid)
+        {
+            _playGrid = playGrid;
+        }
 
+        [ContextMenu("Build")]
         public void SelecteBuilding()
         {
             InputState = InputStat.Building;
@@ -165,13 +175,13 @@ namespace Components
         {
             List<Vector2Int> cells = new List<Vector2Int>();
             Vector2Int cell = origin;
-            if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile) cells.Add(cell);
             cell += Vector2Int.left;
-            if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
             cell += Vector2Int.up;
-            if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
             cell += Vector2Int.right;
-            if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
             return cells;
         }
 

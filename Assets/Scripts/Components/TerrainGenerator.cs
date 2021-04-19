@@ -21,6 +21,7 @@ namespace Components
         public Vector2Int MinGRoundPos;
         public Vector2Int MaxGRoundPos;
         public PlayGrid playgrid;
+        public GameManagerComponent GameManagerComponent;
         [Header("Rouds paramettres")] 
         public List<Vector2Int> roudsStartPos;
         [Range(0, 100)] public float ChanceDeDevier=25;
@@ -147,6 +148,7 @@ namespace Components
                 }
                 vert++;
             }
+            GameManagerComponent.SetPlayGrid(playgrid, width, height);
         }
         
         [ContextMenu("Generate Rouds")]

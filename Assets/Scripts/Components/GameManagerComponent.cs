@@ -39,9 +39,21 @@ namespace Components
             }
         }
 
-        private void Update()
+        public void SetPlayGrid(PlayGrid playgrid, int width, int height)
         {
-           
+            Width = width;
+            Height = height; 
+            PlayGrid = playgrid;
+            for (int x = 0; x < Width; x++) {
+                for (int y = 0; y < Height; y++) {
+                    if (!PlayGrid.GetCell(new Vector2Int(x, y)).IsNonWalkable) {
+                        PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile = Instantiate(ConstructionTiles,
+                            PlayGrid.GetCellCenterWorldPosByCell(new Vector2Int(x, y)), Quaternion.identity, transform);
+                        PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+            PlayManagerComponent.SetPlayGrid(playgrid);
         }
 
 
