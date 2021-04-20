@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Components;
 using CurveTuto;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -19,6 +20,8 @@ public class RoadAutoCreator : MonoBehaviour
     public float Spacing = 0.1f;
     public float Resolution = 1f;
     public float roadWight = 0.5f;
+    [Header("Bridge")]
+    public GameObject PrefabBridg;
 
     [Header("Procedural Road Parameters")] 
     public int TargetTopTerrain;
@@ -120,7 +123,8 @@ public class RoadAutoCreator : MonoBehaviour
             _path.AddSegment(newPos);
             _path.MovePoints(_path.NumPoints-2, newPos-Vector2.up*2);
             _path.MovePoints(_path.NumPoints - 3,_path[_path.NumPoints - 4]-Vector2Int.up*-2);
-            i++;
+            if (placeCellAnalizerOnLastSegment())setBridge();
+                i++;
         }
     }
 
@@ -200,6 +204,58 @@ public class RoadAutoCreator : MonoBehaviour
             }
         }
         return isInWater;
+    }
+
+    private void setBridge()
+    {
+        Vector2Int starPos = new Vector2Int(Mathf.RoundToInt(_path[_path.NumPoints - 1].x), Mathf.RoundToInt(_path[_path.NumPoints - 1].y));
+
+        if (TerrainGenerator.playgrid.GetCell(starPos + new Vector2Int(-1, -1)).IsNonWalkable) {
+            TerrainGenerator.playgrid.GetCell(starPos + new Vector2Int(-1, -1)).IsNonWalkable = true;
+            Instantiate(PrefabBridg,
+                TerrainGenerator.playgrid.GetCellCenterWorldPosByCell(starPos + new Vector2Int(-1, -1)),
+                quaternion.identity, transform);
+        }
+        if (TerrainGenerator.playgrid.GetCell(starPos + new Vector2Int(0, -1)).IsNonWalkable) {
+            TerrainGenerator.playgrid.GetCell(starPos + new Vector2Int(0, -1)).IsNonWalkable = true;
+            Instantiate(PrefabBridg,
+                TerrainGenerator.playgrid.GetCellCenterWorldPosByCell(starPos + new Vector2Int(0, -1)),
+                quaternion.identity, transform);
+        }
+        bool endBridge = false;
+        while (!endBridge)
+        {
+
+            if (TerrainGenerator.playgrid.GetCell(starPos + Vector2Int.left).IsNonWalkable)
+            {
+                TerrainGenerator.playgrid.GetCell(starPos + Vector2Int.left).IsNonWalkable = false;
+                Instantiate(PrefabBridg,
+                    TerrainGenerator.playgrid.GetCellCenterWorldPosByCell(starPos + Vector2Int.left),
+                    quaternion.identity, transform);
+            }
+
+            if (TerrainGenerator.playgrid.GetCell(starPos).IsNonWalkable)
+            {
+                TerrainGenerator.playgrid.GetCell(starPos).IsNonWalkable = false;
+                Instantiate(PrefabBridg,
+                    TerrainGenerator.playgrid.GetCellCenterWorldPosByCell(starPos),
+                    quaternion.identity, transform);
+            }
+
+            starPos += Vector2Int.up;
+            if (TerrainGenerator.playgrid.CheckIfInGrid(starPos))
+            {
+                if (!TerrainGenerator.playgrid.GetCell(starPos + Vector2Int.left).IsNonWalkable &&
+                     !TerrainGenerator.playgrid.GetCell(starPos).IsNonWalkable) endBridge = true;
+            }
+            else
+            {
+                endBridge = true;
+            }
+        } 
+        _path.AddSegment(starPos);
+        _path.MovePoints(_path.NumPoints-2, starPos-Vector2.up*2);
+        _path.MovePoints(_path.NumPoints - 3,_path[_path.NumPoints - 4]-Vector2Int.up*-2);
     }
     
 }

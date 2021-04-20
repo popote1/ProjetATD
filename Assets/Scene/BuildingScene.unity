@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -465,9 +465,10 @@ MonoBehaviour:
   Spacing: 0.5
   Resolution: 1
   roadWight: 1.5
+  PrefabBridg: {fileID: 5546566777293505974, guid: 188b2022d79c64d439eac6e40a55d249, type: 3}
   TargetTopTerrain: 50
   MaxSegmant: 20
-  StartRoadPos: {x: 5, y: 10}
+  StartRoadPos: {x: 12, y: 8}
   MinOffset: {x: -3, y: 2}
   MaxOffset: {x: 4, y: 5}
   Seed: 42
