@@ -136,18 +136,15 @@ namespace Components
             int buildingCellReady=0;
             Vector3 buildingPos = Vector3.zero;
             foreach (Vector2Int cell in _preselectedCell) {
-                if (_playGrid.GetCell(cell).Batiment == null)
-                {
+                if (_playGrid.GetCell(cell).Batiment == null) {
                     buildingCellReady++;
                     buildingPos += _playGrid.GetCellCenterWorldPosByCell(cell);
                 }
             }
             buildingPos = buildingPos / _preselectedCell.Count;
-            if (buildingCellReady == AchetablesList[BuildIndex].CellNeeded * AchetablesList[BuildIndex].CellNeeded)
-            {
+            if (buildingCellReady == AchetablesList[BuildIndex].CellNeeded * AchetablesList[BuildIndex].CellNeeded) {
                 Achetables achetable=Instantiate(AchetablesList[BuildIndex], buildingPos, quaternion.identity);
-                foreach (Vector2Int cell in _preselectedCell)
-                {
+                foreach (Vector2Int cell in _preselectedCell) {
                     _playGrid.GetCell(cell).Batiment = achetable;
                     _playGrid.GetCell(cell).IndividualMoveValue = achetable.IndividualMoveFactor;
                 }
@@ -208,5 +205,25 @@ namespace Components
             if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
             return cells;
         }
+        public void BuildPutNewBuilding(Vector2Int pos , Batiment bat)
+        {
+            List<Vector2Int> neigbors = new List<Vector2Int>();
+            Vector3 newPos = Vector3.zero;
+            if (bat.CellNeeded <= 1) neigbors = GetBuildingVec1by1(pos);
+            else if (bat.CellNeeded == 2) neigbors = GetBuildingVec2by2(pos);
+            else if (bat.CellNeeded == 3) neigbors = GetBuildingVec3by3(pos);
+            else return;
+            foreach (Vector2Int vec in neigbors)
+            {
+                if (_playGrid.GetCell(vec).Batiment != null) return;
+                else newPos += _playGrid.GetCellCenterWorldPosByCell(vec);
+            }
+            newPos = newPos / neigbors.Count;
+            Batiment batiment = Instantiate(bat, newPos, Quaternion.identity);
+            batiment.OccupiedCells = neigbors;
+            foreach (Vector2Int vec in neigbors) _playGrid.GetCell(vec).Batiment = batiment;
+        }
     }
+    
+    
 }
