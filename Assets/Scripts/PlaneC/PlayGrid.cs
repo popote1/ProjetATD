@@ -43,6 +43,15 @@ namespace PlaneC
             return null;
         }
         /// <summary>
+        /// Return the cell at the given coordinate, if the coordinate isn't in the grid return null.
+        /// </summary>
+        /// <param name="Grid Coorditane"></param>
+        /// <returns>Cell</returns>
+        public Cell GetCell(int x, int y) {
+            if (CheckIfInGrid(new Vector2Int(x,y))) return Cells[x,y];
+            return null;
+        }
+        /// <summary>
         /// Return the Grid Coordinate at the given World Coordinate.
         /// </summary>
         /// <param name="World Coordinate"></param>
