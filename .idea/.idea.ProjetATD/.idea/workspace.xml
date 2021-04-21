@@ -20,16 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bc55327-c510-4dff-a180-6f4bdf265ea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetATD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2D/UISprites/TestRoad2Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D/UISprites/TestRoad2Mat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlaceHolherAssets/basicTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlaceHolherAssets/basicTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/BuildingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/RoadAutoCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CurveTuto/RoadAutoCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlaneC/PlayGrid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +56,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Bourg/Arbre.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/PlayerManagerComponent.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/TerrainGenerator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/GameManagerComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/SmoothTerrain.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qNjVYHzSgDU57SvCIZ64a0kYo8" />
@@ -92,10 +90,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15720">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15720" />
+      <option name="pid" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -124,6 +122,8 @@
       <workItem from="1618821418574" duration="18618000" />
       <workItem from="1618852243256" duration="2130000" />
       <workItem from="1618908847845" duration="18362000" />
+      <workItem from="1619003686254" duration="276000" />
+      <workItem from="1619003985814" duration="6330000" />
     </task>
     <servers />
   </component>

@@ -3,10 +3,14 @@ using UnityEngine;
 using PlaneC;
 using System.Collections.Generic;
 using System.Collections;
+using Random = System.Random;
+
 namespace Components
 {
     public class GameManagerComponent:MonoBehaviour
     {
+        [Header("Procedural Seed")] 
+        public string Seed = " popote le boss";
         [Header ("Grid Info")]
         public PlayGrid PlayGrid;
         public int Width;
@@ -23,6 +27,8 @@ namespace Components
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
+        public TerrainGenerator TerrainGenerator;
+        public SmoothTerrain SmoothTerrain;
 
         private float _homeTimer;
 
@@ -59,6 +65,29 @@ namespace Components
                 }
             }
             PlayManagerComponent.SetPlayGrid(playgrid);
+        }
+
+        [ContextMenu("Set Map")]
+        public void SetTerrain()
+        {
+            System.Random random = new System.Random(Seed.ToUpper().GetHashCode());
+            TerrainGenerator.GroundOffSet = new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            TerrainGenerator.TreeOffSet= new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            TerrainGenerator.TreeModifier1OffSet= new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            foreach (RoadAutoCreator road in TerrainGenerator.Roads) road.Seed = random.Next();
+            TerrainGenerator.SetMap();
+            TerrainGenerator.SpawnBuilding();
+            SmoothTerrain.height = TerrainGenerator.height;
+            SmoothTerrain.width = SmoothTerrain.width;
+            SmoothTerrain.InputMeshFilter = TerrainGenerator.GetComponent<MeshFilter>();
+            TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
+            SmoothTerrain.GenerateSmoothMesh();
+            
+        }
+        [ContextMenu("GetHashCode")]
+        public void GetHashCode()
+        {
+            Debug.Log(Seed.ToUpper().GetHashCode());
         }
 
 

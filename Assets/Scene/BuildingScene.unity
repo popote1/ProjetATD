@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643360101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: -10}
+  m_LocalPosition: {x: 19.1, y: 19.6, z: -19.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -279,7 +279,7 @@ MonoBehaviour:
   PrefabBridg: {fileID: 5546566777293505974, guid: 188b2022d79c64d439eac6e40a55d249, type: 3}
   TargetTopTerrain: 100
   MaxSegmant: 40
-  StartRoadPos: {x: 18, y: 8}
+  StartRoadPos: {x: 28, y: 8}
   MinOffset: {x: -3, y: 2}
   MaxOffset: {x: 4, y: 5}
   Seed: 768
@@ -508,8 +508,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232674701}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 20, y: 50, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -552,7 +552,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 2667bae961c7664458ee6da6e697dd3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -586,25 +586,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e74808242bf186449b001f44fad38b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
+  width: 40
   height: 100
   Subdivise: 2
   cellSize: 1
   Gradient:
     serializedVersion: 2
     key0: {r: 0.09899607, g: 0.6037736, b: 0.0028479954, a: 1}
-    key1: {r: 0, g: 0.7287984, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.3490566, g: 0.24280211, b: 0, a: 1}
+    key2: {r: 0.3437004, g: 0.2502596, b: 0.015344763, a: 0}
+    key3: {r: 0, g: 0.7287984, b: 1, a: 0}
+    key4: {r: 0, g: 0.7287984, b: 1, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
+    ctime1: 5975
+    ctime2: 58789
+    ctime3: 65535
+    ctime4: 45489
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -617,7 +617,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 2
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
   InputMeshFilter: {fileID: 2048388253}
   Interpolationtest:
@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624783398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.551624, y: 30.048086, z: 23.745617}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -978,12 +978,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c84af8244fe4dd1997070b3b4d079da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Seed: fred
   Width: 10
   Height: 10
   SetDefaultGrid: 0
   ConstructionTiles: {fileID: 7431384384895935619, guid: 09d246a5b52286f468345664e76bf1a9, type: 3}
   Target: {x: 0, y: 0}
+  HomeBuildingTimer: 0
   PlayManagerComponent: {fileID: 2048388248}
+  TerrainGenerator: {fileID: 2048388254}
+  SmoothTerrain: {fileID: 1624783400}
 --- !u!4 &2048388250
 Transform:
   m_ObjectHideFlags: 0
@@ -1081,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c52a3b09904db3810652265ca263d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
+  width: 40
   height: 100
   cellSize: 1
   Flatlevel: 0.61
@@ -1091,18 +1095,18 @@ MonoBehaviour:
   Gradient:
     serializedVersion: 2
     key0: {r: 0.09899607, g: 0.6037736, b: 0.0028479954, a: 1}
-    key1: {r: 0, g: 0.7287984, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.3490566, g: 0.24280211, b: 0, a: 1}
+    key2: {r: 0.3437004, g: 0.2502596, b: 0.015344763, a: 0}
+    key3: {r: 0, g: 0.7287984, b: 1, a: 0}
+    key4: {r: 0, g: 0.7287984, b: 1, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
+    ctime1: 15806
+    ctime2: 43562
+    ctime3: 54548
+    ctime4: 45489
     ctime5: 0
     ctime6: 0
     ctime7: 0
@@ -1115,10 +1119,10 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 2
+    m_NumColorKeys: 4
     m_NumAlphaKeys: 2
-  MinGRoundPos: {x: 5, y: 0}
-  MaxGRoundPos: {x: 25, y: 11}
+  MinGRoundPos: {x: 9, y: 0}
+  MaxGRoundPos: {x: 31, y: 12}
   GameManagerComponent: {fileID: 2048388249}
   LimiteBorders: 2
   Roads:
@@ -1126,31 +1130,55 @@ MonoBehaviour:
   - {fileID: 1218868564}
   DebugTreeInUpdate: 0
   DebugUsTreshHold: 0
-  TreeZome: 0.274
-  TreeOffSet: {x: -8.19, y: 1}
-  TreeThreshHold: 0.292
+  TreeZome: 0.104
+  TreeOffSet: {x: 25.8, y: 12}
+  TreeThreshHold: 0.321
   PrefabTree: {fileID: 7830035246499544492, guid: abcd81b0255b72a44b5464c04696f789, type: 3}
   IsUsingTreeMidifier: 1
-  TreeModifier1StartStrenght: 0.478
-  TreeModifier1StartNewNoise: 90.3
-  TreeModifier1Zome: 0.56
-  TreeModifier1OffSet: {x: 1, y: 1}
+  TreeModifier1StartStrenght: 1
+  TreeModifier1StartNewNoise: 46.2
+  TreeModifier1Zome: 0.314
+  TreeModifier1OffSet: {x: 4.73, y: 7.29}
   IsUsingTreeMidifier2: 1
-  TreeModifier2StartStrenght: 0.326
-  TreeModifier2StartNewNoise: 73.4
+  TreeModifier2StartStrenght: 0.49
+  TreeModifier2StartNewNoise: 26.3
   IsUsingTreeModifier3: 1
-  TreeModifier3Min: {x: 5, y: 0}
-  TreeModifier3Max: {x: 25, y: 10}
+  TreeModifier3Min: {x: 9, y: 0}
+  TreeModifier3Max: {x: 31, y: 13}
   Bats:
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 10, y: 8}
+    vec: {x: 15, y: 9}
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 12, y: 6}
+    vec: {x: 11, y: 9}
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 14, y: 4}
+    vec: {x: 11, y: 7}
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 14, y: 8}
+    vec: {x: 11, y: 5}
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 10, y: 4}
+    vec: {x: 11, y: 3}
   - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 16, y: 12}
+    vec: {x: 11, y: 1}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 30, y: 7}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 30, y: 5}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 30, y: 3}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 30, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 16, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 18, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 20, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 22, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 24, y: 9}
+  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+    vec: {x: 28, y: 9}
+  - bat: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
+    vec: {x: 20, y: 5}
+  - bat: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
+    vec: {x: 15, y: 5}

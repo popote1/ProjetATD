@@ -12,7 +12,7 @@ namespace Components
         public GameManagerComponent GameManagerComponent;
 
         public static int Gold;
-        public static List<Batiment> Batiments;
+        public static List<Batiment> Batiments = new List<Batiment>();
 
         public InputStat InputState;
         [Header("Ennemis ")] 

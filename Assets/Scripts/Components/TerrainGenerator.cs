@@ -259,24 +259,24 @@ namespace Components
                             cellValue = 0;
                         }
                     }
-
-
-
+// Parti de DEBUG
+                    if (DebugTreeInUpdate&&!playgrid.GetCell(x, y).IsNonWalkable&&! playgrid.GetCell(x, y).IsRoad) {
+                        playgrid.GetCell(x,y).ConstructionTile.SetActive(true);
+                        if (DebugUsTreshHold) {
+                            if (cellValue < TreeThreshHold)playgrid.GetCell(x,y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                            else playgrid.GetCell(x,y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+                        }
+                        else {
+                            playgrid.GetCell(x, y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.white * cellValue;
+                        }
+                    }
+// Generation de la treeMap pour la pose
                     if (cellValue < TreeThreshHold || playgrid.GetCell(x, y).IsNonWalkable ||
                         playgrid.GetCell(x, y).IsRoad) treeMap[x, y] = false;
                     else {
                         treeMap[x, y] = true;
-                        if (DebugTreeInUpdate) {
-                            GameManagerComponent.PlayGrid.GetCell(x, y).ConstructionTile.SetActive(true);
-                           if (DebugUsTreshHold) GameManagerComponent.PlayGrid.GetCell(x, y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.white * cellValue;
-                        }
-                        else {
-                            if(cellValue<TreeThreshHold)GameManagerComponent.PlayGrid.GetCell(x, y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.white ;
-                            else GameManagerComponent.PlayGrid.GetCell(x, y).ConstructionTile.GetComponentInChildren<SpriteRenderer>().color = Color.black;
-                        }
                     }
                 }
-            
             }
             if (!DebugTreeInUpdate)SpawnTree(treeMap);
         }
@@ -285,7 +285,7 @@ namespace Components
              for (int i = 0, y = 0; y <= height-1; y++) {
                  for (int x = 0; x <= width-1; x++) {
                      if (treeMap[x, y]) {
-                         Batiment arbre = Instantiate(PrefabTree, playgrid.GetCellCenterWorldPosByCell(new Vector2Int(x,y))+Vector3.forward*-1, Quaternion.identity,transform);
+                         Batiment arbre = Instantiate(PrefabTree, playgrid.GetCellCenterWorldPosByCell(new Vector2Int(x,y))+Vector3.forward*-0.5f, Quaternion.identity,transform);
                             arbre.transform.localScale = arbre.transform.localScale * Random.Range(0.7f, 1.1f);
                             playgrid.GetCell(x, y).Batiment = arbre;
                      }
