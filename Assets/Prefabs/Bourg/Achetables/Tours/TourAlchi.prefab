@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 0
   CurrentHp: 0
-  CellNeeded: 0
+  CellNeeded: 1
   OccupiedCells: []
   IndividualMoveFactor: 0
   Position: {x: 0, y: 0}

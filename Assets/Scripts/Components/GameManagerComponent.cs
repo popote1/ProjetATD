@@ -3,10 +3,14 @@ using UnityEngine;
 using PlaneC;
 using System.Collections.Generic;
 using System.Collections;
+using Random = System.Random;
+
 namespace Components
 {
     public class GameManagerComponent:MonoBehaviour
     {
+        [Header("Procedural Seed")] 
+        public string Seed = " popote le boss";
         [Header ("Grid Info")]
         public PlayGrid PlayGrid;
         public int Width;
@@ -17,9 +21,16 @@ namespace Components
         [Header("FlowField Infos")] 
         public Vector2Int Target;
         private bool _IsReadyToCalculateFlowFlield;
+
+        [Header("Home Building")] 
+        public float HomeBuildingTimer;
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
+        public TerrainGenerator TerrainGenerator;
+        public SmoothTerrain SmoothTerrain;
+
+        private float _homeTimer;
 
 
         private void Start()
@@ -39,9 +50,44 @@ namespace Components
             }
         }
 
-        private void Update()
+        public void SetPlayGrid(PlayGrid playgrid, int width, int height)
         {
-           
+            Width = width;
+            Height = height; 
+            PlayGrid = playgrid;
+            for (int x = 0; x < Width; x++) {
+                for (int y = 0; y < Height; y++) {
+                    if (!PlayGrid.GetCell(new Vector2Int(x, y)).IsNonWalkable) {
+                        PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile = Instantiate(ConstructionTiles,
+                            PlayGrid.GetCellCenterWorldPosByCell(new Vector2Int(x, y)), Quaternion.identity, transform);
+                        PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+            PlayManagerComponent.SetPlayGrid(playgrid);
+        }
+
+        [ContextMenu("Set Map")]
+        public void SetTerrain()
+        {
+            System.Random random = new System.Random(Seed.ToUpper().GetHashCode());
+            TerrainGenerator.GroundOffSet = new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            TerrainGenerator.TreeOffSet= new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            TerrainGenerator.TreeModifier1OffSet= new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
+            foreach (RoadAutoCreator road in TerrainGenerator.Roads) road.Seed = random.Next();
+            TerrainGenerator.SetMap();
+            TerrainGenerator.SpawnBuilding();
+            SmoothTerrain.height = TerrainGenerator.height;
+            SmoothTerrain.width = SmoothTerrain.width;
+            SmoothTerrain.InputMeshFilter = TerrainGenerator.GetComponent<MeshFilter>();
+            TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
+            SmoothTerrain.GenerateSmoothMesh();
+            
+        }
+        [ContextMenu("GetHashCode")]
+        public void GetHashCode()
+        {
+            Debug.Log(Seed.ToUpper().GetHashCode());
         }
 
 
@@ -90,6 +136,44 @@ namespace Components
             _IsReadyToCalculateFlowFlield = true;
             Debug.Log("FlowField ClaculeTerminer");
             yield return null;
+        }
+
+
+        public void HomeTimer()
+        {
+            _homeTimer += Time.deltaTime;
+            if (_homeTimer > HomeBuildingTimer)
+            {
+                _homeTimer = 0;
+                buildHome();
+            }
+        }
+
+        public void buildHome()
+        {
+            bool homeBuild =false;
+            List<Cell> buildingCell = new List<Cell>();
+            int mexSecurityFactor = Int32.MaxValue;
+            int selectedValue=0;
+            do
+            {
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.IsPlayble && cell.Batiment != null&&cell.SecurityValue < mexSecurityFactor) {
+                        if (cell.SecurityValue > selectedValue) {
+                            buildingCell.Clear();
+                            selectedValue = cell.SecurityValue; 
+                            buildingCell.Add(cell);
+                        }
+                        else if (cell.SecurityValue == selectedValue) {
+                            buildingCell.Add(cell);
+                        }
+                    }
+                }
+                
+            } while (homeBuild == false);
+            
+            
+
         }
     }
 }
