@@ -24,6 +24,10 @@ namespace Components
 
         [Header("Home Building")] 
         public float HomeBuildingTimer;
+        [Header("Debug")]
+        public bool DebugShowSecuritiyTiles;
+        public Gradient DebugSecurityGradiant;
+        
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;

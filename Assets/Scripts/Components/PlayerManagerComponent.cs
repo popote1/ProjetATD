@@ -47,6 +47,7 @@ namespace Components
 
         private void Update()
         {
+            Debug.Log("Gold = "+Gold);
             if (InputState == InputStat.Building) Building();
             if (InputState == InputStat.AddEnnemis) AddEnnemis();
 
@@ -221,6 +222,8 @@ namespace Components
             newPos = newPos / neigbors.Count;
             Batiment batiment = Instantiate(bat, newPos, Quaternion.identity);
             batiment.OccupiedCells = neigbors;
+            batiment.Playgrid = _playGrid;
+            Batiments.Add(batiment);
             foreach (Vector2Int vec in neigbors) _playGrid.GetCell(vec).Batiment = batiment;
         }
     }
