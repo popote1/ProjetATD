@@ -30,7 +30,6 @@ namespace Bourg.Achetable.Tours
         
         [Header("Utilities")]
         public int SpawnScore;
-        public GameObject OutLine;
         public AudioSource AudioSource;
         //TEMP
         public LineRenderer LineRenderer;
@@ -169,11 +168,11 @@ namespace Bourg.Achetable.Tours
         
         
         //Outline activator
-        public void OnSelect()
+        public override void OnSelect()
         {
-            
+            OutLine.SetActive(true);
         }
-        public void OnDeselect()
+        public override void OnDeselect()
         {
             OutLine.SetActive(false);
         }

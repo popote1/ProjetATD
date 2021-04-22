@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using System.Diagnostics;
@@ -125,6 +126,24 @@ namespace PlaneC
                 }
             }
             return auraSize.ToArray();
+        }
+
+        public Vector2Int GetOriginalBuildingCenter(Vector2Int[] celltaken)
+        {
+            if (celltaken.Length == 1) return celltaken[0];
+            if (celltaken.Length == 4)
+            {
+                int x = Int32.MinValue;
+                int y = Int32.MaxValue;
+                foreach (var cell in celltaken)
+                {
+                    if (cell.x > x) x = cell.x;
+                    if (cell.y < y) y = cell.y;
+                }
+                return new Vector2Int(x, y);
+            }
+
+            return Vector2Int.zero;
         }
     }
 }

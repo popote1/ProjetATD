@@ -7,5 +7,10 @@ namespace Assets.Scripts.Bourg.Achetable
     {
         [Header("Achetable")]
         public int Prix;
+        public GameObject OutLine;
+
+        public virtual void OnSelect(){}
+        public virtual void OnDeselect(){}
+
     }
 }

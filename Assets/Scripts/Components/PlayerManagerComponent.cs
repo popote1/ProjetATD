@@ -4,6 +4,10 @@ using PlaneC;
 using Assets.Scripts.Bourg.Achetable;
 using Assets.Scripts.Bourg;
 using Unity.Mathematics;
+using UnityEngine.UI;
+using TMPro;
+using UnityEditor;
+using UnityEngine.Serialization;
 
 namespace Components
 {
@@ -15,6 +19,13 @@ namespace Components
         public static List<Batiment> Batiments = new List<Batiment>();
 
         public InputStat InputState;
+        public List<Achetables> SelectedBuildings = new List<Achetables>();
+        [Header("Camera Seting")] 
+        public float2 CameraYRange;
+        public Camera Camera;
+        public float CameraSencibility = 1;
+        
+
         [Header("Ennemis ")] 
         //public EnemyComponent EnnemieComponent;
         [Header("Building")] 
@@ -24,7 +35,13 @@ namespace Components
 
         [Header("Cursor Configue")] public GameObject PrefabCursor;
         [Range(0, 100)] public float CursorSmoothFactor;
-        public Camera Camera;
+        [Header("UI")] 
+        public bool CursorOnUI;
+        public Scrollbar ScrollbarCamera;
+        public Button BPDestroy;
+        public TMP_Text TxtGoldText;
+        public CanvasGroup PanelFondInsufisant;
+        
 
 
         private PlayGrid _playGrid;
@@ -33,10 +50,11 @@ namespace Components
         private Vector2Int _selsectdCell;
         private bool _press;
         private List<Vector2Int> _preselectedCell = new List<Vector2Int>();
+        private Vector3 _lastCursorPos;
         
         public enum InputStat
         {
-            none, Building , AddEnnemis
+            none, Building , AddEnnemis, Selecting
         }
 
         private void Start()
@@ -48,8 +66,13 @@ namespace Components
         private void Update()
         {
             Debug.Log("Gold = "+Gold);
-            if (InputState == InputStat.Building) Building();
-            if (InputState == InputStat.AddEnnemis) AddEnnemis();
+            if (!CursorOnUI)
+            {
+                if (InputState == InputStat.Building) Building();
+                if (InputState == InputStat.AddEnnemis) AddEnnemis();
+                if (InputState == InputStat.none) DragCamera();
+            }
+
             if (_playGrid != null)
             {
                 //_playGrid = GameManagerComponent.PlayGrid;
@@ -66,6 +89,16 @@ namespace Components
                             Time.deltaTime * CursorSmoothFactor);
                 }
             }
+            TxtGoldText.text = "Gold : " + Gold;
+            PanelFondInsufisant.alpha = Mathf.Lerp( PanelFondInsufisant.alpha,0f, 0.01f);
+            
+            if (SelectedBuildings.Count==1) BPDestroy.gameObject.SetActive(true);
+            else BPDestroy.gameObject.SetActive(false);
+        }
+
+        public void SetOnCursorBool(bool value)
+        {
+            CursorOnUI = value;
         }
 
         public void SetPlayGrid(PlayGrid playGrid)
@@ -86,6 +119,63 @@ namespace Components
                 EnemyComponent en =(EnnemieComponent, _cursor, Quaternion.identity);
                 en.PlayGrid = _playGrid;
             }*/
+        }
+
+        public void ScrollCamera(Scrollbar ctx)
+        {
+            Camera.transform.position = new Vector3(Camera.transform.position.x,
+                Mathf.Lerp(CameraYRange.x, CameraYRange.y, ctx.value), Camera.transform.position.z);
+        }
+
+        private void DragCamera()
+        {
+            float yMove;
+            if (Input.GetButton("Fire1")) {
+                if (_lastCursorPos != Vector3.zero) {
+                    yMove = _lastCursorPos.y - Input.mousePosition.y;
+                    Camera.transform.position = new Vector3( Camera.transform.position.x
+                        ,Mathf.Clamp(Camera.transform.position.y+yMove * CameraSencibility,CameraYRange.x,CameraYRange.y)
+                        , Camera.transform.position.z);
+                    ScrollbarCamera.value =
+                        Mathf.InverseLerp(CameraYRange.x, CameraYRange.y, Camera.transform.position.y);
+                }
+                _lastCursorPos = Input.mousePosition;
+            }
+            else
+            {
+                _lastCursorPos = Vector3.zero;
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (_playGrid.GetCell(_selsectdCell).Batiment != null)
+                {
+                    if (_playGrid.GetCell(_selsectdCell).Batiment is Achetables)
+                    {
+                        foreach (Achetables building in SelectedBuildings)building.OnDeselect();
+                        SelectedBuildings.Clear();
+                        Achetables bat = (Achetables)_playGrid.GetCell(_selsectdCell).Batiment;
+                        SelectedBuildings.Add(bat);
+                        bat.OnSelect();
+                        
+                    }
+                }
+            }
+        }
+
+        public void StartBuilding(int buildingIndex)
+        {
+            BuildIndex = buildingIndex;
+            if (Gold > AchetablesList[buildingIndex].Prix) InputState = InputStat.Building;
+            else PanelFondInsufisant.alpha = 1;
+
+        }
+
+        public void DestroySelectedBuilding()
+        {
+            Destroy(SelectedBuildings[0].gameObject);
+            SelectedBuildings.Clear();
+            CursorOnUI = false;
         }
 
         private void Building()
@@ -148,6 +238,7 @@ namespace Components
                 achetable.OccupiedCells = _preselectedCell;
                 achetable.Position = buildingPos;
                 achetable.Playgrid = _playGrid;
+                Gold -= achetable.Prix;
                 if (achetable.SecurityValue != 0) {
                     foreach (Vector2Int cell in _playGrid.GetBuildingAura(_selsectdCell, achetable.CellNeeded, achetable.SecurityRange)) {
                         _playGrid.GetCell(cell).SecurityValue += achetable.SecurityValue;

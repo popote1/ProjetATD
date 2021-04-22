@@ -30,7 +30,6 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         [Header("Utilities")]
         public int SpawnScore;
-        public GameObject OutLine;
         public AudioSource AudioSource;
         //TEMP
         public LineRenderer LineRenderer;
@@ -190,11 +189,11 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
 
         //Tower activator
-        public void OnSelect()
+        public override void OnSelect()
         {
             _isSelected = true;
         }
-        public void OnDeselect()
+        public override void OnDeselect()
         {
             _isSelected = false;
         }

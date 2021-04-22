@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073db44d015ba524a9abc5aafcc20318, type: 3}
-  m_Name: test
+  m_Name: Warg
   m_EditorClassIdentifier: 
   Speed: 0
   HP: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   IsBoss: 0
   MagicResistance: 0
   PhysicResistance: 0
-  PrefabMorts: {fileID: 0}
+  PrefabMorts: {fileID: 3130726305137273550, guid: 36427fbf2222f37449cf6e22bd5afa17, type: 3}
   Layer: 
   CanBePushed: 0
   IsMagic: 0

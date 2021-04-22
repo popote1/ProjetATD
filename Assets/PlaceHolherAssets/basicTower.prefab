@@ -363,7 +363,8 @@ MonoBehaviour:
   MagicDamagesResistance: 0
   SecurityRange: 3
   SecurityValue: 10
-  Prix: 456
+  Prix: 200
+  OutLine: {fileID: 3563357598265500167}
   AutoPhysicDamages: 2
   AutoFireRate: 21
   AutoRange: 3
@@ -372,7 +373,6 @@ MonoBehaviour:
   ActiveRate: 0.2
   IsReadyToAttack: 1
   SpawnScore: 0
-  OutLine: {fileID: 3563357598265500167}
   AudioSource: {fileID: 590259762258691545}
   AutoCollider2D: {fileID: 4628152722939624086}
   LineRenderer: {fileID: 7587766764414387936}
