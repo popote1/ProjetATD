@@ -19,6 +19,9 @@ namespace Assets.Scripts.Bourg
         public int PhysicDamagesResistance;
         public int MagicDamagesResistance;
 
+        public int SecurityRange;
+        public int SecurityValue;
+
         private void Start()
         {
 	        Playgrid ??= GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();

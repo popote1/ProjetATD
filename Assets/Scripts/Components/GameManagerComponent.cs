@@ -27,6 +27,7 @@ namespace Components
         [Header("Debug")]
         public bool DebugShowSecuritiyTiles;
         public Gradient DebugSecurityGradiant;
+        private bool _debugSecutity=false;
         
         
         [Header("Linked Components")] 
@@ -54,6 +55,11 @@ namespace Components
             }
         }
 
+        private void Update()
+        {
+            DebugSecurity();
+        }
+
         public void SetPlayGrid(PlayGrid playgrid, int width, int height)
         {
             Width = width;
@@ -69,6 +75,33 @@ namespace Components
                 }
             }
             PlayManagerComponent.SetPlayGrid(playgrid);
+        }
+
+        private void DebugSecurity()
+        {
+            if (DebugShowSecuritiyTiles) {
+                _debugSecutity = true;
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.ConstructionTile != null && cell.SecurityValue > 0) {
+                        cell.ConstructionTile.SetActive(true);
+                        cell.ConstructionTile.GetComponentInChildren<SpriteRenderer>().color =
+                            DebugSecurityGradiant.Evaluate((float)cell.SecurityValue / 100);
+                    }
+                    else if (cell.ConstructionTile != null && cell.SecurityValue < 0) {
+                        cell.ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+
+            if (!DebugShowSecuritiyTiles && _debugSecutity) {
+                _debugSecutity = false;
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.ConstructionTile != null) {
+                        cell.ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+
         }
 
         [ContextMenu("Set Map")]

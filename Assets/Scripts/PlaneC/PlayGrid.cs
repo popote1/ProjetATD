@@ -107,25 +107,24 @@ namespace PlaneC
 
         public Vector2Int[] GetBuildingAura(Vector2Int center, int buildingSize, int AuraSize)
         {
-            int startmod=0;
-            int endmod = 0;
-            if (AuraSize % 2 == 1) {
-                startmod = Mathf.FloorToInt(AuraSize / 2f);
-                endmod = Mathf.FloorToInt(AuraSize / 2f);
+            Vector2Int startmod;
+            Vector2Int endmod ;
+            if (buildingSize % 2 == 1) {
+                startmod = new Vector2Int(Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f));
+                endmod =new Vector2Int( Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f));
             }
             else {
-                startmod = Mathf.FloorToInt(AuraSize / 2f)-1;
-                endmod = Mathf.FloorToInt(AuraSize / 2f);
+                startmod = new Vector2Int(Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f)-1);
+                endmod =new Vector2Int( Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f)+1);
             }
             List<Vector2Int> auraSize = new List<Vector2Int>();
-            Vector2Int startpos = center - new Vector2Int(AuraSize, AuraSize)-new Vector2Int(startmod, startmod);
-            for (int x = startpos.x; x < center.x+AuraSize+endmod; x++) {
-                for (int y = startpos.y; y < center.y+AuraSize+endmod; y++) {
+            Vector2Int startpos = center - new Vector2Int(AuraSize, AuraSize)-startmod;
+            for (int x = startpos.x; x < center.x+AuraSize+endmod.x; x++) {
+                for (int y = startpos.y; y < center.y+AuraSize+endmod.y; y++) {
                     if (CheckIfInGrid(new Vector2Int(x, y))) auraSize.Add(new Vector2Int(x,y));
                 }
             }
             return auraSize.ToArray();
         }
-        
     }
 }

@@ -114,6 +114,10 @@ MonoBehaviour:
   OccupiedCells: []
   IndividualMoveFactor: 30
   Position: {x: 0, y: 0}
+  PhysicDamagesResistance: 0
+  MagicDamagesResistance: 0
+  SecurityRange: 3
+  SecurityValue: 10
   GoldIncome: 10
   GoldRate: 5
   TourMages: []

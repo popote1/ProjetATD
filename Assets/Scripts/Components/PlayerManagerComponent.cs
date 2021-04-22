@@ -151,11 +151,19 @@ namespace Components
                 }
                 achetable.OccupiedCells = _preselectedCell;
                 achetable.Position = buildingPos;
+                achetable.Playgrid = _playGrid;
+                if (achetable.SecurityValue != 0) {
+                    foreach (Vector2Int cell in _playGrid.GetBuildingAura(_selsectdCell, achetable.CellNeeded, achetable.SecurityRange)) {
+                        _playGrid.GetCell(cell).SecurityValue += achetable.SecurityValue;
+                    }
+                }
             }
             foreach (Vector2Int cell in _preselectedCell)
             {
                 _playGrid.GetCell(cell).ConstructionTile.SetActive(false);
             }
+            
+            
 
             InputState = InputStat.none;
         }
@@ -223,6 +231,11 @@ namespace Components
             Batiment batiment = Instantiate(bat, newPos, Quaternion.identity);
             batiment.OccupiedCells = neigbors;
             batiment.Playgrid = _playGrid;
+            if (batiment.SecurityValue != 0) {
+                foreach (Vector2Int cell in _playGrid.GetBuildingAura(pos, bat.CellNeeded, bat.SecurityRange)) {
+                    _playGrid.GetCell(cell).SecurityValue += bat.SecurityValue;
+                }
+            }
             Batiments.Add(batiment);
             foreach (Vector2Int vec in neigbors) _playGrid.GetCell(vec).Batiment = batiment;
         }
