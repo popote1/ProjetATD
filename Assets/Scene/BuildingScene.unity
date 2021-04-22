@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -984,7 +984,10 @@ MonoBehaviour:
   SetDefaultGrid: 0
   ConstructionTiles: {fileID: 7431384384895935619, guid: 09d246a5b52286f468345664e76bf1a9, type: 3}
   Target: {x: 0, y: 0}
-  HomeBuildingTimer: 0
+  IsUsingHomeSysteme: 0
+  HomeBuildingTimer: 2
+  PrefabsHome: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
+  IsUsingSmoothTerrain: 0
   DebugShowSecuritiyTiles: 0
   DebugSecurityGradiant:
     serializedVersion: 2
