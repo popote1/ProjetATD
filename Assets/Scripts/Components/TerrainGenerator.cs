@@ -189,12 +189,19 @@ namespace Components
         }
 
         [ContextMenu("Generate Roads")]
-        public void GenerateRoads() {
+        public void GenerateRoads()
+        {
+            List<Vector2Int> SpawnZone = new List<Vector2Int>();
             foreach (var road in Roads) {
                 road.GeneratProceduralRoad();
-                foreach (Vector2Int pos in road.GetRoadTiles()) playgrid.GetCell(pos).IsRoad = true;
+                foreach (Vector2Int pos in road.GetRoadTiles())
+                {
+                    playgrid.GetCell(pos).IsRoad = true;
+                    if (pos.y>97)SpawnZone.Add(pos);
+                }
                 road.UpdateRoad();
             }
+            GameManagerComponent.EnnemisSpawnZones =SpawnZone;
         }
 
         /*  [ContextMenu("Generate Rouds")]
