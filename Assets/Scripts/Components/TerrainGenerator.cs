@@ -67,7 +67,7 @@ namespace Components
 
 
 
-        void Start()
+        void Awake()
         {
             _mesh = new Mesh();
             GetComponent<MeshFilter>().mesh = _mesh;

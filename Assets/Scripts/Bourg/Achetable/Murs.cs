@@ -23,7 +23,7 @@ namespace Assets.Scripts.Bourg.Achetable
         private Murs _rightWall, _leftWall, _upWall, _downWall;
 
         private MeshRenderer _meshRenderer;
-        private Mesh _mesh;
+        private MeshFilter _meshFilter;
         private Cell _thisCell;
         private Vector2Int _intPos;
 
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Bourg.Achetable
         private void Start()
         {
             _meshRenderer = GetComponent<MeshRenderer>();
-            _mesh = GetComponent<Mesh>();
+            _meshFilter = GetComponent<MeshFilter>();
             _intPos = OccupiedCells[0];
 
             _thisCell = Playgrid.GetCell(_intPos);
@@ -155,12 +155,12 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (!_mursAdjacent.Contains(_upWall) && !_mursAdjacent.Contains(_downWall))
                 {
-                    _mesh = MeshSecondaire;
+                    _meshFilter.mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
                 }
                 else
                 {
-                    _mesh = MeshMur;
+                    _meshFilter.mesh = MeshMur;
                     _meshRenderer.material = MaterialPrincipal;
                 }
             }
@@ -171,12 +171,12 @@ namespace Assets.Scripts.Bourg.Achetable
                 if (!_mursAdjacent.Contains(_rightWall) && !_mursAdjacent.Contains(_leftWall))
                 {
                     transform.Rotate(0,90,0);
-                    _mesh = MeshSecondaire;
+                    _meshFilter.mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
                 }
                 else
                 {
-                    _mesh = MeshMur;
+                    _meshFilter.mesh = MeshMur;
                     _meshRenderer.material = MaterialPrincipal;
                 }
             }
@@ -184,7 +184,7 @@ namespace Assets.Scripts.Bourg.Achetable
             //Mur Basique
             else
             {
-                _mesh = MeshMur;
+                _meshFilter.mesh = MeshMur;
                 _meshRenderer.material = MaterialPrincipal;
                 if (_mursAdjacent.Count == 0) return;
                 foreach (Murs wall in _mursAdjacent)

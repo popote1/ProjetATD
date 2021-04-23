@@ -65,7 +65,6 @@ namespace Components
 
         private void Update()
         {
-            Debug.Log("Gold = "+Gold);
             if (!CursorOnUI)
             {
                 if (InputState == InputStat.Building) Building();
@@ -94,6 +93,24 @@ namespace Components
             
             if (SelectedBuildings.Count==1) BPDestroy.gameObject.SetActive(true);
             else BPDestroy.gameObject.SetActive(false);
+
+            if (Input.GetKeyDown("i"))
+            {
+                Cell cell = _playGrid.GetCell(_selsectdCell);
+                Debug.Log("position "+ cell.Position +"\n"
+                          +"IndividualeMovevalue "+ cell.IndividualMoveValue+"\n"
+                          +"MoveValue "+cell.MoveValue+ "\n"
+                          +"IsNonWalkable "+cell.IsNonWalkable +"\n"
+                          +"MoveVector "+cell.MoveVector +"\n"
+                          +"DragFactor "+cell.DragFactor+"\n"
+                          +"Batiment "+cell.Batiment+"\n"
+                          +"IsPlayble "+cell.IsPlayble+"\n"
+                          +"IsRoad "+cell.IsRoad+"\n"
+                          +"IsWall "+cell.IsWall+"\n"
+                          +"ConstructionTile "+cell.ConstructionTile+"\n"
+                          +"SecurityValue "+cell.SecurityValue
+                );
+            }
         }
 
         public void SetOnCursorBool(bool value)
@@ -301,6 +318,18 @@ namespace Components
             if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
             return cells;
         }
+        private List<Vector2Int> GetBuildingVec7by3(Vector2Int origin)
+        {
+            List<Vector2Int> cells = new List<Vector2Int>();
+            for (int x = origin.x-3; x < origin.x+4; x++) {
+                for (int y = origin.y-1; y < origin.y+2; y++)
+                {
+                    if (_playGrid.CheckIfInGrid(new Vector2Int(x,y))) 
+                        cells.Add(new Vector2Int(x,y));
+                }
+            }
+            return cells;
+        }
        /* public bool BuildPutNewBuilding(Vector2Int pos , Batiment bat)
         {
             List<Vector2Int> neigbors = new List<Vector2Int>();
@@ -334,8 +363,9 @@ namespace Components
            if (bat.CellNeeded <= 1) neigbors = GetBuildingVec1by1(pos);
            else if (bat.CellNeeded == 2) neigbors = GetBuildingVec2by2(pos);
            else if (bat.CellNeeded == 3) neigbors = GetBuildingVec3by3(pos);
+           else if (bat.CellNeeded==7) neigbors = GetBuildingVec7by3(pos);
            else return false;
-           if (neigbors.Count!=bat.CellNeeded*bat.CellNeeded)return false;
+           if (bat.CellNeeded!=7&&neigbors.Count!=bat.CellNeeded*bat.CellNeeded||(bat.CellNeeded==7&&neigbors .Count!=21))return false;
            foreach (Vector2Int vec in neigbors) {
                if (_playGrid.GetCell(vec).Batiment != null) {
                    return false;
@@ -355,7 +385,11 @@ namespace Components
                }
            }
            Batiments.Add(batiment);
-           foreach (Vector2Int vec in neigbors) _playGrid.GetCell(vec).Batiment = batiment;
+           foreach (Vector2Int vec in neigbors)
+           {
+               if (bat is Murs) _playGrid.GetCell(vec).IsWall = true;
+               _playGrid.GetCell(vec).Batiment = batiment;
+           }
            return true;
        }
     }
