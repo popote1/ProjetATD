@@ -52,9 +52,12 @@
             <e p="Maison.cs" t="Include" />
           </e>
           <e p="Components" t="Include">
+            <e p="AsycSceneStarterComponent.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
+            <e p="MainMenuManagerComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
             <e p="SmoothTerrain.cs" t="Include" />
+            <e p="SmoothTerrainLoading.cs" t="Include" />
             <e p="TerrainGenerator.cs" t="Include" />
             <e p="TestSceneAutoStarterComponant.cs" t="Include" />
             <e p="TimeManagerComponent.cs" t="Include" />

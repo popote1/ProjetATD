@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Tree
   - Murs
+  - Manager
   layers:
   - Default
   - TransparentFX
