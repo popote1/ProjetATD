@@ -20,7 +20,7 @@ MonoBehaviour:
   IsBoss: 0
   MagicResistance: 0
   PhysicResistance: 0
-  PrefabMorts: {fileID: 0}
+  PrefabMorts: {fileID: 3130726305137273550, guid: 0054da96528c52442a453e4b1bf7893b, type: 3}
   Layer: Ghost
   CanBePushed: 0
   IsMagic: 0

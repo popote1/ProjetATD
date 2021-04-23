@@ -20,6 +20,7 @@ namespace Enemies
 
         private bool canAttack;
         private bool isBoss;
+        private bool isNotSetted = true;
 
 
         //Initialisation
@@ -32,16 +33,25 @@ namespace Enemies
             _col = GetComponent<CircleCollider2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _anim = GetComponent<Animator>();
-            CanGetPushed = Enemy.CanBePushed;
-        
-            _anim.runtimeAnimatorController = Enemy.AnimationsController;
-            _spriteRenderer.sprite = Enemy.Sprite;
-            _attackTimer = Enemy.AttackSpeed;
-            transform.localScale = Enemy.Size;
-            isBoss = Enemy.IsBoss;
 
-            CurrentHp = Enemy.HP;
             canAttack = true;
+        }
+
+        //SetEnemyPrefab
+        private void SetEnnemy()
+        {
+            if (Enemy != null)
+            {
+                CanGetPushed = Enemy.CanBePushed;
+                _anim.runtimeAnimatorController = Enemy.AnimationsController;
+                _spriteRenderer.sprite = Enemy.Sprite;
+                _attackTimer = Enemy.AttackSpeed;
+                transform.localScale = Enemy.Size;
+                isBoss = Enemy.IsBoss;
+                CurrentHp = Enemy.HP;
+                isNotSetted = false;
+
+            }
         }
 
         //Replace w/ BetaUpdate
@@ -50,6 +60,11 @@ namespace Enemies
             if (!isBoss)
             {
                 Move();
+            }
+
+            if (isNotSetted)
+            {
+                SetEnnemy();
             }
         }
 

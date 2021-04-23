@@ -4,13 +4,14 @@ namespace Enemies
 {
     public class WaveSO : ScriptableObject
     {
-        [Header("Prefabs")] 
-        public GameObject Orc;
-        public GameObject Ghost;
-        public GameObject Warg;
-        public GameObject Troll;
-        public GameObject Drake;
-        
+        [Header("Prefabs & SO")] 
+        public GameObject EnemyPrefab;
+        public EnemySO OrcSO;
+        public EnemySO WargSO;
+        public EnemySO TrollSO;
+        public EnemySO GhostSO;
+        public EnemySO DrakeSO;
+
         
         [Header("Wave Settings")]
         public int NombreOrcs;
@@ -18,7 +19,6 @@ namespace Enemies
         public int NombreWargs;
         public int NombreTrolls;
         public int NombreDrake;
-        public float EndWavePercentage;
         public float TimeToWait;
 
 
