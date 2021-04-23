@@ -67,7 +67,7 @@ namespace Components
 
 
 
-        void Start()
+        void Awake()
         {
             _mesh = new Mesh();
             GetComponent<MeshFilter>().mesh = _mesh;
@@ -175,6 +175,7 @@ namespace Components
                     if (_vertices[vert + 0].z == 0 && _vertices[vert + 1].z == 0 &&
                         _vertices[vert + width + 1].z == 0 && _vertices[vert + width + 2].z == 0) {
                         playgrid.GetCell(new Vector2Int(x, y)).IsNonWalkable = false;
+                        playgrid.GetCell(new Vector2Int(x, y)).IsPlayble = true;
                     }
                     else {
                         playgrid.GetCell(new Vector2Int(x, y)).IsNonWalkable = true;
@@ -188,12 +189,19 @@ namespace Components
         }
 
         [ContextMenu("Generate Roads")]
-        public void GenerateRoads() {
+        public void GenerateRoads()
+        {
+            List<Vector2Int> SpawnZone = new List<Vector2Int>();
             foreach (var road in Roads) {
                 road.GeneratProceduralRoad();
-                foreach (Vector2Int pos in road.GetRoadTiles()) playgrid.GetCell(pos).IsRoad = true;
+                foreach (Vector2Int pos in road.GetRoadTiles())
+                {
+                    playgrid.GetCell(pos).IsRoad = true;
+                    if (pos.y>97)SpawnZone.Add(pos);
+                }
                 road.UpdateRoad();
             }
+            GameManagerComponent.EnnemisSpawnZones =SpawnZone;
         }
 
         /*  [ContextMenu("Generate Rouds")]

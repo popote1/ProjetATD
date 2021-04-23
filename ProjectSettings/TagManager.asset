@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tower
   - Enemy
+  - Tree
+  - Murs
   layers:
   - Default
   - TransparentFX

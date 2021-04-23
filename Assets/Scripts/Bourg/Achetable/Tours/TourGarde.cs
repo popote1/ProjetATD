@@ -23,7 +23,6 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
         [Header("Utilities")]
         public int SpawnScore;
-        public GameObject OutLine;
         public AudioSource AudioSource;
         public CircleCollider2D AutoCollider2D;
         //TEMP
@@ -164,11 +163,11 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
         
         //Outline activator
-        public void OnSelect()
+        public override void OnSelect()
         {
             _isSelected = true;
         }
-        public void OnDeselect()
+        public override void OnDeselect()
         {
             _isSelected = false;
         }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using System.Diagnostics;
@@ -104,6 +105,45 @@ namespace PlaneC
             if (CheckIfInGrid(pos))  return GetCell(pos).IsNonWalkable;
             return true;
         }
-        
+
+        public Vector2Int[] GetBuildingAura(Vector2Int center, int buildingSize, int AuraSize)
+        {
+            Vector2Int startmod;
+            Vector2Int endmod ;
+            if (buildingSize % 2 == 1) {
+                startmod = new Vector2Int(Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f));
+                endmod =new Vector2Int( Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f));
+            }
+            else {
+                startmod = new Vector2Int(Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f)-1);
+                endmod =new Vector2Int( Mathf.FloorToInt(AuraSize / 2f),Mathf.FloorToInt(AuraSize / 2f)+1);
+            }
+            List<Vector2Int> auraSize = new List<Vector2Int>();
+            Vector2Int startpos = center - new Vector2Int(AuraSize, AuraSize)-startmod;
+            for (int x = startpos.x; x < center.x+AuraSize+endmod.x; x++) {
+                for (int y = startpos.y; y < center.y+AuraSize+endmod.y; y++) {
+                    if (CheckIfInGrid(new Vector2Int(x, y))) auraSize.Add(new Vector2Int(x,y));
+                }
+            }
+            return auraSize.ToArray();
+        }
+
+        public Vector2Int GetOriginalBuildingCenter(Vector2Int[] celltaken)
+        {
+            if (celltaken.Length == 1) return celltaken[0];
+            if (celltaken.Length == 4)
+            {
+                int x = Int32.MinValue;
+                int y = Int32.MaxValue;
+                foreach (var cell in celltaken)
+                {
+                    if (cell.x > x) x = cell.x;
+                    if (cell.y < y) y = cell.y;
+                }
+                return new Vector2Int(x, y);
+            }
+
+            return Vector2Int.zero;
+        }
     }
 }

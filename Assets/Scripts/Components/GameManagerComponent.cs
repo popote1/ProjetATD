@@ -3,6 +3,8 @@ using UnityEngine;
 using PlaneC;
 using System.Collections.Generic;
 using System.Collections;
+using Assets.Scripts.Bourg;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace Components
@@ -23,7 +25,16 @@ namespace Components
         private bool _IsReadyToCalculateFlowFlield;
 
         [Header("Home Building")] 
+        public bool IsUsingHomeSysteme;
         public float HomeBuildingTimer;
+        public Batiment PrefabsHome;
+        [Header("Debug")] 
+        public List<Vector2Int> EnnemisSpawnZones; 
+        public bool IsUsingSmoothTerrain;
+        public bool DebugShowSecuritiyTiles;
+        public Gradient DebugSecurityGradiant;
+        private bool _debugSecutity=false;
+        
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
@@ -50,6 +61,13 @@ namespace Components
             }
         }
 
+        private void Update()
+        {
+            DebugSecurity();
+            if (IsUsingHomeSysteme)
+                HomeTimer();
+        }
+
         public void SetPlayGrid(PlayGrid playgrid, int width, int height)
         {
             Width = width;
@@ -67,6 +85,33 @@ namespace Components
             PlayManagerComponent.SetPlayGrid(playgrid);
         }
 
+        private void DebugSecurity()
+        {
+            if (DebugShowSecuritiyTiles) {
+                _debugSecutity = true;
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.ConstructionTile != null && cell.SecurityValue > 0) {
+                        cell.ConstructionTile.SetActive(true);
+                        cell.ConstructionTile.GetComponentInChildren<SpriteRenderer>().color =
+                            DebugSecurityGradiant.Evaluate((float)cell.SecurityValue / 100);
+                    }
+                    else if (cell.ConstructionTile != null && cell.SecurityValue < 0) {
+                        cell.ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+
+            if (!DebugShowSecuritiyTiles && _debugSecutity) {
+                _debugSecutity = false;
+                foreach (Cell cell in PlayGrid.Cells) {
+                    if (cell.ConstructionTile != null) {
+                        cell.ConstructionTile.SetActive(false);
+                    }
+                }
+            }
+
+        }
+
         [ContextMenu("Set Map")]
         public void SetTerrain()
         {
@@ -80,9 +125,11 @@ namespace Components
             SmoothTerrain.height = TerrainGenerator.height;
             SmoothTerrain.width = SmoothTerrain.width;
             SmoothTerrain.InputMeshFilter = TerrainGenerator.GetComponent<MeshFilter>();
-            TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
-            SmoothTerrain.GenerateSmoothMesh();
-            
+            if (IsUsingSmoothTerrain)
+            {
+                TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
+                SmoothTerrain.GenerateSmoothMesh();
+            }
         }
         [ContextMenu("GetHashCode")]
         public void GetHashCode()
@@ -158,7 +205,7 @@ namespace Components
             do
             {
                 foreach (Cell cell in PlayGrid.Cells) {
-                    if (cell.IsPlayble && cell.Batiment != null&&cell.SecurityValue < mexSecurityFactor) {
+                    if (cell.IsPlayble && cell.Batiment == null&&cell.SecurityValue < mexSecurityFactor) {
                         if (cell.SecurityValue > selectedValue) {
                             buildingCell.Clear();
                             selectedValue = cell.SecurityValue; 
@@ -169,11 +216,26 @@ namespace Components
                         }
                     }
                 }
-                
-            } while (homeBuild == false);
-            
-            
 
+                
+                if (buildingCell.Count>0)mexSecurityFactor = buildingCell[0].SecurityValue;
+
+                while (buildingCell.Count > 0)
+                {
+                    Cell cell = buildingCell[UnityEngine.Random.Range(0, buildingCell.Count)];
+                    if (PlayManagerComponent.BuildPutNewBuilding(cell.Position, PrefabsHome, true))
+                    {
+                        homeBuild = true;
+                        break;
+                    }
+                    else
+                    {
+                        buildingCell.Remove(cell);
+                    }
+                }
+                if (selectedValue == 0) break;
+                selectedValue = 0;
+            } while (homeBuild == false);
         }
     }
 }

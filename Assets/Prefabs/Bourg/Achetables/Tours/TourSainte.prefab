@@ -376,13 +376,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2eec9fdd4fdfb747b437cc857b9e98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 0
-  CurrentHp: 0
-  CellNeeded: 0
+  Hp: 500
+  CurrentHp: 500
+  CellNeeded: 2
   OccupiedCells: []
-  IndividualMoveFactor: 0
+  IndividualMoveFactor: 25
   Position: {x: 0, y: 0}
-  Prix: 0
+  PhysicDamagesResistance: 0
+  MagicDamagesResistance: 0
+  SecurityRange: 4
+  SecurityValue: 20
+  Prix: 150
+  OutLine: {fileID: 3563357598265500167}
   AutoRange: 0
   AutoMagicDamages: 0
   AutoFireRate: 0
@@ -396,7 +401,6 @@ MonoBehaviour:
   PassiveRate: 0
   PassiveRange: 0
   SpawnScore: 0
-  OutLine: {fileID: 3563357598265500167}
   AudioSource: {fileID: 590259762258691545}
   LineRenderer: {fileID: 7587766764414387936}
   LaserLiveTime: 0

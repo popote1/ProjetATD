@@ -19,6 +19,9 @@ namespace Assets.Scripts.Bourg
         public int PhysicDamagesResistance;
         public int MagicDamagesResistance;
 
+        public int SecurityRange;
+        public int SecurityValue;
+
         private void Start()
         {
 	        Playgrid ??= GameObject.FindGameObjectWithTag("PlayGrid").GetComponent<PlayGrid>();
@@ -29,6 +32,15 @@ namespace Assets.Scripts.Bourg
         private void OnDestroy()
         {
 	        PlayerManagerComponent.Batiments.Remove(this);
+	        if (SecurityValue != 0)
+	        {
+		       Vector2Int[] aura = Playgrid.GetBuildingAura(Playgrid.GetOriginalBuildingCenter(OccupiedCells.ToArray()),
+			        (int) Mathf.Sqrt(OccupiedCells.Count), SecurityRange);
+		       foreach (Vector2Int vec in aura)
+		       {
+			       Playgrid.GetCell(vec).SecurityValue -= SecurityValue;
+		       }
+	        }
         }
 
         public void TakePhysicDamages(int damages)
