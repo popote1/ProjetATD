@@ -15,7 +15,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
         if (Go != null)
         {
             GameManagerComponent.Seed = Go.GetComponent<MainMenuManagerComponent>().Seed;
-            
+            Go.GetComponent<MainMenuManagerComponent>().SmoothTerrainLoading = SmoothTerrainLoading;
         }
         
     }

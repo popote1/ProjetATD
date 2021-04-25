@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Components;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -14,17 +15,34 @@ public class MainMenuManagerComponent : MonoBehaviour
     public GameObject PanelBourgName;
     public GameObject PanelOption;
     public GameObject PanelCredit;
+    public UIElementComponent MainMenu;
+    public UIElementComponent BourgName;
+    public UIElementComponent Option;
+    public UIElementComponent Credit;
 
     public TMP_InputField InputFieldBorgName;
     public string Seed;
 
+    [Header("Loading Screen")] 
+    public Canvas CanvasLoading;
+    public CanvasGroup CanvasGroupLoading;
+    public Slider SliderLoading;
+    public TMP_Text TxtLoadingValue;
+    public float FadeTime;
+
+    [HideInInspector]public SmoothTerrainLoading SmoothTerrainLoading;
+    
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(CanvasLoading);
     }
 
     public void UIClickPlay()
     {
+        //MainMenu.Desactivat();
+        //BourgName.Activate();
         PanelMainMenu.SetActive(false);
         PanelBourgName.SetActive(true);
     }
@@ -35,6 +53,13 @@ public class MainMenuManagerComponent : MonoBehaviour
         PanelOption.SetActive(false);
         PanelBourgName.SetActive(false);
         PanelMainMenu.SetActive(true);
+    }
+
+    public void UIBourgReturn()
+    {
+        //BourgName.Desactivat();
+        //MainMenu.Activate();
+        UIReturnToMainMenu();
     }
 
     public void UILaunchGame()
@@ -63,13 +88,32 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     IEnumerator LoadingScene()
     {
-        AsyncOperation loading =SceneManager.LoadSceneAsync(1);
-        while (!loading.isDone)
+        float loadingValur = 0;
+        bool terrainReady = false;
+        DOTweenModuleUI.DOFade(CanvasGroupLoading, 1, FadeTime);
+        while (CanvasGroupLoading.alpha<1f)
         {
-            Debug.Log(loading.progress);
             yield return null;
         }
         
+        AsyncOperation loading =SceneManager.LoadSceneAsync(1);
+        while (!loading.isDone||!terrainReady)
+        {
+            if (SmoothTerrainLoading == null) loadingValur = loading.progress / 5f;
+            else
+            {
+                if (SmoothTerrainLoading.LoadingProgress == 1)
+                {
+                    Debug.Log("Terrain ready"+ SmoothTerrainLoading.LoadingProgress);
+                    terrainReady = true;
+                }
+                loadingValur = (loading.progress + SmoothTerrainLoading.LoadingProgress * 4) / 5f;
+            }
+            SliderLoading.value = loadingValur;
+            TxtLoadingValue.text = Mathf.FloorToInt(loadingValur *100)+ "%";
+            yield return null;
+        }
+        DOTweenModuleUI.DOFade(CanvasGroupLoading, 0, FadeTime);
 
     }
     

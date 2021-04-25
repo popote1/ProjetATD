@@ -13,6 +13,7 @@ public class SmoothTerrainLoading : MonoBehaviour
     public Gradient Gradient;
     public MeshFilter InputMeshFilter;
     public AnimationCurve Interpolationtest;
+    public float LoadingProgress =0;
 
     public bool InUpdate;
 
@@ -92,6 +93,7 @@ public class SmoothTerrainLoading : MonoBehaviour
 
             }
             Debug.Log((float)y/height*100+"%");
+            LoadingProgress = (float)y / height;
             yield return new WaitForSeconds(0.001f);
         }
 
@@ -171,8 +173,8 @@ public class SmoothTerrainLoading : MonoBehaviour
         tempX = Mathf.Clamp(tempX, 0, width);
         tempY = Mathf.Clamp(tempY, 0, height);
 
-        Debug.Log("traitement de la subVertice" + subVertice + " depui les coordoner" + x + "," + y + " vers " + tempX +
-                  "," + tempY);
+       // Debug.Log("traitement de la subVertice" + subVertice + " depui les coordoner" + x + "," + y + " vers " + tempX +
+       //           "," + tempY);
         return (InputMeshFilter.mesh.vertices[originalVetice].z
                 + InputMeshFilter.mesh.vertices[tempY * (width + 1) + x].z
                 + InputMeshFilter.mesh.vertices[y * (width + 1) + tempX].z
