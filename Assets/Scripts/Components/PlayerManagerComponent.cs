@@ -41,6 +41,8 @@ namespace Components
         public Button BPDestroy;
         public TMP_Text TxtGoldText;
         public CanvasGroup PanelFondInsufisant;
+        public UIElementComponent PauseMenu;
+        public bool IsPause;
         
 
 
@@ -51,7 +53,7 @@ namespace Components
         private bool _press;
         private List<Vector2Int> _preselectedCell = new List<Vector2Int>();
         private Vector3 _lastCursorPos;
-        
+
         public enum InputStat
         {
             none, Building , AddEnnemis, Selecting
@@ -65,51 +67,57 @@ namespace Components
 
         private void Update()
         {
-            if (!CursorOnUI)
+            if (!IsPause)
             {
-                if (InputState == InputStat.Building) Building();
-                if (InputState == InputStat.AddEnnemis) AddEnnemis();
-                if (InputState == InputStat.none) DragCamera();
-            }
-
-            if (_playGrid != null)
-            {
-                //_playGrid = GameManagerComponent.PlayGrid;
-                RaycastHit hit;
-                if (Physics.Raycast(Camera.ScreenPointToRay(Input.mousePosition), out hit))
+                if (!CursorOnUI)
                 {
-                    if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point)))
-                    {
-                        _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
-                        _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell) + new Vector3(0, 0, -0.5f);
-                    }
-                    if (_cursor != null)
-                        _cursor.transform.position = Vector3.Lerp(_cursor.transform.position, _cursorTaget, 
-                            Time.deltaTime * CursorSmoothFactor);
+                    if (InputState == InputStat.Building) Building();
+                    if (InputState == InputStat.AddEnnemis) AddEnnemis();
+                    if (InputState == InputStat.none) DragCamera();
                 }
-            }
-            TxtGoldText.text = "Gold : " + Gold;
-            PanelFondInsufisant.alpha = Mathf.Lerp( PanelFondInsufisant.alpha,0f, 0.01f);
-            
-            if (SelectedBuildings.Count==1) BPDestroy.gameObject.SetActive(true);
-            else BPDestroy.gameObject.SetActive(false);
 
-            if (Input.GetKeyDown("i"))
-            {
-                Cell cell = _playGrid.GetCell(_selsectdCell);
-                Debug.Log("position "+ cell.Position +"\n"
-                          +"IndividualeMovevalue "+ cell.IndividualMoveValue+"\n"
-                          +"MoveValue "+cell.MoveValue+ "\n"
-                          +"IsNonWalkable "+cell.IsNonWalkable +"\n"
-                          +"MoveVector "+cell.MoveVector +"\n"
-                          +"DragFactor "+cell.DragFactor+"\n"
-                          +"Batiment "+cell.Batiment+"\n"
-                          +"IsPlayble "+cell.IsPlayble+"\n"
-                          +"IsRoad "+cell.IsRoad+"\n"
-                          +"IsWall "+cell.IsWall+"\n"
-                          +"ConstructionTile "+cell.ConstructionTile+"\n"
-                          +"SecurityValue "+cell.SecurityValue
-                );
+                if (_playGrid != null)
+                {
+                    //_playGrid = GameManagerComponent.PlayGrid;
+                    RaycastHit hit;
+                    if (Physics.Raycast(Camera.ScreenPointToRay(Input.mousePosition), out hit))
+                    {
+                        if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point)))
+                        {
+                            _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
+                            _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell) +
+                                           new Vector3(0, 0, -0.5f);
+                        }
+
+                        if (_cursor != null)
+                            _cursor.transform.position = Vector3.Lerp(_cursor.transform.position, _cursorTaget,
+                                Time.deltaTime * CursorSmoothFactor);
+                    }
+                }
+
+                TxtGoldText.text = "Gold : " + Gold;
+                PanelFondInsufisant.alpha = Mathf.Lerp(PanelFondInsufisant.alpha, 0f, 0.01f);
+
+                if (SelectedBuildings.Count == 1) BPDestroy.gameObject.SetActive(true);
+                else BPDestroy.gameObject.SetActive(false);
+
+                if (Input.GetKeyDown("i"))
+                {
+                    Cell cell = _playGrid.GetCell(_selsectdCell);
+                    Debug.Log("position " + cell.Position + "\n"
+                              + "IndividualeMovevalue " + cell.IndividualMoveValue + "\n"
+                              + "MoveValue " + cell.MoveValue + "\n"
+                              + "IsNonWalkable " + cell.IsNonWalkable + "\n"
+                              + "MoveVector " + cell.MoveVector + "\n"
+                              + "DragFactor " + cell.DragFactor + "\n"
+                              + "Batiment " + cell.Batiment + "\n"
+                              + "IsPlayble " + cell.IsPlayble + "\n"
+                              + "IsRoad " + cell.IsRoad + "\n"
+                              + "IsWall " + cell.IsWall + "\n"
+                              + "ConstructionTile " + cell.ConstructionTile + "\n"
+                              + "SecurityValue " + cell.SecurityValue
+                    );
+                }
             }
         }
 

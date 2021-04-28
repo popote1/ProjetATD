@@ -34,7 +34,7 @@ namespace Enemies
             _anim = GetComponent<Animator>();
             CanGetPushed = Enemy.CanBePushed;
         
-            _anim.runtimeAnimatorController = Enemy.AnimationsController;
+            //_anim.runtimeAnimatorController = Enemy.AnimationsController;
             _spriteRenderer.sprite = Enemy.Sprite;
             _attackTimer = Enemy.AttackSpeed;
             transform.localScale = Enemy.Size;

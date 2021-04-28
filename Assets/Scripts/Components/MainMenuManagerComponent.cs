@@ -37,14 +37,17 @@ public class MainMenuManagerComponent : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(CanvasLoading);
+        Option.Desactivat();
+        BourgName.Desactivat();
+        Credit.Desactivat();
     }
 
     public void UIClickPlay()
     {
-        //MainMenu.Desactivat();
+        MainMenu.Desactivat();
         //BourgName.Activate();
-        PanelMainMenu.SetActive(false);
-        PanelBourgName.SetActive(true);
+       // PanelMainMenu.SetActive(false);
+        BourgName.Activate();
     }
 
     public void UIReturnToMainMenu()
@@ -57,28 +60,45 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     public void UIBourgReturn()
     {
+        BourgName.Desactivat();
         //BourgName.Desactivat();
-        //MainMenu.Activate();
-        UIReturnToMainMenu();
+        MainMenu.Activate();
+       // UIReturnToMainMenu();
     }
 
     public void UILaunchGame()
     {
         Debug.Log("Lancement du jeu");
         StartCoroutine(LoadingScene());
-
     }
+    
 
     public void UIOption()
     {
-        PanelMainMenu.SetActive(false);
-        PanelOption.SetActive(true);
+        Option.Activate();
+        MainMenu.Desactivat();
+       // PanelMainMenu.SetActive(false);
+       // PanelOption.SetActive(true);
+    }
+
+    public void UIOptionReturn()
+    {
+        MainMenu.Activate();
+        Option.Desactivat();
     }
 
     public void UICredits()
     {
-        PanelMainMenu.SetActive(false);
-        PanelCredit.SetActive(true);
+        Credit.Activate();
+        MainMenu.Desactivat();
+       // PanelMainMenu.SetActive(false);
+       // PanelCredit.SetActive(true);
+    }
+
+    public void UICreaditsReturn()
+    {
+        Credit.Desactivat();
+        MainMenu.Activate();
     }
 
     public void UIQuit()
@@ -113,8 +133,13 @@ public class MainMenuManagerComponent : MonoBehaviour
             TxtLoadingValue.text = Mathf.FloorToInt(loadingValur *100)+ "%";
             yield return null;
         }
-        DOTweenModuleUI.DOFade(CanvasGroupLoading, 0, FadeTime);
+        DOTweenModuleUI.DOFade(CanvasGroupLoading, 0, FadeTime).SetUpdate(true).OnComplete(SelfDestroy);
 
+    }
+
+    private void SelfDestroy()
+    {
+        Destroy(gameObject);
     }
     
     

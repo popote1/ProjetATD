@@ -80,8 +80,11 @@
             <e p="Singleton.cs" t="Include" />
           </e>
           <e p="UIComponent" t="Include">
+            <e p="UIBigMenuCOmponent.cs" t="Include" />
+            <e p="UIButtonAnimationComponent.cs" t="Include" />
             <e p="UIElementComponent.cs" t="Include" />
             <e p="UIPanel1Comonent.cs" t="Include" />
+            <e p="UIPauseManagerComponent.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
