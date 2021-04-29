@@ -51,9 +51,13 @@
           </e>
           <e p="Components" t="Include">
             <e p="AsycSceneStarterComponent.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="InGameUIManagerComponent.cs" t="Include" />
+            <e p="LangueManager.cs" t="Include" />
+            <e p="LangueTextSetter.cs" t="Include" />
             <e p="MainMenuManagerComponent.cs" t="Include" />
+            <e p="PemanentLimitateurComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
             <e p="SmoothTerrain.cs" t="Include" />
             <e p="SmoothTerrainLoading.cs" t="Include" />

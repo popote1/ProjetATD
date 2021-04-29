@@ -19,6 +19,9 @@ public class MainMenuManagerComponent : MonoBehaviour
     public UIElementComponent BourgName;
     public UIElementComponent Option;
     public UIElementComponent Credit;
+    [Header("UI Options")] 
+    public TMP_Text TxtLangue;
+    
 
     public TMP_InputField InputFieldBorgName;
     public string Seed;
@@ -32,6 +35,8 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     [HideInInspector]public SmoothTerrainLoading SmoothTerrainLoading;
     
+    
+    
 
     private void Start()
     {
@@ -40,6 +45,8 @@ public class MainMenuManagerComponent : MonoBehaviour
         Option.Desactivat();
         BourgName.Desactivat();
         Credit.Desactivat();
+        TxtLangue.text = LangueManager.SelectTextData.Tests[1];
+
     }
 
     public void UIClickPlay()
@@ -134,13 +141,32 @@ public class MainMenuManagerComponent : MonoBehaviour
             yield return null;
         }
         DOTweenModuleUI.DOFade(CanvasGroupLoading, 0, FadeTime).SetUpdate(true).OnComplete(SelfDestroy);
-
     }
 
     private void SelfDestroy()
     {
         Destroy(gameObject);
     }
-    
+
+    public void UINextLangue()
+    {
+        int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text)+1;
+        if (LangueManager.LangueToChose.Count <= index) index = 0;
+        ChangeLangue(index);
+    }
+
+    public void UIPreviewLangue()
+    {
+        int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text)-1;
+        if (0> index) index = LangueManager.LangueToChose.Count -1;
+        ChangeLangue(index);
+    }
+
+    private void ChangeLangue(int index)
+    {
+        Debug.Log("Change de Langue pour l'index"+ index);
+        LangueManager.ChangeLangue(index);
+        TxtLangue.text = LangueManager.SelectTextData.Tests[1];
+    }
     
 }
