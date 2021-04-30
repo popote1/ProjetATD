@@ -19,7 +19,8 @@ namespace Components
         public int Height;
         public bool SetDefaultGrid;
         public GameObject ConstructionTiles;
-
+        public bool IsPause;
+     
         [Header("FlowField Infos")] 
         public Vector2Int Target;
         private bool _IsReadyToCalculateFlowFlield;
@@ -40,6 +41,7 @@ namespace Components
         public PlayerManagerComponent PlayManagerComponent;
         public TerrainGenerator TerrainGenerator;
         public SmoothTerrain SmoothTerrain;
+        public InGameUIManagerComponent InGameUIManagerComponent;
 
         private float _homeTimer;
 
@@ -66,6 +68,39 @@ namespace Components
             DebugSecurity();
             if (IsUsingHomeSysteme)
                 HomeTimer();
+        }
+
+        public void SetStartGame()
+        {
+            Time.timeScale = 1;
+            IsUsingHomeSysteme = true;
+        }
+
+        public void SetPause()
+        {
+            Time.timeScale = 0;
+            PlayManagerComponent.IsPause = true;
+        }
+
+        public void ResetPause()
+        {
+            Time.timeScale = 1;
+            PlayManagerComponent.IsPause = false;
+        }
+        
+[ContextMenu("DoLose")]
+        public void SetLose()
+        {
+            Time.timeScale = 0;
+            IsPause = true; 
+            InGameUIManagerComponent.DoLose();
+        }
+[ContextMenu("DoWin")]
+        public void SetWin()
+        {
+            Time.timeScale = 0;
+            IsPause = true;
+            InGameUIManagerComponent.DoWin();
         }
 
         public void SetPlayGrid(PlayGrid playgrid, int width, int height)
