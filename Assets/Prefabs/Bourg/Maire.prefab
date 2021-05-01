@@ -112,7 +112,7 @@ MonoBehaviour:
   CurrentHp: 10
   CellNeeded: 7
   OccupiedCells: []
-  IndividualMoveFactor: 0
+  IndividualMoveFactor: -5
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0

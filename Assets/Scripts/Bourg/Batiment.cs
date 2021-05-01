@@ -29,7 +29,7 @@ namespace Assets.Scripts.Bourg
 	        CurrentHp = Hp;
         }
 
-        private void OnDestroy()
+        public virtual void OnDestroy()
         {
 	        PlayerManagerComponent.Batiments.Remove(this);
 	        if (SecurityValue != 0)
@@ -40,6 +40,11 @@ namespace Assets.Scripts.Bourg
 		       {
 			       Playgrid.GetCell(vec).SecurityValue -= SecurityValue;
 		       }
+		       foreach (Vector2Int cell in OccupiedCells)
+		       {
+			       Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
+		       }
+		       Debug.Log("Remove building data");
 	        }
         }
 

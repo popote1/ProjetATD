@@ -26,6 +26,11 @@ namespace Components
         public int LimiteBorders = 2;
         [Header(" Roads")]
         public List<RoadAutoCreator> Roads;
+
+        [Header(" Cell Costs")] 
+        public int GroundCost=10;
+        public int RoadCost=5;
+        public int WaterCost=1000;
         [Header("TreeGenerator")] 
         public bool DebugTreeInUpdate;
         public bool DebugUsTreshHold;
@@ -85,6 +90,7 @@ namespace Components
             MakeNewMesh();
             GeneratePlaybleMap();
             GenerateRoads();
+            SetCellCosts();
             GeneratTreeMap();
         }
 
@@ -197,11 +203,35 @@ namespace Components
                 foreach (Vector2Int pos in road.GetRoadTiles())
                 {
                     playgrid.GetCell(pos).IsRoad = true;
+                    playgrid.GetCell(pos).IsNonWalkable = false;
                     if (pos.y>97)SpawnZone.Add(pos);
                 }
                 road.UpdateRoad();
             }
-            GameManagerComponent.EnnemisSpawnZones =SpawnZone;
+
+            foreach (Vector2Int cell in SpawnZone)
+            {
+                GameManagerComponent.EnnemisSpawnZones.Add(playgrid.GetCellCenterWorldPosByCell(cell));
+            }
+        }
+
+        public void SetCellCosts()
+        {
+            foreach (Cell cell in playgrid.Cells)
+            {
+                if (cell.IsRoad)
+                {
+                    cell.IndividualMoveValue = RoadCost;
+                }
+                else if (cell.IsNonWalkable)
+                {
+                    cell.IndividualMoveValue= WaterCost;
+                }
+                else
+                {
+                    cell.IndividualMoveValue = GroundCost;
+                }
+            }
         }
 
         /*  [ContextMenu("Generate Rouds")]
@@ -296,6 +326,7 @@ namespace Components
                          Batiment arbre = Instantiate(PrefabTree, playgrid.GetCellCenterWorldPosByCell(new Vector2Int(x,y))+Vector3.forward*-0.5f, Quaternion.identity,transform);
                             arbre.transform.localScale = arbre.transform.localScale * Random.Range(0.7f, 1.1f);
                             playgrid.GetCell(x, y).Batiment = arbre;
+                            playgrid.GetCell(x, y).IndividualMoveValue += arbre.IndividualMoveFactor;
                      }
                  }
              }

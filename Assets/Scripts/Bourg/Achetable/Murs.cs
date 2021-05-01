@@ -195,7 +195,7 @@ namespace Assets.Scripts.Bourg.Achetable
         }
         
         
-        private void OnDestroy()
+        public override void OnDestroy()
         {
             _thisCell.IsWall = false;
 
@@ -204,6 +204,21 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 wall.CheckAndUpdate();
             }
+            if (SecurityValue != 0)
+            {
+                Vector2Int[] aura = Playgrid.GetBuildingAura(Playgrid.GetOriginalBuildingCenter(OccupiedCells.ToArray()),
+                    (int) Mathf.Sqrt(OccupiedCells.Count), SecurityRange);
+                foreach (Vector2Int vec in aura)
+                {
+                    Playgrid.GetCell(vec).SecurityValue -= SecurityValue;
+                }
+                
+            }
+            foreach (Vector2Int cell in OccupiedCells)
+            {
+                Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
+            }
+            Debug.Log("Remove Wall data");
         }
         
 

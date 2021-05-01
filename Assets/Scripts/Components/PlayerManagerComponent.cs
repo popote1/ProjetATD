@@ -387,6 +387,7 @@ namespace Components
            Batiment batiment = Instantiate(bat, newPos, Quaternion.identity);
            batiment.OccupiedCells = neigbors;
            batiment.Playgrid = _playGrid;
+           batiment.IndividualMoveFactor = bat.IndividualMoveFactor;
            if (batiment.SecurityValue != 0) {
                foreach (Vector2Int cell in _playGrid.GetBuildingAura(pos, bat.CellNeeded, bat.SecurityRange)) {
                    _playGrid.GetCell(cell).SecurityValue += bat.SecurityValue;
@@ -397,6 +398,7 @@ namespace Components
            {
                if (bat is Murs) _playGrid.GetCell(vec).IsWall = true;
                _playGrid.GetCell(vec).Batiment = batiment;
+               _playGrid.GetCell(vec).IndividualMoveValue += bat.IndividualMoveFactor;
            }
            return true;
        }

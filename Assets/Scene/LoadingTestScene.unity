@@ -7969,7 +7969,7 @@ MonoBehaviour:
   SetDefaultGrid: 0
   ConstructionTiles: {fileID: 7431384384895935619, guid: 09d246a5b52286f468345664e76bf1a9, type: 3}
   IsPause: 0
-  Target: {x: 0, y: 0}
+  Target: {x: 20, y: 3}
   IsUsingHomeSysteme: 0
   HomeBuildingTimer: 2
   PrefabsHome: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
@@ -8149,6 +8149,9 @@ MonoBehaviour:
   Roads:
   - {fileID: 1774660509}
   - {fileID: 1218868564}
+  GroundCost: 10
+  RoadCost: 5
+  WaterCost: 1000
   DebugTreeInUpdate: 0
   DebugUsTreshHold: 0
   TreeZome: 0.104

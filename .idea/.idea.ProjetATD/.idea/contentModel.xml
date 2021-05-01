@@ -77,6 +77,8 @@
             <e p="EnemyComponent.cs" t="Include" />
             <e p="EnemySO.cs" t="Include" />
             <e p="WaveSO.cs" t="Include" />
+            <e p="WaveSystem.cs" t="Include" />
+            <e p="WaveSystemeV2Component.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />

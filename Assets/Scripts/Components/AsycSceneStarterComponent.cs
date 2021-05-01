@@ -37,6 +37,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
             Time.timeScale = 0;
             //Destroy(_menuScripte);
             InGameUIManagerComponent.UISetStartDialogue();
+            GameManagerComponent.CalculateFlowField();
             Destroy(gameObject);
         }
     }

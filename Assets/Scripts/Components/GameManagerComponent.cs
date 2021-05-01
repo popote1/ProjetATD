@@ -30,7 +30,7 @@ namespace Components
         public float HomeBuildingTimer;
         public Batiment PrefabsHome;
         [Header("Debug")] 
-        public List<Vector2Int> EnnemisSpawnZones; 
+        public List<Vector3> EnnemisSpawnZones; 
         public bool IsUsingSmoothTerrain;
         public bool DebugShowSecuritiyTiles;
         public Gradient DebugSecurityGradiant;
