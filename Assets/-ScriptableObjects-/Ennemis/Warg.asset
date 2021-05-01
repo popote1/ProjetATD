@@ -24,5 +24,5 @@ MonoBehaviour:
   Layer: 
   CanBePushed: 0
   IsMagic: 0
-  Sprite: {fileID: 0}
-  AnimationsController: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 3be1236af190a9c4297850b29a22bae5, type: 3}
+  AnimationsController: {fileID: 9100000, guid: ef65d637daac5fb44a967eb94e2e2209, type: 2}
