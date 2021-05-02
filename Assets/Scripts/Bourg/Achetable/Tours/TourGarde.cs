@@ -62,7 +62,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActivePhysicDamages;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = false;
-            _powerEffectComponent.IsCurved = false;
+            //_powerEffectComponent.IsCurved = false;
         }
         
         private void Update()

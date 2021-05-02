@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Assets.Scripts.Bourg;
 using UnityEngine.Serialization;
+using Object = System.Object;
 using Random = System.Random;
 
 namespace Components
@@ -23,6 +24,7 @@ namespace Components
      
         [Header("FlowField Infos")] 
         public Vector2Int Target;
+        public float FlowFieldRecalculatFequency = 2;
         private bool _IsReadyToCalculateFlowFlield;
 
         [Header("Home Building")] 
@@ -46,6 +48,7 @@ namespace Components
         public WaveSystemeV2Component WaveSystemeV2Component;
 
         private float _homeTimer;
+        private float _flowfildTimer;
 
 
         private void Start()
@@ -78,7 +81,14 @@ namespace Components
                 SetLose();
                 IsLose = false;
             }
-            
+
+            _flowfildTimer += Time.deltaTime;
+            if (_flowfildTimer > FlowFieldRecalculatFequency&&_IsReadyToCalculateFlowFlield)
+            {
+                _flowfildTimer = 0;
+                CalculateFlowField();
+            }
+
         }
 
         public void SetStartGame()

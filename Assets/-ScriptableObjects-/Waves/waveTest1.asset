@@ -19,7 +19,7 @@ MonoBehaviour:
   GhostSO: {fileID: 11400000, guid: 89a6da2ebba73f64a8fb59fd69544a79, type: 2}
   DrakeSO: {fileID: 0}
   NombreOrcs: 10
-  NombreGhost: 0
+  NombreGhost: 10
   NombreWargs: 0
   NombreTrolls: 0
   NombreDrake: 0

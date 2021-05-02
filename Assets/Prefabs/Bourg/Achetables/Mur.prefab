@@ -50,6 +50,7 @@ MonoBehaviour:
   CellNeeded: 1
   OccupiedCells: []
   IndividualMoveFactor: 90
+  DragFactor: 0
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0
@@ -57,10 +58,12 @@ MonoBehaviour:
   SecurityValue: 5
   Prix: 30
   OutLine: {fileID: 0}
-  MeshMur: {fileID: -5495902117074765545, guid: 001c25b6d9b32f2468dc670beecfc789, type: 3}
+  MeshMur: {fileID: -3191526996811961001, guid: 74f6e73b99f56184ebca738f04eef66b, type: 3}
   MeshSecondaire: {fileID: -5495902117074765545, guid: b4042fb924c73e44b9e44af4c1fb97c7, type: 3}
   MaterialPrincipal: {fileID: -876546973899608171, guid: 80f5e09d77986c94d9b7063be20f4cc9, type: 3}
   MaterialSecondaire: {fileID: -876546973899608171, guid: 80f5e09d77986c94d9b7063be20f4cc9, type: 3}
+  checkedNeighbours: []
+  IntPos: {x: 0, y: 0}
 --- !u!23 &8231369200097006708
 MeshRenderer:
   m_ObjectHideFlags: 0

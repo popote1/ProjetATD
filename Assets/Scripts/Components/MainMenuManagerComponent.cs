@@ -117,6 +117,14 @@ public class MainMenuManagerComponent : MonoBehaviour
     {
         float loadingValur = 0;
         bool terrainReady = false;
+        if (CanvasGroupLoading == null)
+        {
+            PemanentLimitateurComponent pm=GameObject.Find("LoadingScreen").GetComponent<PemanentLimitateurComponent>();
+            CanvasLoading = pm.CanvasLoading;
+            CanvasGroupLoading = pm.CanvasGroupLoading;
+            SliderLoading=pm.SliderLoading;
+            TxtLoadingValue = pm.TxtLoadingValue;
+        }
         DOTweenModuleUI.DOFade(CanvasGroupLoading, 1, FadeTime);
         while (CanvasGroupLoading.alpha<1f)
         {

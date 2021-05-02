@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073db44d015ba524a9abc5aafcc20318, type: 3}
   m_Name: Troll
   m_EditorClassIdentifier: 
-  Speed: 0
-  HP: 0
-  Damages: 0
-  AttackSpeed: 0
-  Size: {x: 0, y: 0, z: 0}
+  Speed: 4
+  HP: 50
+  Damages: 15
+  AttackSpeed: 1
+  Size: {x: 2, y: 2, z: 2}
   IsBoss: 0
   MagicResistance: 0
   PhysicResistance: 0
@@ -25,4 +25,3 @@ MonoBehaviour:
   CanBePushed: 0
   IsMagic: 0
   Sprite: {fileID: 21300000, guid: 11f71d73f58f5c642a2adaa3cf03a3ed, type: 3}
-  AnimationsController: {fileID: 9100000, guid: 3fdbb14ae497e1b4db313d805aa20e8c, type: 2}
