@@ -1,8 +1,6 @@
-using System;
-using UnityEditor.Rendering;
+
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class TimeManagerComponent : Singleton<TimeManagerComponent> {
 

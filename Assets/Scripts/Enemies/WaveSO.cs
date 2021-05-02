@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Enemies
 {
+    [CreateAssetMenu(fileName = "newWave" , menuName = "WaveSO")]
     public class WaveSO : ScriptableObject
     {
         [Header("Prefabs & SO")] 

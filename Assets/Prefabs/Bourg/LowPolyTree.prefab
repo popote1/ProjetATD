@@ -76,8 +76,12 @@ MonoBehaviour:
   CellNeeded: 0
   OccupiedCells:
   - {x: 0, y: 0}
-  IndividualMoveFactor: 0
+  IndividualMoveFactor: 10
   Position: {x: 0, y: 0}
+  PhysicDamagesResistance: 0
+  MagicDamagesResistance: 0
+  SecurityRange: 0
+  SecurityValue: 0
 --- !u!1001 &9071188932714095033
 PrefabInstance:
   m_ObjectHideFlags: 0

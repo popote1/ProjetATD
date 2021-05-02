@@ -1,8 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Timers;
 using Enemies;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Bourg.Achetable.Tours

@@ -273,9 +273,17 @@
             <e p="Maison.cs" t="Include" />
           </e>
           <e p="Components" t="Include">
+            <e p="AsycSceneStarterComponent.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
+            <e p="InGameUIManagerComponent.cs" t="Include" />
+            <e p="LangueManager.cs" t="Include" />
+            <e p="LangueTextSetter.cs" t="Include" />
+            <e p="MainMenuManagerComponent.cs" t="Include" />
+            <e p="PemanentLimitateurComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
             <e p="SmoothTerrain.cs" t="Include" />
+            <e p="SmoothTerrainLoading.cs" t="Include" />
             <e p="TerrainGenerator.cs" t="Include" />
             <e p="TestSceneAutoStarterComponant.cs" t="Include" />
             <e p="TimeManagerComponent.cs" t="Include" />
@@ -293,11 +301,19 @@
             <e p="EnemySO.cs" t="Include" />
             <e p="WaveSO.cs" t="Include" />
             <e p="WaveSystem.cs" t="Include" />
+            <e p="WaveSystemeV2Component.cs" t="Include" />
           </e>
           <e p="PlaneC" t="Include">
             <e p="Cell.cs" t="Include" />
             <e p="PlayGrid.cs" t="Include" />
             <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="UIComponent" t="Include">
+            <e p="UIBigMenuCOmponent.cs" t="Include" />
+            <e p="UIButtonAnimationComponent.cs" t="Include" />
+            <e p="UIElementComponent.cs" t="Include" />
+            <e p="UIPanel1Comonent.cs" t="Include" />
+            <e p="UIPauseManagerComponent.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

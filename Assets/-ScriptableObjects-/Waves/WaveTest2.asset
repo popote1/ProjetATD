@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b515e51f383d74197eebc0ebc6f881, type: 3}
+  m_Name: WaveTest2
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 0}
+  OrcSO: {fileID: 0}
+  WargSO: {fileID: 0}
+  TrollSO: {fileID: 0}
+  GhostSO: {fileID: 0}
+  DrakeSO: {fileID: 0}
+  NombreOrcs: 0
+  NombreGhost: 0
+  NombreWargs: 0
+  NombreTrolls: 0
+  NombreDrake: 0
+  TimeToWait: 0
