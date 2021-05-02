@@ -8,10 +8,6 @@ using Bourg.Achetable.Tours;
 using Unity.Mathematics;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor;
-using UnityEngine.Events;
-using UnityEngine.Rendering.UI;
-using UnityEngine.Serialization;
 
 namespace Components
 {
@@ -240,6 +236,7 @@ namespace Components
                 SelectedBuildings.Clear();
                 InGameUIManagerComponent.SetOffPowerButton();
                 InputState = InputStat.none;
+                
             }
         }
 

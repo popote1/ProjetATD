@@ -36,26 +36,30 @@ public class LangueManager : MonoBehaviour
     [ContextMenu("JSONation de la séléctedData")]
     public void SerilatizeData() {
         JSONedData = JsonUtility.ToJson(SelectedData);
-       string path =Application.dataPath+"/Langue/" + SelectedData.Tests[0]+".Lag";// Application.persistentDataPath +"/" + SelectedData.Tests[0];
+       //string path =Application.dataPath+"/Langue/" + SelectedData.Tests[0]+".Lag";
+       string path =Application.streamingAssetsPath + SelectedData.Tests[0]+".Lag";// Application.persistentDataPath +"/" + SelectedData.Tests[0];
        Debug.Log(path);
        File.WriteAllText(path , JSONedData);
     }
     public void DeSerilatzData(string loadName) {
-        string path = Application.dataPath +"/Langue/" + loadName+".Lag";
+        string path = Application.streamingAssetsPath +"/"+ loadName+".Lag";
+        //string path = Application.dataPath +"/Langue/" + loadName+".Lag";
         string data = File.ReadAllText(path);
         JSONedData = data;
         SelectedData =JsonUtility.FromJson<LangueData>(data);
         SelectTextData = SelectedData;
     }
     public static void DeSerilatzData(int loadIndex) {
-        string path = Application.dataPath +"/Langue/" + LangueToChose[loadIndex]+".Lag";
+        string path = Application.streamingAssetsPath+"/"+ LangueToChose[loadIndex]+".Lag";
+        //string path = Application.dataPath +"/Langue/" + LangueToChose[loadIndex]+".Lag";
         string data = File.ReadAllText(path);
         SelectTextData  =JsonUtility.FromJson<LangueData>(data);
     }
     [ContextMenu("Met a jour Les Langues")]
     public static List<string> CheckFileInLangueFolder()
     {
-        String[] files = Directory.GetFiles(Application.dataPath + "/Langue/");
+        String[] files = Directory.GetFiles(Application.streamingAssetsPath);
+        // String[] files = Directory.GetFiles(Application.dataPath + "/Langue/");
         List<string> stringToReturn = new List<string>();
         foreach (var file in files) {
             if (Path.GetExtension(file) == ".Lag") {

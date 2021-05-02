@@ -29,6 +29,11 @@ public class WaveSystemeV2Component : MonoBehaviour
     public int SpawnBashSize=1;
     public float TimeBetweenSapwnBash=0.1f;
     public EnemyComponent EnemyPrefab;
+    public EnemyComponent EnemyPrefabOrc;
+    public EnemyComponent EnemyPrefabTroll;
+    public EnemyComponent EnemyPrefabWarg;
+    public EnemyComponent EnemyPrefabGhost;
+    
     public  GameManagerComponent GameManagerComponent;
 
     public int WavesizeStartSize;
@@ -78,23 +83,23 @@ public class WaveSystemeV2Component : MonoBehaviour
             EnemyComponent mob = new EnemyComponent();
             Vector3 randomSpawn = _spawns[Random.Range(0, _spawns.Count - 1)];
             if (NbGhost > 0) {
-                mob= Instantiate(EnemyPrefab, randomSpawn, Quaternion.identity);
+                mob= Instantiate(EnemyPrefabGhost, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].GhostSO;
                 NbGhost--;
             }
             else if (NbOrc > 0)
             {
-                mob= Instantiate(EnemyPrefab, randomSpawn, Quaternion.identity);
+                mob= Instantiate(EnemyPrefabOrc, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].OrcSO;
                 NbOrc--;
             }else if (NbTroll > 0)
             {
-                mob =  Instantiate(EnemyPrefab, randomSpawn, Quaternion.identity);
+                mob =  Instantiate(EnemyPrefabTroll, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].TrollSO;
                 NbTroll--;
             }else if (NbWarg > 0)
             {
-                mob =  Instantiate(EnemyPrefab, randomSpawn, Quaternion.identity);
+                mob =  Instantiate(EnemyPrefabWarg, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].WargSO;
                 NbWarg--;
             }
