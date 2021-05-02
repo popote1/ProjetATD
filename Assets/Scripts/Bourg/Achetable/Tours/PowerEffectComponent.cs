@@ -9,11 +9,19 @@ namespace Bourg.Achetable.Tours
 {
     public class PowerEffectComponent : MonoBehaviour
     {
+        [SerializeField] private AnimationCurve _flightCurve;
+
+        
         public bool IsMagic;
         public int Damages;
         public float Rate;
         public float FxTimer;
-
+        public float Speed = 0f;
+        public Vector2 Target;
+        public bool IsCurved;
+        
+        private Vector2 _origin;
+        private float _traveled = 0f; 
         private float _minRate;
         
         private List<EnemyComponent> _enemies = new List<EnemyComponent>();
@@ -44,6 +52,15 @@ namespace Bourg.Achetable.Tours
 
         private void Update()
         {
+            if (IsCurved)
+            {
+                _traveled += Time.deltaTime * Speed;
+                float height = _flightCurve.Evaluate(_traveled);
+                Vector2 originWithHeight = new Vector2(_origin.x, _origin.y + height);
+                Vector2 targetWithHeight = new Vector2(Target.x, Target.y + height);
+                transform.position = Vector2.Lerp(originWithHeight, targetWithHeight, _traveled);
+            }
+
             if (FxTimer > 0)
             {
                 FxTimer -= Time.deltaTime;

@@ -391,7 +391,7 @@ MonoBehaviour:
   AutoRange: 0
   AutoMagicDamages: 0
   AutoFireRate: 0
-  AutoCollider2D: {fileID: 0}
+  AutoCollider2D: {fileID: 4628152722939624086}
   ActiveRange: 0
   ActiveMagicDamage: 0
   ActiveRate: 0

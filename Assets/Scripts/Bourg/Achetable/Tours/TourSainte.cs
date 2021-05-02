@@ -64,6 +64,7 @@ namespace Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActiveMagicDamage;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = true;
+            _powerEffectComponent.IsCurved = false;
         }
         
         private void Update()

@@ -65,6 +65,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActiveMagicDamages;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = true;
+            _powerEffectComponent.IsCurved = true;
         }
         
         private void Update()
@@ -126,6 +127,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 _activeResetTimer = ActiveRate;
 
                 PowerEffect.transform.position = origin;
+                _powerEffectComponent.Target = VisualizeEffect.transform.position;
                 PowerEffect.SetActive(true);
 
                 Collider2D[] affected = new Collider2D[50];

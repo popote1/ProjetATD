@@ -35,7 +35,7 @@ public class WaveSystem : MonoBehaviour
         WaveSo.NombreWargs = NbWarg;
         WaveSo.NombreGhost = NbGhost;
 
-        _spawns = _gm.SpawnList;
+        //_spawns = _gm.SpawnList;
         StartWave();
     }
 
