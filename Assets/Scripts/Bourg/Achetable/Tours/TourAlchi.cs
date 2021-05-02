@@ -73,6 +73,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActivePhysicDamages;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = false;
+            _powerEffectComponent.IsCurved = true;
         }
 
         private void Update()
@@ -128,6 +129,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 //TODO: Check in PM closest selected tower to shoot with
                 IsReadyToAttack = true;
                 PowerEffect.transform.position = this.transform.position;
+                _powerEffectComponent.Target = VisualizeEffect.transform.position;
                 PowerEffect.SetActive(true);
             }
             

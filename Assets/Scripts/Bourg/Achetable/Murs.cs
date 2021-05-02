@@ -15,6 +15,8 @@ namespace Assets.Scripts.Bourg.Achetable
         public Material MaterialPrincipal;
         public Material MaterialSecondaire;
         
+        [HideInInspector]
+        public List<Murs> checkedNeighbours = new List<Murs>();
         
         private List<Murs> _mursAdjacent = new List<Murs>();
         private List<Cell> _checked = new List<Cell>();
@@ -25,22 +27,23 @@ namespace Assets.Scripts.Bourg.Achetable
         private MeshRenderer _meshRenderer;
         private MeshFilter _meshFilter;
         private Cell _thisCell;
-        private Vector2Int _intPos;
+        [HideInInspector]
+        public Vector2Int IntPos;
 
         //Initialisation
         private void Start()
         {
             _meshRenderer = GetComponent<MeshRenderer>();
             _meshFilter = GetComponent<MeshFilter>();
-            _intPos = OccupiedCells[0];
+            IntPos = OccupiedCells[0];
 
-            _thisCell = Playgrid.GetCell(_intPos);
+            _thisCell = Playgrid.GetCell(IntPos);
             _thisCell.IsWall = true; // Ajout du public bool IsWall dans Cell
 
-            _rightCell = Playgrid.GetCell(new Vector2Int(_intPos.x+1, _intPos.y));
-            _leftCell = Playgrid.GetCell(new Vector2Int(_intPos.x-1, _intPos.y));
-            _upCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y+1));
-            _downCell = Playgrid.GetCell(new Vector2Int(_intPos.x, _intPos.y-1));
+            _rightCell = Playgrid.GetCell(new Vector2Int(IntPos.x+1, IntPos.y));
+            _leftCell = Playgrid.GetCell(new Vector2Int(IntPos.x-1, IntPos.y));
+            _upCell = Playgrid.GetCell(new Vector2Int(IntPos.x, IntPos.y+1));
+            _downCell = Playgrid.GetCell(new Vector2Int(IntPos.x, IntPos.y-1));
 
             CheckAndUpdate();
         }
@@ -60,20 +63,38 @@ namespace Assets.Scripts.Bourg.Achetable
                     _allWalls.Add(mur);
                 }
             }
-            
+
+            foreach (Murs mur in _allWalls)
+            {
+                if (mur.IntPos == _rightCell.Position)
+                {
+                    _rightWall = mur;
+                }
+
+                if (mur.IntPos == _leftCell.Position)
+                {
+                    _leftWall = mur;
+                }
+
+                if (mur.IntPos == _upCell.Position)
+                {
+                    _upWall = mur;
+                }
+
+                if (mur.IntPos == _downCell.Position)
+                {
+                    _downWall = mur;
+                }
+            }
+
             if (!_checked.Contains(_rightCell))
             {
                 if (_rightCell.IsWall)
                 {
-                    foreach (Murs wall in Enumerable.Where(_allWalls, wall => wall.Position == _rightCell.Position))
+                    if (!_mursAdjacent.Contains(_rightWall))
                     {
-                        _rightWall = wall;
-                        if (!_mursAdjacent.Contains(_rightWall))
-                        {
-                            _mursAdjacent.Add(_rightWall);
-                        }
+                        _mursAdjacent.Add(_rightWall); 
                     }
-
                     _checked.Add(_rightCell);
                 }
                 else
@@ -86,13 +107,9 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (_leftCell.IsWall)
                 {
-                    foreach (Murs wall in Enumerable.Where(_allWalls, wall => wall.Position == _leftCell.Position))
+                    if (!_mursAdjacent.Contains(_leftWall))
                     {
-                        _leftWall = wall;
-                        if (!_mursAdjacent.Contains(_leftWall))
-                        {
-                            _mursAdjacent.Add(_leftWall);
-                        }
+                        _mursAdjacent.Add(_leftWall);
                     }
                     _checked.Add(_leftCell);
                 }
@@ -106,13 +123,9 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (_upCell.IsWall)
                 {
-                    foreach (Murs wall in Enumerable.Where(_allWalls, wall => wall.Position == _upCell.Position))
+                    if (!_mursAdjacent.Contains(_upWall))
                     {
-                        _upWall = wall;
-                        if (!_mursAdjacent.Contains(_upWall))
-                        {
-                            _mursAdjacent.Add(_upWall);
-                        }
+                        _mursAdjacent.Add(_upWall);
                     }
                     _checked.Add(_upCell);
                 }
@@ -126,13 +139,9 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (_downCell.IsWall)
                 {
-                    foreach (Murs wall in Enumerable.Where(_allWalls, wall => wall.Position == _downCell.Position))
+                    if (!_mursAdjacent.Contains(_downWall))
                     {
-                        _downWall = wall;
-                        if (!_mursAdjacent.Contains(_downWall))
-                        {
-                            _mursAdjacent.Add(_downWall);
-                        }
+                        _mursAdjacent.Add(_downWall);
                     }
                     _checked.Add(_downCell);
                 }
@@ -153,31 +162,33 @@ namespace Assets.Scripts.Bourg.Achetable
             //Mur Horizontal
             if (_mursAdjacent.Contains(_rightWall) && _mursAdjacent.Contains(_leftWall))
             {
-                if (!_mursAdjacent.Contains(_upWall) && !_mursAdjacent.Contains(_downWall))
-                {
-                    _meshFilter.mesh = MeshSecondaire;
-                    _meshRenderer.material = MaterialSecondaire;
-                }
-                else
+                if (_mursAdjacent.Contains(_upWall) || _mursAdjacent.Contains(_downWall))
                 {
                     _meshFilter.mesh = MeshMur;
                     _meshRenderer.material = MaterialPrincipal;
+                    
+                }
+                else
+                {
+                    _meshFilter.mesh = MeshSecondaire;
+                    _meshRenderer.material = MaterialSecondaire;
                 }
             }
             
             //Mur Vertical
             else if (_mursAdjacent.Contains(_upWall) && _mursAdjacent.Contains(_downWall))
             {
-                if (!_mursAdjacent.Contains(_rightWall) && !_mursAdjacent.Contains(_leftWall))
-                {
-                    transform.Rotate(0,90,0);
-                    _meshFilter.mesh = MeshSecondaire;
-                    _meshRenderer.material = MaterialSecondaire;
-                }
-                else
+                if (_mursAdjacent.Contains(_rightWall) || _mursAdjacent.Contains(_leftWall))
                 {
                     _meshFilter.mesh = MeshMur;
                     _meshRenderer.material = MaterialPrincipal;
+                    
+                }
+                else
+                {
+                    transform.Rotate(0,0,90);
+                    _meshFilter.mesh = MeshSecondaire;
+                    _meshRenderer.material = MaterialSecondaire;
                 }
             }
 
@@ -186,9 +197,15 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 _meshFilter.mesh = MeshMur;
                 _meshRenderer.material = MaterialPrincipal;
-                if (_mursAdjacent.Count == 0) return;
-                foreach (Murs wall in _mursAdjacent)
+            }
+            
+            if (_mursAdjacent.Count == 0) return;
+
+            foreach (Murs wall in _mursAdjacent)
+            {
+                if (!checkedNeighbours.Contains(wall))
                 {
+                    checkedNeighbours.Add(wall);
                     wall.CheckAndUpdate();
                 }
             }
@@ -202,7 +219,11 @@ namespace Assets.Scripts.Bourg.Achetable
             if (_mursAdjacent.Count == 0) return;
             foreach (Murs wall in _mursAdjacent)
             {
-                wall.CheckAndUpdate();
+                if (wall.checkedNeighbours.Contains(this))
+                {
+                    wall.checkedNeighbours.Remove(this);
+                    wall.CheckAndUpdate();
+                }
             }
             if (SecurityValue != 0)
             {
