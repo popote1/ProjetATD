@@ -70,7 +70,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_isSelected)
             {
                 OutLine.SetActive(true);
-                Visualize();
+                //Visualize();
 
             }
             else
@@ -119,11 +119,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 //TODO: Check in PM closest selected tower to shoot with
                 IsReadyToAttack = true;
 
-                float Dist = Vector2.Distance(this.Position, origin);
-                if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
-                _activeResetTimer = ActiveRate;
-
-                PowerEffect.transform.LookAt(origin);
+                //float Dist = Vector2.Distance(this.Position, origin);
+                //if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
+                //_activeResetTimer = ActiveRate;
+                Vector2 pos = transform.position + (VisualizerEffect.transform.up.normalized * ActiveRange);
+                PowerEffect.transform.position=pos;
+                PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
                 PowerEffect.SetActive(true);
             }
             
@@ -136,13 +137,16 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Visualize Active Power Before throw
-        private void Visualize()
+        public void Visualize(Vector2 target)
         {
             VisualizerEffect.SetActive(true);
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _mousePosition = target;
+            Debug.Log(target + "  " + (Vector2) transform.position);
+                //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;
-            VisualizerEffect.transform.LookAt(_mousePosition);
+                //VisualizerEffect.transform.LookAt(_mousePosition);
+                VisualizerEffect.transform.up=( (Vector3)target-transform.position);
         }
         
         

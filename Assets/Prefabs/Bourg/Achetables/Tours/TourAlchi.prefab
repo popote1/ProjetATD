@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228925293237017100}
   - component: {fileID: 3332082042252281267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualizeEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 649902323728887021}
   - component: {fileID: 8140743585911986803}
   - component: {fileID: 432265038264174252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OutLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4628152722939624086}
   - component: {fileID: 590259762258691545}
   - component: {fileID: 6276698101224874595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TourAlchi
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -469,6 +469,7 @@ MonoBehaviour:
   CellNeeded: 2
   OccupiedCells: []
   IndividualMoveFactor: 25
+  DragFactor: 0
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0
@@ -505,7 +506,7 @@ GameObject:
   - component: {fileID: 4191579605585602018}
   - component: {fileID: 276893325718902647}
   - component: {fileID: 2429653454902849936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,6 +583,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2222737070566317523}
     m_Modifications:
+    - target: {fileID: 1416278764730728570, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -631,8 +636,16 @@ PrefabInstance:
       value: AlchiPowerEffect
       objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340103, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075784463570340103, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100244583325774240, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 437f7a1cb61ee944d86a07a9072fe826, type: 3}

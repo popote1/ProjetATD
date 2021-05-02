@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1708635928207429701}
   - component: {fileID: 4192678433498740143}
   - component: {fileID: 7776322249911499490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -50,7 +50,14 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   CurrentHp: 0
   CanGetPushed: 0
+  SpeedMultyplicatot: 10
+  VelocityToOrrientation: 0.2
+  _transform: {fileID: 9168944075044778049}
+  _rb2D: {fileID: 1708635928207429701}
+  _col: {fileID: 4192678433498740143}
+  _spriteRenderer: {fileID: 8981641297432785281}
   _attackTimer: 0
+  _anim: {fileID: 7776322249911499490}
 --- !u!212 &8981641297432785281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +97,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

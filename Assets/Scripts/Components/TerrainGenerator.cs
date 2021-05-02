@@ -31,6 +31,7 @@ namespace Components
         public int GroundCost=10;
         public int RoadCost=5;
         public int WaterCost=1000;
+        public GameObject Prefab2DCollider;
         [Header("TreeGenerator")] 
         public bool DebugTreeInUpdate;
         public bool DebugUsTreshHold;
@@ -91,6 +92,7 @@ namespace Components
             GeneratePlaybleMap();
             GenerateRoads();
             SetCellCosts();
+            SetColiders();
             GeneratTreeMap();
         }
 
@@ -222,6 +224,7 @@ namespace Components
                 if (cell.IsRoad)
                 {
                     cell.IndividualMoveValue = RoadCost;
+                    cell.DragFactor = 1;
                 }
                 else if (cell.IsNonWalkable)
                 {
@@ -230,8 +233,27 @@ namespace Components
                 else
                 {
                     cell.IndividualMoveValue = GroundCost;
+                    cell.DragFactor = 1;
                 }
             }
+        }
+
+        public void SetColiders()
+        {
+            foreach (Cell cell in playgrid.Cells)
+            {
+                if (cell.IsNonWalkable)
+                    Instantiate(Prefab2DCollider, playgrid.GetCellCenterWorldPosByCell(cell.Position),
+                        Quaternion.identity, transform);
+            }
+            GameObject col =Instantiate(Prefab2DCollider, new Vector3(width/2,-0.5f,0), Quaternion.identity, transform);
+            col.transform.localScale = new Vector3(width,1,1);
+            col =Instantiate(Prefab2DCollider, new Vector3(-0.5f,height/2,0), Quaternion.identity, transform);
+            col.transform.localScale = new Vector3(1,height,1);
+            col =Instantiate(Prefab2DCollider, new Vector3(width/2,height+0.5f,0), Quaternion.identity, transform);
+            col.transform.localScale = new Vector3(width,1,1);
+            col =Instantiate(Prefab2DCollider, new Vector3(width+0.5f,height/2,0), Quaternion.identity, transform);
+            col.transform.localScale = new Vector3(1,height,1);
         }
 
         /*  [ContextMenu("Generate Rouds")]

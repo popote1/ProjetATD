@@ -3,10 +3,14 @@ using UnityEngine;
 using PlaneC;
 using Assets.Scripts.Bourg.Achetable;
 using Assets.Scripts.Bourg;
+using Assets.Scripts.Bourg.Achetable.Tours;
+using Bourg.Achetable.Tours;
 using Unity.Mathematics;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using UnityEngine.Events;
+using UnityEngine.Rendering.UI;
 using UnityEngine.Serialization;
 
 namespace Components
@@ -14,6 +18,7 @@ namespace Components
     public class PlayerManagerComponent : MonoBehaviour
     {
         public GameManagerComponent GameManagerComponent;
+        public InGameUIManagerComponent InGameUIManagerComponent;
 
         public static int Gold;
         public static List<Batiment> Batiments = new List<Batiment>();
@@ -41,7 +46,6 @@ namespace Components
         public Button BPDestroy;
         public TMP_Text TxtGoldText;
         public CanvasGroup PanelFondInsufisant;
-        public UIElementComponent PauseMenu;
         public bool IsPause;
         
 
@@ -49,6 +53,7 @@ namespace Components
         private PlayGrid _playGrid;
         private GameObject _cursor;
         private Vector3 _cursorTaget;
+        private Vector3 _cursorPos;
         private Vector2Int _selsectdCell;
         private bool _press;
         private List<Vector2Int> _preselectedCell = new List<Vector2Int>();
@@ -56,7 +61,7 @@ namespace Components
 
         public enum InputStat
         {
-            none, Building , AddEnnemis, Selecting
+            none, Building , AddEnnemis, Selecting , PowerSelected, PowerOnGround
         }
 
         private void Start()
@@ -71,9 +76,12 @@ namespace Components
             {
                 if (!CursorOnUI)
                 {
+                    
                     if (InputState == InputStat.Building) Building();
                     if (InputState == InputStat.AddEnnemis) AddEnnemis();
                     if (InputState == InputStat.none) DragCamera();
+                    if (InputState == InputStat.PowerSelected)PutPower();
+                    if (InputState ==InputStat.PowerOnGround)VisulizePowerEffect();
                 }
 
                 if (_playGrid != null)
@@ -84,9 +92,11 @@ namespace Components
                     {
                         if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point)))
                         {
+                            _cursorPos = hit.point;
                             _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
                             _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell) +
                                            new Vector3(0, 0, -0.5f);
+                            
                         }
 
                         if (_cursor != null)
@@ -179,12 +189,57 @@ namespace Components
                     {
                         foreach (Achetables building in SelectedBuildings)building.OnDeselect();
                         SelectedBuildings.Clear();
+                        InGameUIManagerComponent.SetOffPowerButton();
                         Achetables bat = (Achetables)_playGrid.GetCell(_selsectdCell).Batiment;
                         SelectedBuildings.Add(bat);
                         bat.OnSelect();
+                        if (bat is TourAlchi || bat is TourGarde || bat is TourMage || bat is TourSainte)
+                        {
+                            InGameUIManagerComponent.SetOnPowerButton();
+                        }
                         
                     }
                 }
+                else
+                {
+                    foreach (Achetables building in SelectedBuildings)building.OnDeselect();
+                    SelectedBuildings.Clear();
+                    InGameUIManagerComponent.SetOffPowerButton();
+                }
+            }
+        }
+
+        public void UISelectPower()
+        {
+            InputState = InputStat.PowerSelected;
+        }
+
+        public void PutPower()
+        {
+            if (Input.GetButtonDown("Fire1")) InputState = InputStat.PowerOnGround;
+        }
+
+        public void VisulizePowerEffect()
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                if (SelectedBuildings[0] is TourAlchi) ((TourAlchi) SelectedBuildings[0]).Visualize(_cursorTaget);
+                else if (SelectedBuildings[0] is TourGarde) ((TourGarde) SelectedBuildings[0]).Visualize(_cursorPos);
+                else if (SelectedBuildings[0] is TourMage) (( TourMage) SelectedBuildings[0]).Visualize(_cursorPos);
+                else if (SelectedBuildings[0] is TourSainte) (( TourSainte) SelectedBuildings[0]).Visualize(_cursorPos);
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                if (SelectedBuildings[0] is TourAlchi) ((TourAlchi) SelectedBuildings[0]).Active(_cursorTaget);
+                else if (SelectedBuildings[0] is TourGarde) ((TourGarde) SelectedBuildings[0]).Active(_cursorTaget);
+                else if (SelectedBuildings[0] is TourMage) ((TourMage) SelectedBuildings[0]).Active(_cursorTaget);
+                else if (SelectedBuildings[0] is TourSainte) ((TourSainte) SelectedBuildings[0]).Active(_cursorTaget);
+                
+                
+                foreach (Achetables building in SelectedBuildings)building.OnDeselect();
+                SelectedBuildings.Clear();
+                InGameUIManagerComponent.SetOffPowerButton();
+                InputState = InputStat.none;
             }
         }
 
@@ -399,6 +454,7 @@ namespace Components
                if (bat is Murs) _playGrid.GetCell(vec).IsWall = true;
                _playGrid.GetCell(vec).Batiment = batiment;
                _playGrid.GetCell(vec).IndividualMoveValue += bat.IndividualMoveFactor;
+               _playGrid.GetCell(vec).DragFactor += bat.DragFactor;
            }
            return true;
        }

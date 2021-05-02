@@ -38,6 +38,7 @@ namespace Bourg.Achetable.Tours
         
         [Header("PowerEffect")]
         public GameObject PowerEffect;
+        public GameObject VisualizeEffect;
         
 
         private float _autoResetTimer;
@@ -148,9 +149,15 @@ namespace Bourg.Achetable.Tours
                 _activeResetTimer -= Time.deltaTime;
                 IsReadyToAttack = false;
             }
+            VisualizeEffect.SetActive(false);
         }
 
-       
+        public void Visualize(Vector2 pos)
+        {
+            VisualizeEffect.SetActive(true);
+        }
+
+
         //Add enemies in range
         private void OnTriggerEnter2D(Collider2D other)
         {

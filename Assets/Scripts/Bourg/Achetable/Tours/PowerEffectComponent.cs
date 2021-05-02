@@ -1,6 +1,8 @@
 
+using System;
 using System.Collections.Generic;
 using Enemies;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Bourg.Achetable.Tours
@@ -11,40 +13,69 @@ namespace Bourg.Achetable.Tours
         public int Damages;
         public float Rate;
         public float FxTimer;
+        public bool DestroyTree;
+        public bool IsInstante;
+
+        private float _timer;
 
         private float _minRate;
         
         private List<EnemyComponent> _enemies = new List<EnemyComponent>();
 
-        private void OnAwake()
+        public void OnAwake()
         {
             _minRate = 0;
+            _timer = FxTimer;
+            Collider2D[] test =Physics2D.OverlapCircleAll(transform.position,transform.localScale.x);
+            foreach (Collider2D col in test)
+            {
+                if (col.gameObject.layer == LayerMask.NameToLayer("Tree")) Destroy(col.gameObject);
+                else if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
+                    if (IsMagic) col.GetComponent<EnemyComponent>().TakeMagicDamages(Damages); 
+                    else col.GetComponent<EnemyComponent>().TakePhysicDamages(Damages);
+                }
+            }
         }
         
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            EnemyComponent enemy = other.GetComponent<EnemyComponent>();
 
-            if (enemy == null) return;
-            if (!_enemies.Contains(enemy))
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (!IsInstante)
             {
-                _enemies.Add(enemy);
+                Debug.Log("collide with " + other.gameObject.name);
+                if (other.gameObject.layer == LayerMask.NameToLayer("Tree"))
+                {
+                    Destroy(other.gameObject);
+                }
+                else if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                {
+                    EnemyComponent enemy = other.GetComponent<EnemyComponent>();
+
+                    if (enemy == null) return;
+                    if (!_enemies.Contains(enemy))
+                    {
+                        _enemies.Add(enemy);
+                    }
+                }
             }
         }
 
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.GetComponent<EnemyComponent>() == null) return;
-            _enemies.Remove(other.GetComponent<EnemyComponent>());
+            if (!IsInstante)
+            {
+                if (other.GetComponent<EnemyComponent>() == null) return;
+                _enemies.Remove(other.GetComponent<EnemyComponent>());
+            }
         }
 
 
         private void Update()
         {
-            if (FxTimer > 0)
+            if (_timer > 0)
             {
-                FxTimer -= Time.deltaTime;
+                _timer -= Time.deltaTime;
                 DoDamages();
             }
             else

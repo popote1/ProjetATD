@@ -76,6 +76,7 @@
           <e p="Enemies" t="Include">
             <e p="EnemyComponent.cs" t="Include" />
             <e p="EnemySO.cs" t="Include" />
+            <e p="RandomSpriteStarterComponent.cs" t="Include" />
             <e p="WaveSO.cs" t="Include" />
             <e p="WaveSystem.cs" t="Include" />
             <e p="WaveSystemeV2Component.cs" t="Include" />

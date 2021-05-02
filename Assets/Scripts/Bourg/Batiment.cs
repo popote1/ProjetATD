@@ -15,6 +15,7 @@ namespace Assets.Scripts.Bourg
         public int CellNeeded;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
+        public int DragFactor;
         public Vector2 Position;
         public int PhysicDamagesResistance;
         public int MagicDamagesResistance;
@@ -43,6 +44,7 @@ namespace Assets.Scripts.Bourg
 		       foreach (Vector2Int cell in OccupiedCells)
 		       {
 			       Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
+			       Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
 		       }
 		       Debug.Log("Remove building data");
 	        }

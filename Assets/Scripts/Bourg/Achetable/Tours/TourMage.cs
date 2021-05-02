@@ -73,7 +73,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_isSelected)
             {
                 OutLine.SetActive(true);
-                Visualize();
+                //Visualize();
             }
             else
             {
@@ -125,12 +125,13 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 if (!(Dist <= ActiveRange)) origin = origin.normalized * ActiveRange;
                 _activeResetTimer = ActiveRate;
 
-                PowerEffect.transform.position = origin;
+                PowerEffect.transform.position = VisualizeEffect.transform.position;
+                PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
                 PowerEffect.SetActive(true);
 
                 Collider2D[] affected = new Collider2D[50];
                 
-                Physics2D.OverlapCircle(origin, ActiveRange, new ContactFilter2D().NoFilter(), affected);
+                Physics2D.OverlapCircle(VisualizeEffect.transform.position, ActiveRange, new ContactFilter2D().NoFilter(), affected);
                 foreach (Collider2D col in affected)
                 {
                     if (col == null) continue;
@@ -172,13 +173,15 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
         
         //Visualize Active Power Before throw
-        private void Visualize()
+        public  void Visualize(Vector2 pos)
         {
             VisualizeEffect.SetActive(true);
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float Dist = Vector2.Distance(_mousePosition, transform.position);
-            if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
-            VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            _mousePosition = pos; 
+                //Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //float Dist = Vector2.Distance(_mousePosition, transform.position);
+            //if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
+            //VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            VisualizeEffect.transform.position = pos;
         }
 
         

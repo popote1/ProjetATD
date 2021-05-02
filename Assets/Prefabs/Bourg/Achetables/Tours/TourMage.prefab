@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228925293237017100}
   - component: {fileID: 3332082042252281267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisualizeEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 649902323728887021}
   - component: {fileID: 8140743585911986803}
   - component: {fileID: 432265038264174252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OutLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4628152722939624086}
   - component: {fileID: 590259762258691545}
   - component: {fileID: 6578960029499193184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TourMage
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -469,6 +469,7 @@ MonoBehaviour:
   CellNeeded: 2
   OccupiedCells: []
   IndividualMoveFactor: 19
+  DragFactor: 0
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0
@@ -504,7 +505,7 @@ GameObject:
   - component: {fileID: 4191579605585602018}
   - component: {fileID: 276893325718902647}
   - component: {fileID: 2429653454902849936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,15 +588,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -628,10 +629,6 @@ PrefabInstance:
     - target: {fileID: 6075784463570340103, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_Name
       value: MagePowerEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 6075784463570340103, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}

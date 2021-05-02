@@ -81,7 +81,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_isSelected)
             {
                 OutLine.SetActive(true);
-                Visualize();
+               // Visualize();
             }
             else
             {
@@ -140,10 +140,11 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
         
         //Visualize Active Power Before throw
-        private void Visualize()
+       public void Visualize( Vector2 target)
         {
             VisualizeEffect.SetActive(true);
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _mousePosition = target; 
+                //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
             VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);

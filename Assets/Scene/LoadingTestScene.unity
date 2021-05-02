@@ -7908,6 +7908,7 @@ GameObject:
   - component: {fileID: 2048388254}
   - component: {fileID: 2048388251}
   - component: {fileID: 2048388255}
+  - component: {fileID: 2048388256}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Manager
@@ -8152,6 +8153,7 @@ MonoBehaviour:
   GroundCost: 10
   RoadCost: 5
   WaterCost: 1000
+  Prefab2DCollider: {fileID: 3825146371852435549, guid: 6f5e417821a89314e874ac7287488258, type: 3}
   DebugTreeInUpdate: 0
   DebugUsTreshHold: 0
   TreeZome: 0.104
@@ -8237,6 +8239,33 @@ MonoBehaviour:
   PanelBlackFade: {fileID: 1202952342}
   CanvasDialogueBackGourndColor: {fileID: 905998645}
   PanelDialogue: {fileID: 297552292}
+--- !u!114 &2048388256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048388247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df3271c05c96914f9a5efab00ceb933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveSo:
+  - {fileID: 11400000, guid: 85c42d5ff5ff07d41a161ea4902c4621, type: 2}
+  - {fileID: 11400000, guid: a7c240192c396bd498b5aa420adc05b4, type: 2}
+  WaveIndex: 0
+  WaveTimer: 0
+  EnnemisAlive: []
+  IsPlaying: 0
+  NbOrc: 0
+  NbGhost: 0
+  NbWarg: 0
+  NbTroll: 0
+  SpawnBashSize: 1
+  TimeBetweenSapwnBash: 0.1
+  EnemyPrefab: {fileID: 2426864061342925088, guid: 0ca547da57e2ed74faa8c83679233838, type: 3}
+  GameManagerComponent: {fileID: 0}
 --- !u!1 &2061608216
 GameObject:
   m_ObjectHideFlags: 0

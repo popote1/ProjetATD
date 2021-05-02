@@ -35,13 +35,15 @@ namespace Components
         public bool DebugShowSecuritiyTiles;
         public Gradient DebugSecurityGradiant;
         private bool _debugSecutity=false;
-        
+
+        public static bool IsLose = false;
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
         public TerrainGenerator TerrainGenerator;
         public SmoothTerrain SmoothTerrain;
         public InGameUIManagerComponent InGameUIManagerComponent;
+        public WaveSystemeV2Component WaveSystemeV2Component;
 
         private float _homeTimer;
 
@@ -67,13 +69,23 @@ namespace Components
         {
             DebugSecurity();
             if (IsUsingHomeSysteme)
+            {
                 HomeTimer();
+                InGameUIManagerComponent.SetWaveSlider(WaveSystemeV2Component.GetWaveProgress());
+            }
+            if (IsLose)
+            {
+                SetLose();
+                IsLose = false;
+            }
+            
         }
 
         public void SetStartGame()
         {
             Time.timeScale = 1;
             IsUsingHomeSysteme = true;
+            WaveSystemeV2Component.IsPlaying = true;
         }
 
         public void SetPause()

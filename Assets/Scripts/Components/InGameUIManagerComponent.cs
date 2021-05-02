@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 
 public class InGameUIManagerComponent : MonoBehaviour
@@ -30,6 +31,11 @@ public class InGameUIManagerComponent : MonoBehaviour
     [Header("StartDialogue")] 
     public GameObject CanvasDialogueBackGourndColor;
     public UIElementComponent PanelDialogue;
+    [Header("Bot Buttons")]
+    public UIElementComponent BPPower;
+    public UIElementComponent BPDestroy;
+    [Header("Wave settings")] 
+    public Slider SliderWave;
 
     public void UIClickPause()
     {
@@ -51,7 +57,6 @@ public class InGameUIManagerComponent : MonoBehaviour
         PanelDialogue.Desactivat();
     }
     
-
     public void UIOnMainMenu()
     {
         Time.timeScale = 1;
@@ -93,5 +98,20 @@ public class InGameUIManagerComponent : MonoBehaviour
         PanelLoseBlack.alpha = 0;
         PanelLoseBlack.DOFade(1, LoseBlackPanelAparitionTime).SetUpdate(true);
         PanelLose.DOFade(1, LosePanelAparitionTime).SetUpdate(true);
+    }
+
+    public void SetWaveSlider(float value)
+    {
+        SliderWave.value = value;
+    }
+
+    public void SetOnPowerButton()
+    {
+        BPPower.Activate();
+    }
+
+    public void SetOffPowerButton()
+    {
+       BPPower.Desactivat(); 
     }
 }
