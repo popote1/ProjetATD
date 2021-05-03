@@ -88,7 +88,7 @@ namespace Enemies
         }
 
         //EnemyAttack
-        private void OnCollisionStay2D(Collision2D collision)
+       private void OnCollisionStay2D(Collision2D collision)
         {
             Debug.Log("Ennemy Collide");
             if (collision.gameObject.layer == LayerMask.NameToLayer("Batiment"))

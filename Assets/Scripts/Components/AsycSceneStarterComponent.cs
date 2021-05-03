@@ -15,6 +15,8 @@ public class AsycSceneStarterComponent : MonoBehaviour
     {
         
         _menuScripte =GameObject.Find("MainMenuScripts");
+        Time.timeScale = 1;
+        GameManagerComponent.IsLose = false;
         if (_menuScripte != null)
         {
             GameManagerComponent.Seed = _menuScripte.GetComponent<MainMenuManagerComponent>().Seed;

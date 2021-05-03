@@ -76,6 +76,8 @@ public class MainMenuManagerComponent : MonoBehaviour
     public void UILaunchGame()
     {
         Debug.Log("Lancement du jeu");
+        Seed = InputFieldBorgName.text;
+        Time.timeScale = 1;
         StartCoroutine(LoadingScene());
     }
     
