@@ -37,7 +37,7 @@ public class LangueManager : MonoBehaviour
     public void SerilatizeData() {
         JSONedData = JsonUtility.ToJson(SelectedData);
        //string path =Application.dataPath+"/Langue/" + SelectedData.Tests[0]+".Lag";
-       string path =Application.streamingAssetsPath + SelectedData.Tests[0]+".Lag";// Application.persistentDataPath +"/" + SelectedData.Tests[0];
+       string path =Application.streamingAssetsPath +"/"+ SelectedData.Tests[0]+".Lag";// Application.persistentDataPath +"/" + SelectedData.Tests[0];
        Debug.Log(path);
        File.WriteAllText(path , JSONedData);
     }

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.75
+  m_fontSize: 50.9
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2485,52 +2485,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7521a644298366f46b35e1e61d9aa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IndexLangue: 1
-  JSONedData: "{\"Tests\":[\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Jouer\",\"Options\",\"Creadit\",\"Quitter\",\"Retour\",\"Nom
-    du Bourg\",\"Entrez le nom de votre Bourg\",\"Volume Musique\",\"Volume Sons\",\"Artiste
-    2D\",\"Artiste 3D\",\"D\xE9veloppeur\",\"GameDesigner\",\"Allons y !\",\"Menu\",\"Reprendre\",\"Menu
-    Principal\",\"\",\"Tour de Garde\",\"Tour de Mage\",\"Tour de d'Alchimie\",\"Tour
-    Sainte\",\"Mur\",\"D\xE9truire\",\"Or\",\"Vous avez Gager\",\"Vous avez Perdu\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Les
-    Ennemis sont \xE0 nos portes , il faut pr\xE9parer nos d\xE9fences !\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
+  IndexLangue: 0
+  JSONedData: "{\"Tests\":[\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Gra\u0107\",\"Opcje\",\"Kredyty\",\"Opu\u015Bci\u0107\",\"Powr\xF3t\",\"Nazwa
+    miasta\",\"Wpisz nazw\u0119 swojego miasteczko\",\"G\u0142o\u015Bno\u015B\u0107
+    muzyki\",\"G\u0142o\u015Bno\u015B\u0107 d\u017Awi\u0119ku\",\"Artysta 2D\",\"Artysta
+    3D\",\"Deweloper\",\"Game designer\",\"Zaczynajmy !\",\"Menu\",\"Wzn\xF2w Gr\u0119\",\"Menu
+    g\u0142\xF3wne\",\"\",\"wie\u017Ca stra\u017Cnicza\",\"wie\u017Ca mag\xF3w\",\"wie\u017Ca
+    alchemiczna\",\"\u015Bwi\u0119ta wie\u017Ca\",\"Mur\",\"Zburzy\u0107\",\"Z\u0142oto\",\"Wygra\u0142e\u015B\",\"Przegra\u0142e\u015B\",\"Moc\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Wrogowie
+    s\u0105 u naszych bram, musimy przygotowa\u0107 nasz\u0105 obron\u0119!\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
   SelectedData:
     Tests:
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - "Fran\xE7ais"
-    - Jouer
-    - Options
-    - Creadit
-    - Quitter
-    - Retour
-    - Nom du Bourg
-    - Entrez le nom de votre Bourg
-    - Volume Musique
-    - Volume Sons
-    - Artiste 2D
-    - Artiste 3D
-    - "D\xE9veloppeur"
-    - GameDesigner
-    - Allons y !
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - Polski
+    - "Gra\u0107"
+    - Opcje
+    - Kredyty
+    - "Opu\u015Bci\u0107"
+    - "Powr\xF3t"
+    - Nazwa miasta
+    - "Wpisz nazw\u0119 swojego miasteczko"
+    - "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    - "G\u0142o\u015Bno\u015B\u0107 d\u017Awi\u0119ku"
+    - Artysta 2D
+    - Artysta 3D
+    - Deweloper
+    - Game designer
+    - Zaczynajmy !
     - Menu
-    - Reprendre
-    - Menu Principal
+    - "Wzn\xF2w Gr\u0119"
+    - "Menu g\u0142\xF3wne"
     - 
-    - Tour de Garde
-    - Tour de Mage
-    - Tour de d'Alchimie
-    - Tour Sainte
+    - "wie\u017Ca stra\u017Cnicza"
+    - "wie\u017Ca mag\xF3w"
+    - "wie\u017Ca alchemiczna"
+    - "\u015Bwi\u0119ta wie\u017Ca"
     - Mur
-    - "D\xE9truire"
-    - Or
-    - Vous avez Gager
-    - Vous avez Perdu
+    - "Zburzy\u0107"
+    - "Z\u0142oto"
+    - "Wygra\u0142e\u015B"
+    - "Przegra\u0142e\u015B"
+    - Moc
     - 
     - 
     - 
@@ -2543,8 +2545,7 @@ MonoBehaviour:
     - 
     - 
     - 
-    - 
-    - "Les Ennemis sont \xE0 nos portes , il faut pr\xE9parer nos d\xE9fences !"
+    - "Wrogowie s\u0105 u naszych bram, musimy przygotowa\u0107 nasz\u0105 obron\u0119!"
     - 
     - 
     - 
@@ -3564,7 +3565,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48.3
+  m_fontSize: 48.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4697,7 +4698,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.7
+  m_fontSize: 39.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
