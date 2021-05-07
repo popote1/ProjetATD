@@ -216,15 +216,20 @@ namespace Assets.Scripts.Bourg.Achetable
         {
             _thisCell.IsWall = false;
 
-            if (_mursAdjacent.Count == 0) return;
-            foreach (Murs wall in _mursAdjacent)
+            if (_mursAdjacent.Count != 0)
             {
-                if (wall.checkedNeighbours.Contains(this))
+                foreach (Murs wall in _mursAdjacent)
                 {
-                    wall.checkedNeighbours.Remove(this);
-                    wall.CheckAndUpdate();
+                    
+                    if (wall.checkedNeighbours.Contains(this))
+                    {
+                        Debug.Log("Modifi les mur adjasents");
+                        wall.checkedNeighbours.Remove(this);
+                        wall.CheckAndUpdate();
+                    }
                 }
             }
+
             if (SecurityValue != 0)
             {
                 Vector2Int[] aura = Playgrid.GetBuildingAura(Playgrid.GetOriginalBuildingCenter(OccupiedCells.ToArray()),

@@ -437,7 +437,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.5
+  m_fontSize: 35.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2366,7 +2366,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 84
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5185,7 +5185,7 @@ MonoBehaviour:
   PrefabBridg: {fileID: 5546566777293505974, guid: 188b2022d79c64d439eac6e40a55d249, type: 3}
   TargetTopTerrain: 100
   MaxSegmant: 40
-  StartRoadPos: {x: 28, y: 8}
+  StartRoadPos: {x: 25, y: 8}
   MinOffset: {x: -3, y: 2}
   MaxOffset: {x: 4, y: 5}
   Seed: 768
@@ -7222,7 +7222,7 @@ MonoBehaviour:
   PrefabBridg: {fileID: 5546566777293505974, guid: 188b2022d79c64d439eac6e40a55d249, type: 3}
   TargetTopTerrain: 100
   MaxSegmant: 40
-  StartRoadPos: {x: 12, y: 8}
+  StartRoadPos: {x: 15, y: 8}
   MinOffset: {x: -3, y: 2}
   MaxOffset: {x: 4, y: 5}
   Seed: 678
@@ -8546,7 +8546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 384.00003, y: -111.33017}
+  m_AnchoredPosition: {x: 384.00003, y: -111.33008}
   m_SizeDelta: {x: 668.00006, y: 122.66034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944288870
@@ -9102,6 +9102,8 @@ MonoBehaviour:
   InGameUIManagerComponent: {fileID: 2048388255}
   InputState: 0
   SelectedBuildings: []
+  DistanceOfCamera: -30
+  CameraWidthToKeep: 20
   CameraYRange:
     x: 9.5
     y: 85
@@ -9113,7 +9115,7 @@ MonoBehaviour:
   - {fileID: 6578960029499193184, guid: cffd703ef92f7c442b7ed41ba545c31b, type: 3}
   - {fileID: 6276698101224874595, guid: 89c3ad4f4a2084740beda9e136a49aee, type: 3}
   - {fileID: 1070168803675990798, guid: 37c38561a9f81eb4882d5f0c6762c8f4, type: 3}
-  - {fileID: 3377560283888211022, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+  - {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
   PrefabCursor: {fileID: 5871912498545961184, guid: 983c5e12ed90578439839074dab470d3, type: 3}
   CursorSmoothFactor: 36
   CursorOnUI: 0
@@ -9318,7 +9320,7 @@ MonoBehaviour:
   MinGRoundPos: {x: 9, y: 0}
   MaxGRoundPos: {x: 31, y: 12}
   GameManagerComponent: {fileID: 2048388249}
-  LimiteBorders: 2
+  LimiteBorders: 10
   Roads:
   - {fileID: 1774660509}
   - {fileID: 1218868564}

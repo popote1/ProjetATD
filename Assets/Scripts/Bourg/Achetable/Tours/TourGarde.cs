@@ -41,10 +41,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private Vector2 _mousePosition;
         private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
         private  PowerEffectComponent _powerEffectComponent;
+        
 
         //Initialisation
         private void Start()
         {
+            
             _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
@@ -138,16 +140,16 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Visualize Active Power Before throw
-        public void Visualize(Vector2 target)
+        public void Visualize()
         {
             VisualizerEffect.SetActive(true);
-            _mousePosition = target;
-            Debug.Log(target + "  " + (Vector2) transform.position);
+            _mousePosition = GetMousePos();
+            Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
                 //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;
                 //VisualizerEffect.transform.LookAt(_mousePosition);
-                VisualizerEffect.transform.up=( (Vector3)target-transform.position);
+                VisualizerEffect.transform.up=( (Vector3)GetMousePos()-transform.position);
         }
         
         
@@ -171,10 +173,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public override void OnSelect()
         {
             _isSelected = true;
+            base.OnSelect();
         }
         public override void OnDeselect()
         {
             _isSelected = false;
+            base.OnDeselect();
         }
     }
 }

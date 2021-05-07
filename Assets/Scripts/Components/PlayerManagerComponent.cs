@@ -21,7 +21,9 @@ namespace Components
 
         public InputStat InputState;
         public List<Achetables> SelectedBuildings = new List<Achetables>();
-        [Header("Camera Seting")] 
+        [Header("Camera Setting")] 
+        public float DistanceOfCamera=-100;
+        public float CameraWidthToKeep = 10;
         public float2 CameraYRange;
         public Camera Camera;
         public float CameraSencibility = 1;
@@ -72,7 +74,6 @@ namespace Components
             {
                 if (!CursorOnUI)
                 {
-                    
                     if (InputState == InputStat.Building) Building();
                     if (InputState == InputStat.AddEnnemis) AddEnnemis();
                     if (InputState == InputStat.none) DragCamera();
@@ -106,6 +107,10 @@ namespace Components
 
                 if (SelectedBuildings.Count == 1) BPDestroy.gameObject.SetActive(true);
                 else BPDestroy.gameObject.SetActive(false);
+                
+                float distance = (CameraWidthToKeep / (Camera.fieldOfView*Camera.aspect/ 2))*DistanceOfCamera;
+                Camera.transform.position =
+                    new Vector3(Camera.transform.position.x, Camera.transform.position.y, distance);
 
                 if (Input.GetKeyDown("i"))
                 {
@@ -220,7 +225,7 @@ namespace Components
             if (Input.GetButton("Fire1"))
             {
                 if (SelectedBuildings[0] is TourAlchi) ((TourAlchi) SelectedBuildings[0]).Visualize(_cursorTaget);
-                else if (SelectedBuildings[0] is TourGarde) ((TourGarde) SelectedBuildings[0]).Visualize(_cursorPos);
+                else if (SelectedBuildings[0] is TourGarde) ((TourGarde) SelectedBuildings[0]).Visualize();
                 else if (SelectedBuildings[0] is TourMage) (( TourMage) SelectedBuildings[0]).Visualize(_cursorPos);
                 else if (SelectedBuildings[0] is TourSainte) (( TourSainte) SelectedBuildings[0]).Visualize(_cursorPos);
             }
@@ -253,6 +258,12 @@ namespace Components
             Destroy(SelectedBuildings[0].gameObject);
             SelectedBuildings.Clear();
             CursorOnUI = false;
+        }
+
+        public static void DestrySelectedBuilding(Batiment batiment)
+        {
+            Destroy(batiment.gameObject);
+            
         }
 
         private void Building()

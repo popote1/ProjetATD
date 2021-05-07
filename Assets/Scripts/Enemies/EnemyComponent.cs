@@ -90,7 +90,7 @@ namespace Enemies
         //EnemyAttack
        private void OnCollisionStay2D(Collision2D collision)
         {
-            Debug.Log("Ennemy Collide");
+           // Debug.Log("Ennemy Collide");
             if (collision.gameObject.layer == LayerMask.NameToLayer("Batiment"))
             {
                 Debug.Log("Ennemy Collide to a building");

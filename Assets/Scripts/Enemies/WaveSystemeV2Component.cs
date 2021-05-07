@@ -143,8 +143,6 @@ public class WaveSystemeV2Component : MonoBehaviour
     {
         if (IsPreWave) return 1-(WaveTimer / PrewaveTimer);
         return  (float)EnnemisAlive.Count / WavesizeStartSize;
-        
-        
     }
 
     private void Update()
