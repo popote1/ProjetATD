@@ -132,11 +132,13 @@ namespace Enemies
 
       private void OnCollisionEnter2D(Collision2D other)
       {
-          
-          if (other.gameObject.GetComponent<Murs>()!=null&&AttackTarget==null)
-          {
-              AttackTarget = other.gameObject.GetComponent<Murs>();
-          }
+          if (other.gameObject.GetComponent<Maison>())  AttackTarget = other.gameObject.GetComponent<Maison>(); 
+          if (other.gameObject.GetComponent<Murs>())  AttackTarget = other.gameObject.GetComponent<Murs>();
+          if (other.gameObject.GetComponent<TourAlchi>())  AttackTarget = other.gameObject.GetComponent<TourAlchi>();
+          if (other.gameObject.GetComponent<TourGarde>())  AttackTarget = other.gameObject.GetComponent<TourGarde>();
+          if (other.gameObject.GetComponent<TourMage>())  AttackTarget = other.gameObject.GetComponent<TourMage>();
+          if (other.gameObject.GetComponent<TourSainte>())  AttackTarget = other.gameObject.GetComponent<TourSainte>();
+          if (other.gameObject.GetComponent<Mairie>())  AttackTarget = other.gameObject.GetComponent<Mairie>();
       }
 
       private void AttaqueLoop()
@@ -157,14 +159,18 @@ namespace Enemies
                   transform.up = (AttackTarget.transform.position - transform.position).normalized;
                   _anim.SetBool("Walking", false);
                   _anim.SetBool("Attacking", true);
+                  if (Enemy.IsMagic)AttackTarget.TakeMagicDamages(Enemy.Damages);
+                  else AttackTarget.TakePhysicDamages(Enemy.Damages);
                   _attackTimer = 0;
               }
           }
-          else if (_attackTimer >= Enemy.AttackSpeed/2)
+          else if (_attackTimer <= Enemy.AttackSpeed/2)
           {
               _anim.SetBool("Walking", true);
               _anim.SetBool("Attacking", false);
           }
+          else transform.up = (AttackTarget.transform.position - transform.position).normalized;
+          _attackTimer +=Time.deltaTime;
       }
 
       private Batiment GetOtherBuilding()
@@ -172,18 +178,21 @@ namespace Enemies
           ContactFilter2D co = new ContactFilter2D();
           co.layerMask = LayerMask.GetMask("Batiment");
           Collider2D[] cols = new Collider2D[50];
-          Physics2D.OverlapCircle(transform.position, 2,co , cols);
-          Collider2D FirstOfDefault = cols.OrderBy(x=> Vector3.Distance(x.transform.position, transform.position)).FirstOrDefault();
-
-          if (FirstOfDefault.GetComponent<Maison>()) return FirstOfDefault.GetComponent<Maison>();
-          else if (FirstOfDefault.GetComponent<Murs>()) return FirstOfDefault.GetComponent<Murs>();
-          else if (FirstOfDefault.GetComponent<TourAlchi>()) return FirstOfDefault.GetComponent<TourAlchi>();
-          else if (FirstOfDefault.GetComponent<TourGarde>()) return FirstOfDefault.GetComponent<TourGarde>();
-          else if (FirstOfDefault.GetComponent<TourMage>()) return FirstOfDefault.GetComponent<TourMage>();
-          else if (FirstOfDefault.GetComponent<TourSainte>()) return FirstOfDefault.GetComponent<TourSainte>();
-          else if (FirstOfDefault.GetComponent<Mairie>()) return FirstOfDefault.GetComponent<Mairie>();
+          Physics2D.OverlapCircle(transform.position, 2, co, cols);
+          if (cols.Length > 0&&cols.Length <50)
+          {
+              Collider2D FirstOfDefault = cols.OrderBy(x => Vector3.Distance(x.transform.position, transform.position))
+                  .FirstOrDefault();
+              if (FirstOfDefault.GetComponent<Maison>()) return FirstOfDefault.GetComponent<Maison>(); 
+              if (FirstOfDefault.GetComponent<Murs>()) return FirstOfDefault.GetComponent<Murs>();
+              if (FirstOfDefault.GetComponent<TourAlchi>()) return FirstOfDefault.GetComponent<TourAlchi>();
+              if (FirstOfDefault.GetComponent<TourGarde>()) return FirstOfDefault.GetComponent<TourGarde>();
+              if (FirstOfDefault.GetComponent<TourMage>()) return FirstOfDefault.GetComponent<TourMage>();
+              if (FirstOfDefault.GetComponent<TourSainte>()) return FirstOfDefault.GetComponent<TourSainte>();
+              if (FirstOfDefault.GetComponent<Mairie>()) return FirstOfDefault.GetComponent<Mairie>();
+          }
           return null;
-      }
+    }
 
 
       //PhysicDamages

@@ -80,7 +80,7 @@ namespace Assets.Scripts.Bourg
 	        }
         }
 
-        public void ReeperBuilding(int value)
+        public virtual void ReeperBuilding(int value)
         {
 	        if (CurrentHp < Hp)
 	        {
