@@ -1,6 +1,12 @@
+using System;
+using System.Linq;
 using Assets.Scripts.Bourg;
+using Assets.Scripts.Bourg.Achetable;
+using Assets.Scripts.Bourg.Achetable.Tours;
+using Bourg.Achetable.Tours;
 using PlaneC;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Enemies
 {
@@ -20,6 +26,7 @@ namespace Enemies
         public SpriteRenderer _spriteRenderer;
         public float _attackTimer;
         public Animator _anim;
+        public Batiment AttackTarget;
         
 
         private bool canAttack;
@@ -71,6 +78,7 @@ namespace Enemies
             {
                 SetEnnemy();
             }
+            if (AttackTarget!= null)AttaqueLoop();
         }
 
         //EnemyMove
@@ -88,7 +96,7 @@ namespace Enemies
         }
 
         //EnemyAttack
-       private void OnCollisionStay2D(Collision2D collision)
+      /* private void OnCollisionStay2D(Collision2D collision)
         {
            // Debug.Log("Ennemy Collide");
             if (collision.gameObject.layer == LayerMask.NameToLayer("Batiment"))
@@ -109,25 +117,76 @@ namespace Enemies
                     }
                     canAttack = false;
                 }
-                else
-                {
+                else {
                     _anim.SetBool("Attacking", false);
-
-                    if (_attackTimer > 0)
-                    {
+                    if (_attackTimer > 0) {
                         _attackTimer -= Time.deltaTime;
                     }
-                    else
-                    {
+                    else {
                         _attackTimer = Enemy.AttackSpeed;
                         canAttack = true;
                     }
                 }
             }
-        }
+        }*/
 
-    
-        //PhysicDamages
+      private void OnCollisionEnter2D(Collision2D other)
+      {
+          
+          if (other.gameObject.GetComponent<Murs>()!=null&&AttackTarget==null)
+          {
+              AttackTarget = other.gameObject.GetComponent<Murs>();
+          }
+      }
+
+      private void AttaqueLoop()
+      {
+          if (_attackTimer >= Enemy.AttackSpeed)
+          {
+              if ((AttackTarget.transform.position - transform.position).magnitude > 2)
+              {
+                  AttackTarget = null;
+                  _attackTimer = Enemy.AttackSpeed;
+                  _anim.SetBool("Walking", true);
+                  _anim.SetBool("Attacking", false);
+                  Batiment newBat = GetOtherBuilding();
+                  if (newBat != null) AttackTarget = newBat;
+              }
+              if (AttackTarget != null)
+              {
+                  transform.up = (AttackTarget.transform.position - transform.position).normalized;
+                  _anim.SetBool("Walking", false);
+                  _anim.SetBool("Attacking", true);
+                  _attackTimer = 0;
+              }
+          }
+          else if (_attackTimer >= Enemy.AttackSpeed/2)
+          {
+              _anim.SetBool("Walking", true);
+              _anim.SetBool("Attacking", false);
+          }
+      }
+
+      private Batiment GetOtherBuilding()
+      {
+          ContactFilter2D co = new ContactFilter2D();
+          co.layerMask = LayerMask.GetMask("Batiment");
+          Collider2D[] cols = new Collider2D[50];
+          Physics2D.OverlapCircle(transform.position, 2,co , cols);
+          Collider2D FirstOfDefault = cols.OrderBy(x=> Vector3.Distance(x.transform.position, transform.position)).FirstOrDefault();
+
+          if (FirstOfDefault.GetComponent<Maison>()) return FirstOfDefault.GetComponent<Maison>();
+          else if (FirstOfDefault.GetComponent<Murs>()) return FirstOfDefault.GetComponent<Murs>();
+          else if (FirstOfDefault.GetComponent<TourAlchi>()) return FirstOfDefault.GetComponent<TourAlchi>();
+          else if (FirstOfDefault.GetComponent<TourGarde>()) return FirstOfDefault.GetComponent<TourGarde>();
+          else if (FirstOfDefault.GetComponent<TourMage>()) return FirstOfDefault.GetComponent<TourMage>();
+          else if (FirstOfDefault.GetComponent<TourSainte>()) return FirstOfDefault.GetComponent<TourSainte>();
+          else if (FirstOfDefault.GetComponent<Mairie>()) return FirstOfDefault.GetComponent<Mairie>();
+          return null;
+      }
+
+
+      //PhysicDamages
         public void TakePhysicDamages(int damages)
         {
             CurrentHp -= (damages - Enemy.PhysicResistance);
