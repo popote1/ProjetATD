@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using Bourg.Achetable.Tours;
 using Enemies;
 using UnityEngine;
+using Components;
 // ReSharper disable All
 
 namespace Assets.Scripts.Bourg.Achetable.Tours
 {
-    public class TourGarde : Achetables
+    public class TourGarde : Tower
     {
         [Header("Auto")]
         public int AutoPhysicDamages;
@@ -31,8 +32,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         [Header("PowerEffect")]
-        public GameObject PowerEffect;
-        public GameObject VisualizerEffect;
+        //public GameObject PowerEffect;
+        //public GameObject VisualizerEffect;
         
 
         private float _autoResetTimer;
@@ -41,10 +42,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private Vector2 _mousePosition;
         private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
         private  PowerEffectComponent _powerEffectComponent;
+        
 
         //Initialisation
         private void Start()
         {
+            _camera=Camera.main;
             _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
@@ -62,7 +65,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActivePhysicDamages;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = false;
-            _powerEffectComponent.IsCurved = false;
+            //_powerEffectComponent.IsCurved = false;
         }
         
         private void Update()
@@ -71,13 +74,28 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_isSelected)
             {
                 OutLine.SetActive(true);
-                Visualize();
+                //Visualize();
 
             }
             else
             {
                 OutLine.SetActive(false);
                 VisualizerEffect.SetActive(false);
+            }
+            
+            if (IsPowerAvtivated) {
+                Visualize();
+                if (Input.GetButtonUp("Fire1")&&!PlayerManagerComponent.CursorOnUI) {
+                    Active();
+                    IsPowerAvtivated = false;
+                    IsUsingPower = false;
+                }
+            }
+
+            if (ActiveTimer != ActiveCouldown)
+            {
+                ActiveTimer += Time.deltaTime;
+                if (ActiveTimer > ActiveCouldown) ActiveTimer = ActiveCouldown;
             }
         }
         
@@ -113,19 +131,22 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Active Power
-        public void Active(Vector2 origin)
+        public override void Active()
         {
             if (_activeResetTimer <= 0)
             {            
                 //TODO: Check in PM closest selected tower to shoot with
                 IsReadyToAttack = true;
 
-                float Dist = Vector2.Distance(this.Position, origin);
-                if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
-                _activeResetTimer = ActiveRate;
-
-                PowerEffect.transform.LookAt(origin);
+                //float Dist = Vector2.Distance(this.Position, origin);
+                //if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
+                //_activeResetTimer = ActiveRate;
+                Vector2 pos = transform.position + (VisualizerEffect.transform.up.normalized * ActiveRange);
+                PowerEffect.transform.position=pos;
+                PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
                 PowerEffect.SetActive(true);
+                OnDeselect();
+                ActiveTimer = 0;
             }
             
             else
@@ -137,13 +158,16 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Visualize Active Power Before throw
-        private void Visualize()
+        public override void Visualize()
         {
             VisualizerEffect.SetActive(true);
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _mousePosition = GetMousePos();
+            Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
+                //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;
-            VisualizerEffect.transform.LookAt(_mousePosition);
+                //VisualizerEffect.transform.LookAt(_mousePosition);
+                VisualizerEffect.transform.up=( (Vector3)GetMousePos()-transform.position);
         }
         
         
@@ -167,10 +191,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public override void OnSelect()
         {
             _isSelected = true;
+            base.OnSelect();
         }
         public override void OnDeselect()
         {
             _isSelected = false;
+            base.OnDeselect();
         }
     }
 }

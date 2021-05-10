@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b515e51f383d74197eebc0ebc6f881, type: 3}
   m_Name: waveTest1
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
-  OrcSO: {fileID: 0}
-  WargSO: {fileID: 0}
-  TrollSO: {fileID: 0}
-  GhostSO: {fileID: 0}
+  EnemyPrefab: {fileID: 3130726305137273550, guid: 0ca547da57e2ed74faa8c83679233838, type: 3}
+  OrcSO: {fileID: 11400000, guid: e7415b0632b85a4409311bc268ace3fd, type: 2}
+  WargSO: {fileID: 11400000, guid: 698e85a1f46569e49aeca78b7b343f51, type: 2}
+  TrollSO: {fileID: 11400000, guid: 4b7fdf28b78fcc24f8c3fb8be378e9cc, type: 2}
+  GhostSO: {fileID: 11400000, guid: 89a6da2ebba73f64a8fb59fd69544a79, type: 2}
   DrakeSO: {fileID: 0}
-  NombreOrcs: 0
-  NombreGhost: 0
+  NombreOrcs: 10
+  NombreGhost: 10
   NombreWargs: 0
   NombreTrolls: 0
   NombreDrake: 0
-  TimeToWait: 0
+  TimeToWait: 280

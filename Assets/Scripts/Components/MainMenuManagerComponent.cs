@@ -76,6 +76,8 @@ public class MainMenuManagerComponent : MonoBehaviour
     public void UILaunchGame()
     {
         Debug.Log("Lancement du jeu");
+        Seed = InputFieldBorgName.text;
+        Time.timeScale = 1;
         StartCoroutine(LoadingScene());
     }
     
@@ -117,6 +119,14 @@ public class MainMenuManagerComponent : MonoBehaviour
     {
         float loadingValur = 0;
         bool terrainReady = false;
+        if (CanvasGroupLoading == null)
+        {
+            PemanentLimitateurComponent pm=GameObject.Find("LoadingScreen").GetComponent<PemanentLimitateurComponent>();
+            CanvasLoading = pm.CanvasLoading;
+            CanvasGroupLoading = pm.CanvasGroupLoading;
+            SliderLoading=pm.SliderLoading;
+            TxtLoadingValue = pm.TxtLoadingValue;
+        }
         DOTweenModuleUI.DOFade(CanvasGroupLoading, 1, FadeTime);
         while (CanvasGroupLoading.alpha<1f)
         {
@@ -168,5 +178,6 @@ public class MainMenuManagerComponent : MonoBehaviour
         LangueManager.ChangeLangue(index);
         TxtLangue.text = LangueManager.SelectTextData.Tests[1];
     }
+    
     
 }

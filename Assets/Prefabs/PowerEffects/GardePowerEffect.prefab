@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6192823679478127928}
   - component: {fileID: 9039431093388159723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1416278764730728570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.60277, y: 0.60277, z: 0.60277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6075784463570340096}
   m_RootOrder: 0
@@ -92,7 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6075784463570340096}
   - component: {fileID: -6940742406256015412}
-  m_Layer: 0
+  - component: {fileID: 6830485026093449149}
+  m_Layer: 6
   m_Name: GardePowerEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +129,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsMagic: 0
-  Damages: 0
-  Rate: 0
-  FxTimer: 0
+  Damages: 100
+  Rate: 0.6
+  EffectLifeTime: 0
+  DestroyTree: 1
+  IsInstante: 0
+--- !u!58 &6830485026093449149
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075784463570340103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &7100244583325774240
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +161,7 @@ GameObject:
   - component: {fileID: 434774407270502877}
   - component: {fileID: 4430994830393029484}
   - component: {fileID: 2371345890031574972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,8 +434,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.2
-      minScalar: 0.5
+      scalar: 0.6
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -877,7 +896,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.2
       mode: 0
       spread: 0
       speed:

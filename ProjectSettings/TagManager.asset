@@ -9,6 +9,7 @@ TagManager:
   - Tree
   - Murs
   - Manager
+  - Maison
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Batiment
   - Enemy
   - Ghost
-  - 
+  - Tree
   - 
   - 
   - 

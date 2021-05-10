@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228925293237017100}
   - component: {fileID: 3332082042252281267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VusualEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 649902323728887021}
   - component: {fileID: 8140743585911986803}
   - component: {fileID: 432265038264174252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OutLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 155793645162361224}
   - component: {fileID: 4628152722939624086}
   - component: {fileID: 590259762258691545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: basicTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -358,6 +358,7 @@ MonoBehaviour:
   CellNeeded: 2
   OccupiedCells: []
   IndividualMoveFactor: 20
+  DragFactor: 0
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0
@@ -365,8 +366,8 @@ MonoBehaviour:
   SecurityValue: 10
   Prix: 200
   OutLine: {fileID: 3563357598265500167}
-  AutoPhysicDamages: 2
-  AutoFireRate: 21
+  AutoPhysicDamages: 10
+  AutoFireRate: 2
   AutoRange: 3
   ActiveRange: 6
   ActivePhysicDamages: 5
@@ -502,7 +503,7 @@ GameObject:
   - component: {fileID: 4191579605585602018}
   - component: {fileID: 276893325718902647}
   - component: {fileID: 2429653454902849936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BasicTower(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 862281323123488519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Missing Prefab (Dummy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,6 +610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2222737070566317523}
     m_Modifications:
+    - target: {fileID: 1416278764730728570, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6075784463570340096, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -656,6 +661,14 @@ PrefabInstance:
     - target: {fileID: 6075784463570340103, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
       propertyPath: m_Name
       value: GardePowerEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075784463570340103, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100244583325774240, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}

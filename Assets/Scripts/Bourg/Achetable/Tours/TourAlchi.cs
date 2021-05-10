@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Bourg.Achetable.Tours
 {
-    public class TourAlchi : Achetables
+    public class TourAlchi : Tower
     {
         [Header("Auto")]
         public int AutoPhysicDamages;
@@ -17,6 +17,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         [Header("Active")]
         public int ActiveRange;
+        public float ActiveSize;
         public int ActivePhysicDamages;
         public float ActiveRate;
         public bool IsReadyToAttack = true;
@@ -37,8 +38,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         [Header("PowerEffects")]
-        public GameObject PowerEffect;
-        public GameObject VisualizeEffect;
+        //public GameObject PowerEffect;
+        //public GameObject VisualizeEffect;
         public float VisualizeEffectSpeed;
         
         
@@ -55,10 +56,11 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         //Initialisation
         private void Start()
         {
+            _camera = Camera.main;
             _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
-            VisualizeEffect.SetActive(false);
+            VisualizerEffect.SetActive(false);
             OutLine.SetActive(false);
             
             _isSelected = false;
@@ -73,21 +75,36 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             _powerEffectComponent.Damages = ActivePhysicDamages;
             _powerEffectComponent.Rate = ActiveRate;
             _powerEffectComponent.IsMagic = false;
-            _powerEffectComponent.IsCurved = true;
+            //_powerEffectComponent.IsCurved = true;
         }
 
         private void Update()
         {
             Auto();
+            Passive();
             if (_isSelected)
             {
                 OutLine.SetActive(true);
-                Visualize();
+               // Visualize();
             }
             else
             {
                 OutLine.SetActive(false);
-                VisualizeEffect.SetActive(false);
+                VisualizerEffect.SetActive(false);
+            }
+            if (IsPowerAvtivated) {
+                Visualize();
+                if (Input.GetButtonUp("Fire1")&&!PlayerManagerComponent.CursorOnUI) {
+                    Active();
+                    IsPowerAvtivated = false;
+                    IsUsingPower = false;
+                }
+            }
+
+            if (ActiveTimer != ActiveCouldown)
+            {
+                ActiveTimer += Time.deltaTime;
+                if (ActiveTimer > ActiveCouldown) ActiveTimer = ActiveCouldown;
             }
         }
 
@@ -122,33 +139,36 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         }
         
         //Active Power
-        public void Active(Vector2 origin)
+        public override void Active()
         {
-            if (_activeResetTimer <= 0)
-            {
-                //TODO: Check in PM closest selected tower to shoot with
-                IsReadyToAttack = true;
-                PowerEffect.transform.position = this.transform.position;
-                _powerEffectComponent.Target = VisualizeEffect.transform.position;
-                PowerEffect.SetActive(true);
-            }
-            
-            else
-            {
-                _activeResetTimer -= Time.deltaTime;
-                IsReadyToAttack = false;
-            }
+            //TODO: Check in PM closest selected tower to shoot with
+            IsReadyToAttack = true;
+            PowerEffect.transform.localScale = Vector3.one*ActiveSize;
+            PowerEffect.transform.position = VisualizerEffect.transform.position;
+            //_powerEffectComponent.Target = VisualizeEffect.transform.position;
+            PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
+            PowerEffect.SetActive(true);
+            ActiveTimer = 0;
+            OnDeselect();
         }
         
         
         //Visualize Active Power Before throw
-        private void Visualize()
+        public override void Visualize()
         {
-            VisualizeEffect.SetActive(true);
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            float Dist = Vector2.Distance(_mousePosition, transform.position);
-            if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
-            VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            VisualizerEffect.SetActive(true);
+            _mousePosition = GetMousePos(); 
+            Vector3 pos =  _mousePosition-(Vector2)transform.position ;
+            VisualizerEffect.transform.localScale = Vector3.one*ActiveSize;
+            //Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //float Dist = Vector2.Distance(_mousePosition, transform.position);
+            //if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
+            //VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
+            if (pos.magnitude > ActiveRange)
+            {
+                VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position;
+            }
+            else{VisualizerEffect.transform.position = _mousePosition;}
         }
         
 
@@ -163,7 +183,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                     if (!((Position - bat.Position).magnitude < PassiveRange)) continue;
                     if (bat.CurrentHp < bat.Hp)
                     {
-                        bat.Hp += PassiveHpIncome;
+                        Debug.Log("Heal un Batiment");
+                        bat.ReeperBuilding(PassiveHpIncome);
                     }
                 }
             }
@@ -194,10 +215,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public override void OnSelect()
         {
             _isSelected = true;
+            base.OnSelect();
         }
         public override void OnDeselect()
         {
             _isSelected = false;
+            base.OnDeselect();
         }
     }
 }

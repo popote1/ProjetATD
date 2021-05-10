@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Components;
 using PlaneC;
 using UnityEngine;
+using Assets.Scripts.Bourg.Achetable;
+
 
 namespace Assets.Scripts.Bourg
 {
@@ -15,9 +17,11 @@ namespace Assets.Scripts.Bourg
         public int CellNeeded;
     	public List<Vector2Int> OccupiedCells;
     	public int IndividualMoveFactor;
+        public int DragFactor;
         public Vector2 Position;
         public int PhysicDamagesResistance;
         public int MagicDamagesResistance;
+        public ParticleSystem HealingEffect;
 
         public int SecurityRange;
         public int SecurityValue;
@@ -40,12 +44,22 @@ namespace Assets.Scripts.Bourg
 		       {
 			       Playgrid.GetCell(vec).SecurityValue -= SecurityValue;
 		       }
-		       foreach (Vector2Int cell in OccupiedCells)
-		       {
-			       Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
-		       }
-		       Debug.Log("Remove building data");
 	        }
+	        foreach (Vector2Int cell in OccupiedCells)
+	        {
+		        Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
+		        Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
+	        }
+
+	        if (this is Achetables) {
+		        PlayerManagerComponent.Batiments.Remove(this);
+		        if (CurrentHp > 0) {
+			        PlayerManagerComponent.Gold +=
+				        Mathf.RoundToInt((this as Achetables).Prix * (this as Achetables).RetrunMoney / 100);
+		        }
+	        }
+
+	        Debug.Log("Remove building data");
         }
 
         public void TakePhysicDamages(int damages)
@@ -63,6 +77,20 @@ namespace Assets.Scripts.Bourg
 	        if(CurrentHp <= 0)
 	        {
 		        Destroy(this.gameObject);
+	        }
+        }
+
+        public void ReeperBuilding(int value)
+        {
+	        if (CurrentHp < Hp)
+	        {
+		        CurrentHp += value;
+		        if (CurrentHp > Hp) CurrentHp = Hp;
+		        HealingEffect.Play();
+	        }
+	        else
+	        {
+		        HealingEffect.Stop();
 	        }
         }
         

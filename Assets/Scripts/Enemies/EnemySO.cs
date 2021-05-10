@@ -1,5 +1,4 @@
 
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Enemy")]
@@ -21,6 +20,7 @@ public class EnemySO : ScriptableObject
 
     [Header("Graphics")]
     public Sprite Sprite;
-    public AnimatorController AnimationsController;
+
+    
 
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 using Assets.Scripts.Bourg;
 using UnityEngine.Serialization;
+using Object = System.Object;
 using Random = System.Random;
 
 namespace Components
@@ -23,7 +24,8 @@ namespace Components
      
         [Header("FlowField Infos")] 
         public Vector2Int Target;
-        private bool _IsReadyToCalculateFlowFlield;
+        public float FlowFieldRecalculatFequency = 2;
+        private bool _IsReadyToCalculateFlowFlield=true;
 
         [Header("Home Building")] 
         public bool IsUsingHomeSysteme;
@@ -35,15 +37,18 @@ namespace Components
         public bool DebugShowSecuritiyTiles;
         public Gradient DebugSecurityGradiant;
         private bool _debugSecutity=false;
-        
+
+        public static bool IsLose = false;
         
         [Header("Linked Components")] 
         public PlayerManagerComponent PlayManagerComponent;
         public TerrainGenerator TerrainGenerator;
         public SmoothTerrain SmoothTerrain;
         public InGameUIManagerComponent InGameUIManagerComponent;
+        public WaveSystemeV2Component WaveSystemeV2Component;
 
         private float _homeTimer;
+        private float _flowfildTimer;
 
 
         private void Start()
@@ -67,13 +72,30 @@ namespace Components
         {
             DebugSecurity();
             if (IsUsingHomeSysteme)
+            {
                 HomeTimer();
+                InGameUIManagerComponent.SetWaveSlider(WaveSystemeV2Component.GetWaveProgress());
+            }
+            if (IsLose)
+            {
+                SetLose();
+                IsLose = false;
+            }
+
+            _flowfildTimer += Time.deltaTime;
+            if (_flowfildTimer > FlowFieldRecalculatFequency&&_IsReadyToCalculateFlowFlield)
+            {
+                _flowfildTimer = 0;
+                CalculateFlowField();
+            }
+
         }
 
         public void SetStartGame()
         {
             Time.timeScale = 1;
             IsUsingHomeSysteme = true;
+            WaveSystemeV2Component.IsPlaying = true;
         }
 
         public void SetPause()
@@ -165,6 +187,7 @@ namespace Components
                 TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
                 SmoothTerrain.GenerateSmoothMesh();
             }
+           // SetPlayGrid(PlayGrid , Width, Height);
         }
         [ContextMenu("GetHashCode")]
         public void GetHashCode()
@@ -174,10 +197,15 @@ namespace Components
 
 
         [ContextMenu("Calculate FlowField")]
-        public void CalculateFlowField() {
-            StartCoroutine(CalculateFlowFieldCorutine());
-            _IsReadyToCalculateFlowFlield = false;
+        public void CalculateFlowField()
+        {
+            if (_IsReadyToCalculateFlowFlield)
+            {
+                StartCoroutine(CalculateFlowFieldCorutine());
+                _IsReadyToCalculateFlowFlield = false;
+            }
         }
+
         IEnumerator CalculateFlowFieldCorutine()
         {
             Debug.Log("Cacule le flowfield");

@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073db44d015ba524a9abc5aafcc20318, type: 3}
   m_Name: Warg
   m_EditorClassIdentifier: 
-  Speed: 0
-  HP: 0
-  Damages: 0
-  AttackSpeed: 0
-  Size: {x: 0, y: 0, z: 0}
+  Speed: 10
+  HP: 12
+  Damages: 3
+  AttackSpeed: 0.5
+  Size: {x: 1, y: 1, z: 1}
   IsBoss: 0
   MagicResistance: 0
   PhysicResistance: 0
   PrefabMorts: {fileID: 3130726305137273550, guid: 36427fbf2222f37449cf6e22bd5afa17, type: 3}
   Layer: 
-  CanBePushed: 0
+  CanBePushed: 1
   IsMagic: 0
   Sprite: {fileID: 21300000, guid: 3be1236af190a9c4297850b29a22bae5, type: 3}
   AnimationsController: {fileID: 9100000, guid: ef65d637daac5fb44a967eb94e2e2209, type: 2}
