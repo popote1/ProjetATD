@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.55
+  m_fontSize: 35.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1306,6 +1306,7 @@ MonoBehaviour:
   GameManagerComponent: {fileID: 2048388249}
   SmoothTerrainLoading: {fileID: 1624783403}
   InGameUIManagerComponent: {fileID: 2048388255}
+  startMoney: 500
 --- !u!4 &423690980
 Transform:
   m_ObjectHideFlags: 0
@@ -2366,7 +2367,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 84
+  field of view: 20
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6332,7 +6333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9101,7 +9102,7 @@ MonoBehaviour:
   GameManagerComponent: {fileID: 2048388249}
   InGameUIManagerComponent: {fileID: 2048388255}
   InputState: 0
-  SelectedBuildings: []
+  SelectedBuilding: {fileID: 0}
   DistanceOfCamera: -30
   CameraWidthToKeep: 20
   CameraYRange:
@@ -9118,9 +9119,7 @@ MonoBehaviour:
   - {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
   PrefabCursor: {fileID: 5871912498545961184, guid: 983c5e12ed90578439839074dab470d3, type: 3}
   CursorSmoothFactor: 36
-  CursorOnUI: 0
   ScrollbarCamera: {fileID: 1815720400}
-  BPDestroy: {fileID: 874356035}
   TxtGoldText: {fileID: 699402340}
   PanelFondInsufisant: {fileID: 1432352732}
   IsPause: 0

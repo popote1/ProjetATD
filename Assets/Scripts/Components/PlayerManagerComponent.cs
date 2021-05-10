@@ -18,9 +18,10 @@ namespace Components
 
         public static int Gold;
         public static List<Batiment> Batiments = new List<Batiment>();
+        public static bool CursorOnUI;
 
         public InputStat InputState;
-        public List<Achetables> SelectedBuildings = new List<Achetables>();
+        public Achetables SelectedBuilding;
         [Header("Camera Setting")] 
         public float DistanceOfCamera=-100;
         public float CameraWidthToKeep = 10;
@@ -39,9 +40,9 @@ namespace Components
         [Header("Cursor Configue")] public GameObject PrefabCursor;
         [Range(0, 100)] public float CursorSmoothFactor;
         [Header("UI")] 
-        public bool CursorOnUI;
+        
         public Scrollbar ScrollbarCamera;
-        public Button BPDestroy;
+        //public Button BPDestroy;
         public TMP_Text TxtGoldText;
         public CanvasGroup PanelFondInsufisant;
         public bool IsPause;
@@ -76,9 +77,9 @@ namespace Components
                 {
                     if (InputState == InputStat.Building) Building();
                     if (InputState == InputStat.AddEnnemis) AddEnnemis();
-                    if (InputState == InputStat.none) DragCamera();
-                    if (InputState == InputStat.PowerSelected)PutPower();
-                    if (InputState ==InputStat.PowerOnGround)VisulizePowerEffect();
+                    if (InputState == InputStat.none&&!Tower.IsUsingPower) DragCamera();
+                   // if (InputState == InputStat.PowerSelected)PutPower();
+                    //if (InputState ==InputStat.PowerOnGround)VisulizePowerEffect();
                 }
 
                 if (_playGrid != null)
@@ -104,9 +105,7 @@ namespace Components
 
                 TxtGoldText.text = "Gold : " + Gold;
                 PanelFondInsufisant.alpha = Mathf.Lerp(PanelFondInsufisant.alpha, 0f, 0.01f);
-
-                if (SelectedBuildings.Count == 1) BPDestroy.gameObject.SetActive(true);
-                else BPDestroy.gameObject.SetActive(false);
+                
                 
                 float distance = (CameraWidthToKeep / (Camera.fieldOfView*Camera.aspect/ 2))*DistanceOfCamera;
                 Camera.transform.position =
@@ -165,6 +164,7 @@ namespace Components
 
         private void DragCamera()
         {
+            
             float yMove;
             if (Input.GetButton("Fire1")) {
                 if (_lastCursorPos != Vector3.zero) {
@@ -182,32 +182,42 @@ namespace Components
                 _lastCursorPos = Vector3.zero;
             }
 
-            if (Input.GetButtonDown("Fire1"))
-            {
-                if (_playGrid.GetCell(_selsectdCell).Batiment != null)
-                {
-                    if (_playGrid.GetCell(_selsectdCell).Batiment is Achetables)
-                    {
-                        foreach (Achetables building in SelectedBuildings)building.OnDeselect();
-                        SelectedBuildings.Clear();
-                        InGameUIManagerComponent.SetOffPowerButton();
-                        Achetables bat = (Achetables)_playGrid.GetCell(_selsectdCell).Batiment;
-                        SelectedBuildings.Add(bat);
-                        bat.OnSelect();
-                        if (bat is TourAlchi || bat is TourGarde || bat is TourMage || bat is TourSainte)
-                        {
-                            InGameUIManagerComponent.SetOnPowerButton();
-                        }
-                        
+            if (Input.GetButtonDown("Fire1")) {
+                if (_playGrid.GetCell(_selsectdCell).Batiment != null) {
+                    if (_playGrid.GetCell(_selsectdCell).Batiment is Achetables) {
+                        ((Achetables) _playGrid.GetCell(_selsectdCell).Batiment).OnSelect();
+                        if (SelectedBuilding != null) SelectedBuilding.OnDeselect();
+                        SelectedBuilding = (Achetables) _playGrid.GetCell(_selsectdCell).Batiment;
                     }
                 }
-                else
-                {
-                    foreach (Achetables building in SelectedBuildings)building.OnDeselect();
-                    SelectedBuildings.Clear();
-                    InGameUIManagerComponent.SetOffPowerButton();
-                }
             }
+
+            /*  if (Input.GetButtonDown("Fire1"))
+              {
+                  if (_playGrid.GetCell(_selsectdCell).Batiment != null)
+                  {
+                      if (_playGrid.GetCell(_selsectdCell).Batiment is Achetables)
+                      {
+                          foreach (Achetables building in SelectedBuildings)building.OnDeselect();
+                          SelectedBuildings.Clear();
+                          InGameUIManagerComponent.SetOffPowerButton();
+                          Achetables bat = (Achetables)_playGrid.GetCell(_selsectdCell).Batiment;
+                          SelectedBuildings.Add(bat);
+                          bat.OnSelect();
+                          if (bat is TourAlchi || bat is TourGarde || bat is TourMage || bat is TourSainte)
+                          {
+                              InGameUIManagerComponent.SetOnPowerButton();
+                          }
+                          
+                      }
+                  }
+                  else
+                  {
+                      foreach (Achetables building in SelectedBuildings)building.OnDeselect();
+                      SelectedBuildings.Clear();
+                      InGameUIManagerComponent.SetOffPowerButton();
+                  }
+              }*/
         }
 
         public void UISelectPower()
@@ -215,12 +225,12 @@ namespace Components
             InputState = InputStat.PowerSelected;
         }
 
-        public void PutPower()
+       /* public void PutPower()
         {
             if (Input.GetButtonDown("Fire1")) InputState = InputStat.PowerOnGround;
-        }
+        }*/
 
-        public void VisulizePowerEffect()
+        /*public void VisulizePowerEffect()
         {
             if (Input.GetButton("Fire1"))
             {
@@ -243,7 +253,7 @@ namespace Components
                 InputState = InputStat.none;
                 
             }
-        }
+        }*/
 
         public void StartBuilding(int buildingIndex)
         {
@@ -252,19 +262,13 @@ namespace Components
             else PanelFondInsufisant.alpha = 1;
 
         }
-
-        public void DestroySelectedBuilding()
+        
+        public static void DestroyBuilding()
         {
-            Destroy(SelectedBuildings[0].gameObject);
-            SelectedBuildings.Clear();
-            CursorOnUI = false;
-        }
-
-        public static void DestrySelectedBuilding(Batiment batiment)
-        {
-            Destroy(batiment.gameObject);
             
         }
+
+       
 
         private void Building()
         {
@@ -301,7 +305,7 @@ namespace Components
             foreach (Vector2Int cell in newCells)
             {
                 _preselectedCell.Add(cell);
-                if (_playGrid.GetCell(cell).Batiment == null)
+                if (_playGrid.GetCell(cell).Batiment == null&& _playGrid.GetCell(cell).ConstructionTile!=null)
                     _playGrid.GetCell(cell).ConstructionTile.SetActive(true);
             }
         }
@@ -336,10 +340,7 @@ namespace Components
             foreach (Vector2Int cell in _preselectedCell)
             {
                 _playGrid.GetCell(cell).ConstructionTile.SetActive(false);
-            }
-            
-            
-
+            } 
             InputState = InputStat.none;
         }
        

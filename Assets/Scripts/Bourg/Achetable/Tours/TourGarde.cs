@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using Bourg.Achetable.Tours;
 using Enemies;
 using UnityEngine;
+using Components;
 // ReSharper disable All
 
 namespace Assets.Scripts.Bourg.Achetable.Tours
 {
-    public class TourGarde : Achetables
+    public class TourGarde : Tower
     {
         [Header("Auto")]
         public int AutoPhysicDamages;
@@ -31,8 +32,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         [Header("PowerEffect")]
-        public GameObject PowerEffect;
-        public GameObject VisualizerEffect;
+        //public GameObject PowerEffect;
+        //public GameObject VisualizerEffect;
         
 
         private float _autoResetTimer;
@@ -46,7 +47,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         //Initialisation
         private void Start()
         {
-            
+            _camera=Camera.main;
             _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
@@ -80,6 +81,21 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             {
                 OutLine.SetActive(false);
                 VisualizerEffect.SetActive(false);
+            }
+            
+            if (IsPowerAvtivated) {
+                Visualize();
+                if (Input.GetButtonUp("Fire1")&&!PlayerManagerComponent.CursorOnUI) {
+                    Active();
+                    IsPowerAvtivated = false;
+                    IsUsingPower = false;
+                }
+            }
+
+            if (ActiveTimer != ActiveCouldown)
+            {
+                ActiveTimer += Time.deltaTime;
+                if (ActiveTimer > ActiveCouldown) ActiveTimer = ActiveCouldown;
             }
         }
         
@@ -115,7 +131,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Active Power
-        public void Active(Vector2 origin)
+        public override void Active()
         {
             if (_activeResetTimer <= 0)
             {            
@@ -129,6 +145,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 PowerEffect.transform.position=pos;
                 PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
                 PowerEffect.SetActive(true);
+                OnDeselect();
+                ActiveTimer = 0;
             }
             
             else
@@ -140,7 +158,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
 
         
         //Visualize Active Power Before throw
-        public void Visualize()
+        public override void Visualize()
         {
             VisualizerEffect.SetActive(true);
             _mousePosition = GetMousePos();

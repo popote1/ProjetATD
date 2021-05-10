@@ -9,11 +9,12 @@ namespace Assets.Scripts.Bourg.Achetable
     {
         [Header("Achetable")]
         public int Prix;
+        [Range(0,100)]public float RetrunMoney = 75;
         public GameObject OutLine;
         public Action OnSelected ;
         public Action OnDeselected;
 
-        private Camera _camera ;
+        [HideInInspector]public Camera _camera ;
         
         public virtual void OnSelect(){if(OnSelected!=null)OnSelected.Invoke();}
         public virtual void OnDeselect(){if(OnDeselected!=null)OnDeselected.Invoke();}
@@ -24,6 +25,6 @@ namespace Assets.Scripts.Bourg.Achetable
             if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit)) return hit.point;
             return Vector2.zero;
         }
-
+        
     }
 }

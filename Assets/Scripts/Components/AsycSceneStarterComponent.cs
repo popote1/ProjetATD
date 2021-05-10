@@ -9,6 +9,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
     public GameManagerComponent GameManagerComponent;
     public SmoothTerrainLoading SmoothTerrainLoading;
     public InGameUIManagerComponent InGameUIManagerComponent;
+    public int startMoney;
     private GameObject _menuScripte; 
     
     private void Awake()
@@ -30,12 +31,12 @@ public class AsycSceneStarterComponent : MonoBehaviour
         GameManagerComponent.SetTerrain();
         SmoothTerrainLoading.GenerateSmoothMesh();
         GameManagerComponent.GetComponent<MeshRenderer>().enabled = false;
+        PlayerManagerComponent.Gold += startMoney;
     }
 
     private void Update()
     {
-        if (SmoothTerrainLoading.LoadingProgress == 1)
-        {
+        if (SmoothTerrainLoading.LoadingProgress == 1) {
             Time.timeScale = 0;
             //Destroy(_menuScripte);
             InGameUIManagerComponent.UISetStartDialogue();

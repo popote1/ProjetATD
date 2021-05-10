@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1416278764730728570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.60277, y: 0.60277, z: 0.60277}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6075784463570340096}
   m_RootOrder: 0
@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6075784463570340103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19, y: 8, z: 0}
+  m_LocalPosition: {x: 20.26078, y: 16.345406, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6192823679478127928}
@@ -130,7 +130,7 @@ MonoBehaviour:
   IsMagic: 0
   Damages: 0
   Rate: 0
-  FxTimer: 0
+  EffectLifeTime: 0
   DestroyTree: 0
   IsInstante: 0
 --- !u!1 &7100244583325774240
@@ -417,8 +417,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.2
-      minScalar: 0.5
+      scalar: 0.6
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -879,7 +879,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.2
       mode: 0
       spread: 0
       speed:

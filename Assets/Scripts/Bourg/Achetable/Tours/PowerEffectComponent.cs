@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using Enemies;
 
@@ -11,7 +12,7 @@ namespace Bourg.Achetable.Tours
         public bool IsMagic;
         public int Damages;
         public float Rate;
-        public float FxTimer;
+        public float EffectLifeTime;
         public bool DestroyTree;
         public bool IsInstante;
 
@@ -24,11 +25,11 @@ namespace Bourg.Achetable.Tours
         public void OnAwake()
         {
             _minRate = 0;
-            _timer = FxTimer;
+            _timer = EffectLifeTime;
             Collider2D[] test =Physics2D.OverlapCircleAll(transform.position,transform.localScale.x);
             foreach (Collider2D col in test)
             {
-                if (col.gameObject.layer == LayerMask.NameToLayer("Tree")) Destroy(col.gameObject);
+                if (col.gameObject.layer == LayerMask.NameToLayer("Tree")&&DestroyTree) Destroy(col.gameObject);
                 else if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
                     if (IsMagic) col.GetComponent<EnemyComponent>().TakeMagicDamages(Damages); 
                     else col.GetComponent<EnemyComponent>().TakePhysicDamages(Damages);
@@ -36,13 +37,12 @@ namespace Bourg.Achetable.Tours
             }
         }
         
-
         private void OnTriggerStay2D(Collider2D other)
         {
             if (!IsInstante)
             {
                 Debug.Log("collide with " + other.gameObject.name);
-                if (other.gameObject.layer == LayerMask.NameToLayer("Tree"))
+                if (other.gameObject.layer == LayerMask.NameToLayer("Tree")&&DestroyTree)
                 {
                     Destroy(other.gameObject);
                 }

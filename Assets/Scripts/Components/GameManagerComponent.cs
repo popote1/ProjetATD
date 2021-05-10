@@ -196,10 +196,15 @@ namespace Components
 
 
         [ContextMenu("Calculate FlowField")]
-        public void CalculateFlowField() {
-            StartCoroutine(CalculateFlowFieldCorutine());
-            _IsReadyToCalculateFlowFlield = false;
+        public void CalculateFlowField()
+        {
+            if (_IsReadyToCalculateFlowFlield)
+            {
+                StartCoroutine(CalculateFlowFieldCorutine());
+                _IsReadyToCalculateFlowFlield = false;
+            }
         }
+
         IEnumerator CalculateFlowFieldCorutine()
         {
             Debug.Log("Cacule le flowfield");

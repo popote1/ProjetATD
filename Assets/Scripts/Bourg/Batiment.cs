@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Components;
 using PlaneC;
 using UnityEngine;
+using Assets.Scripts.Bourg.Achetable;
+
 
 namespace Assets.Scripts.Bourg
 {
@@ -41,13 +43,22 @@ namespace Assets.Scripts.Bourg
 		       {
 			       Playgrid.GetCell(vec).SecurityValue -= SecurityValue;
 		       }
-		       foreach (Vector2Int cell in OccupiedCells)
-		       {
-			       Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
-			       Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
-		       }
-		       Debug.Log("Remove building data");
 	        }
+	        foreach (Vector2Int cell in OccupiedCells)
+	        {
+		        Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
+		        Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
+	        }
+
+	        if (this is Achetables) {
+		        PlayerManagerComponent.Batiments.Remove(this);
+		        if (CurrentHp > 0) {
+			        PlayerManagerComponent.Gold +=
+				        Mathf.RoundToInt((this as Achetables).Prix * (this as Achetables).RetrunMoney / 100);
+		        }
+	        }
+
+	        Debug.Log("Remove building data");
         }
 
         public void TakePhysicDamages(int damages)

@@ -347,6 +347,7 @@ namespace Components
                      if (treeMap[x, y]) {
                          Batiment arbre = Instantiate(PrefabTree, playgrid.GetCellCenterWorldPosByCell(new Vector2Int(x,y))+Vector3.forward*-0.5f, Quaternion.identity,transform);
                             arbre.transform.localScale = arbre.transform.localScale * Random.Range(0.7f, 1.1f);
+                            arbre.Playgrid = playgrid;
                             playgrid.GetCell(x, y).Batiment = arbre;
                             playgrid.GetCell(x, y).IndividualMoveValue += arbre.IndividualMoveFactor;
                      }

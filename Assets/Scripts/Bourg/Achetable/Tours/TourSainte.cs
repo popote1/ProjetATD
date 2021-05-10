@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Assets.Scripts.Bourg.Achetable;
+using Components;
 using Enemies;
 using UnityEngine;
 
 namespace Bourg.Achetable.Tours
 {
-    public class TourSainte : Achetables
+    public class TourSainte : Tower
     {
         [Header("Auto")]
         public int AutoRange;
@@ -44,7 +44,6 @@ namespace Bourg.Achetable.Tours
         private float _autoResetTimer;
         private float _passiveTimer;
         private float _activeResetTimer;
-        private bool _isSelected;
         private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
         private PowerEffectComponent _powerEffectComponent;
 
@@ -71,14 +70,19 @@ namespace Bourg.Achetable.Tours
         private void Update()
         {
             Auto();
-            // Auto();
-            if (_isSelected)
-            {
-                OutLine.SetActive(true);
+            if (IsPowerAvtivated) {
+                Visualize();
+                if (Input.GetButtonUp("Fire1")&&!PlayerManagerComponent.CursorOnUI) {
+                    Active();
+                    IsPowerAvtivated = false;
+                    IsUsingPower = false;
+                }
             }
-            else
+
+            if (ActiveTimer != ActiveCouldown)
             {
-                OutLine.SetActive(false);
+                ActiveTimer += Time.deltaTime;
+                if (ActiveTimer > ActiveCouldown) ActiveTimer = ActiveCouldown;
             }
         }
 
@@ -117,43 +121,32 @@ namespace Bourg.Achetable.Tours
         
         
         //Active Power
-        public void Active(Vector2 origin)
+        public override  void Active()
         {
-            if (_activeResetTimer <= 0)
+            PowerEffect.transform.position = this.transform.position;
+            PowerEffect.SetActive(true);
+            
+            Collider2D[] affected = new Collider2D[50];
+            
+            Physics2D.OverlapCircle(transform.position, ActiveRange, new ContactFilter2D().NoFilter(), affected);
+            foreach (Collider2D col in affected)
             {
-                IsReadyToAttack = true;
-                
-                _activeResetTimer = ActiveRate;
-
-                PowerEffect.transform.position = this.transform.position;
-                PowerEffect.SetActive(true);
-                
-                Collider2D[] affected = new Collider2D[50];
-                
-                Physics2D.OverlapCircle(origin, ActiveRange, new ContactFilter2D().NoFilter(), affected);
-                foreach (Collider2D col in affected)
+                if (col == null) continue;
+                if (!col.transform.CompareTag("Enemy")) continue;
+                EnemyComponent enemy = col.GetComponent<EnemyComponent>();
+                //AddForce
+                if (enemy.CanGetPushed)
                 {
-                    if (col == null) continue;
-                    if (!col.transform.CompareTag("Enemy")) continue;
-                    EnemyComponent enemy = col.GetComponent<EnemyComponent>();
-                    //AddForce
-                    if (enemy.CanGetPushed)
-                    {
-                        col.GetComponent<Rigidbody2D>().AddForce(
-                            (new Vector2(col.transform.position.x, col.transform.position.y)-origin).normalized * AddForcePower, ForceMode2D.Impulse);
-                    }
+                    col.GetComponent<Rigidbody2D>().AddForce(
+                        (new Vector2(col.transform.position.x, col.transform.position.y)-(Vector2)transform.position).normalized * AddForcePower, ForceMode2D.Impulse);
                 }
             }
-
-            else
-            {
-                _activeResetTimer -= Time.deltaTime;
-                IsReadyToAttack = false;
-            }
+            ActiveTimer = 0;
+            OnDeselect();
             VisualizeEffect.SetActive(false);
         }
 
-        public void Visualize(Vector2 pos)
+        public override void Visualize()
         {
             VisualizeEffect.SetActive(true);
         }
@@ -179,10 +172,12 @@ namespace Bourg.Achetable.Tours
         public override void OnSelect()
         {
             OutLine.SetActive(true);
+            base.OnSelect();
         }
         public override void OnDeselect()
         {
             OutLine.SetActive(false);
+            base.OnDeselect();
         }
     }
 }
