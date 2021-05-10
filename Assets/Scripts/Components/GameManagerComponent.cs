@@ -25,7 +25,7 @@ namespace Components
         [Header("FlowField Infos")] 
         public Vector2Int Target;
         public float FlowFieldRecalculatFequency = 2;
-        private bool _IsReadyToCalculateFlowFlield;
+        private bool _IsReadyToCalculateFlowFlield=true;
 
         [Header("Home Building")] 
         public bool IsUsingHomeSysteme;
@@ -187,6 +187,7 @@ namespace Components
                 TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
                 SmoothTerrain.GenerateSmoothMesh();
             }
+           // SetPlayGrid(PlayGrid , Width, Height);
         }
         [ContextMenu("GetHashCode")]
         public void GetHashCode()

@@ -51,7 +51,7 @@ public class UIWorldHousesComponent : MonoBehaviour
 
     public void GoldIncomeAniamtion()
     {
-        TxtGoldText.text = "+"+ Mathf.FloorToInt(House.GoldIncome * (1 + House.TourMages.Count));
+        TxtGoldText.text = "+"+ Mathf.FloorToInt(House.GoldIncome * (1 + House.TowerInRange));
         TxtGoldText.transform.localPosition = StatPos;
         TxtGoldText.transform.localScale = Vector3.one;
         CanvasGroupGoldText.alpha = 0;

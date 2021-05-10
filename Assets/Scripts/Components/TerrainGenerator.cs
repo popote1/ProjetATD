@@ -94,6 +94,7 @@ namespace Components
             SetCellCosts();
             SetColiders();
             GeneratTreeMap();
+            GameManagerComponent.SetPlayGrid(playgrid, width, height);
         }
 
         [ContextMenu("CreateMesh")]
@@ -193,7 +194,7 @@ namespace Components
                 }
                 vert++;
             }
-            GameManagerComponent.SetPlayGrid(playgrid, width, height);
+           // GameManagerComponent.SetPlayGrid(playgrid, width, height);
         }
 
         [ContextMenu("Generate Roads")]

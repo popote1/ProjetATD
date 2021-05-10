@@ -21,6 +21,7 @@ namespace Assets.Scripts.Bourg
         public Vector2 Position;
         public int PhysicDamagesResistance;
         public int MagicDamagesResistance;
+        public ParticleSystem HealingEffect;
 
         public int SecurityRange;
         public int SecurityValue;
@@ -76,6 +77,20 @@ namespace Assets.Scripts.Bourg
 	        if(CurrentHp <= 0)
 	        {
 		        Destroy(this.gameObject);
+	        }
+        }
+
+        public void ReeperBuilding(int value)
+        {
+	        if (CurrentHp < Hp)
+	        {
+		        CurrentHp += value;
+		        if (CurrentHp > Hp) CurrentHp = Hp;
+		        HealingEffect.Play();
+	        }
+	        else
+	        {
+		        HealingEffect.Stop();
 	        }
         }
         

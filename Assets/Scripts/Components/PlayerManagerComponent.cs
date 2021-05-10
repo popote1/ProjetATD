@@ -299,7 +299,7 @@ namespace Components
 
                 
             foreach (Vector2Int cell in _preselectedCell) 
-                if (!newCells.Contains(cell)) 
+                if (!newCells.Contains(cell)&&_playGrid.GetCell(cell).ConstructionTile!=null) 
                     _playGrid.GetCell(cell).ConstructionTile.SetActive(false);
             _preselectedCell.Clear();
             foreach (Vector2Int cell in newCells)
@@ -331,6 +331,7 @@ namespace Components
                 achetable.Position = buildingPos;
                 achetable.Playgrid = _playGrid;
                 Gold -= achetable.Prix;
+                Batiments.Add(achetable);
                 if (achetable.SecurityValue != 0) {
                     foreach (Vector2Int cell in _playGrid.GetBuildingAura(_selsectdCell, achetable.CellNeeded, achetable.SecurityRange)) {
                         _playGrid.GetCell(cell).SecurityValue += achetable.SecurityValue;
@@ -339,7 +340,7 @@ namespace Components
             }
             foreach (Vector2Int cell in _preselectedCell)
             {
-                _playGrid.GetCell(cell).ConstructionTile.SetActive(false);
+                if (_playGrid.GetCell(cell).ConstructionTile!=null)_playGrid.GetCell(cell).ConstructionTile.SetActive(false);
             } 
             InputState = InputStat.none;
         }

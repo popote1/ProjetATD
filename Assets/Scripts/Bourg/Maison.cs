@@ -15,6 +15,7 @@ namespace Assets.Scripts.Bourg
         public float DistanceToMage;
         public Action OnGoldGeneration;
         
+        public int TowerInRange=0;
         private float _goldTimer;
 
 
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Bourg
 
         private void Start()
         {
-            Collider2D[] affected = new Collider2D[50];
+           /* Collider2D[] affected = new Collider2D[50];
             Physics2D.OverlapCircle(transform.position, DistanceToMage, new ContactFilter2D().NoFilter(), affected);
             foreach (Collider2D col in affected)
             {
@@ -45,7 +46,7 @@ namespace Assets.Scripts.Bourg
                         }
                     }
                 }
-            }
+            }*/
         }
         private void Update()
         {
@@ -57,8 +58,21 @@ namespace Assets.Scripts.Bourg
             if (_goldTimer <= 0)
             {
                 _goldTimer = GoldRate;
+                TowerInRange = 0;
+                foreach (Batiment bat in PlayerManagerComponent.Batiments)
+                {
+                    if (bat is TourMage)
+                    {
+                        Debug.Log("une tours de mage a " + (transform.position - bat.transform.position).magnitude);
+                        if ((transform.position - bat.transform.position).magnitude < DistanceToMage)
+                        {
+                            Debug.Log("Ajoute d'une tours au calcule");
+                            TowerInRange++;
+                        }
+                    }
+                }
+                PlayerManagerComponent.Gold += Mathf.FloorToInt(GoldIncome * (1 + TowerInRange));
                 OnGoldGeneration.Invoke();
-                PlayerManagerComponent.Gold += Mathf.FloorToInt(GoldIncome * (1 + TourMages.Count));
             }
             else
             {

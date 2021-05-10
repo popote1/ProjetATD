@@ -60,7 +60,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             OutLine.SetActive(false);
             VisualizerEffect.SetActive(false);
             if (AutoCollider2D.radius != AutoRange) AutoCollider2D.radius = AutoRange;
-            Collider2D[] affected = new Collider2D[50];
+           /* Collider2D[] affected = new Collider2D[50];
             Physics2D.OverlapCircle(transform.position, PassifRange, new ContactFilter2D().NoFilter(), affected);
             foreach (Collider2D col in affected)
             {
@@ -70,7 +70,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                     InRangeMaisons.Add(col.GetComponent<Maison>());
                     col.GetComponent<Maison>().TourMages.Add(this);
                 }
-            }
+            }*/
 
             //TEMP
             LineRenderer.SetPosition(0,transform.position + transform.forward * -3);

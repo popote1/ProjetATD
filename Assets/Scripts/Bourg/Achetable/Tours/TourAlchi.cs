@@ -81,6 +81,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private void Update()
         {
             Auto();
+            Passive();
             if (_isSelected)
             {
                 OutLine.SetActive(true);
@@ -182,7 +183,8 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                     if (!((Position - bat.Position).magnitude < PassiveRange)) continue;
                     if (bat.CurrentHp < bat.Hp)
                     {
-                        bat.Hp += PassiveHpIncome;
+                        Debug.Log("Heal un Batiment");
+                        bat.ReeperBuilding(PassiveHpIncome);
                     }
                 }
             }
