@@ -491,7 +491,7 @@ MonoBehaviour:
   ActiveCouldown: 5
   ActiveTimer: 0
   AutoPhysicDamages: 5
-  AutoFireRate: 0.5
+  AutoFireRate: 2
   AutoRange: 7
   ActiveRange: 3
   ActivePhysicDamages: 0

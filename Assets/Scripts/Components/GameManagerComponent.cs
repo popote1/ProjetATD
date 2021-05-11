@@ -49,6 +49,7 @@ namespace Components
 
         private float _homeTimer;
         private float _flowfildTimer;
+        private int _batNum;
 
 
         private void Start()
@@ -88,6 +89,15 @@ namespace Components
                 _flowfildTimer = 0;
                 CalculateFlowField();
             }
+
+           /* if (_batNum != PlayerManagerComponent.Batiments.Count)
+            {
+                Debug.Log("Stop Calculat FlowField");
+                StopCoroutine("CalculateFlowField");
+                _IsReadyToCalculateFlowFlield = true;
+                StartCoroutine("CalculateFlowField");
+                _batNum = PlayerManagerComponent.Batiments.Count;
+            }*/
 
         }
 

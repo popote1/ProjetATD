@@ -48,7 +48,7 @@ namespace Assets.Scripts.Bourg
 	        foreach (Vector2Int cell in OccupiedCells)
 	        {
 		        Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
-		        Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
+		        Playgrid.GetCell(cell).DragFactor -= DragFactor;
 	        }
 
 	        if (this is Achetables) {
