@@ -21,8 +21,9 @@ namespace Components
         public bool SetDefaultGrid;
         public GameObject ConstructionTiles;
         public bool IsPause;
-     
+
         [Header("FlowField Infos")] 
+        public bool IsFlowFieldInUpDate;
         public Vector2Int Target;
         public float FlowFieldRecalculatFequency = 2;
         private bool _IsReadyToCalculateFlowFlield=true;
@@ -83,21 +84,24 @@ namespace Components
                 IsLose = false;
             }
 
-            _flowfildTimer += Time.deltaTime;
-            if (_flowfildTimer > FlowFieldRecalculatFequency&&_IsReadyToCalculateFlowFlield)
+            if (IsFlowFieldInUpDate)
             {
-                _flowfildTimer = 0;
-                CalculateFlowField();
+                _flowfildTimer += Time.deltaTime;
+                if (_flowfildTimer > FlowFieldRecalculatFequency && _IsReadyToCalculateFlowFlield)
+                {
+                    _flowfildTimer = 0;
+                    CalculateFlowField();
+                }
             }
 
-           /* if (_batNum != PlayerManagerComponent.Batiments.Count)
-            {
-                Debug.Log("Stop Calculat FlowField");
-                StopCoroutine("CalculateFlowField");
-                _IsReadyToCalculateFlowFlield = true;
-                StartCoroutine("CalculateFlowField");
-                _batNum = PlayerManagerComponent.Batiments.Count;
-            }*/
+            /* if (_batNum != PlayerManagerComponent.Batiments.Count)
+             {
+                 Debug.Log("Stop Calculat FlowField");
+                 StopCoroutine("CalculateFlowField");
+                 _IsReadyToCalculateFlowFlield = true;
+                 StartCoroutine("CalculateFlowField");
+                 _batNum = PlayerManagerComponent.Batiments.Count;
+             }*/
 
         }
 
@@ -231,7 +235,9 @@ namespace Components
                     foreach (Vector2Int neibors in PlayGrid.GetNeibors(cell)) {
                         if ((neibors-cell).magnitude > 1) {
                             if (PlayGrid.GetCell(neibors).MoveValue >PlayGrid.GetCell(cell).MoveValue + 14 + PlayGrid.GetCell(neibors).IndividualMoveValue&&!PlayGrid.CheckCellIsWall(new Vector2Int(cell.x,neibors.y))&&!PlayGrid.CheckCellIsWall(new Vector2Int(neibors.x,cell.y))) {
-                                PlayGrid.GetCell(neibors).MoveValue =( PlayGrid.GetCell(cell).MoveValue + 14 +PlayGrid.GetCell(neibors).IndividualMoveValue);
+                                PlayGrid.GetCell(neibors).MoveValue =Mathf.Clamp( PlayGrid.GetCell(cell).MoveValue + 14 +PlayGrid.GetCell(neibors).IndividualMoveValue,0,Int32.MaxValue);
+                                if (PlayGrid.GetCell(cell).MoveValue + 10 +PlayGrid.GetCell(neibors).IndividualMoveValue<0)Debug.Log("value négative! avec une value individuel de "+PlayGrid.GetCell(neibors).IndividualMoveValue + 
+                                    " et une value Move de "+ PlayGrid.GetCell(cell).MoveValue);
                                 temporalToAdd.Add(neibors);
                                 Vector2Int oriantation = cell - neibors;
                                 PlayGrid.GetCell(neibors).MoveVector=(new Vector2(oriantation.x,oriantation.y));
@@ -239,7 +245,8 @@ namespace Components
                         }
                         else {
                             if (PlayGrid.GetCell(neibors).MoveValue >PlayGrid.GetCell(cell).MoveValue + 10 + PlayGrid.GetCell(neibors).IndividualMoveValue) {
-                                PlayGrid.GetCell(neibors).MoveValue =( PlayGrid.GetCell(cell).MoveValue + 10 + PlayGrid.GetCell(neibors).IndividualMoveValue);
+                                PlayGrid.GetCell(neibors).MoveValue =Mathf.Clamp( PlayGrid.GetCell(cell).MoveValue + 10 +PlayGrid.GetCell(neibors).IndividualMoveValue,0,Int32.MaxValue);
+                                if (PlayGrid.GetCell(cell).MoveValue + 10 +PlayGrid.GetCell(neibors).IndividualMoveValue<0)Debug.Log("value négative!");
                                 temporalToAdd.Add(neibors);
                                 Vector2Int oriantation = cell - neibors;
                                 PlayGrid.GetCell(neibors).MoveVector=(new Vector3(oriantation.x,oriantation.y));
@@ -248,9 +255,18 @@ namespace Components
                     }
                     
                 }
+
+                foreach (Vector2Int cell in OpenList)
+                {
+                    if (PlayGrid.GetCell(cell).ConstructionTile!=null)PlayGrid.GetCell(cell).ConstructionTile.SetActive(false);
+                }
                 OpenList.Clear();
                 OpenList.AddRange(temporalToAdd);
                 temporalToAdd.Clear();
+                foreach (Vector2Int cell in OpenList)
+                {
+                    if (PlayGrid.GetCell(cell).ConstructionTile!=null)PlayGrid.GetCell(cell).ConstructionTile.SetActive(true);
+                }
                 yield return new WaitForSeconds(0.01f);
             }
             _IsReadyToCalculateFlowFlield = true;

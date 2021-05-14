@@ -485,7 +485,7 @@ MonoBehaviour:
   OutLine: {fileID: 3563357598265500167}
   _camera: {fileID: 0}
   IsPowerAvtivated: 0
-  PowerEffect: {fileID: 5824970450820832890}
+  PowerEffect1: {fileID: 5824970450820832890}
   VisualizerEffect: {fileID: 865115853323522242}
   ActiveCouldown: 5
   ActiveTimer: 0
