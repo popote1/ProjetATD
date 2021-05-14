@@ -63,7 +63,7 @@ namespace Assets.Scripts.Bourg.Achetable
                     _allWalls.Add(mur);
                 }
             }
-
+ 
             foreach (Murs mur in _allWalls)
             {
                 if (mur.IntPos == _rightCell.Position)
@@ -220,6 +220,7 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 foreach (Murs wall in _mursAdjacent)
                 {
+<<<<<<< Updated upstream
                     
                     if (wall.checkedNeighbours.Contains(this))
                     {
@@ -227,6 +228,11 @@ namespace Assets.Scripts.Bourg.Achetable
                         wall.checkedNeighbours.Remove(this);
                         wall.CheckAndUpdate();
                     }
+=======
+                    wall.checkedNeighbours.Remove(this);
+                    wall._mursAdjacent.Remove(this);
+                    wall.CheckAndUpdate();
+>>>>>>> Stashed changes
                 }
             }
             base.OnDestroy();
