@@ -220,23 +220,14 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 foreach (Murs wall in _mursAdjacent)
                 {
-<<<<<<< Updated upstream
                     
-                    if (wall.checkedNeighbours.Contains(this))
-                    {
-                        Debug.Log("Modifi les mur adjasents");
-                        wall.checkedNeighbours.Remove(this);
-                        wall.CheckAndUpdate();
-                    }
-=======
                     wall.checkedNeighbours.Remove(this);
                     wall._mursAdjacent.Remove(this);
                     wall.CheckAndUpdate();
->>>>>>> Stashed changes
                 }
             }
             base.OnDestroy();
-           /* if (SecurityValue != 0)
+            if (SecurityValue != 0)
             {
                 Vector2Int[] aura = Playgrid.GetBuildingAura(Playgrid.GetOriginalBuildingCenter(OccupiedCells.ToArray()),
                     (int) Mathf.Sqrt(OccupiedCells.Count), SecurityRange);
@@ -249,7 +240,7 @@ namespace Assets.Scripts.Bourg.Achetable
             foreach (Vector2Int cell in OccupiedCells)
             {
                 Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
-            }*/
+            }
             Debug.Log("Remove Wall data");
         }
         
