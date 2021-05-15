@@ -162,7 +162,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         {
             VisualizerEffect.SetActive(true);
             _mousePosition = GetMousePos();
-            Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
+           // Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
                 //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;

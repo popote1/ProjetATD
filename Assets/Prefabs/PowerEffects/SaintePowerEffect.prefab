@@ -92,6 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6075784463570340096}
   - component: {fileID: -6940742406256015412}
+  - component: {fileID: 1401686914538493616}
   m_Layer: 0
   m_Name: SaintePowerEffect
   m_TagString: Untagged
@@ -127,12 +128,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced835cc9eaabc8499d090441520a9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsMagic: 0
-  Damages: 0
+  IsMagic: 1
+  Damages: 30
   Rate: 0
-  EffectLifeTime: 0
+  EffectLifeTime: 0.5
   DestroyTree: 0
-  IsInstante: 0
+  IsInstante: 1
+--- !u!58 &1401686914538493616
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075784463570340103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7100244583325774240
 GameObject:
   m_ObjectHideFlags: 0

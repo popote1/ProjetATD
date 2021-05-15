@@ -490,11 +490,11 @@ MonoBehaviour:
   VisualizerEffect: {fileID: 5250912605156240879}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoPhysicDamages: 5
+  AutoPhysicDamages: 100
   AutoFireRate: 2
   AutoRange: 7
   ActiveRange: 3
-  ActivePhysicDamages: 0
+  ActivePhysicDamages: 10
   ActiveRate: 0
   IsReadyToAttack: 1
   SpawnScore: 0

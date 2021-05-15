@@ -10,7 +10,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
     {
         [Header("Auto")]
         public int AutoPhysicDamages;
-        public int AutoFireRate;
+        public float AutoFireRate;
         public float AutoRange;
         public CircleCollider2D AutoCollider2D;
 

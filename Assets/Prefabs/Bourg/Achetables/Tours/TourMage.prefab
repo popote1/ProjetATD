@@ -485,16 +485,16 @@ MonoBehaviour:
   OutLine: {fileID: 3563357598265500167}
   _camera: {fileID: 0}
   IsPowerAvtivated: 0
-  PowerEffect1: {fileID: 1845526247676599537}
+  PowerEffect1: {fileID: 7661371776953830718}
   VisualizerEffect: {fileID: 865115853323522242}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoMagicDamages: 0
-  AutoFireRate: 0
-  AutoRange: 0
+  AutoMagicDamages: 1
+  AutoFireRate: 0.5
+  AutoRange: 6
   AutoCollider2D: {fileID: 4628152722939624086}
   ActiveRange: 5
-  ActiveMagicDamages: 50
+  ActiveMagicDamages: 20
   ActiveRate: 0
   ActiveSize: 2
   IsReadyToAttack: 1
@@ -830,6 +830,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
+--- !u!1 &7661371776953830718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6075784463570340103, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
+  m_PrefabInstance: {fileID: 4468464515393766457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7661371776953830713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
@@ -1085,17 +1090,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1845526247676599537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6693412715255225717, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
-  m_PrefabInstance: {fileID: 5007834829257081220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7867123264448717179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2905602222960140543, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
   m_PrefabInstance: {fileID: 5007834829257081220}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845526247676599537}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1032236508458580419, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
   m_PrefabInstance: {fileID: 5007834829257081220}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845526247676599537}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}

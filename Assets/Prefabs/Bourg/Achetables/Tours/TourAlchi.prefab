@@ -489,14 +489,14 @@ MonoBehaviour:
   VisualizerEffect: {fileID: 865115853323522242}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoPhysicDamages: 0
-  AutoFireRate: 0
-  AutoRange: 0
+  AutoPhysicDamages: 1
+  AutoFireRate: 0.2
+  AutoRange: 5
   AutoCollider2D: {fileID: 4628152722939624086}
   ActiveRange: 4
   ActiveSize: 2.5
   ActivePhysicDamages: 3
-  ActiveRate: 0
+  ActiveRate: 0.2
   IsReadyToAttack: 1
   PassiveHpIncome: 10
   PassiveRate: 5
