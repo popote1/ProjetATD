@@ -7,8 +7,10 @@ namespace PlaneC
     {
         public Vector2Int Position;
         public PlayGrid PlayGrid;
-        public int IndividualMoveValue;
-        public int MoveValue;
+        
+
+       
+        
         public bool IsNonWalkable;
         public Vector2 MoveVector;
         public float DragFactor;
@@ -18,6 +20,27 @@ namespace PlaneC
         public bool IsWall;
         public GameObject ConstructionTile;
         public int SecurityValue;
+        
+        private int _moveValue;
+        private int _individualMoveValue;
+        public int MoveValue
+        {
+            get => _moveValue;
+            set {
+                if (value < 0) _moveValue = 0;
+                else _moveValue = value;
+            }
+        }
+
+        public int IndividualMoveValue
+        {
+            get => _individualMoveValue;
+            set {
+                if (value < 0) _individualMoveValue = 0;
+                else _individualMoveValue = value;
+            }
+        }
+        
 
         public Cell(Vector2Int position, PlayGrid playGrid)
         {

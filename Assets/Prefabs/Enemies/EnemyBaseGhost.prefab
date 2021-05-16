@@ -59,6 +59,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 8981641297432785281}
   _attackTimer: 0
   _anim: {fileID: 7776322249911499490}
+  AttackTarget: {fileID: 0}
 --- !u!212 &8981641297432785281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,15 +100,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 15f6f0a8650be3341a20a99c794dc23c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1708635928207429701
@@ -146,7 +147,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!95 &7776322249911499490
 Animator:
   serializedVersion: 3

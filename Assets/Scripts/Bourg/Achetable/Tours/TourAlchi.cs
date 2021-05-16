@@ -10,7 +10,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
     {
         [Header("Auto")]
         public int AutoPhysicDamages;
-        public int AutoFireRate;
+        public float AutoFireRate;
         public float AutoRange;
         public CircleCollider2D AutoCollider2D;
 
@@ -57,7 +57,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private void Start()
         {
             _camera = Camera.main;
-            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            _powerEffectComponent = PowerEffect1.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
             VisualizerEffect.SetActive(false);
@@ -143,11 +143,11 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         {
             //TODO: Check in PM closest selected tower to shoot with
             IsReadyToAttack = true;
-            PowerEffect.transform.localScale = Vector3.one*ActiveSize;
-            PowerEffect.transform.position = VisualizerEffect.transform.position;
+            PowerEffect1.transform.localScale = Vector3.one*ActiveSize;
+            PowerEffect1.transform.position = VisualizerEffect.transform.position;
             //_powerEffectComponent.Target = VisualizeEffect.transform.position;
-            PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
-            PowerEffect.SetActive(true);
+            PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
+            PowerEffect1.SetActive(true);
             ActiveTimer = 0;
             OnDeselect();
         }

@@ -12,7 +12,7 @@ public abstract class Tower :Achetables
     public bool IsPowerAvtivated;
     
     
-    public GameObject PowerEffect;
+    public GameObject PowerEffect1;
     public GameObject VisualizerEffect;
 
     public float ActiveCouldown;
@@ -35,7 +35,7 @@ public abstract class Tower :Achetables
     {
         IsPowerAvtivated = false;
         IsUsingPower = false;
-        PowerEffect.SetActive(false);
+        PowerEffect1.SetActive(false);
         VisualizerEffect.SetActive(false);
     }
     public abstract void Visualize();

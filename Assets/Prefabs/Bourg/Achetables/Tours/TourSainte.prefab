@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2770454572280277207}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6048, y: 1.6048, z: 1.6048}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 2222737070566317523}
   m_RootOrder: 3
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a339c9df24f467f4fb21b8972e5034ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a0db7970cdf7ee4a9a62a8b072369d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   OutLine: {fileID: 3563357598265500167}
   _camera: {fileID: 0}
   IsPowerAvtivated: 0
-  PowerEffect: {fileID: 8615368395291136206}
+  PowerEffect1: {fileID: 8615368395291136206}
   VisualizerEffect: {fileID: 2770454572280277207}
   ActiveCouldown: 5
   ActiveTimer: 0
@@ -951,6 +951,10 @@ PrefabInstance:
       value: SetCursorOnUIFalse
       objectReference: {fileID: 0}
     - target: {fileID: 1032236508458580419, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032236508458580419, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6465447354138539019}
@@ -966,9 +970,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: UIActivePower
       objectReference: {fileID: 0}
+    - target: {fileID: 1939446820586555976, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2416626078449862869, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Name
       value: CanvasTowerWorldUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905602222960140543, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2437b07ac872e024d97eae4876f905d6, type: 3}
+    - target: {fileID: 4235836900139446556, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235836900139446556, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1001,6 +1017,18 @@ PrefabInstance:
     - target: {fileID: 7647294396211467358, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetCursorOnUIFalse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379109903703099361, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578395393313558526, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 922640f43124b2d41b3c81f4b9d7c02a, type: 3}
+    - target: {fileID: 9046227327285048810, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046227327285048810, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

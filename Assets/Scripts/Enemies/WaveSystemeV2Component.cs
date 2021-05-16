@@ -139,11 +139,24 @@ public class WaveSystemeV2Component : MonoBehaviour
         if (EnnemisAlive.Contains(ennemi)) EnnemisAlive.Remove(ennemi);
     }
 
-    public float GetWaveProgress()
-    {
-        if (IsPreWave) return 1-(WaveTimer / PrewaveTimer);
+    public float GetWaveProgress() {
+        if (IsPreWave) return 0;
         return  (float)EnnemisAlive.Count / WavesizeStartSize;
     }
+
+    public float GetWaveTimePogress() {
+        if (IsPreWave) return 1-(WaveTimer / PrewaveTimer);
+        if (!IsPlaying) return 0;
+        return 1 - (WaveTimer / WaveSo[WaveIndex].TimeToWait);
+    }
+
+    public int GetWaveNumber() {
+        if (IsPreWave) return 0;
+        if (!IsPlaying) return WaveSo.Count - 1 ;
+        return 1 +WaveIndex;
+    }
+    
+    
 
     private void Update()
     {
