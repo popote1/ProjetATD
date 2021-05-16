@@ -143,6 +143,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 //_activeResetTimer = ActiveRate;
                 Vector2 pos = transform.position + (VisualizerEffect.transform.up.normalized * ActiveRange);
                 PowerEffect1.transform.position=pos;
+                PowerEffect1.transform.rotation = VisualizerEffect.transform.rotation;
                 PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
                 PowerEffect1.SetActive(true);
                 OnDeselect();

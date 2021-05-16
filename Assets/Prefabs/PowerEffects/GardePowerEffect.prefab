@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a339c9df24f467f4fb21b8972e5034ed, type: 3}
-  m_Color: {r: 1, g: 0.5430124, b: 0, a: 0.6117647}
+  m_Sprite: {fileID: 21300000, guid: 30cae0501a7188b46908127e9077cde5, type: 3}
+  m_Color: {r: 1, g: 0.7070737, b: 0, a: 0.6117647}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5927020550862282779
 Transform:
   m_ObjectHideFlags: 0
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5599515782817325982}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.15}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0.013}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6075784463570340096}
   m_RootOrder: 2
@@ -188,7 +188,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6075784463570340096}
   - component: {fileID: -6940742406256015412}
-  - component: {fileID: 6830485026093449149}
   - component: {fileID: 6062703959426529016}
   m_Layer: 6
   m_Name: GardePowerEffect
@@ -206,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 6075784463570340103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_Children:
   - {fileID: 6192823679478127928}
   - {fileID: 434774407270502877}
@@ -232,22 +231,6 @@ MonoBehaviour:
   EffectLifeTime: 1
   DestroyTree: 1
   IsInstante: 1
---- !u!58 &6830485026093449149
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6075784463570340103}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!61 &6062703959426529016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -272,7 +255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &7100244583325774240
 GameObject:

@@ -26,8 +26,15 @@ namespace Bourg.Achetable.Tours
             _minRate = 0;
             _timer = EffectLifeTime;
             _enemies.Clear();
-            if (IsInstante) {
-                Collider2D[] test = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x);
+            if (IsInstante)
+            {
+                Collider2D[] test = new Collider2D[100];
+                if (GetComponent<BoxCollider2D>()!=null)
+                {
+                    Debug.Log(" us ScareCollider with rotation for"+ transform.eulerAngles.z);
+                    test  =Physics2D.OverlapBoxAll((Vector2)transform.position, (Vector2)transform.localScale,transform.eulerAngles.z);
+                }
+                else test= Physics2D.OverlapCircleAll(transform.position, transform.localScale.x);
                 foreach (Collider2D col in test) {
                     if (col.gameObject.layer == LayerMask.NameToLayer("Tree") && DestroyTree) Destroy(col.gameObject);
                     else if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
@@ -35,6 +42,7 @@ namespace Bourg.Achetable.Tours
                         else col.GetComponent<EnemyComponent>().TakePhysicDamages(Damages);
                     }
                 }
+              
             }
         }
         private void OnTriggerStay2D(Collider2D other) {
@@ -76,9 +84,16 @@ namespace Bourg.Achetable.Tours
         }
         private void DoDamages() {
             Debug.Log( "Do damage on "+ _enemies.Count+" enemies");
-            foreach (EnemyComponent enemy in _enemies) {
+            _enemies.RemoveAll(o => o == null);
+            /*foreach (EnemyComponent enemy in _enemies) {
                 if (IsMagic) enemy.TakeMagicDamages(Damages);
                 else enemy.TakePhysicDamages(Damages);
+            }*/
+
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                if (IsMagic) _enemies[i].TakeMagicDamages(Damages);
+                else _enemies[i].TakePhysicDamages(Damages);
             }
         }
     }

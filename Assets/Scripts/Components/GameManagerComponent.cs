@@ -77,6 +77,8 @@ namespace Components
             {
                 HomeTimer();
                 InGameUIManagerComponent.SetWaveSlider(WaveSystemeV2Component.GetWaveProgress());
+                InGameUIManagerComponent.SetWaveTimerSlider(WaveSystemeV2Component.GetWaveTimePogress());
+                InGameUIManagerComponent.SetWaveInfoText(WaveSystemeV2Component.GetWaveNumber());
             }
             if (IsLose)
             {
