@@ -15,7 +15,8 @@ public class PemanentLimitateurComponent : MonoBehaviour
     public TMP_Text TxtLoadingValue;
     private void Awake()
     {
-        if (GameObject.Find(transform.name)!=gameObject)Destroy(GameObject.Find(transform.name));
+        //if (GameObject.Find(transform.name)!=gameObject)Destroy(GameObject.Find(transform.name));
+        if (GameObject.Find(transform.name)!=gameObject)Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
     }
 }

@@ -48,7 +48,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private void Start()
         {
             _camera=Camera.main;
-            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            _powerEffectComponent = PowerEffect1.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
             OutLine.SetActive(false);
@@ -142,9 +142,10 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 //if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
                 //_activeResetTimer = ActiveRate;
                 Vector2 pos = transform.position + (VisualizerEffect.transform.up.normalized * ActiveRange);
-                PowerEffect.transform.position=pos;
-                PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
-                PowerEffect.SetActive(true);
+                PowerEffect1.transform.position=pos;
+                PowerEffect1.transform.rotation = VisualizerEffect.transform.rotation;
+                PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
+                PowerEffect1.SetActive(true);
                 OnDeselect();
                 ActiveTimer = 0;
             }
@@ -162,7 +163,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         {
             VisualizerEffect.SetActive(true);
             _mousePosition = GetMousePos();
-            Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
+           // Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
                 //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;

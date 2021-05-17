@@ -17,4 +17,8 @@ public class Arbre : Batiment
     {
         
     }
+
+    public override void ReeperBuilding(int value)
+    {
+    }
 }

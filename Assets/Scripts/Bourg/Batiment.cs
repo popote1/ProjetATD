@@ -48,7 +48,7 @@ namespace Assets.Scripts.Bourg
 	        foreach (Vector2Int cell in OccupiedCells)
 	        {
 		        Playgrid.GetCell(cell).IndividualMoveValue -= IndividualMoveFactor;
-		        Playgrid.GetCell(cell).IndividualMoveValue -= DragFactor;
+		        Playgrid.GetCell(cell).DragFactor -= DragFactor;
 	        }
 
 	        if (this is Achetables) {
@@ -80,7 +80,7 @@ namespace Assets.Scripts.Bourg
 	        }
         }
 
-        public void ReeperBuilding(int value)
+        public virtual void ReeperBuilding(int value)
         {
 	        if (CurrentHp < Hp)
 	        {

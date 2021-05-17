@@ -92,7 +92,7 @@ public class SmoothTerrainLoading : MonoBehaviour
                 i++;
 
             }
-            Debug.Log((float)y/height*100+"%");
+           // Debug.Log((float)y/height*100+"%");
             LoadingProgress = (float)y / height;
             yield return new WaitForSeconds(0.001f);
         }

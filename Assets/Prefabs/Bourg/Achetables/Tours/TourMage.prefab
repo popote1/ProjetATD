@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a339c9df24f467f4fb21b8972e5034ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a0db7970cdf7ee4a9a62a8b072369d6, type: 3}
   m_Color: {r: 1, g: 0.87771463, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -485,16 +485,16 @@ MonoBehaviour:
   OutLine: {fileID: 3563357598265500167}
   _camera: {fileID: 0}
   IsPowerAvtivated: 0
-  PowerEffect: {fileID: 7661371776953830718}
+  PowerEffect1: {fileID: 7661371776953830718}
   VisualizerEffect: {fileID: 865115853323522242}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoMagicDamages: 0
-  AutoFireRate: 0
-  AutoRange: 0
+  AutoMagicDamages: 1
+  AutoFireRate: 0.5
+  AutoRange: 6
   AutoCollider2D: {fileID: 4628152722939624086}
   ActiveRange: 5
-  ActiveMagicDamages: 50
+  ActiveMagicDamages: 20
   ActiveRate: 0
   ActiveSize: 2
   IsReadyToAttack: 1
@@ -956,6 +956,10 @@ PrefabInstance:
       value: SetCursorOnUIFalse
       objectReference: {fileID: 0}
     - target: {fileID: 1032236508458580419, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032236508458580419, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8159428536660021054}
@@ -971,9 +975,25 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: UIActivePower
       objectReference: {fileID: 0}
+    - target: {fileID: 1939446820586555976, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2416626078449862869, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Name
       value: CanvasTowerWorldUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905602222960140543, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b2603e5a735e3bf4ea74f1a58ffdbca8, type: 3}
+    - target: {fileID: 3310028549032292906, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235836900139446556, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235836900139446556, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -999,6 +1019,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UIWorldTowerComponent, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5829754388099650842, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693412715255225717, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7647294396211467358, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1014,6 +1042,18 @@ PrefabInstance:
     - target: {fileID: 7647294396211467358, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetCursorOnUIFalse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379109903703099361, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578395393313558526, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 922640f43124b2d41b3c81f4b9d7c02a, type: 3}
+    - target: {fileID: 9046227327285048810, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046227327285048810, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
