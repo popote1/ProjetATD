@@ -19,6 +19,7 @@ public class WaveSystemeV2Component : MonoBehaviour
     public bool IsPlaying = false;
     public bool IsPreWave= true;
     public float PrewaveTimer=10;
+    public float DrakeAnimSpeed = 5f;
 
 
     [Header("Wave Spawning parameters")]
@@ -26,6 +27,7 @@ public class WaveSystemeV2Component : MonoBehaviour
     public int NbGhost;
     public int NbWarg;
     public int NbTroll;
+    public int NbDrake;
     public int SpawnBashSize=1;
     public float TimeBetweenSapwnBash=0.1f;
     public EnemyComponent EnemyPrefab;
@@ -33,6 +35,8 @@ public class WaveSystemeV2Component : MonoBehaviour
     public EnemyComponent EnemyPrefabTroll;
     public EnemyComponent EnemyPrefabWarg;
     public EnemyComponent EnemyPrefabGhost;
+    public EnemyComponent EnemyPrefabDrake;
+    public GameObject DrakeAnimation;
     
     public  GameManagerComponent GameManagerComponent;
 
@@ -42,6 +46,7 @@ public class WaveSystemeV2Component : MonoBehaviour
     
     private List<Vector3> _spawns = new List<Vector3>();
     private bool _isSpawning =false;
+    private bool _isDrakeAnimDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +72,7 @@ public class WaveSystemeV2Component : MonoBehaviour
             NbOrc = WaveSo[WaveIndex].NombreOrcs;
             NbTroll = WaveSo[WaveIndex].NombreTrolls;
             NbWarg = WaveSo[WaveIndex].NombreWargs;
+            NbDrake = WaveSo[WaveIndex].NombreDrake;
             _isSpawning = true;
             IsPlaying = true;
             EnnemisAlive.Clear();
@@ -78,7 +84,7 @@ public class WaveSystemeV2Component : MonoBehaviour
     {
         WavesizeStartSize = 0;
         int spawnInThisBash = 0;
-        while (NbGhost + NbOrc + NbTroll + NbWarg > 0)
+        while (NbGhost + NbOrc + NbTroll + NbWarg + NbDrake > 0)
         {
             EnemyComponent mob = new EnemyComponent();
             Vector3 randomSpawn = _spawns[Random.Range(0, _spawns.Count - 1)];
@@ -87,6 +93,37 @@ public class WaveSystemeV2Component : MonoBehaviour
                 mob.Enemy = WaveSo[WaveIndex].GhostSO;
                 NbGhost--;
             }
+            else if (NbDrake > 0)
+            {
+                if (!_isDrakeAnimDone)
+                {
+                    Vector3 screenBottomCenter = new Vector3(Screen.width / 2, 0, 0);
+                    Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenBottomCenter);
+                    
+                    GameObject animatedDrake = Instantiate(DrakeAnimation, worldPos, Quaternion.identity);
+                    
+                    Vector3 target = randomSpawn;
+                    float step = DrakeAnimSpeed * Time.deltaTime;
+                    
+                    if (animatedDrake.transform.position != target)
+                    {
+                        animatedDrake.transform.position = Vector3.MoveTowards(transform.position, target, step);
+                    }
+                    
+                    else
+                    {
+                        _isDrakeAnimDone = true;
+                    }
+                }
+                else
+                {
+                    mob =  Instantiate(EnemyPrefabDrake, randomSpawn, Quaternion.identity);
+                    mob.Enemy = WaveSo[WaveIndex].DrakeSO;
+                    NbDrake--;
+                    _isDrakeAnimDone = false;
+                }
+            }
+            
             else if (NbOrc > 0)
             {
                 mob= Instantiate(EnemyPrefabOrc, randomSpawn, Quaternion.identity);
@@ -103,6 +140,7 @@ public class WaveSystemeV2Component : MonoBehaviour
                 mob.Enemy = WaveSo[WaveIndex].WargSO;
                 NbWarg--;
             }
+
             mob.Playgrid = GameManagerComponent.PlayGrid;
             mob.WaveSystemeV2Component = this;
             EnnemisAlive.Add(mob);
