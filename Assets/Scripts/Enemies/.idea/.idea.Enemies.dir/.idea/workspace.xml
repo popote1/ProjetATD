@@ -11,14 +11,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../Bourg/Achetable/Tours/TourAlchi.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Components/GameManagerComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Components/PlayerManagerComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Bourg/Achetable/Tours/PowerEffectComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Bourg/Achetable/Tours/AutoAttackProjectile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Bourg/Mairie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Bourg/Batiment.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/WaveSystemeV2Component.cs" />
+      <option value="$PROJECT_DIR$/../Bourg/Achetable/Tours/AutoAttackiProjectile.cs" />
+      <option value="$PROJECT_DIR$/../Bourg/Achetable/Tours/AutoAttackProjectile.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sfRMxVj5PnzSIF0GmQZITnf3bv" />
@@ -41,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621261615985</updated>
-      <workItem from="1621261622130" duration="1902000" />
+      <workItem from="1621261622130" duration="4524000" />
     </task>
     <servers />
   </component>
