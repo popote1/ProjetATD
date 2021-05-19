@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(EventTrigger))]
@@ -15,8 +16,7 @@ public class UIButtonAnimationComponent : UIElementComponent
     [Header("Desactivation Parameters")] 
     public float DesactivationTime=0.1f;
     public AnimationCurve DesactibvationCurve= AnimationCurve.Linear(0,0,1,1);
-
-
+    
 
     private Button _button;
     private EventTrigger _eventTrigger;
