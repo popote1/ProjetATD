@@ -42,6 +42,7 @@
               <e p="Achetables.cs" t="Include" />
               <e p="Murs.cs" t="Include" />
               <e p="Tours" t="Include">
+                <e p="AutoAttackProjectile.cs" t="Include" />
                 <e p="PowerEffectComponent.cs" t="Include" />
                 <e p="TourAlchi.cs" t="Include" />
                 <e p="TourGarde.cs" t="Include" />
@@ -70,6 +71,7 @@
             <e p="PlayerManagerComponent.cs" t="Include" />
             <e p="SmoothTerrain.cs" t="Include" />
             <e p="SmoothTerrainLoading.cs" t="Include" />
+            <e p="SpawnBuildingAnimatorComponent.cs" t="Include" />
             <e p="TerrainGenerator.cs" t="Include" />
             <e p="TestSceneAutoStarterComponant.cs" t="Include" />
             <e p="TimeManagerComponent.cs" t="Include" />

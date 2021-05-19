@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 590259762258691545}
   - component: {fileID: 1619960863769796498}
   - component: {fileID: 8435509187021540957}
+  - component: {fileID: -6896005888844319888}
   m_Layer: 6
   m_Name: TourGarde
   m_TagString: Tower
@@ -613,6 +614,105 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnDeselectedButtonsPosition: {x: 0, y: 0, z: 0}
   IsUpdateInpdate: 1
+--- !u!114 &-6896005888844319888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051653470505643520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a663cc959b876e4d87860e987f40118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimationTime: 0.5
+  FallingHeight: 30
+  fallingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.430798
+      outSlope: 2.430798
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4100119
+      value: 0.9966561
+      inSlope: 1.9592749
+      outSlope: 1.9592749
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15264387
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4286173
+      value: 1.0009619
+      inSlope: -0.1368924
+      outSlope: -0.1368924
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.1449639
+    - serializedVersion: 3
+      time: 1.0007324
+      value: 0.9741287
+      inSlope: -0.046901707
+      outSlope: -0.046901707
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  SizeFactore: 0.5
+  SizeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0922699
+      value: 1.0082703
+      inSlope: -0.03215302
+      outSlope: -0.03215302
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4473193
+      value: 0.99092084
+      inSlope: 0.020740906
+      outSlope: 0.020740906
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16512807
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.4547255
+      value: 1.0404825
+      inSlope: 6.3202524
+      outSlope: 6.3202524
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.015567946
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 6.0001974
+      outSlope: 6.0001974
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04925828
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4181841009423174866
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,14 +855,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
---- !u!4 &6283111033034192508 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6075784463570340096, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
-  m_PrefabInstance: {fileID: 244212487424425852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6283111033034192507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6075784463570340103, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
+  m_PrefabInstance: {fileID: 244212487424425852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6283111033034192508 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6075784463570340096, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
   m_PrefabInstance: {fileID: 244212487424425852}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1548756643588093250
@@ -1177,14 +1277,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7d82ff80949ec46a27ef820c4b98a6, type: 3}
---- !u!4 &3397680505357627589 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5418051661100499183, guid: ac7d82ff80949ec46a27ef820c4b98a6, type: 3}
-  m_PrefabInstance: {fileID: 7212010322356351018}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5250912605156240879 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3227049158891625925, guid: ac7d82ff80949ec46a27ef820c4b98a6, type: 3}
+  m_PrefabInstance: {fileID: 7212010322356351018}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3397680505357627589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5418051661100499183, guid: ac7d82ff80949ec46a27ef820c4b98a6, type: 3}
   m_PrefabInstance: {fileID: 7212010322356351018}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7589917062696298707
