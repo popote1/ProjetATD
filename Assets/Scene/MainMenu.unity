@@ -899,7 +899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -4.9999847, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &169468621 stripped
@@ -1915,6 +1915,7 @@ GameObject:
   - component: {fileID: 338588689}
   - component: {fileID: 338588693}
   - component: {fileID: 338588692}
+  - component: {fileID: 338588694}
   m_Layer: 5
   m_Name: BPCredits
   m_TagString: Untagged
@@ -1955,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1989,6 +1990,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1790698743}
         m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
         m_MethodName: UICredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 338588694}
+        m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2129,7 +2142,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 338588694}
+          m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &338588694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338588687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f4b8e7e1f95b478fed4f001268e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 3efc1e73a95538947b551425990a9b52, type: 3}
+  volume: 1
 --- !u!1 &352903020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,6 +5555,8 @@ GameObject:
   - component: {fileID: 1002557699}
   - component: {fileID: 1002557703}
   - component: {fileID: 1002557702}
+  - component: {fileID: 1002557704}
+  - component: {fileID: 1002557705}
   m_Layer: 5
   m_Name: BPJouer
   m_TagString: Untagged
@@ -5552,7 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5586,6 +5631,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1790698743}
         m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
         m_MethodName: UIClickPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1002557704}
+        m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5726,7 +5783,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1002557704}
+          m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1002557704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002557697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f4b8e7e1f95b478fed4f001268e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 3efc1e73a95538947b551425990a9b52, type: 3}
+  volume: 1
+--- !u!114 &1002557705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002557697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f4b8e7e1f95b478fed4f001268e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 11011465672304f4da0a9969589bf9d9, type: 3}
+  volume: 1
 --- !u!1 &1016713449
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,7 +5861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -4.9999847, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1018847330
@@ -5989,6 +6090,8 @@ GameObject:
   - component: {fileID: 1178282298}
   - component: {fileID: 1178282302}
   - component: {fileID: 1178282301}
+  - component: {fileID: 1178282303}
+  - component: {fileID: 1178282304}
   m_Layer: 5
   m_Name: BPOption
   m_TagString: Untagged
@@ -6029,7 +6132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6063,6 +6166,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1790698743}
         m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
         m_MethodName: UIOption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1178282303}
+        m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8845,6 +8960,8 @@ GameObject:
   - component: {fileID: 1596779913}
   - component: {fileID: 1596779917}
   - component: {fileID: 1596779916}
+  - component: {fileID: 1596779918}
+  - component: {fileID: 1596779919}
   m_Layer: 5
   m_Name: BPQuitter
   m_TagString: Untagged
@@ -8885,7 +9002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8919,6 +9036,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1790698743}
         m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
         m_MethodName: UIQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1596779918}
+        m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9059,7 +9188,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1596779918}
+          m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1596779918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596779911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f4b8e7e1f95b478fed4f001268e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 3efc1e73a95538947b551425990a9b52, type: 3}
+  volume: 1
+--- !u!114 &1596779919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596779911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667f4b8e7e1f95b478fed4f001268e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 11011465672304f4da0a9969589bf9d9, type: 3}
+  volume: 1
 --- !u!1 &1600944969
 GameObject:
   m_ObjectHideFlags: 0
@@ -10010,6 +10183,8 @@ MonoBehaviour:
   SliderLoading: {fileID: 764909498}
   TxtLoadingValue: {fileID: 1642675720}
   FadeTime: 1
+  AudioClip: {fileID: 8300000, guid: bd17d24f6c11c3c4d92f69365d765b27, type: 3}
+  Volume: 1
   SmoothTerrainLoading: {fileID: 0}
 --- !u!4 &1790698744
 Transform:

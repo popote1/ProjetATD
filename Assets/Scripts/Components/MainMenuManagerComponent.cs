@@ -33,6 +33,11 @@ public class MainMenuManagerComponent : MonoBehaviour
     public TMP_Text TxtLoadingValue;
     public float FadeTime;
 
+    [Header(" Changer Panel Sound")] 
+    public AudioClip AudioClip;
+
+    [Range(0, 1)] public float Volume = 1;
+
     [HideInInspector]public SmoothTerrainLoading SmoothTerrainLoading;
     
     
@@ -51,6 +56,7 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     public void UIClickPlay()
     {
+        PlaySound();
         MainMenu.Desactivat();
         //BourgName.Activate();
        // PanelMainMenu.SetActive(false);
@@ -67,6 +73,7 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     public void UIBourgReturn()
     {
+        PlaySound();
         BourgName.Desactivat();
         //BourgName.Desactivat();
         MainMenu.Activate();
@@ -86,6 +93,7 @@ public class MainMenuManagerComponent : MonoBehaviour
     {
         Option.Activate();
         MainMenu.Desactivat();
+        PlaySound();
        // PanelMainMenu.SetActive(false);
        // PanelOption.SetActive(true);
     }
@@ -98,6 +106,7 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     public void UICredits()
     {
+        PlaySound();
         Credit.Activate();
         MainMenu.Desactivat();
        // PanelMainMenu.SetActive(false);
@@ -114,6 +123,9 @@ public class MainMenuManagerComponent : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PlaySound() { if (AudioClip != null) AudioManager.PlaySfx(AudioClip, Volume);}
+
 
     IEnumerator LoadingScene()
     {
