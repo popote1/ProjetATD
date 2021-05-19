@@ -57,6 +57,7 @@
             <e p="AsycSceneStarterComponent.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioManagerCameraAssinerComponent.cs" t="Include" />
+            <e p="AudioSoundLauncherComponent.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="InGameUIManagerComponent.cs" t="Include" />
             <e p="LangueManager.cs" t="Include" />
