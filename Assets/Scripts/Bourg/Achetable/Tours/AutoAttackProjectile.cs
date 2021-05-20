@@ -10,9 +10,11 @@ public class AutoAttackProjectile : MonoBehaviour
     public bool IsMagic;
     public int Damages;
     public float Speed;
-    
+    public Transform Target;
+    public EnemyComponent EnnemyTarget;
+
+
     private float _traveled;
-    private Vector3 _target;
     private Vector3 _origin;
 
     private void Start()
@@ -21,21 +23,33 @@ public class AutoAttackProjectile : MonoBehaviour
     }
     private void Update()
     {
+        if (Target == null)
+        {
+            ResetPosition();
+            _traveled = 0;
+            gameObject.SetActive(false);
+            return;
+        }
         _traveled += Time.deltaTime * Speed;
         float height = _flightCurve.Evaluate(_traveled);
         Vector2 originWithHeight = new Vector2(_origin.x, _origin.y + height);
-        Vector2 targetWithHeight = new Vector2(_target.x, _target.y + height);
+        Vector2 targetWithHeight = new Vector2(Target.position.x, Target.position.y + height);
         transform.position = Vector2.Lerp(originWithHeight, targetWithHeight, _traveled);
+        if (_traveled >= 1)
+        {
+            _traveled = 0;
+            DoDamages(EnnemyTarget);
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    /*private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
             EnemyComponent enemy = col.gameObject.GetComponent<EnemyComponent>();
             DoDamages(enemy);
         }
-    }
+    }*/
     
     private void DoDamages(EnemyComponent enemy)
     {

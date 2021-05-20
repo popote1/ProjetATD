@@ -16,15 +16,15 @@ public class SpawnBuildingAnimatorComponent : MonoBehaviour
     void Start()
     {
         _spawnPos = transform.position;
-
-
-        transform.localScale = Vector3.one * SizeFactore;
+        
+        transform.localScale = new Vector3(1,1,SizeFactore);
         transform.position += new Vector3(0, 0, -FallingHeight);
         
         transform.DOMove(_spawnPos, AnimationTime).SetEase(fallingCurve);
-        transform.DOScale(Vector3.one, AnimationTime).SetEase(SizeCurve);
-
+        transform.DOScaleZ(1, AnimationTime).SetEase(SizeCurve);
     }
+    
+    
 
     
 }
