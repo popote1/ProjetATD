@@ -979,7 +979,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
       propertyPath: Speed
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[0].inSlope
+      value: 2.102801
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[1].inSlope
+      value: -2.6241057
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[0].outSlope
+      value: 2.102801
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[1].inWeight
+      value: 0.034152985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[1].outSlope
+      value: -2.6241057
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404704177330455836, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
+      propertyPath: _flightCurve.m_Curve.Array.data[0].outWeight
+      value: 0.040983606
       objectReference: {fileID: 0}
     - target: {fileID: 7717315085722164238, guid: 6fd00bcd6f1908543930d7f39d72dd05, type: 3}
       propertyPath: m_RootOrder

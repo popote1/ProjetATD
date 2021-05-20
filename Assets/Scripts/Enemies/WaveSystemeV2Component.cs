@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Components;
+using DG.Tweening;
 using Enemies;
 using UnityEngine.Rendering.UI;
 using Random = UnityEngine.Random;
@@ -47,6 +48,7 @@ public class WaveSystemeV2Component : MonoBehaviour
     private List<Vector3> _spawns = new List<Vector3>();
     private bool _isSpawning =false;
     private bool _isDrakeAnimDone = false;
+    private Vector3 DrakeSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,8 @@ public class WaveSystemeV2Component : MonoBehaviour
         _spawns = GameManagerComponent.EnnemisSpawnZones;
         //IsPlaying = true;
     }
+
+    
 [ContextMenu("StartSpawn")]
     public void GenrateWave()
     {
@@ -88,14 +92,25 @@ public class WaveSystemeV2Component : MonoBehaviour
         {
             EnemyComponent mob = new EnemyComponent();
             Vector3 randomSpawn = _spawns[Random.Range(0, _spawns.Count - 1)];
-            if (NbGhost > 0) {
+            if (NbTroll > 0)
+            {
+                mob = Instantiate(EnemyPrefabTroll, randomSpawn, Quaternion.identity);
+                mob.Enemy = WaveSo[WaveIndex].TrollSO;
+                NbTroll--;
+            }
+            else if (NbGhost > 0) {
                 mob= Instantiate(EnemyPrefabGhost, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].GhostSO;
                 NbGhost--;
             }
             else if (NbDrake > 0)
             {
-                if (!_isDrakeAnimDone)
+
+                GameObject drake =Instantiate(DrakeAnimation, new Vector3(20, -5, 0), 
+                    Quaternion.Euler(randomSpawn - new Vector3(20, -5, 0)));
+                drake.transform.DOMove(randomSpawn+new Vector3(0,10,0), DrakeAnimSpeed);
+                
+                /*if (!_isDrakeAnimDone)
                 {
                     Vector3 screenBottomCenter = new Vector3(Screen.width / 2, 0, 0);
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenBottomCenter);
@@ -121,7 +136,7 @@ public class WaveSystemeV2Component : MonoBehaviour
                     mob.Enemy = WaveSo[WaveIndex].DrakeSO;
                     NbDrake--;
                     _isDrakeAnimDone = false;
-                }
+                }*/
             }
             
             else if (NbOrc > 0)
@@ -129,11 +144,7 @@ public class WaveSystemeV2Component : MonoBehaviour
                 mob= Instantiate(EnemyPrefabOrc, randomSpawn, Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].OrcSO;
                 NbOrc--;
-            }else if (NbTroll > 0)
-            {
-                mob =  Instantiate(EnemyPrefabTroll, randomSpawn, Quaternion.identity);
-                mob.Enemy = WaveSo[WaveIndex].TrollSO;
-                NbTroll--;
+            
             }else if (NbWarg > 0)
             {
                 mob =  Instantiate(EnemyPrefabWarg, randomSpawn, Quaternion.identity);
@@ -155,7 +166,7 @@ public class WaveSystemeV2Component : MonoBehaviour
         _isSpawning = false;
         yield return null;
     }
-[ContextMenu("Lance la vague suivante")]
+    [ContextMenu("Lance la vague suivante")]
     public void LancheNextWave()
     {
         if (!_isSpawning)
@@ -171,6 +182,7 @@ public class WaveSystemeV2Component : MonoBehaviour
             }
         }
     }
+    
 
     public void EnnemiDie(EnemyComponent ennemi)
     {
@@ -194,8 +206,6 @@ public class WaveSystemeV2Component : MonoBehaviour
         return 1 +WaveIndex;
     }
     
-    
-
     private void Update()
     {
         if (IsPlaying) {
@@ -219,7 +229,11 @@ public class WaveSystemeV2Component : MonoBehaviour
                     GameManagerComponent.SetWin();
                 }
             }
-            
         }
+    }
+
+    private void SpawnDrake()
+    {
+        
     }
 }
