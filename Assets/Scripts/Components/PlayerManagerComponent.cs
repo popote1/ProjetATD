@@ -461,7 +461,7 @@ namespace Components
            Batiments.Add(batiment);
            foreach (Vector2Int vec in neigbors)
            {
-               if (bat is Murs) _playGrid.GetCell(vec).IsWall = true;
+               //if (bat is Murs) _playGrid.GetCell(vec).IsWall = true;
                _playGrid.GetCell(vec).Batiment = batiment;
                _playGrid.GetCell(vec).IndividualMoveValue += bat.IndividualMoveFactor;
                _playGrid.GetCell(vec).DragFactor += bat.DragFactor;

@@ -50,7 +50,7 @@ namespace Assets.Scripts.Bourg.Achetable
 
         
         //Check if neighbours are walls
-        private void CheckAndUpdate()
+        public void CheckAndUpdate()
         {
             _checked.Clear();
             _allWalls.Clear();
@@ -220,10 +220,10 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 foreach (Murs wall in _mursAdjacent)
                 {
-                    
                     wall.checkedNeighbours.Remove(this);
                     wall._mursAdjacent.Remove(this);
                     wall.CheckAndUpdate();
+                    
                 }
             }
             base.OnDestroy();

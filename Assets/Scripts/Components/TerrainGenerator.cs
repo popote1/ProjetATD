@@ -362,6 +362,8 @@ namespace Components
             foreach (BatA batInfo in Bats) {
                 if (batInfo.bat!= null) GameManagerComponent.PlayManagerComponent.BuildPutNewBuilding(batInfo.vec, batInfo.bat);
             }
+
+            
         }
     }
 }

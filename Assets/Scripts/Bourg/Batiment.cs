@@ -85,7 +85,11 @@ namespace Assets.Scripts.Bourg
 	        if (CurrentHp < Hp)
 	        {
 		        CurrentHp += value;
-		        if (CurrentHp > Hp) CurrentHp = Hp;
+		        if (CurrentHp > Hp)
+		        {
+			        CurrentHp = Hp;
+			        HealingEffect.Stop();
+		        }
 		        HealingEffect.Play();
 	        }
 	        else

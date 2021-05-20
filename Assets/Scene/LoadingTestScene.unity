@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9556,7 +9556,8 @@ MonoBehaviour:
   SetDefaultGrid: 0
   ConstructionTiles: {fileID: 7431384384895935619, guid: 09d246a5b52286f468345664e76bf1a9, type: 3}
   IsPause: 0
-  IsFlowFieldInUpDate: 0
+  IsFlowFieldInUpDate: 1
+  IsShoweDebugFlowField: 0
   Target: {x: 20, y: 3}
   FlowFieldRecalculatFequency: 5
   IsUsingHomeSysteme: 0
@@ -9761,44 +9762,76 @@ MonoBehaviour:
   TreeModifier3Min: {x: 9, y: 0}
   TreeModifier3Max: {x: 31, y: 13}
   Bats:
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 15, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 11, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 11, y: 7}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
     vec: {x: 11, y: 5}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 11, y: 3}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
     vec: {x: 11, y: 1}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 30, y: 7}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 30, y: 5}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 30, y: 3}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 30, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 2}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 4}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 6}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 7}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 8}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 11, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 14, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 15, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
     vec: {x: 16, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 17, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
     vec: {x: 18, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 19, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
     vec: {x: 20, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 22, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 24, y: 9}
-  - bat: {fileID: 155793645162361224, guid: 502c7c7e7a602ce468bd74ad37d65df8, type: 3}
-    vec: {x: 28, y: 9}
   - bat: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
-    vec: {x: 20, y: 5}
+    vec: {x: 18, y: 5}
   - bat: {fileID: 1663213690621943098, guid: a14ed0e408aa8a54e96e0bf404d22d49, type: 3}
     vec: {x: 15, y: 5}
   - bat: {fileID: 5088974414125589626, guid: e2a7b6a504a9f5c48878c3724670d86e, type: 3}
     vec: {x: 20, y: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 21, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 22, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 23, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 24, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 25, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 26, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 29, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 9}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 8}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 7}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 6}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 5}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 4}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 3}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 2}
+  - bat: {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
+    vec: {x: 30, y: 1}
 --- !u!114 &2048388255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9877,8 +9910,8 @@ MonoBehaviour:
   EnemyPrefabTroll: {fileID: 2426864061342925088, guid: 41a730cf8cb16964690775fa1c4efd01, type: 3}
   EnemyPrefabWarg: {fileID: 2426864061342925088, guid: e09e5e665b8b6124c91dd7c19ead7b46, type: 3}
   EnemyPrefabGhost: {fileID: 2426864061342925088, guid: 9f0689babe51f7844ae358fe85910721, type: 3}
-  EnemyPrefabDrake: {fileID: 0}
-  DrakeAnimation: {fileID: 0}
+  EnemyPrefabDrake: {fileID: 2426864061342925088, guid: e09e5e665b8b6124c91dd7c19ead7b46, type: 3}
+  DrakeAnimation: {fileID: 4312438477745152533, guid: e28d2992b5ef02946b8241686f6a22a3, type: 3}
   GameManagerComponent: {fileID: 0}
   WavesizeStartSize: 0
 --- !u!1 &2061608216

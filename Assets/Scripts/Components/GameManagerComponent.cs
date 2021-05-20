@@ -4,6 +4,7 @@ using PlaneC;
 using System.Collections.Generic;
 using System.Collections;
 using Assets.Scripts.Bourg;
+using Assets.Scripts.Bourg.Achetable;
 using UnityEngine.Serialization;
 using Object = System.Object;
 using Random = System.Random;
@@ -24,6 +25,7 @@ namespace Components
 
         [Header("FlowField Infos")] 
         public bool IsFlowFieldInUpDate;
+        public bool IsShoweDebugFlowField;
         public Vector2Int Target;
         public float FlowFieldRecalculatFequency = 2;
         private bool _IsReadyToCalculateFlowFlield=true;
@@ -194,7 +196,7 @@ namespace Components
             TerrainGenerator.TreeModifier1OffSet= new Vector2(random.Next(-10000,10000), random.Next(-10000,10000));
             foreach (RoadAutoCreator road in TerrainGenerator.Roads) road.Seed = random.Next();
             TerrainGenerator.SetMap();
-            TerrainGenerator.SpawnBuilding();
+            
             SmoothTerrain.height = TerrainGenerator.height;
             SmoothTerrain.width = SmoothTerrain.width;
             SmoothTerrain.InputMeshFilter = TerrainGenerator.GetComponent<MeshFilter>();
@@ -203,6 +205,8 @@ namespace Components
                 TerrainGenerator.GetComponent<MeshRenderer>().enabled = false;
                 SmoothTerrain.GenerateSmoothMesh();
             }
+            TerrainGenerator.SpawnBuilding();
+            
            // SetPlayGrid(PlayGrid , Width, Height);
         }
         [ContextMenu("GetHashCode")]
@@ -258,17 +262,23 @@ namespace Components
                     
                 }
 
-                foreach (Vector2Int cell in OpenList)
-                {
-                    if (PlayGrid.GetCell(cell).ConstructionTile!=null)PlayGrid.GetCell(cell).ConstructionTile.SetActive(false);
+                if (IsShoweDebugFlowField) {
+                    foreach (Vector2Int cell in OpenList) {
+                        if (PlayGrid.GetCell(cell).ConstructionTile != null)
+                            PlayGrid.GetCell(cell).ConstructionTile.SetActive(false);
+                    }
                 }
+
                 OpenList.Clear();
                 OpenList.AddRange(temporalToAdd);
                 temporalToAdd.Clear();
-                foreach (Vector2Int cell in OpenList)
-                {
-                    if (PlayGrid.GetCell(cell).ConstructionTile!=null)PlayGrid.GetCell(cell).ConstructionTile.SetActive(true);
+                if (IsShoweDebugFlowField) {
+                    foreach (Vector2Int cell in OpenList) {
+                        if (PlayGrid.GetCell(cell).ConstructionTile != null)
+                            PlayGrid.GetCell(cell).ConstructionTile.SetActive(true);
+                    }
                 }
+
                 yield return new WaitForSeconds(0.01f);
             }
             _IsReadyToCalculateFlowFlield = true;

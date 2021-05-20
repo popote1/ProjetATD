@@ -106,10 +106,14 @@ public class WaveSystemeV2Component : MonoBehaviour
             else if (NbDrake > 0)
             {
 
-                GameObject drake =Instantiate(DrakeAnimation, new Vector3(20, -5, 0), 
-                    Quaternion.Euler(randomSpawn - new Vector3(20, -5, 0)));
+                GameObject drake =Instantiate(DrakeAnimation, new Vector3(20, -5, 0), Quaternion.identity);
+                drake.transform.up = randomSpawn - drake.transform.position;
                 drake.transform.DOMove(randomSpawn+new Vector3(0,10,0), DrakeAnimSpeed);
+                DrakeSpawn = randomSpawn;
+                Invoke("SpawnDrake" , DrakeAnimSpeed+1);
+                NbDrake--;
                 
+
                 /*if (!_isDrakeAnimDone)
                 {
                     Vector3 screenBottomCenter = new Vector3(Screen.width / 2, 0, 0);
@@ -234,6 +238,10 @@ public class WaveSystemeV2Component : MonoBehaviour
 
     private void SpawnDrake()
     {
-        
+        EnemyComponent mob= Instantiate(EnemyPrefabDrake, DrakeSpawn, Quaternion.identity);
+        mob.Enemy = WaveSo[WaveIndex].DrakeSO;
+        mob.Playgrid = GameManagerComponent.PlayGrid;
+        mob.WaveSystemeV2Component = this;
+        EnnemisAlive.Add(mob);
     }
 }
