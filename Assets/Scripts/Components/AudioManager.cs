@@ -44,9 +44,9 @@ public class AudioManager : MonoBehaviour
         /// </summary>
         /// <param name="clip"> C'est la son à jouer</param>
         /// <param name="volume">Valeur normaliser pour le volume</param>
-        public static void PlaySfx(GameObject pos,AudioClip clip, float volume =1)
+        public static void PlaySfx(AudioClip clip, float volume =1)
         {
-            AudioSource audioSource = pos.AddComponent<AudioSource>();
+            AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             _sfxPlayrs.Add(audioSource);
             audioSource.volume = VolumeSFX * volume;
             audioSource.loop = false;

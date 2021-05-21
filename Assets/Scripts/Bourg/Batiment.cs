@@ -85,7 +85,13 @@ namespace Assets.Scripts.Bourg
 	        if (CurrentHp < Hp)
 	        {
 		        CurrentHp += value;
-		        if (CurrentHp > Hp) CurrentHp = Hp;
+		        if (CurrentHp > Hp)
+		        {
+			        CurrentHp = Hp;
+			        HealingEffect.Stop(true , ParticleSystemStopBehavior.StopEmitting);
+			        Debug.Log("Batiment Max HP  Stop le particule Systeme");
+			        return;
+		        }
 		        HealingEffect.Play();
 	        }
 	        else

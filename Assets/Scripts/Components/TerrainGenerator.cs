@@ -184,7 +184,8 @@ namespace Components
                     if (_vertices[vert + 0].z == 0 && _vertices[vert + 1].z == 0 &&
                         _vertices[vert + width + 1].z == 0 && _vertices[vert + width + 2].z == 0) {
                         playgrid.GetCell(new Vector2Int(x, y)).IsNonWalkable = false;
-                        playgrid.GetCell(new Vector2Int(x, y)).IsPlayble = true;
+                        if (x>LimiteBorders&&x<width-LimiteBorders)playgrid.GetCell(new Vector2Int(x, y)).IsPlayble = true;
+                        else playgrid.GetCell(new Vector2Int(x, y)).IsPlayble = false;
                     }
                     else {
                         playgrid.GetCell(new Vector2Int(x, y)).IsNonWalkable = true;
@@ -362,6 +363,8 @@ namespace Components
             foreach (BatA batInfo in Bats) {
                 if (batInfo.bat!= null) GameManagerComponent.PlayManagerComponent.BuildPutNewBuilding(batInfo.vec, batInfo.bat);
             }
+
+            
         }
     }
 }

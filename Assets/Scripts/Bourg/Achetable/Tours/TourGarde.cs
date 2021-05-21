@@ -13,6 +13,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public int AutoPhysicDamages;
         public float AutoFireRate;
         public int AutoRange;
+        public AutoAttackProjectile Projectile;
         
         
         [Header("Active")]
@@ -106,13 +107,18 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
                 enemiesInRange.RemoveAll(o => o == null);
-                if (enemiesInRange.Count > 0)
+                if (enemiesInRange.Count > 0&&!Projectile.gameObject.activeSelf)
                 {
-                    LineRenderer.enabled = true;
+                    Projectile.Damages = AutoPhysicDamages;
+                    Projectile.IsMagic = false;
+                    Projectile.Target = enemiesInRange[0].transform;
+                    Projectile.EnnemyTarget = enemiesInRange[0];
+                    Projectile.gameObject.SetActive(true);
+                    /*LineRenderer.enabled = true;
                     LineRenderer.SetPosition(1,enemiesInRange[0].transform.position);
                     
                     enemiesInRange[0].TakePhysicDamages(AutoPhysicDamages);
-                    
+                    */
                     _autoResetTimer = 0;
                     AudioSource.Play();
                 }
