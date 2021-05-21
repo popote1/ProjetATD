@@ -57,6 +57,7 @@ namespace Components
         private bool _press;
         private List<Vector2Int> _preselectedCell = new List<Vector2Int>();
         private Vector3 _lastCursorPos;
+        private Vector2 _relativeCameraYRange;
 
         public enum InputStat
         {
@@ -108,8 +109,12 @@ namespace Components
                 
                 
                 float distance = (CameraWidthToKeep / (Camera.fieldOfView*Camera.aspect/ 2))*DistanceOfCamera;
-                Camera.transform.position =
-                    new Vector3(Camera.transform.position.x, Camera.transform.position.y, distance);
+                Camera.transform.position=
+                new Vector3(Camera.transform.position.x, Camera.transform.position.y, distance);
+                float hauteur =Mathf.Tan((Camera.fieldOfView/Camera.aspect/ 2*Mathf.Deg2Rad))*distance;
+                _relativeCameraYRange = new Vector2(CameraYRange.x - hauteur, CameraYRange.y + hauteur);
+                
+                Debug.Log("Hauteur de la Cam = "+ hauteur +" et la range de la came et des"+_relativeCameraYRange+ " angle Y "+Camera.fieldOfView/Camera.aspect/ 2);
 
                 if (Input.GetKeyDown("i"))
                 {
@@ -159,7 +164,7 @@ namespace Components
         public void ScrollCamera(Scrollbar ctx)
         {
             Camera.transform.position = new Vector3(Camera.transform.position.x,
-                Mathf.Lerp(CameraYRange.x, CameraYRange.y, ctx.value), Camera.transform.position.z);
+                Mathf.Lerp(_relativeCameraYRange.x, _relativeCameraYRange.y, ctx.value), Camera.transform.position.z);
         }
 
         private void DragCamera()
@@ -170,10 +175,10 @@ namespace Components
                 if (_lastCursorPos != Vector3.zero) {
                     yMove = _lastCursorPos.y - Input.mousePosition.y;
                     Camera.transform.position = new Vector3( Camera.transform.position.x
-                        ,Mathf.Clamp(Camera.transform.position.y+yMove * CameraSencibility,CameraYRange.x,CameraYRange.y)
+                        ,Mathf.Clamp(Camera.transform.position.y+yMove * CameraSencibility,_relativeCameraYRange.x,_relativeCameraYRange.y)
                         , Camera.transform.position.z);
                     ScrollbarCamera.value =
-                        Mathf.InverseLerp(CameraYRange.x, CameraYRange.y, Camera.transform.position.y);
+                        Mathf.InverseLerp(_relativeCameraYRange.x, _relativeCameraYRange.y, Camera.transform.position.y);
                 }
                 _lastCursorPos = Input.mousePosition;
             }
@@ -350,7 +355,7 @@ namespace Components
         {
             List<Vector2Int> cells = new List<Vector2Int>();
             Vector2Int cell = origin;
-            if (_playGrid.CheckIfInGrid(cell)) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell))if (_playGrid.GetCell(cell).IsPlayble) cells.Add(cell);
             return cells;
         }
         
@@ -358,13 +363,13 @@ namespace Components
         {
             List<Vector2Int> cells = new List<Vector2Int>();
             Vector2Int cell = origin;
-            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile) cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile&&_playGrid.GetCell(cell).IsPlayble) cells.Add(cell);
             cell += Vector2Int.left;
-            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile&&_playGrid.GetCell(cell).IsPlayble)cells.Add(cell);
             cell += Vector2Int.up;
-            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile&&_playGrid.GetCell(cell).IsPlayble)cells.Add(cell);
             cell += Vector2Int.right;
-            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile)cells.Add(cell);
+            if (_playGrid.CheckIfInGrid(cell)) if (_playGrid.GetCell(cell).ConstructionTile&&_playGrid.GetCell(cell).IsPlayble)cells.Add(cell);
             return cells;
         }
 

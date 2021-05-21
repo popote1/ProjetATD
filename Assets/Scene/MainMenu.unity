@@ -190,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.5
+  m_fontSize: 40.75
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2985,55 +2985,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IndexLangue: 0
-  JSONedData: "{\"Tests\":[\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Polski\",\"Gra\u0107\",\"Opcje\",\"Kredyty\",\"Opu\u015Bci\u0107\",\"Powr\xF3t\",\"Nazwa
-    miasta\",\"Wpisz nazw\u0119 swojego miasteczko\",\"G\u0142o\u015Bno\u015B\u0107
-    muzyki\",\"G\u0142o\u015Bno\u015B\u0107 d\u017Awi\u0119ku\",\"Artysta 2D\",\"Artysta
-    3D\",\"Deweloper\",\"Game designer\",\"Zaczynajmy !\",\"Menu\",\"Wzn\xF2w Gr\u0119\",\"Menu
-    g\u0142\xF3wne\",\"\",\"wie\u017Ca stra\u017Cnicza\",\"wie\u017Ca mag\xF3w\",\"wie\u017Ca
-    alchemiczna\",\"\u015Bwi\u0119ta wie\u017Ca\",\"Mur\",\"Zburzy\u0107\",\"Z\u0142oto\",\"Wygra\u0142e\u015B\",\"Przegra\u0142e\u015B\",\"Moc\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Wrogowie
-    s\u0105 u naszych bram, musimy przygotowa\u0107 nasz\u0105 obron\u0119!\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
+  JSONedData: "{\"Tests\":[\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"Play\",\"Options\",\"Creadits\",\"Quit\",\"Return\",\"Town
+    Name\",\"Enter the name of your town\",\"Music Volume\",\"Sound Volume\",\"2D
+    Artiste\",\"3D Artiste\",\"Developer\",\"Game Designer\",\"Let's do it!\",\"Menu\",\"Resume\",\"Main
+    Menu\",\"\",\"Garde Tower\",\"Mage Tower\",\"Alchemist Tower\",\"Holy Tower\",\"Wall\",\"Destroy\",\"Gold\",\"You
+    Win\",\"You Lose\",\"Power\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"The
+    Ennemis are at our gates ! We have to pr\xE9paer ours defences !\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
   SelectedData:
     Tests:
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - Polski
-    - "Gra\u0107"
-    - Opcje
-    - Kredyty
-    - "Opu\u015Bci\u0107"
-    - "Powr\xF3t"
-    - Nazwa miasta
-    - "Wpisz nazw\u0119 swojego miasteczko"
-    - "G\u0142o\u015Bno\u015B\u0107 muzyki"
-    - "G\u0142o\u015Bno\u015B\u0107 d\u017Awi\u0119ku"
-    - Artysta 2D
-    - Artysta 3D
-    - Deweloper
-    - Game designer
-    - Zaczynajmy !
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - Play
+    - Options
+    - Creadits
+    - Quit
+    - Return
+    - Town Name
+    - Enter the name of your town
+    - Music Volume
+    - Sound Volume
+    - 2D Artiste
+    - 3D Artiste
+    - Developer
+    - Game Designer
+    - Let's do it!
     - Menu
-    - "Wzn\xF2w Gr\u0119"
-    - "Menu g\u0142\xF3wne"
+    - Resume
+    - Main Menu
     - 
-    - "wie\u017Ca stra\u017Cnicza"
-    - "wie\u017Ca mag\xF3w"
-    - "wie\u017Ca alchemiczna"
-    - "\u015Bwi\u0119ta wie\u017Ca"
-    - Mur
-    - "Zburzy\u0107"
-    - "Z\u0142oto"
-    - "Wygra\u0142e\u015B"
-    - "Przegra\u0142e\u015B"
-    - Moc
-    - 
-    - 
+    - Garde Tower
+    - Mage Tower
+    - Alchemist Tower
+    - Holy Tower
+    - Wall
+    - Destroy
+    - Gold
+    - You Win
+    - You Lose
+    - Power
     - 
     - 
     - 
@@ -3044,7 +3041,9 @@ MonoBehaviour:
     - 
     - 
     - 
-    - "Wrogowie s\u0105 u naszych bram, musimy przygotowa\u0107 nasz\u0105 obron\u0119!"
+    - 
+    - 
+    - "The Ennemis are at our gates ! We have to pr\xE9paer ours defences !"
     - 
     - 
     - 
@@ -4064,7 +4063,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 44.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5328,7 +5327,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.1
+  m_fontSize: 31.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6090,8 +6089,6 @@ GameObject:
   - component: {fileID: 1178282298}
   - component: {fileID: 1178282302}
   - component: {fileID: 1178282301}
-  - component: {fileID: 1178282303}
-  - component: {fileID: 1178282304}
   m_Layer: 5
   m_Name: BPOption
   m_TagString: Untagged
@@ -6175,7 +6172,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1178282303}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSoundLauncherComponent, Assembly-CSharp
         m_MethodName: PlaySound
         m_Mode: 1
