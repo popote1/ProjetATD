@@ -63,10 +63,10 @@ namespace Assets.Scripts.Bourg
                 {
                     if (bat is TourMage)
                     {
-                        Debug.Log("une tours de mage a " + (transform.position - bat.transform.position).magnitude);
+                       // Debug.Log("une tours de mage a " + (transform.position - bat.transform.position).magnitude);
                         if ((transform.position - bat.transform.position).magnitude < DistanceToMage)
                         {
-                            Debug.Log("Ajoute d'une tours au calcule");
+                        //    Debug.Log("Ajoute d'une tours au calcule");
                             TowerInRange++;
                         }
                     }

@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(AudioListener))]
 public class AudioManager : MonoBehaviour
     {
         public bool IsSetByInspector = true;
@@ -16,6 +19,7 @@ public class AudioManager : MonoBehaviour
         private static List<AudioSource> _musicPlayers = new List<AudioSource>();
         private static AudioSource _narratorsPlayers;
         private static GameObject _audioHolder;
+        private static Transform _cameraPos;
 
 
         private void Awake()
@@ -29,15 +33,20 @@ public class AudioManager : MonoBehaviour
             _audioHolder = gameObject;
             DontDestroyOnLoad(gameObject);
         }
-        
+
+        private void Update()
+        {
+            if (_cameraPos != null) transform.position = _cameraPos.position;
+        }
+
         /// <summary>
         ///  Permet de lancer un sound effect
         /// </summary>
         /// <param name="clip"> C'est la son à jouer</param>
         /// <param name="volume">Valeur normaliser pour le volume</param>
-        public static void PlaySfx(GameObject pos,AudioClip clip, float volume)
+        public static void PlaySfx(AudioClip clip, float volume =1)
         {
-            AudioSource audioSource = pos.AddComponent<AudioSource>();
+            AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             _sfxPlayrs.Add(audioSource);
             audioSource.volume = VolumeSFX * volume;
             audioSource.loop = false;
@@ -52,7 +61,7 @@ public class AudioManager : MonoBehaviour
         /// </summary>
         /// <param name="clip">La musique à jouer</param>
         /// <param name="volume">aleur normaliser pour le volume</param>
-        public static void PlayMusic(AudioClip clip, float volume) {
+        public static void PlayMusic(AudioClip clip, float volume=1) {
             AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             _musicPlayers.Add(audioSource);
             audioSource.volume = VolumeMusic * volume;
@@ -67,7 +76,7 @@ public class AudioManager : MonoBehaviour
         /// </summary>
         /// <param name="clip">L'enregistrement du narrateur a lire</param>
         /// <param name="volume">aleur normaliser pour le volume</param>
-        public static  void PlayNarator(AudioClip clip, float volume) {
+        public static  void PlayNarator(AudioClip clip, float volume=1) {
             AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             Destroy(_narratorsPlayers);
             _narratorsPlayers = audioSource;
@@ -75,5 +84,10 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = clip;
             audioSource.Play();
             Destroy(audioSource, clip.length+1);
+        }
+
+        public static void SetCameraTransform(Transform pos)
+        {
+            _cameraPos = pos;
         }
     }

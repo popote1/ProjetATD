@@ -42,6 +42,7 @@
               <e p="Achetables.cs" t="Include" />
               <e p="Murs.cs" t="Include" />
               <e p="Tours" t="Include">
+                <e p="AutoAttackProjectile.cs" t="Include" />
                 <e p="PowerEffectComponent.cs" t="Include" />
                 <e p="TourAlchi.cs" t="Include" />
                 <e p="TourGarde.cs" t="Include" />
@@ -58,15 +59,19 @@
           <e p="Components" t="Include">
             <e p="AsycSceneStarterComponent.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
+            <e p="AudioManagerCameraAssinerComponent.cs" t="Include" />
+            <e p="AudioSoundLauncherComponent.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="InGameUIManagerComponent.cs" t="Include" />
             <e p="LangueManager.cs" t="Include" />
             <e p="LangueTextSetter.cs" t="Include" />
             <e p="MainMenuManagerComponent.cs" t="Include" />
+            <e p="ParalaxController.cs" t="Include" />
             <e p="PemanentLimitateurComponent.cs" t="Include" />
             <e p="PlayerManagerComponent.cs" t="Include" />
             <e p="SmoothTerrain.cs" t="Include" />
             <e p="SmoothTerrainLoading.cs" t="Include" />
+            <e p="SpawnBuildingAnimatorComponent.cs" t="Include" />
             <e p="TerrainGenerator.cs" t="Include" />
             <e p="TestSceneAutoStarterComponant.cs" t="Include" />
             <e p="TimeManagerComponent.cs" t="Include" />
