@@ -24,11 +24,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureGrass:
-        m_Texture: {fileID: 2800000, guid: 0b42f28c3cb1c53428328214ce89cbb4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 79c453ad4ce8c824c8ead4067974b52c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureSand:
-        m_Texture: {fileID: 2800000, guid: 6ec301531e5a90940a44944517e4ff62, type: 3}
+        m_Texture: {fileID: 2800000, guid: d5e1365f1486a50489387350998c57f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TextureWater:
@@ -49,7 +49,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_fa5e8bc02bc7411e8fc6bef705bdd109: 0.59
-    - _Scale: 0.67
+    - _Scale: 0.45
     m_Colors:
     - Color_e49125e5db904773bfe1ba40f8a0cc04: {r: 0.09518514, g: 0.8773585, b: 0.13863923, a: 1}
   m_BuildTextureStacks: []
