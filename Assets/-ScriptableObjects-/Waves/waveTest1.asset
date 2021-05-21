@@ -18,9 +18,9 @@ MonoBehaviour:
   TrollSO: {fileID: 11400000, guid: 4b7fdf28b78fcc24f8c3fb8be378e9cc, type: 2}
   GhostSO: {fileID: 11400000, guid: 89a6da2ebba73f64a8fb59fd69544a79, type: 2}
   DrakeSO: {fileID: 11400000, guid: 8d81dece40fd46b478a4dac994ca65fd, type: 2}
-  NombreOrcs: 0
-  NombreGhost: 0
-  NombreWargs: 0
-  NombreTrolls: 0
-  NombreDrake: 1
+  NombreOrcs: 10
+  NombreGhost: 10
+  NombreWargs: 10
+  NombreTrolls: 10
+  NombreDrake: 0
   TimeToWait: 180

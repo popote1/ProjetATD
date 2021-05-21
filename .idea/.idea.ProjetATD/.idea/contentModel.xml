@@ -57,6 +57,7 @@
             <e p="Maison.cs" t="Include" />
           </e>
           <e p="Components" t="Include">
+            <e p="ArbaletAnimation.cs" t="Include" />
             <e p="AsycSceneStarterComponent.cs" t="Include" />
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioManagerCameraAssinerComponent.cs" t="Include" />
