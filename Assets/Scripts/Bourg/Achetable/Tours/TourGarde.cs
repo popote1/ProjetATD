@@ -21,6 +21,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public int ActivePhysicDamages;
         public float ActiveRate;
         public bool IsReadyToAttack = true;
+        public GameObject TopPart;
 
         
         [Header("Utilities")]
@@ -139,6 +140,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         //Active Power
         public override void Active()
         {
+            TopPart.GetComponent<ArbaletAnimation>().DoFire();
             if (_activeResetTimer <= 0)
             {            
                 //TODO: Check in PM closest selected tower to shoot with
@@ -154,6 +156,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 PowerEffect1.SetActive(true);
                 OnDeselect();
                 ActiveTimer = 0;
+                ShakeComponent.DoShake(2);
             }
             
             else
@@ -174,7 +177,15 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;
                 //VisualizerEffect.transform.LookAt(_mousePosition);
-                VisualizerEffect.transform.up=( (Vector3)GetMousePos()-transform.position);
+                
+                VisualizerEffect.transform.up=(Vector2)( (Vector3)GetMousePos()-transform.position);
+                if (TopPart != null)
+                {
+                    TopPart.transform.forward = (Vector2)((Vector3) GetMousePos() - transform.position);
+                    TopPart.transform.localEulerAngles = new Vector3(TopPart.transform.localEulerAngles.x,
+                        TopPart.transform.localEulerAngles.y, 0);
+                   
+                }
         }
         
         
