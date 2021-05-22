@@ -156,6 +156,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 PowerEffect1.SetActive(true);
                 OnDeselect();
                 ActiveTimer = 0;
+                ShakeComponent.DoShake(2);
             }
             
             else

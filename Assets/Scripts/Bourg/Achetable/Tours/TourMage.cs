@@ -159,6 +159,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             PowerEffect1.transform.localScale = Vector3.one*ActiveSize;
             PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
             PowerEffect1.SetActive(true);
+            ShakeComponent.DoShake(2);
     /*
             Collider2D[] affected = new Collider2D[50];
             
