@@ -210,10 +210,10 @@ MonoBehaviour:
   RetrunMoney: 75
   OutLine: {fileID: 0}
   _camera: {fileID: 0}
-  MeshMur: {fileID: -5495902117074765545, guid: 001c25b6d9b32f2468dc670beecfc789, type: 3}
-  MeshSecondaire: {fileID: -5495902117074765545, guid: b4042fb924c73e44b9e44af4c1fb97c7, type: 3}
-  MaterialPrincipal: {fileID: -876546973899608171, guid: b4042fb924c73e44b9e44af4c1fb97c7, type: 3}
-  MaterialSecondaire: {fileID: -876546973899608171, guid: b4042fb924c73e44b9e44af4c1fb97c7, type: 3}
+  MeshMur: {fileID: -1590395737297229315, guid: 940def16973913244bea4a0a165a65ac, type: 3}
+  MeshSecondaire: {fileID: 4538857431014638327, guid: a6ead36df8d499742bd557894f5a3e99, type: 3}
+  MaterialPrincipal: {fileID: 2100000, guid: e3c333a5e2b125a46b2fc0a4d743dd46, type: 2}
+  MaterialSecondaire: {fileID: 2100000, guid: e3c333a5e2b125a46b2fc0a4d743dd46, type: 2}
   checkedNeighbours: []
   IntPos: {x: 0, y: 0}
 --- !u!61 &-6294368467828358478
