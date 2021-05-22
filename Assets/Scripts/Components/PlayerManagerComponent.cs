@@ -263,7 +263,7 @@ namespace Components
         public void StartBuilding(int buildingIndex)
         {
             BuildIndex = buildingIndex;
-            if (Gold > AchetablesList[buildingIndex].Prix) InputState = InputStat.Building;
+            if (Gold >= AchetablesList[buildingIndex].Prix) InputState = InputStat.Building;
             else PanelFondInsufisant.alpha = 1;
 
         }
