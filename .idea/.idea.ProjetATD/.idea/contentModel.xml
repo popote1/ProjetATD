@@ -60,6 +60,7 @@
             <e p="AudioManager.cs" t="Include" />
             <e p="AudioManagerCameraAssinerComponent.cs" t="Include" />
             <e p="AudioSoundLauncherComponent.cs" t="Include" />
+            <e p="CursorAnimator.cs" t="Include" />
             <e p="GameManagerComponent.cs" t="Include" />
             <e p="InGameUIManagerComponent.cs" t="Include" />
             <e p="LangueManager.cs" t="Include" />
@@ -102,7 +103,9 @@
             <e p="UIButtonAnimationComponent.cs" t="Include" />
             <e p="UIElementComponent.cs" t="Include" />
             <e p="UIPanel1Comonent.cs" t="Include" />
+            <e p="UIPanelSimpletScaleComponent.cs" t="Include" />
             <e p="UIPauseManagerComponent.cs" t="Include" />
+            <e p="UITutoPanelComponent.cs" t="Include" />
             <e p="UIWorldHousesComponent.cs" t="Include" />
             <e p="UIWorldMairieComponent.cs" t="Include" />
             <e p="UIWorldTowerComponent.cs" t="Include" />

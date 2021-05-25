@@ -21,6 +21,11 @@ public class MainMenuManagerComponent : MonoBehaviour
     public UIElementComponent Credit;
     [Header("UI Options")] 
     public TMP_Text TxtLangue;
+
+    public Image FlagImage;
+    public Sprite PolishFlag;
+    public Sprite FrenshFlag;
+    public Sprite EnglishFlag;
     
 
     public TMP_InputField InputFieldBorgName;
@@ -189,6 +194,9 @@ public class MainMenuManagerComponent : MonoBehaviour
         Debug.Log("Change de Langue pour l'index"+ index);
         LangueManager.ChangeLangue(index);
         TxtLangue.text = LangueManager.SelectTextData.Tests[1];
+        if (TxtLangue.text == "Français") FlagImage.sprite = FrenshFlag;
+        else if (TxtLangue.text =="Polski") FlagImage.sprite = PolishFlag;
+        else if (TxtLangue.text == "English") FlagImage.sprite = EnglishFlag;
     }
     
     

@@ -437,7 +437,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.1
+  m_fontSize: 38.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4167,7 +4167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: -0.1}
   m_AnchorMax: {x: 0.9, y: 0.3}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: -0.000009536743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917228063
@@ -5429,7 +5429,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6347,7 +6347,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.2}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1352652656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6518,7 +6518,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6740,7 +6740,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 64.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7039,7 +7039,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9985,7 +9985,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10268,7 +10268,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.5
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11001,7 +11001,7 @@ MonoBehaviour:
   - {fileID: 6276698101224874595, guid: 89c3ad4f4a2084740beda9e136a49aee, type: 3}
   - {fileID: 1070168803675990798, guid: 37c38561a9f81eb4882d5f0c6762c8f4, type: 3}
   - {fileID: 6003049292780597357, guid: 286148a02d71aa64587a5e93a41f0b0e, type: 3}
-  PrefabCursor: {fileID: 5871912498545961184, guid: 983c5e12ed90578439839074dab470d3, type: 3}
+  PrefabCursor: {fileID: 6789496310447789833, guid: e57f3eddf93fdd54b8365fd84901df43, type: 3}
   CursorSmoothFactor: 36
   ScrollbarCamera: {fileID: 1815720400}
   TxtGoldText: {fileID: 699402340}
