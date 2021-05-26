@@ -362,10 +362,18 @@ MonoBehaviour:
   Position: {x: 0, y: 0}
   PhysicDamagesResistance: 0
   MagicDamagesResistance: 0
+  HealingEffect: {fileID: 0}
   SecurityRange: 3
   SecurityValue: 10
   Prix: 200
+  RetrunMoney: 75
   OutLine: {fileID: 3563357598265500167}
+  _camera: {fileID: 0}
+  IsPowerAvtivated: 0
+  PowerEffect1: {fileID: 574580499782433216}
+  VisualizerEffect: {fileID: 865115853323522242}
+  ActiveCouldown: 0
+  ActiveTimer: 0
   AutoPhysicDamages: 10
   AutoFireRate: 2
   AutoRange: 3
@@ -378,8 +386,6 @@ MonoBehaviour:
   AutoCollider2D: {fileID: 4628152722939624086}
   LineRenderer: {fileID: 7587766764414387936}
   LaserLiveTime: 0
-  PowerEffect: {fileID: 574580499782433216}
-  VisualizerEffect: {fileID: 865115853323522242}
 --- !u!58 &4628152722939624086
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public int AutoPhysicDamages;
         public float AutoFireRate;
         public int AutoRange;
+        public AutoAttackProjectile Projectile;
         
         
         [Header("Active")]
@@ -48,7 +49,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private void Start()
         {
             _camera=Camera.main;
-            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            _powerEffectComponent = PowerEffect1.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
             OutLine.SetActive(false);
@@ -106,13 +107,18 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
                 enemiesInRange.RemoveAll(o => o == null);
-                if (enemiesInRange.Count > 0)
+                if (enemiesInRange.Count > 0&&!Projectile.gameObject.activeSelf)
                 {
-                    LineRenderer.enabled = true;
+                    Projectile.Damages = AutoPhysicDamages;
+                    Projectile.IsMagic = false;
+                    Projectile.Target = enemiesInRange[0].transform;
+                    Projectile.EnnemyTarget = enemiesInRange[0];
+                    Projectile.gameObject.SetActive(true);
+                    /*LineRenderer.enabled = true;
                     LineRenderer.SetPosition(1,enemiesInRange[0].transform.position);
                     
                     enemiesInRange[0].TakePhysicDamages(AutoPhysicDamages);
-                    
+                    */
                     _autoResetTimer = 0;
                     AudioSource.Play();
                 }
@@ -142,9 +148,10 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 //if (!(Dist <= ActiveRange)) origin = origin.normalized*ActiveRange;
                 //_activeResetTimer = ActiveRate;
                 Vector2 pos = transform.position + (VisualizerEffect.transform.up.normalized * ActiveRange);
-                PowerEffect.transform.position=pos;
-                PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
-                PowerEffect.SetActive(true);
+                PowerEffect1.transform.position=pos;
+                PowerEffect1.transform.rotation = VisualizerEffect.transform.rotation;
+                PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
+                PowerEffect1.SetActive(true);
                 OnDeselect();
                 ActiveTimer = 0;
             }
@@ -162,7 +169,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         {
             VisualizerEffect.SetActive(true);
             _mousePosition = GetMousePos();
-            Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
+           // Debug.Log(GetMousePos() + "  " + (Vector2) transform.position);
                 //Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float Dist = Vector2.Distance(_mousePosition, transform.position);
             if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized*ActiveRange;

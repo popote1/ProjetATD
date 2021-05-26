@@ -54,7 +54,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private void Start()
         {
             _camera = Camera.main;
-            _powerEffectComponent = PowerEffect.GetComponent<PowerEffectComponent>();
+            _powerEffectComponent = PowerEffect1.GetComponent<PowerEffectComponent>();
             SetPowerEffect();
             
             OutLine.SetActive(false);
@@ -155,10 +155,10 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             //if (!(Dist <= ActiveRange)) origin = origin.normalized * ActiveRange;
             //_activeResetTimer = ActiveRate;
     
-            PowerEffect.transform.position = VisualizerEffect.transform.position;
-            PowerEffect.transform.localScale = Vector3.one*ActiveSize;
-            PowerEffect.GetComponent<PowerEffectComponent>().OnAwake();
-            PowerEffect.SetActive(true);
+            PowerEffect1.transform.position = VisualizerEffect.transform.position;
+            PowerEffect1.transform.localScale = Vector3.one*ActiveSize;
+            PowerEffect1.GetComponent<PowerEffectComponent>().OnAwake();
+            PowerEffect1.SetActive(true);
     /*
             Collider2D[] affected = new Collider2D[50];
             

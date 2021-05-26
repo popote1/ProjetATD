@@ -1,9 +1,9 @@
-
+using  System.Collections.Generic;
 using Components;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
@@ -36,6 +36,9 @@ public class InGameUIManagerComponent : MonoBehaviour
     public UIElementComponent BPDestroy;
     [Header("Wave settings")] 
     public Slider SliderWave;
+    public Slider SliderTimerWave;
+    public TMP_Text TxtWaveInfo;
+    public List<string> WaveTest;
 
     public void UIClickPause()
     {
@@ -103,6 +106,17 @@ public class InGameUIManagerComponent : MonoBehaviour
     public void SetWaveSlider(float value)
     {
         SliderWave.value = value;
+    }
+
+    public void SetWaveTimerSlider(float value)
+    {
+        SliderTimerWave.value = value;
+    }
+
+    public void SetWaveInfoText(int value)
+    {
+        if (WaveTest[value]==null)TxtWaveInfo.text = "Erreu d'index de wave";
+        TxtWaveInfo.text = WaveTest[value];
     }
 
     public void SetOnPowerButton()
