@@ -190,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.7
+  m_fontSize: 40.75
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -847,6 +847,7 @@ GameObject:
   - component: {fileID: 79390877}
   - component: {fileID: 79390879}
   - component: {fileID: 79390878}
+  - component: {fileID: 79390880}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -970,6 +971,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79390876}
   m_CullTransparentMesh: 1
+--- !u!114 &79390880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79390876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 54
+  IsUpdateOnLangueChange: 1
 --- !u!1 &84086160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,8 +1021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -111.86748}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -111.848434}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84086162
 MonoBehaviour:
@@ -1052,7 +1067,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 84086163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &84086163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,6 +1129,7 @@ GameObject:
   - component: {fileID: 111275870}
   - component: {fileID: 111275872}
   - component: {fileID: 111275871}
+  - component: {fileID: 111275873}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1225,6 +1253,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111275869}
   m_CullTransparentMesh: 1
+--- !u!114 &111275873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111275869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 51
+  IsUpdateOnLangueChange: 1
 --- !u!1 &111335663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,7 +1297,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900063889}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.8}
   m_AnchorMax: {x: 0.65, y: 0.95}
@@ -1967,6 +2009,84 @@ MonoBehaviour:
   CanvasGroupLoading: {fileID: 132681927}
   SliderLoading: {fileID: 764909498}
   TxtLoadingValue: {fileID: 1642675720}
+--- !u!1 &203974433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 203974436}
+  - component: {fileID: 203974435}
+  - component: {fileID: 203974434}
+  m_Layer: 5
+  m_Name: PanelInfoBourg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &203974434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203974433}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e9e8b8dc39e19824fa2806646ee237ed, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 4
+--- !u!222 &203974435
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203974433}
+  m_CullTransparentMesh: 1
+--- !u!224 &203974436
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203974433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 280709204}
+  - {fileID: 2121728754}
+  - {fileID: 2139074869}
+  m_Father: {fileID: 900063889}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.02, y: 0.05}
+  m_AnchorMax: {x: 0.65, y: 0.8}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &210013749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7563383367266553862, guid: f7fa6c4af8bd56f47b8ac1e2c5e139e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e5a87c3f3d0bc948b501837378376ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2777,7 +2897,7 @@ RectTransform:
   - {fileID: 2044932429}
   - {fileID: 643652894}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -2858,8 +2978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -40.622494}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -40.61615}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267108170
 MonoBehaviour:
@@ -2904,7 +3024,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267108171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &267108171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3097,6 +3229,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3865074503655433406, guid: ebc83febe7d3327459454c63651887d1, type: 3}
   m_PrefabInstance: {fileID: 601046742}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &280709203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280709204}
+  - component: {fileID: 280709206}
+  - component: {fileID: 280709205}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &280709204
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280709203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 203974436}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.1}
+  m_AnchorMax: {x: 1, y: 0.4}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &280709205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280709203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0b444c332df672e47b581e859879acfb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &280709206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280709203}
+  m_CullTransparentMesh: 1
 --- !u!1 &311020601
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,6 +4501,7 @@ GameObject:
   - component: {fileID: 367304637}
   - component: {fileID: 367304639}
   - component: {fileID: 367304638}
+  - component: {fileID: 367304640}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4340,7 +4548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tour de Garde
+  m_text: Construction
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4417,6 +4625,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367304636}
   m_CullTransparentMesh: 1
+--- !u!114 &367304640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367304636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 74
+  IsUpdateOnLangueChange: 1
 --- !u!1 &405045181
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,7 +5010,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1790698743}
         m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
-        m_MethodName: UICredits
+        m_MethodName: UICommentJouer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4885,8 +5107,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 45.5, y: -29.693909}
-  m_SizeDelta: {x: 91.00001, y: 59.387817}
+  m_AnchoredPosition: {x: 45.5, y: -29.688766}
+  m_SizeDelta: {x: 91.00001, y: 59.377533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432267221
 MonoBehaviour:
@@ -5180,7 +5402,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900063889}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.75, y: 0.06}
   m_AnchorMax: {x: 0.975, y: 0.8}
@@ -5411,6 +5633,7 @@ GameObject:
   - component: {fileID: 503397942}
   - component: {fileID: 503397944}
   - component: {fileID: 503397943}
+  - component: {fileID: 503397945}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5457,7 +5680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tours de Mage
+  m_text: Tours et Pouvoir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5534,6 +5757,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503397941}
   m_CullTransparentMesh: 1
+--- !u!114 &503397945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503397941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 76
+  IsUpdateOnLangueChange: 1
 --- !u!1 &516303786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6161,7 +6398,7 @@ RectTransform:
   - {fileID: 1598244513}
   - {fileID: 2073472298}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -6236,66 +6473,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7521a644298366f46b35e1e61d9aa031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IndexLangue: 0
-  JSONedData: "{\"Tests\":[\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"English\",\"Play\",\"Options\",\"Creadits\",\"Quit\",\"Return\",\"Town
-    Name\",\"Enter the name of your town\",\"Music Volume\",\"Sound Volume\",\"2D
-    Artiste\",\"3D Artiste\",\"Developer\",\"Game Designer\",\"Let's do it!\",\"Menu\",\"Resume\",\"Main
-    Menu\",\"\",\"Garde Tower\",\"Mage Tower\",\"Alchemist Tower\",\"Holy Tower\",\"Wall\",\"Destroy\",\"Gold\",\"You
-    Win\",\"You Lose\",\"Power\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"The
-    Ennemis are at our gates ! We have to pr\xE9paer ours defences !\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
+  IndexLangue: 1
+  JSONedData: "{\"Tests\":[\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Fran\xE7ais\",\"Jouer\",\"Options\",\"Creadit\",\"Quitter\",\"Retour\",\"Nom
+    du Bourg\",\"Entrez le nom de votre Bourg\",\"Volume Musique\",\"Volume Sons\",\"Artiste
+    2D\",\"Artiste 3D\",\"D\xE9veloppeur\",\"GameDesigner\",\"Allons y !\",\"Menu\",\"Reprendre\",\"Menu
+    Principal\",\"\",\"Tour de Garde\",\"Tour de Mage\",\"Tour de d'Alchimie\",\"Tour
+    Sainte\",\"Mur\",\"D\xE9truire\",\"Or\",\"Vous avez Gager\",\"Vous avez Perdu\",\"Pouvoir\",\"\",\"G\xE9n\xE9ral\",\"Batiment\",\"Monstres\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Les
+    Ennemis sont \xE0 nos portes , il faut pr\xE9parer nos d\xE9fences !\",\"Orc\",\"Warg\",\"Fantome\",\"Troll\",\"Dragon\",\"PV
+    : 15\\r\\nD\xE9g\xE2t : 6 / 0.75s\\r\\n\\r\\nIls sont simpel , ne comprentent
+    pas le conc\xE8pte de peur , et m\xEAme si ils meurent vites mais ils sont nombreux.\",\"PV
+    : 12\\r\\nD\xE9g\xE2t :3 / 0.5s\\r\\n\\r\\nDes B\xEAtes F\xE9roces qui attaquent
+    en meute, leur physique rachitique en fond des cibles fragiles.\",\"\\r\\nPV
+    : 12\\r\\nD\xE9g\xE2t :7/ 0.6s\\r\\n\\r\\nIls sont t\xE9rifiant et affamer de
+    vie.\\r\\n\\r\\nLes Attaques phisiques leur inflige moins  de d\xE9gat, priorisez
+    les attaque magiques.\",\"PV : 50\\r\\nD\xE9g\xE2t :15/ 1s\\r\\n\\r\\nIls sont
+    gros, puissant et r\xE9sistantes mais lent.\\r\\n\\r\\nLeurs physiques volumineux
+    leur permet de ne pas \xEAtre r\xE9pousser pas les effets des tours\",\"PV :
+    200\\r\\nD\xE9g\xE2t :50/ 1.2s\\r\\n\\r\\nIls ont une dragon!  On dis que ces
+    b\xEAtes sommes imances , brulent des r\xE9gions enti\xE8res depuis les aires
+    et d\xE9truises des cit\xE9e \xE0 la seul force de leurs pattes!\",\"Prix:  100\\r\\nPV:  
+    400\\r\\nAutoAttaque:\\r\\nDes petites fl\xE8che sont tir\xE9 tout les 0.5 seconds
+    \xE0 une port\xE9 de 7 case et infligent 5 de D\xE9gat Physique.\\r\\n\\r\\nPouvoir
+    Actif:\\r\\nTire une grosse fl\xE8che de baliste qui ravage une zonne proche
+    de la tour en inflifent 20 d\xE9g\xE2t physique et d\xE9truie les arbres.\",\"Prix: 
+    200\\r\\nPV:   300\\r\\nAutoAttaque:\\r\\nDes petites  qui sont tir\xE9 tout
+    les seconds \xE0 une port\xE9 de 8 case et infligent 4 de D\xE9gat Magique.\\r\\n\\r\\nPouvoir
+    Actif:\\r\\nFait exploser une Grande boulle de Feu qui inflige 30 D\xE9gat Magique
+    au monstre dans la zone et d\xE9truit les arbres.\\r\\n\\r\\nPouvoir Passif:\\r\\nLes
+    maisons Pret de la tour g\xE9n\xE8re 10 d'or de plus\",\"\\\"Prix:  175\\r\\nPV:  
+    250\\r\\nAutoAttaque:\\r\\nDes petites  fiole d'acide sont tir\xE9 tout les 2
+    seconds \xE0 une port\xE9 de 5 case et infligent 10 de D\xE9gat Physique.\\r\\n\\r\\nPouvoir
+    Actif:\\r\\nFait apar\xE8tre une flaque d'acide qui reste pendant 4 second et
+    inflige 5 d\xE9g\xE2t physique tout les 0.2 seconde.\\r\\n\\r\\nPouvoir Passif:\\r\\nR\xE9parte
+    tout les batiments autours\",\"Prix:  150\\r\\nPV:   500\\r\\nAutoAttaque:\\r\\nInfllige
+    2 de d\xE9g\xE2t magique tout les 0.2 seconds dans une zone de 5 autour\\r\\n\\r\\nPouvoir
+    Actif:\\r\\nRepousse touts les ennemis dans une zones de 5 de porter en leur
+    infligent 3 de d\xE9g\xE2t magique.\\r\\n\\r\\nPouvoir Passif:\\r\\nAugment des
+    chances que les prochaine maison aparessa \xE0 c\xF4t\xE9e .\\r\\n\",\"\",\"\",\"\",\"\",\"\",\"Bute
+    du Jeu\",\"Les Arm\xE9es du mal Rassembles leurs forces et vont attaquer votre
+    village, il vous incombe donc de d\xE9fendre en construisent des d\xE9fences. 
+    Les cr\xE9atures tenterons d'attaquer votre mairie , si elle est d\xE9truit,
+    la partie et perdu. Vous devez donc \xE9liminer ou sur vivre le temps de tout
+    les vagues.\",\"Barre bleu repr\xE9sente le temps restent sur la vague\",\"Barre
+    Rouge repr\xE9sente le point de vie de la vague\",\"Construction\",\"Pour d\xE9fendre
+    la ville vous devrez contruire des tours et des mur pour vous d\xE9fendre. Pour
+    ce faire cliquer sur le logo Construiction pour d\xE9rouler le menu de Construction.
+    Chaque batiment \xE0 un certaint coup en or, Or qui est  g\xE9n\xE9rer par les
+    maison du village.\",\"Tours et Pouvoir\",\"Les tours ont tous des auto-attque
+    mais leur vrai pouvoir de d\xE9struction vien de leur pouvoir actif, pour se
+    fair s\xE9l\xE9ctionnez un batiment et s\xE9l\xE9ctionner les bouton de Gauche
+    pour s\xE9l\xE9ctioner la zone sur la quelle vous voulez d\xE9clancher le pouvoir.\",\"Le
+    Boug\",\"Le Bourg  est compos\xE9 de plusieur maison et d'un Mairie en tour\xE9
+    par des murs fortifi\xE9.\\r\\nSi la mairie est d\xE9truite la partie est perdu.\\r\\nLes
+    maisons raporte de l'argent de mani\xE8re r\xE9guli\xE8re, de plus de nouvelle
+    maisons appar\xE8terons  aussi au long de la partie dans les zone les plus s\xFBrs.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"]}"
   SelectedData:
     Tests:
-    - English
-    - English
-    - English
-    - English
-    - English
-    - English
-    - English
-    - English
-    - English
-    - English
-    - Play
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - "Fran\xE7ais"
+    - Jouer
     - Options
-    - Creadits
-    - Quit
-    - Return
-    - Town Name
-    - Enter the name of your town
-    - Music Volume
-    - Sound Volume
-    - 2D Artiste
-    - 3D Artiste
-    - Developer
-    - Game Designer
-    - Let's do it!
+    - Creadit
+    - Quitter
+    - Retour
+    - Nom du Bourg
+    - Entrez le nom de votre Bourg
+    - Volume Musique
+    - Volume Sons
+    - Artiste 2D
+    - Artiste 3D
+    - "D\xE9veloppeur"
+    - GameDesigner
+    - Allons y !
     - Menu
-    - Resume
-    - Main Menu
+    - Reprendre
+    - Menu Principal
     - 
-    - Garde Tower
-    - Mage Tower
-    - Alchemist Tower
-    - Holy Tower
-    - Wall
-    - Destroy
-    - Gold
-    - You Win
-    - You Lose
-    - Power
+    - Tour de Garde
+    - Tour de Mage
+    - Tour de d'Alchimie
+    - Tour Sainte
+    - Mur
+    - "D\xE9truire"
+    - Or
+    - Vous avez Gager
+    - Vous avez Perdu
+    - Pouvoir
     - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - "The Ennemis are at our gates ! We have to pr\xE9paer ours defences !"
+    - "G\xE9n\xE9ral"
+    - Batiment
+    - Monstres
     - 
     - 
     - 
@@ -6304,27 +6579,74 @@ MonoBehaviour:
     - 
     - 
     - 
+    - "Les Ennemis sont \xE0 nos portes , il faut pr\xE9parer nos d\xE9fences !"
+    - Orc
+    - Warg
+    - Fantome
+    - Troll
+    - Dragon
+    - "PV : 15\r\nD\xE9g\xE2t : 6 / 0.75s\r\n\r\nIls sont simpel , ne comprentent
+      pas le conc\xE8pte de peur , et m\xEAme si ils meurent vites mais ils sont
+      nombreux."
+    - "PV : 12\r\nD\xE9g\xE2t :3 / 0.5s\r\n\r\nDes B\xEAtes F\xE9roces qui attaquent
+      en meute, leur physique rachitique en fond des cibles fragiles."
+    - "\r\nPV : 12\r\nD\xE9g\xE2t :7/ 0.6s\r\n\r\nIls sont t\xE9rifiant et affamer
+      de vie.\r\n\r\nLes Attaques phisiques leur inflige moins  de d\xE9gat, priorisez
+      les attaque magiques."
+    - "PV : 50\r\nD\xE9g\xE2t :15/ 1s\r\n\r\nIls sont gros, puissant et r\xE9sistantes
+      mais lent.\r\n\r\nLeurs physiques volumineux leur permet de ne pas \xEAtre
+      r\xE9pousser pas les effets des tours"
+    - "PV : 200\r\nD\xE9g\xE2t :50/ 1.2s\r\n\r\nIls ont une dragon!  On dis que ces
+      b\xEAtes sommes imances , brulent des r\xE9gions enti\xE8res depuis les aires
+      et d\xE9truises des cit\xE9e \xE0 la seul force de leurs pattes!"
+    - "Prix:  100\r\nPV:   400\r\nAutoAttaque:\r\nDes petites fl\xE8che sont tir\xE9
+      tout les 0.5 seconds \xE0 une port\xE9 de 7 case et infligent 5 de D\xE9gat
+      Physique.\r\n\r\nPouvoir Actif:\r\nTire une grosse fl\xE8che de baliste qui
+      ravage une zonne proche de la tour en inflifent 20 d\xE9g\xE2t physique et
+      d\xE9truie les arbres."
+    - "Prix:  200\r\nPV:   300\r\nAutoAttaque:\r\nDes petites  qui sont tir\xE9 tout
+      les seconds \xE0 une port\xE9 de 8 case et infligent 4 de D\xE9gat Magique.\r\n\r\nPouvoir
+      Actif:\r\nFait exploser une Grande boulle de Feu qui inflige 30 D\xE9gat Magique
+      au monstre dans la zone et d\xE9truit les arbres.\r\n\r\nPouvoir Passif:\r\nLes
+      maisons Pret de la tour g\xE9n\xE8re 10 d'or de plus"
+    - "\"Prix:  175\r\nPV:   250\r\nAutoAttaque:\r\nDes petites  fiole d'acide sont
+      tir\xE9 tout les 2 seconds \xE0 une port\xE9 de 5 case et infligent 10 de D\xE9gat
+      Physique.\r\n\r\nPouvoir Actif:\r\nFait apar\xE8tre une flaque d'acide qui
+      reste pendant 4 second et inflige 5 d\xE9g\xE2t physique tout les 0.2 seconde.\r\n\r\nPouvoir
+      Passif:\r\nR\xE9parte tout les batiments autours"
+    - "Prix:  150\r\nPV:   500\r\nAutoAttaque:\r\nInfllige 2 de d\xE9g\xE2t magique
+      tout les 0.2 seconds dans une zone de 5 autour\r\n\r\nPouvoir Actif:\r\nRepousse
+      touts les ennemis dans une zones de 5 de porter en leur infligent 3 de d\xE9g\xE2t
+      magique.\r\n\r\nPouvoir Passif:\r\nAugment des chances que les prochaine maison
+      aparessa \xE0 c\xF4t\xE9e .\r\n"
     - 
     - 
     - 
     - 
     - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - Bute du Jeu
+    - "Les Arm\xE9es du mal Rassembles leurs forces et vont attaquer votre village,
+      il vous incombe donc de d\xE9fendre en construisent des d\xE9fences.  Les cr\xE9atures
+      tenterons d'attaquer votre mairie , si elle est d\xE9truit, la partie et perdu.
+      Vous devez donc \xE9liminer ou sur vivre le temps de tout les vagues."
+    - "Barre bleu repr\xE9sente le temps restent sur la vague"
+    - "Barre Rouge repr\xE9sente le point de vie de la vague"
+    - Construction
+    - "Pour d\xE9fendre la ville vous devrez contruire des tours et des mur pour
+      vous d\xE9fendre. Pour ce faire cliquer sur le logo Construiction pour d\xE9rouler
+      le menu de Construction. Chaque batiment \xE0 un certaint coup en or, Or qui
+      est  g\xE9n\xE9rer par les maison du village."
+    - Tours et Pouvoir
+    - "Les tours ont tous des auto-attque mais leur vrai pouvoir de d\xE9struction
+      vien de leur pouvoir actif, pour se fair s\xE9l\xE9ctionnez un batiment et
+      s\xE9l\xE9ctionner les bouton de Gauche pour s\xE9l\xE9ctioner la zone sur
+      la quelle vous voulez d\xE9clancher le pouvoir."
+    - Le Boug
+    - "Le Bourg  est compos\xE9 de plusieur maison et d'un Mairie en tour\xE9 par
+      des murs fortifi\xE9.\r\nSi la mairie est d\xE9truite la partie est perdu.\r\nLes
+      maisons raporte de l'argent de mani\xE8re r\xE9guli\xE8re, de plus de nouvelle
+      maisons appar\xE8terons  aussi au long de la partie dans les zone les plus
+      s\xFBrs."
     - 
     - 
     - 
@@ -7186,6 +7508,7 @@ GameObject:
   - component: {fileID: 662472596}
   - component: {fileID: 662472598}
   - component: {fileID: 662472597}
+  - component: {fileID: 662472599}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7232,7 +7555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tours de Mage
+  m_text: Tour Alchimique
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7309,6 +7632,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662472595}
   m_CullTransparentMesh: 1
+--- !u!114 &662472599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662472595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 30
+  IsUpdateOnLangueChange: 1
 --- !u!1 &664754645
 GameObject:
   m_ObjectHideFlags: 0
@@ -7417,7 +7754,7 @@ RectTransform:
   - {fileID: 634907007}
   - {fileID: 983407831}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -7578,7 +7915,7 @@ RectTransform:
   - {fileID: 903358369}
   - {fileID: 1267987253}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.06}
   m_AnchorMax: {x: 0.975, y: 0.8}
@@ -7697,8 +8034,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.50002, y: -29.693909}
-  m_SizeDelta: {x: 91.00001, y: 59.387817}
+  m_AnchoredPosition: {x: 227.50002, y: -29.688766}
+  m_SizeDelta: {x: 91.00001, y: 59.377533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685973649
 MonoBehaviour:
@@ -8251,7 +8588,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.95
+  m_fontSize: 45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8556,7 +8893,7 @@ RectTransform:
   - {fileID: 1164370212}
   - {fileID: 311020602}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -8721,7 +9058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.3}
   m_AnchorMax: {x: 0.8, y: 0.85}
-  m_AnchoredPosition: {x: -37.18396, y: 31.882004}
+  m_AnchoredPosition: {x: -37.183975, y: 31.882004}
   m_SizeDelta: {x: 111.333, y: 104.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747641094
@@ -9661,7 +9998,7 @@ RectTransform:
   - {fileID: 2036069430}
   - {fileID: 685973648}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.8}
   m_AnchorMax: {x: 0.975, y: 0.92}
@@ -9848,8 +10185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -183.11247}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -227.60089}
+  m_SizeDelta: {x: 273, y: 89.04036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &836443692
 MonoBehaviour:
@@ -9894,7 +10231,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836443693}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &836443693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10245,7 +10594,7 @@ RectTransform:
   - {fileID: 1894269668}
   - {fileID: 723796445}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -10458,6 +10807,7 @@ RectTransform:
   - {fileID: 826547712}
   - {fileID: 1219613006}
   - {fileID: 249739659}
+  - {fileID: 203974436}
   - {fileID: 1884367978}
   - {fileID: 254194759}
   - {fileID: 859160777}
@@ -10546,8 +10896,21 @@ MonoBehaviour:
   MaxY: 0.05
   MinY: 0.67
   InfoPanel:
+  - {fileID: 826547711}
+  - {fileID: 1219613005}
+  - {fileID: 249739658}
+  - {fileID: 203974433}
   - {fileID: 1884367975}
-  - {fileID: 0}
+  - {fileID: 254194758}
+  - {fileID: 859160776}
+  - {fileID: 1510222591}
+  - {fileID: 665788518}
+  - {fileID: 1447161509}
+  - {fileID: 1965564997}
+  - {fileID: 1835083727}
+  - {fileID: 615364800}
+  - {fileID: 1589584738}
+  - {fileID: 746193528}
   MainActivationTime: 0
   MainActivationCurve:
     serializedVersion: 2
@@ -10635,8 +10998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -254.35745}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -254.31302}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903358370
 MonoBehaviour:
@@ -10681,7 +11044,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 903358371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &903358371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10882,7 +11257,7 @@ GameObject:
   - component: {fileID: 953639474}
   - component: {fileID: 953639473}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BPButeDuJeu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10905,8 +11280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -40.622494}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -49.520172}
+  m_SizeDelta: {x: 273, y: 89.04036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &953639473
 MonoBehaviour:
@@ -11095,8 +11470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -325.60245}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -325.54532}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &964250925
 MonoBehaviour:
@@ -11141,7 +11516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 964250926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &964250926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11191,6 +11578,7 @@ GameObject:
   - component: {fileID: 965580297}
   - component: {fileID: 965580299}
   - component: {fileID: 965580298}
+  - component: {fileID: 965580300}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11316,6 +11704,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965580296}
   m_CullTransparentMesh: 1
+--- !u!114 &965580300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965580296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 52
+  IsUpdateOnLangueChange: 1
 --- !u!1 &976765677
 GameObject:
   m_ObjectHideFlags: 0
@@ -12470,7 +12872,7 @@ RectTransform:
   - {fileID: 1319230717}
   - {fileID: 2127174277}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.06}
   m_AnchorMax: {x: 0.975, y: 0.8}
@@ -12622,6 +13024,7 @@ GameObject:
   - component: {fileID: 1124561164}
   - component: {fileID: 1124561166}
   - component: {fileID: 1124561165}
+  - component: {fileID: 1124561167}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -12745,6 +13148,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124561163}
   m_CullTransparentMesh: 1
+--- !u!114 &1124561167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124561163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 53
+  IsUpdateOnLangueChange: 1
 --- !u!1 &1138998291
 GameObject:
   m_ObjectHideFlags: 0
@@ -12781,8 +13198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -111.86748}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -111.848434}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1138998293
 MonoBehaviour:
@@ -12827,7 +13244,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1138998294}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1138998294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14422,6 +14851,7 @@ GameObject:
   - component: {fileID: 1246407711}
   - component: {fileID: 1246407713}
   - component: {fileID: 1246407712}
+  - component: {fileID: 1246407714}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -14468,7 +14898,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: test button
+  m_text: Bute du Jeu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14545,6 +14975,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246407710}
   m_CullTransparentMesh: 1
+--- !u!114 &1246407714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246407710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 70
+  IsUpdateOnLangueChange: 1
 --- !u!1 &1250121887
 GameObject:
   m_ObjectHideFlags: 0
@@ -14613,8 +15057,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -325.60245}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -325.54532}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267987254
 MonoBehaviour:
@@ -14659,7 +15103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1267987255}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1267987255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14809,8 +15265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -183.11247}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -183.08073}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1288194084
 MonoBehaviour:
@@ -14855,7 +15311,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1288194085}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1288194085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14905,6 +15373,7 @@ GameObject:
   - component: {fileID: 1297940978}
   - component: {fileID: 1297940980}
   - component: {fileID: 1297940979}
+  - component: {fileID: 1297940981}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -14951,7 +15420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tour de Garde
+  m_text: Tours de Mage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15028,6 +15497,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297940977}
   m_CullTransparentMesh: 1
+--- !u!114 &1297940981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297940977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 29
+  IsUpdateOnLangueChange: 1
 --- !u!1 &1313607504
 GameObject:
   m_ObjectHideFlags: 0
@@ -15522,8 +16005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -254.35745}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -316.64127}
+  m_SizeDelta: {x: 273, y: 89.04036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319230718
 MonoBehaviour:
@@ -15568,7 +16051,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1319230719}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1319230719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16748,7 +17243,7 @@ RectTransform:
   - {fileID: 756390806}
   - {fileID: 1197657184}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -17242,7 +17737,7 @@ RectTransform:
   - {fileID: 1218736939}
   - {fileID: 245920346}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -18199,6 +18694,7 @@ GameObject:
   - component: {fileID: 1554744763}
   - component: {fileID: 1554744765}
   - component: {fileID: 1554744764}
+  - component: {fileID: 1554744766}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -18245,7 +18741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Murs
+  m_text: Tours de Garde
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18322,6 +18818,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554744762}
   m_CullTransparentMesh: 1
+--- !u!114 &1554744766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554744762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 28
+  IsUpdateOnLangueChange: 1
 --- !u!1001 &1563280116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18585,7 +19095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1589584739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18601,7 +19111,7 @@ RectTransform:
   - {fileID: 1232041966}
   - {fileID: 1459921802}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -20238,8 +20748,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -183.11247}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -183.08073}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708516075
 MonoBehaviour:
@@ -20284,7 +20794,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1708516076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1708516076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20359,8 +20881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -111.86748}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -138.56055}
+  m_SizeDelta: {x: 273, y: 89.04036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714848171
 MonoBehaviour:
@@ -20492,8 +21014,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -254.35745}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -254.31302}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721141475
 MonoBehaviour:
@@ -20538,7 +21060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1721141476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1721141476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20919,6 +21453,7 @@ MonoBehaviour:
   PanelBourgName: {fileID: 1696412104}
   PanelOption: {fileID: 1822419954}
   PanelCredit: {fileID: 747641092}
+  PanelEnciclopedie: {fileID: 900063888}
   MainMenu: {fileID: 1553587800}
   BourgName: {fileID: 1696412108}
   Option: {fileID: 1822419958}
@@ -21045,8 +21580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -40.622494}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -40.61615}
+  m_SizeDelta: {x: 273, y: 71.23229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813809034
 MonoBehaviour:
@@ -21091,7 +21626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1813809035}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 900063892}
+        m_TargetAssemblyTypeName: UITutoPanelComponent, Assembly-CSharp
+        m_MethodName: ChangerInfo
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1813809035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21469,7 +22016,7 @@ RectTransform:
   - {fileID: 1045742019}
   - {fileID: 1658655287}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -21525,6 +22072,7 @@ GameObject:
   - component: {fileID: 1840770032}
   - component: {fileID: 1840770034}
   - component: {fileID: 1840770033}
+  - component: {fileID: 1840770035}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -21571,7 +22119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tours d'Alchimy
+  m_text: Tour Sainte
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21648,6 +22196,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840770031}
   m_CullTransparentMesh: 1
+--- !u!114 &1840770035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840770031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 31
+  IsUpdateOnLangueChange: 1
 --- !u!1 &1850791028
 GameObject:
   m_ObjectHideFlags: 0
@@ -22019,7 +22581,7 @@ RectTransform:
   - {fileID: 1735310246}
   - {fileID: 847643715}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -22255,6 +22817,7 @@ GameObject:
   - component: {fileID: 1934362796}
   - component: {fileID: 1934362798}
   - component: {fileID: 1934362797}
+  - component: {fileID: 1934362799}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -22301,7 +22864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tour Sainte
+  m_text: Murs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22378,6 +22941,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934362795}
   m_CullTransparentMesh: 1
+--- !u!114 &1934362799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934362795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 32
+  IsUpdateOnLangueChange: 1
 --- !u!1 &1942935156
 GameObject:
   m_ObjectHideFlags: 0
@@ -22486,7 +23063,7 @@ RectTransform:
   - {fileID: 1547016904}
   - {fileID: 1347863879}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02, y: 0.05}
   m_AnchorMax: {x: 0.65, y: 0.8}
@@ -22568,7 +23145,7 @@ RectTransform:
   - {fileID: 1721141474}
   - {fileID: 964250924}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.06}
   m_AnchorMax: {x: 0.975, y: 0.8}
@@ -23022,8 +23599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.50002, y: -29.693909}
-  m_SizeDelta: {x: 91.00001, y: 59.387817}
+  m_AnchoredPosition: {x: 136.50002, y: -29.688766}
+  m_SizeDelta: {x: 91.00001, y: 59.377533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036069431
 MonoBehaviour:
@@ -23294,6 +23871,7 @@ GameObject:
   - component: {fileID: 2049171426}
   - component: {fileID: 2049171428}
   - component: {fileID: 2049171427}
+  - component: {fileID: 2049171429}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -23340,7 +23918,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tours d'Alchimy
+  m_text: Le Bourg
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -23417,6 +23995,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049171425}
   m_CullTransparentMesh: 1
+--- !u!114 &2049171429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049171425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 78
+  IsUpdateOnLangueChange: 1
 --- !u!1 &2067686742
 GameObject:
   m_ObjectHideFlags: 0
@@ -23749,7 +24341,7 @@ RectTransform:
   m_Children:
   - {fileID: 877779934}
   m_Father: {fileID: 900063889}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03, y: 0.8}
   m_AnchorMax: {x: 0.2, y: 0.95}
@@ -23799,7 +24391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2098547429}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790698743}
+        m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
+        m_MethodName: UIRetourCommentJouer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2098547429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23849,6 +24453,7 @@ GameObject:
   - component: {fileID: 2102096629}
   - component: {fileID: 2102096631}
   - component: {fileID: 2102096630}
+  - component: {fileID: 2102096632}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -23971,6 +24576,169 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102096628}
+  m_CullTransparentMesh: 1
+--- !u!114 &2102096632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102096628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 55
+  IsUpdateOnLangueChange: 1
+--- !u!1 &2121728753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2121728754}
+  - component: {fileID: 2121728757}
+  - component: {fileID: 2121728756}
+  - component: {fileID: 2121728755}
+  m_Layer: 5
+  m_Name: TxtTilte
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2121728754
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121728753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 203974436}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.8}
+  m_AnchorMax: {x: 1, y: 0.94}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2121728755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121728753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 78
+  IsUpdateOnLangueChange: 1
+--- !u!114 &2121728756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121728753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Le Boug
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 89c0be7e42b11c549b6e7ce86bb8c30f, type: 2}
+  m_sharedMaterial: {fileID: -7432351153280276673, guid: 89c0be7e42b11c549b6e7ce86bb8c30f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2121728757
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121728753}
   m_CullTransparentMesh: 1
 --- !u!1001 &2122161451
 PrefabInstance:
@@ -24181,7 +24949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2127174277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24199,8 +24967,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.5, y: -325.60245}
-  m_SizeDelta: {x: 273, y: 71.24499}
+  m_AnchoredPosition: {x: 136.5, y: -325.48282}
+  m_SizeDelta: {x: 273, y: 71.21841}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127174278
 MonoBehaviour:
@@ -24283,4 +25051,156 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127174276}
+  m_CullTransparentMesh: 1
+--- !u!1 &2139074868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139074869}
+  - component: {fileID: 2139074872}
+  - component: {fileID: 2139074871}
+  - component: {fileID: 2139074870}
+  m_Layer: 5
+  m_Name: TxtInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2139074869
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139074868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 203974436}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.05, y: 0.1}
+  m_AnchorMax: {x: 0.95, y: 0.8}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2139074870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139074868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1120fa23b4df9c74baed3c99d0fd7af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextIndex: 79
+  IsUpdateOnLangueChange: 1
+--- !u!114 &2139074871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139074868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Le Bourg  est compos\xE9 de plusieur maison et d'un Mairie en tour\xE9
+    par des murs fortifi\xE9.\nSi la mairie est d\xE9truite la partie est perdu.\nLes
+    maisons raporte de l'argent de mani\xE8re r\xE9guli\xE8re, de plus de nouvelle
+    maisons appar\xE8terons  aussi au long de la partie dans les zone les plus s\xFBrs."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a22c14c2b46a35941818327081d3c075, type: 2}
+  m_sharedMaterial: {fileID: 3333022877308232181, guid: a22c14c2b46a35941818327081d3c075, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 1
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2139074872
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139074868}
   m_CullTransparentMesh: 1
