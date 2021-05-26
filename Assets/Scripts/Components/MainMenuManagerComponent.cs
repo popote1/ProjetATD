@@ -15,6 +15,7 @@ public class MainMenuManagerComponent : MonoBehaviour
     public GameObject PanelBourgName;
     public GameObject PanelOption;
     public GameObject PanelCredit;
+    public GameObject PanelEnciclopedie;
     public UIElementComponent MainMenu;
     public UIElementComponent BourgName;
     public UIElementComponent Option;
@@ -66,6 +67,20 @@ public class MainMenuManagerComponent : MonoBehaviour
         //BourgName.Activate();
        // PanelMainMenu.SetActive(false);
         BourgName.Activate();
+    }
+
+    public void UICommentJouer()
+    {
+        MainMenu.Desactivat();
+        PanelEnciclopedie.SetActive(true);
+        
+    }
+
+    public void UIRetourCommentJouer()
+    {
+        MainMenu.Activate();
+        PanelEnciclopedie.SetActive(false);
+
     }
 
     public void UIReturnToMainMenu()

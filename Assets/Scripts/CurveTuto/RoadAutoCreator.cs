@@ -114,8 +114,8 @@ public class RoadAutoCreator : MonoBehaviour
         _path.MovePoints(1, StartRoadPos + Vector2Int.up * 2);
         System.Random random = new System.Random(Seed);
         System.Random subRandom = new System.Random(random.Next());
-        Vector2 newPos = _path[0] +
-                         new Vector2Int(random.Next(MinOffset.x, MaxOffset.x), random.Next(MinOffset.y, MaxOffset.y));
+        Vector2 newPos = StartRoadPos + Vector2Int.up * 8;
+            //_path[0] +new Vector2Int(random.Next(MinOffset.x, MaxOffset.x), random.Next(MinOffset.y, MaxOffset.y));
         _path.MovePoints(3, newPos);
         _path.MovePoints(2, newPos - Vector2Int.up * -2);
 
