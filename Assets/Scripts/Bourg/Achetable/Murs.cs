@@ -220,7 +220,6 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 foreach (Murs wall in _mursAdjacent)
                 {
-                    
                     wall.checkedNeighbours.Remove(this);
                     wall._mursAdjacent.Remove(this);
                     wall.CheckAndUpdate();
