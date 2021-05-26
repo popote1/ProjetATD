@@ -37,7 +37,8 @@ namespace Components
         public List<Achetables> AchetablesList;
 
 
-        [Header("Cursor Configue")] public GameObject PrefabCursor;
+        [Header("Cursor Configue")] 
+        public CursorAnimator PrefabCursor;
         [Range(0, 100)] public float CursorSmoothFactor;
         [Header("UI")] 
         
@@ -50,7 +51,7 @@ namespace Components
 
 
         private PlayGrid _playGrid;
-        private GameObject _cursor;
+        private CursorAnimator _cursor;
         private Vector3 _cursorTaget;
         private Vector3 _cursorPos;
         private Vector2Int _selsectdCell;
@@ -67,7 +68,7 @@ namespace Components
         private void Start()
         {
             
-            _cursor = Instantiate(PrefabCursor, Vector3.zero, quaternion.identity);
+            _cursor = Instantiate(PrefabCursor, new Vector3(0,0,1), quaternion.identity);
         }
 
         private void Update()
@@ -92,10 +93,10 @@ namespace Components
                         if (_playGrid.CheckIfInGrid(_playGrid.GetCellGridPosByWorld(hit.point)))
                         {
                             _cursorPos = hit.point;
+                            if (_selsectdCell != _playGrid.GetCellGridPosByWorld(hit.point)) _cursor.DoAnimation();
                             _selsectdCell = _playGrid.GetCellGridPosByWorld(hit.point);
                             _cursorTaget = _playGrid.GetCellCenterWorldPosByCell(_selsectdCell) +
                                            new Vector3(0, 0, -0.5f);
-                            
                         }
 
                         if (_cursor != null)
@@ -263,7 +264,7 @@ namespace Components
         public void StartBuilding(int buildingIndex)
         {
             BuildIndex = buildingIndex;
-            if (Gold > AchetablesList[buildingIndex].Prix) InputState = InputStat.Building;
+            if (Gold >= AchetablesList[buildingIndex].Prix) InputState = InputStat.Building;
             else PanelFondInsufisant.alpha = 1;
 
         }

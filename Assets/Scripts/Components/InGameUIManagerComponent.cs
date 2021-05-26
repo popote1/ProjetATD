@@ -1,3 +1,4 @@
+using System;
 using  System.Collections.Generic;
 using Components;
 using DG.Tweening;
@@ -39,6 +40,16 @@ public class InGameUIManagerComponent : MonoBehaviour
     public Slider SliderTimerWave;
     public TMP_Text TxtWaveInfo;
     public List<string> WaveTest;
+    [Header("Construction Button")] 
+    public float ContructionPanelAnimationSpeed = 0.3f;
+    public GameObject PanelContruction;
+    public GameObject BPContruction;
+    public GameObject BPContructionCancel;
+
+    private void Start()
+    {
+        UISetOffCOntructionPanel();
+    }
 
     public void UIClickPause()
     {
@@ -117,6 +128,22 @@ public class InGameUIManagerComponent : MonoBehaviour
     {
         if (WaveTest[value]==null)TxtWaveInfo.text = "Erreu d'index de wave";
         TxtWaveInfo.text = WaveTest[value];
+    }
+
+    public void UISetOnConstructionPanel()
+    {
+        PanelContruction.transform.DOPause();
+        PanelContruction.transform.DOScaleX(1, ContructionPanelAnimationSpeed);
+        BPContruction.SetActive(false);
+        BPContructionCancel.SetActive(true);
+    }
+
+    public void UISetOffCOntructionPanel()
+    {
+        PanelContruction.transform.DOPause();
+        PanelContruction.transform.DOScaleX(0, ContructionPanelAnimationSpeed);
+        BPContruction.SetActive(true);
+        BPContructionCancel.SetActive(false);
     }
 
     public void SetOnPowerButton()

@@ -21,6 +21,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public int ActivePhysicDamages;
         public float ActiveRate;
         public bool IsReadyToAttack = true;
+        public GameObject TopPart;
         
 
         [Header("Passive")]
@@ -169,6 +170,13 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
                 VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position;
             }
             else{VisualizerEffect.transform.position = _mousePosition;}
+            if (TopPart != null)
+            {
+                TopPart.transform.up = (Vector2)( transform.position-VisualizerEffect.transform.position );
+                TopPart.transform.localEulerAngles = new Vector3(0,
+                    TopPart.transform.localEulerAngles.y-180,0);
+            }
+            
         }
         
 

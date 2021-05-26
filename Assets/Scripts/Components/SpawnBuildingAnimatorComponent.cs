@@ -22,6 +22,12 @@ public class SpawnBuildingAnimatorComponent : MonoBehaviour
         
         transform.DOMove(_spawnPos, AnimationTime).SetEase(fallingCurve);
         transform.DOScaleZ(1, AnimationTime).SetEase(SizeCurve);
+        Invoke("DoShake",0.28f);
+    }
+
+    private void DoShake()
+    {
+        ShakeComponent.DoShake(1);
     }
     
     
