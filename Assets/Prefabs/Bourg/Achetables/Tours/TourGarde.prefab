@@ -374,9 +374,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c77dd61fb4ab1044b9090056513d5aec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7d69f5c707dfb8947ab5e1a1370772ce, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.572
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -385,7 +385,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 16.83
-  MaxDistance: 41.4
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -404,7 +404,7 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.97247314
+      time: 1
       value: 0
       inSlope: -1.6849816
       outSlope: -1.6849816
@@ -744,6 +744,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Volume: 0.5
+  Buildingsound: {fileID: 8300000, guid: 01ab4275be80c104494f71790095ec85, type: 3}
+  SoundDelay: 0.25
 --- !u!114 &3094120715487373427
 MonoBehaviour:
   m_ObjectHideFlags: 0

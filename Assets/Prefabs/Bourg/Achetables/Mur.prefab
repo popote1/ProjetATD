@@ -480,6 +480,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Volume: 0.5
+  Buildingsound: {fileID: 8300000, guid: 01ab4275be80c104494f71790095ec85, type: 3}
+  SoundDelay: 0.25
 --- !u!1001 &4802114344279385438
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -446,7 +446,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 034cefcc74d468a4a86626a1b828689f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.572
   m_Pitch: 1
@@ -457,7 +457,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 16.83
-  MaxDistance: 41.4
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -812,6 +812,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Volume: 0.5
+  Buildingsound: {fileID: 8300000, guid: 01ab4275be80c104494f71790095ec85, type: 3}
+  SoundDelay: 0.25
 --- !u!1 &4181841009423174866
 GameObject:
   m_ObjectHideFlags: 0

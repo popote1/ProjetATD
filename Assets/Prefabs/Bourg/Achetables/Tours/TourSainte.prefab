@@ -378,7 +378,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 16.83
-  MaxDistance: 41.4
+  MaxDistance: 60
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -732,6 +732,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  Volume: 0.5
+  Buildingsound: {fileID: 8300000, guid: 01ab4275be80c104494f71790095ec85, type: 3}
+  SoundDelay: 0.25
 --- !u!1 &4181841009423174866
 GameObject:
   m_ObjectHideFlags: 0
