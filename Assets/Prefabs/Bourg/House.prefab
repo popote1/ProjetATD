@@ -112,7 +112,7 @@ MonoBehaviour:
   SecurityRange: 3
   SecurityValue: 10
   GoldIncome: 10
-  GoldRate: 5
+  GoldRate: 20
   TourMages: []
   DistanceToMage: 5
   TowerInRange: 0

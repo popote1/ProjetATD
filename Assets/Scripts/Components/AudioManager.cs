@@ -11,9 +11,19 @@ public class AudioManager : MonoBehaviour
         [Range(0, 1)] public float SFXVolum=1;
         [Range(0, 1)] public float NaratorVolum=1;
 
-        public static float VolumeMusic;
+        public static float VolumeMusic {
+            get => _volumeMusic;
+            set {
+                _volumeMusic = value;
+                foreach (AudioSource music in _musicPlayers) music.volume = value;
+            }
+        }
+
+        private static float _volumeMusic;
         public static float VolumeSFX;
         public static float VolumeNarator;
+
+        
 
         private static List<AudioSource> _sfxPlayrs = new List<AudioSource>();
         private static List<AudioSource> _musicPlayers = new List<AudioSource>();
@@ -46,6 +56,7 @@ public class AudioManager : MonoBehaviour
         /// <param name="volume">Valeur normaliser pour le volume</param>
         public static void PlaySfx(AudioClip clip, float volume =1)
         {
+          
             AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             _sfxPlayrs.Add(audioSource);
             audioSource.volume = VolumeSFX * volume;
@@ -62,13 +73,14 @@ public class AudioManager : MonoBehaviour
         /// <param name="clip">La musique à jouer</param>
         /// <param name="volume">aleur normaliser pour le volume</param>
         public static void PlayMusic(AudioClip clip, float volume=1) {
+            if (_musicPlayers.Count>0) foreach (AudioSource music in _musicPlayers) Destroy(music);
+            _musicPlayers.Clear();
             AudioSource audioSource = _audioHolder.AddComponent<AudioSource>();
             _musicPlayers.Add(audioSource);
             audioSource.volume = VolumeMusic * volume;
             audioSource.loop = true;
             audioSource.clip = clip;
             audioSource.Play();
-            Destroy(audioSource, clip.length+1);
         } 
         
         /// <summary>

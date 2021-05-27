@@ -172,6 +172,7 @@ namespace Assets.Scripts.Bourg.Achetable
                 {
                     _meshFilter.mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
+                    transform.Rotate(0,0,90);
                 }
             }
             
@@ -180,13 +181,13 @@ namespace Assets.Scripts.Bourg.Achetable
             {
                 if (_mursAdjacent.Contains(_rightWall) || _mursAdjacent.Contains(_leftWall))
                 {
+                    
                     _meshFilter.mesh = MeshMur;
                     _meshRenderer.material = MaterialPrincipal;
                     
                 }
                 else
                 {
-                    transform.Rotate(0,0,90);
                     _meshFilter.mesh = MeshSecondaire;
                     _meshRenderer.material = MaterialSecondaire;
                 }

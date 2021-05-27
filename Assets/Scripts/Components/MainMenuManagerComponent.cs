@@ -15,6 +15,7 @@ public class MainMenuManagerComponent : MonoBehaviour
     public GameObject PanelBourgName;
     public GameObject PanelOption;
     public GameObject PanelCredit;
+    public GameObject PanelEnciclopedie;
     public UIElementComponent MainMenu;
     public UIElementComponent BourgName;
     public UIElementComponent Option;
@@ -26,6 +27,8 @@ public class MainMenuManagerComponent : MonoBehaviour
     public Sprite PolishFlag;
     public Sprite FrenshFlag;
     public Sprite EnglishFlag;
+    public Slider SliderSound;
+    public Slider SliderMusic;
     
 
     public TMP_InputField InputFieldBorgName;
@@ -39,10 +42,11 @@ public class MainMenuManagerComponent : MonoBehaviour
     public float FadeTime;
 
     [Header(" Changer Panel Sound")] 
+    public AudioClip BackGroundMusic;
     public AudioClip AudioClip;
+    
 
     [Range(0, 1)] public float Volume = 1;
-
     [HideInInspector]public SmoothTerrainLoading SmoothTerrainLoading;
     
     
@@ -56,6 +60,9 @@ public class MainMenuManagerComponent : MonoBehaviour
         BourgName.Desactivat();
         Credit.Desactivat();
         TxtLangue.text = LangueManager.SelectTextData.Tests[1];
+        SliderMusic.value = AudioManager.VolumeMusic;
+        SliderSound.value = AudioManager.VolumeSFX;
+        AudioManager.PlayMusic(BackGroundMusic);
 
     }
 
@@ -66,6 +73,20 @@ public class MainMenuManagerComponent : MonoBehaviour
         //BourgName.Activate();
        // PanelMainMenu.SetActive(false);
         BourgName.Activate();
+    }
+
+    public void UICommentJouer()
+    {
+        MainMenu.Desactivat();
+        PanelEnciclopedie.SetActive(true);
+        
+    }
+
+    public void UIRetourCommentJouer()
+    {
+        MainMenu.Activate();
+        PanelEnciclopedie.SetActive(false);
+
     }
 
     public void UIReturnToMainMenu()
@@ -124,10 +145,9 @@ public class MainMenuManagerComponent : MonoBehaviour
         MainMenu.Activate();
     }
 
-    public void UIQuit()
-    {
-        Application.Quit();
-    }
+    public void UIOnChangeVolumeMusique() { AudioManager.VolumeMusic = SliderMusic.value; }
+    public void UIOnChangeVolumeSFX() { AudioManager.VolumeSFX = SliderSound.value; }
+    public void UIQuit() { Application.Quit(); }
 
     public void PlaySound() { if (AudioClip != null) AudioManager.PlaySfx(AudioClip, Volume);}
 
