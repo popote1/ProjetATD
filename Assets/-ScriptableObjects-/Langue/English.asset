@@ -1,0 +1,428 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53c3bfd96dfb0f4c863e812fad3f3ca, type: 3}
+  m_Name: English
+  m_EditorClassIdentifier: 
+  LangueSave:
+  - English
+  - English
+  - English
+  - English
+  - English
+  - English
+  - English
+  - English
+  - English
+  - English
+  - Play
+  - Options
+  - Credits
+  - Quit
+  - Return
+  - Town's name
+  - Enter the name of your town
+  - Music Volume
+  - Sound Volume
+  - 2D Artist
+  - 3D Artist
+  - Developer
+  - Game Designer
+  - Let's go!
+  - Menu
+  - Resume
+  - Main Menu
+  - 
+  - Balist
+  - Mage's tower
+  - Alchemist's tower
+  - Holy tower
+  - Wall
+  - Destroy
+  - Gold
+  - You win
+  - You lose
+  - Power
+  - 
+  - Common
+  - Buildings
+  - Monsters
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - The ennemies are at our gates! We have to prepare our defenses!
+  - Orc
+  - Warg
+  - Ghost
+  - Troll
+  - Dragon
+  - '"HP : 15
+
+    Damage : 6 / 0.75s
+
+    
+
+    They are quite simple, don''t
+    feel scared about death, die quickly but there''s numerous."'
+  - '"HP : 12
+
+    Damage : 3 / 0.5s
+
+
+    Ferocious beasts who attack as a whole
+    pack, their rickty constitution makes them vulnerable."'
+  - '"
+
+    HP : 12
+
+    Damage : 7 / 0.6s
+
+
+    They are terrifying and hungry for
+    souls.
+
+
+    Physical attacks inflict less damage to them, so prioritize magic
+    attacks."'
+  - '"HP : 50
+
+    Damage : 15/ 1s
+
+
+    They''re big, powerful and tough but slow.
+
+
+    Their
+    enormous body allow them to not be repulsed by towers'' effects."'
+  - "\"PV : 200\nD\xE9g\xE2ts : 50 / 1.2s\n\nThey have a dragon! It is said that
+    these beasts are enormous, burn entire areas from the skies and destroy towns
+    with nothing more than a paw.\""
+  - "\"Price : 100\nHP : 400\nAuto attack :\nLittle arrows are shot every 0.5 seconds
+    within reach of 7 cases and inflitcs 5 physical damage points.\n\nActive power
+    : \nShoots a big arrow which devastate a close zone around the tower to inflict
+    20 physical damage points and destroy the trees beside it.\""
+  - '"Price : 200
+
+    HP : 300
+
+    Auto attack :
+
+    Little fireballs which are
+    shot every seconds within reach of 8 cases and inflicts 4 magical damage points.
+
+
+    Active
+    power :
+
+    A big fireball explodes and inflicts 30 magical damage points to
+    monsters around and destroy trees along with them.
+
+
+    Passive power :
+
+    Houses
+    close to the tower generate 10 gold in supplement."'
+  - '"Price : 175
+
+    HP : 250
+
+    Auto attack :
+
+    Small vials of acids are
+    shot every 2 seconds within reach of 5 cases and inflict 10 physical damage points.
+
+
+    Active
+    power :
+
+    Forms a puddle of acid which stays during 4 seconds and inflicts
+    5 physical damage points every 0.2 seconds.
+
+
+    Pouvoir passif :
+
+    Repair
+    every buildings around the tower."'
+  - '"Price : 150
+
+    HP : 500
+
+    Auto attack:
+
+    Inflicts 2 magical damage
+    points every 0.2 seconds within reach of 5 cases arond the tower.
+
+
+    Active
+    power :
+
+    Repulses every monsters within reach of 5 cases alongside inflicting
+    them 3 magical damage points.
+
+
+    Passive power :
+
+    Increases the chance
+    to make houses spawn around the tower."'
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Game's goal
+  - The army of evil gathers its ranks and is about to attack your city, you must
+    defend your territory by renforcing you defenses. The creatures will try to destroy
+    your town hall. If it's destroyed, the party is lost. You must destroy or attend
+    to survive during every wave of ennemies.
+  - The blue bar represents the time remaining on the wave.
+  - The red bar resprestents the wave's health points.
+  - Construction
+  - To defend your town you must construct towers and walls. To do it you must simply
+    click on the "Construction" logo to open the construction menu. Each building
+    costs gold, generated from your town's houses.
+  - Towers and powers
+  - '
+
+'
+  - The Town
+  - '"The Town is composed by multiple houses and its town hall surrounded by reinforced
+    walls.
+
+    If the Town hall is destroyed, the game is lost.
+
+    The houses
+    bring money regularly and new houses will spawn during the game in the safer
+    places of the map."'
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

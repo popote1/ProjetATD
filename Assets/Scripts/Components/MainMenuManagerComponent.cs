@@ -197,22 +197,43 @@ public class MainMenuManagerComponent : MonoBehaviour
 
     public void UINextLangue()
     {
-        int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text)+1;
-        if (LangueManager.LangueToChose.Count <= index) index = 0;
-        ChangeLangue(index);
+        if (LangueManager.IsUsingLangueS)
+        {
+            Debug.Log("Il y a "+LangueManager.SoLanguesS.Count+ " disponible");
+            int index = LangueManager.IndexLangueS + 1;
+            if (LangueManager.SoLanguesS.Count <= index) index = 0;
+            ChangeLangue(index);
+        }
+        else
+        {
+            int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text) + 1;
+            if (LangueManager.LangueToChose.Count <= index) index = 0;
+            ChangeLangue(index);
+        }
     }
 
     public void UIPreviewLangue()
     {
-        int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text)-1;
-        if (0> index) index = LangueManager.LangueToChose.Count -1;
-        ChangeLangue(index);
+        if (LangueManager.IsUsingLangueS)
+        {
+            Debug.Log("Il y a "+LangueManager.SoLanguesS.Count+ " disponible");
+            int index = LangueManager.IndexLangueS - 1;
+            if (0 > index) index = LangueManager.SoLanguesS.Count - 1;
+            ChangeLangue(index);
+        }
+        else
+        {
+            int index = LangueManager.LangueToChose.IndexOf(TxtLangue.text) - 1;
+            if (0 > index) index = LangueManager.LangueToChose.Count - 1;
+            ChangeLangue(index);
+        }
     }
 
     private void ChangeLangue(int index)
     {
         Debug.Log("Change de Langue pour l'index"+ index);
         LangueManager.ChangeLangue(index);
+        LangueManager.IndexLangueS = index;
         TxtLangue.text = LangueManager.SelectTextData.Tests[1];
         if (TxtLangue.text == "Français") FlagImage.sprite = FrenshFlag;
         else if (TxtLangue.text =="Polski") FlagImage.sprite = PolishFlag;

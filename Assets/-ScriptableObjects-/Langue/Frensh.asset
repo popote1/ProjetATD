@@ -1,0 +1,353 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53c3bfd96dfb0f4c863e812fad3f3ca, type: 3}
+  m_Name: Frensh
+  m_EditorClassIdentifier: 
+  LangueSave:
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - "Fran\xE7ais"
+  - Jouer
+  - Options
+  - "Cr\xE9dits"
+  - Quitter
+  - Retour
+  - Nom du bourg
+  - Entrez le nom de votre bourg
+  - Volume Musique
+  - Volume Son
+  - Artiste 2D
+  - Artiste 3D
+  - "D\xE9veloppeur"
+  - Game Designer
+  - Allons-y!
+  - Menu
+  - Reprendre
+  - Menu Principal
+  - 
+  - Tour de Garde
+  - Tour de Mage
+  - Tour d'Alchimiste
+  - Tour Sainte
+  - Mur
+  - "D\xE9truire"
+  - Or
+  - "Vous avez gagn\xE9"
+  - Vous avez perdu
+  - Pouvoir
+  - 
+  - "G\xE9n\xE9ral"
+  - Batiments
+  - Monstres
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - "Les ennemis sont \xE0 nos portes, il faut pr\xE9parer nos d\xE9fenses!"
+  - Orc
+  - Warg
+  - "Fant\xF4me"
+  - Troll
+  - Dragon
+  - "PV : 15\r\nD\xE9g\xE2ts : 6 / 0.75s\r\n\r\nIls sont simples, ne comprennent
+    pas le concept de peur, meurent vite mais ils sont nombreux."
+  - "PV : 12\r\nD\xE9g\xE2ts : 3 / 0.5s\r\n\r\nDes b\xEAtes f\xE9roces qui attaquent
+    en meute, leur physique rachitique en font des cibles fragiles."
+  - "\r\nPV : 12\r\nD\xE9g\xE2ts : 7 / 0.6s\r\n\r\nIls sont terrifiants et affam\xE9s
+    de vies.\r\n\r\nLes attaques physiques leur infligent moins de d\xE9gats, priorisez
+    les attaques magiques."
+  - "PV : 50\r\nD\xE9g\xE2ts : 15/ 1s\r\n\r\nIls sont gros, puissants et r\xE9sistants
+    mais lents.\r\n\r\nLeur physique volumineux leur permet de ne pas \xEAtre r\xE9pouss\xE9s
+    pas les effets des tours."
+  - "PV : 200\r\nD\xE9g\xE2ts : 50 / 1.2s\r\n\r\nIls ont un dragon! On dit que ces
+    b\xEAtes sont immenses, br\xFBlent des r\xE9gions enti\xE8res depuis les airs
+    et d\xE9truisent des cit\xE9s \xE0 la seule force de leurs pattes!"
+  - "Prix : 100\r\nPV : 400\r\nAuto-attaque :\r\nDes petites fl\xE8ches sont tir\xE9es
+    toutes les 0.5 secondes \xE0 une port\xE9e de 7 cases et infligent 5 de d\xE9gats
+    physiques.\r\n\r\nPouvoir actif :\r\nTire une grosse fl\xE8che de baliste qui
+    ravage une zone proche de la tour en infligeant 20 d\xE9g\xE2ts physiques et
+    d\xE9truit les arbres.\r\n"
+  - "Prix : 200\r\nPV : 300\r\nAuto-attaque :\r\nDes petites boules de feu qui sont
+    tir\xE9es toutes les seconds \xE0 une port\xE9e de 8 cases et infligeant 4 de
+    d\xE9gats magiques.\r\n\r\nPouvoir actif:\r\nFait exploser une grande boule de
+    feu qui inflige 30 d\xE9g\xE2ts magiques au monstre dans la zone et d\xE9truit
+    les arbres.\r\n\r\nPouvoir passif:\r\nLes maisons proches de la tour g\xE9n\xE8rent
+    10 d'or en "
+  - "Prix : 175\r\nPV : 250\r\nAuto-attaque :\r\nDes petites fioles d'acide sont
+    tir\xE9es toutes les 2 secondes \xE0 une port\xE9e de 5 cases et infligent 10
+    de d\xE9gats physiques.\r\n\r\nPouvoir actif :\r\nFait appara\xEEtre une flaque
+    d'acide qui reste pendant 4 secondes et inflige 5 d\xE9g\xE2ts physiques toutes
+    les 0.2 secondes.\r\n\r\nPouvoir passif :\r\nR\xE9pare tous les b\xE2timents
+    autour."
+  - "Prix : 150\r\nPV : 500\r\nAuto-attaque :\r\nInflige 2 d\xE9g\xE2ts magiques
+    toutes les 0.2 secondes dans une zone de 5 cases autour.\r\n\r\nPouvoir actif
+    :\r\nRepousse tous les ennemis dans une zone de 5 de port\xE9e en leur infligant
+    3 d\xE9g\xE2ts magiques.\r\n\r\nPouvoir passif :\r\nAugmente les chances que
+    les prochaines maisons apparaissent \xE0 c\xF4t\xE9."
+  - 
+  - 
+  - 
+  - 
+  - 
+  - But du Jeu
+  - "Les arm\xE9es du mal rassemble leurs forces et vont attaquer votre village,
+    il vous incombe donc de d\xE9fendre en construisent des d\xE9fenses.  Les cr\xE9atures
+    tenteront d'attaquer votre mairie. Si elle est d\xE9truite, la partie est perdue.
+    Vous devez donc \xE9liminer ou survivre le temps de toutes les vagues."
+  - "La barre bleu repr\xE9sente le temps restant sur la vague."
+  - "La barre Rouge repr\xE9sente les points de vie de la vague."
+  - Construction
+  - "Pour d\xE9fendre la ville vous devrez contruire des tours et des murs pour vous
+    d\xE9fendre. Pour se faire cliquer sur le logo \"Construction\" pour d\xE9rouler
+    le menu de construction. Chaque b\xE2timent \xE0 un certain coup en or qui est
+    g\xE9n\xE9r\xE9 par les maisons du village."
+  - Tours et pouvoirs
+  - "Les tours ont tous des auto-attque mais leur vrai pouvoir de d\xE9struction
+    vien de leur pouvoir actif, pour se fair s\xE9l\xE9ctionnez un batiment et s\xE9l\xE9ctionner
+    les bouton de Gauche pour s\xE9l\xE9ctioner la zone sur la quelle vous voulez
+    d\xE9clancher le pouvoir."
+  - Le Bourg
+  - "\"Le Bourg est compos\xE9 de plusieurs maisons et d'une mairie entour\xE9e par
+    des murs fortifi\xE9s.\nSi la mairie est d\xE9truite, la partie est perdue.\nLes
+    maisons rapportent de l'argent de mani\xE8re r\xE9guli\xE8re, de plus de nouvelles
+    maisons apparaitront aussi durant la partie dans les zones les plus s\xFBres.\""
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

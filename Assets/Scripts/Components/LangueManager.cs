@@ -8,6 +8,12 @@ using UnityEngine.Events;
 public class LangueManager : MonoBehaviour
 {
     public int IndexLangue;
+    public List<SOLangue> SoLangues;
+    public bool IsUsingSOLangue;
+
+    public static bool IsUsingLangueS;
+    public static int IndexLangueS;
+    public static List<SOLangue> SoLanguesS;
     public static List<string> LangueToChose= new List<string>();
     [Header("JSONed Data")]
     [TextArea] public string JSONedData;
@@ -17,19 +23,33 @@ public class LangueManager : MonoBehaviour
 
     private void Awake()
     {
-        LangueToChose = CheckFileInLangueFolder();
-        if (LangueToChose.Count > 0)
+        IsUsingLangueS = IsUsingSOLangue;
+        SoLanguesS = SoLangues;
+        IndexLangueS = IndexLangue;
+        if (!IsUsingSOLangue)
         {
-            if (IndexLangue >= 0 && IndexLangue < LangueToChose.Count)
+            LangueToChose = CheckFileInLangueFolder();
+            if (LangueToChose.Count > 0)
             {
-                DeSerilatzData(LangueToChose[IndexLangue]);
-                Debug.Log(" Injection de la data "+ SelectedData.Tests[IndexLangue]);
+                if (IndexLangue >= 0 && IndexLangue < LangueToChose.Count)
+                {
+                    DeSerilatzData(LangueToChose[IndexLangue]);
+                    Debug.Log(" Injection de la data " + SelectedData.Tests[IndexLangue]);
+                }
+                else
+                {
+                    DeSerilatzData(LangueToChose[0]);
+                    Debug.Log(" Injection de la data " + SelectedData.Tests[0]);
+                }
             }
-            else
-            {
-                DeSerilatzData(LangueToChose[0]);
-                Debug.Log(" Injection de la data "+ SelectedData.Tests[0]);
-            }
+        }
+    }
+
+    public void Start()
+    {
+        if (IsUsingLangueS)
+        {
+            ChangeLangue(IndexLangueS);
         }
     }
 
@@ -73,28 +93,44 @@ public class LangueManager : MonoBehaviour
     [ContextMenu("Changement de Langue")]
     public void  ChangeLangue()
     {
-        if (IndexLangue >= 0 && IndexLangue < LangueToChose.Count)
+        if (IsUsingLangueS)
         {
-            DeSerilatzData(LangueToChose[IndexLangue]);
+            SelectTextData.Tests= SoLanguesS[IndexLangue].LangueSave;
             OnChangeLangue.Invoke();
         }
         else
         {
-            Debug.LogError("Mauvais Index de Langue");
-            IndexLangue = 0;
+            if (IndexLangue >= 0 && IndexLangue < LangueToChose.Count)
+            {
+                DeSerilatzData(LangueToChose[IndexLangue]);
+                OnChangeLangue.Invoke();
+            }
+            else
+            {
+                Debug.LogError("Mauvais Index de Langue");
+                IndexLangue = 0;
+            }
         }
     }
 
     public static void ChangeLangue(int langueIndex)
     {
-        if (langueIndex >= 0 && langueIndex < LangueToChose.Count)
+        if (IsUsingLangueS)
         {
-            DeSerilatzData(langueIndex);
-            OnChangeLangue.Invoke();
+           SelectTextData.Tests= SoLanguesS[langueIndex].LangueSave;
+           OnChangeLangue.Invoke();
         }
         else
         {
-            Debug.LogError("Mauvais Index de Langue");
+            if (langueIndex >= 0 && langueIndex < LangueToChose.Count)
+            {
+                DeSerilatzData(langueIndex);
+                OnChangeLangue.Invoke();
+            }
+            else
+            {
+                Debug.LogError("Mauvais Index de Langue");
+            }
         }
     }
 
