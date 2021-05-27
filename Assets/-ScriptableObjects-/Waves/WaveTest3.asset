@@ -17,7 +17,7 @@ MonoBehaviour:
   WargSO: {fileID: 11400000, guid: 698e85a1f46569e49aeca78b7b343f51, type: 2}
   TrollSO: {fileID: 11400000, guid: 4b7fdf28b78fcc24f8c3fb8be378e9cc, type: 2}
   GhostSO: {fileID: 11400000, guid: 89a6da2ebba73f64a8fb59fd69544a79, type: 2}
-  DrakeSO: {fileID: 0}
+  DrakeSO: {fileID: 11400000, guid: 8d81dece40fd46b478a4dac994ca65fd, type: 2}
   NombreOrcs: 0
   NombreGhost: 60
   NombreWargs: 60

@@ -31,6 +31,7 @@ public class UITutoPanelComponent : UIElementComponent
     void Start()
     {
         ChangeOnglet(0);
+        ChangerInfo(0);
     }
 
     // Update is called once per frame

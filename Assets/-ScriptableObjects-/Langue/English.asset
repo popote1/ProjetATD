@@ -60,8 +60,8 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
+  - encyclopedia
+  - how to play
   - 
   - The ennemies are at our gates! We have to prepare our defenses!
   - Orc
@@ -73,10 +73,10 @@ MonoBehaviour:
 
     Damage : 6 / 0.75s
 
-    
 
-    They are quite simple, don''t
-    feel scared about death, die quickly but there''s numerous."'
+
+    They are quite simple, don''t feel scared
+    about death, die quickly but there''s numerous."'
   - '"HP : 12
 
     Damage : 3 / 0.5s
