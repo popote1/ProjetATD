@@ -15,6 +15,7 @@ namespace Bourg.Achetable.Tours
         public float EffectLifeTime;
         public bool DestroyTree;
         public bool IsInstante;
+        public AudioClip AudioClip;
 
         private float _timer;
 
@@ -28,11 +29,12 @@ namespace Bourg.Achetable.Tours
             _enemies.Clear();
             if (IsInstante)
             {
+                if ( AudioClip!=null)AudioManager.PlaySfx(AudioClip);
                 Collider2D[] test = new Collider2D[100];
                 if (GetComponent<BoxCollider2D>()!=null)
                 {
                     Debug.Log(" us ScareCollider with rotation for"+ transform.eulerAngles.z);
-                    test  =Physics2D.OverlapBoxAll((Vector2)transform.position, (Vector2)transform.localScale,transform.eulerAngles.z);
+                    test  =Physics2D.OverlapBoxAll((Vector2)transform.position, (Vector2)GetComponent<BoxCollider2D>().size,transform.eulerAngles.z);
                 }
                 else test= Physics2D.OverlapCircleAll(transform.position, transform.localScale.x);
                 foreach (Collider2D col in test) {

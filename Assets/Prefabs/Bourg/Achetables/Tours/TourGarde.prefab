@@ -493,12 +493,12 @@ MonoBehaviour:
   VisualizerEffect: {fileID: 5250912605156240879}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoPhysicDamages: 100
+  AutoPhysicDamages: 5
   AutoFireRate: 2
   AutoRange: 7
   Projectile: {fileID: 7150065306413742039}
   ActiveRange: 3
-  ActivePhysicDamages: 10
+  ActivePhysicDamages: 20
   ActiveRate: 0
   IsReadyToAttack: 1
   TopPart: {fileID: 4052503347927805731}
@@ -908,6 +908,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2222737070566317523}
     m_Modifications:
+    - target: {fileID: -6940742406256015412, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
+      propertyPath: AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ca7ff4e2b864a0b4bbba3a2496448089, type: 3}
     - target: {fileID: 6075784463570340096, guid: 1d2bb89d4ffdfe347978bc8348bff557, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1373,7 +1377,7 @@ PrefabInstance:
       objectReference: {fileID: 8435509187021540957}
     - target: {fileID: 8379109903703099361, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8578395393313558526, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Sprite

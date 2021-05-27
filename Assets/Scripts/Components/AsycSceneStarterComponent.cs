@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Components;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsycSceneStarterComponent : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
     public SmoothTerrainLoading SmoothTerrainLoading;
     public InGameUIManagerComponent InGameUIManagerComponent;
     public int startMoney;
+    public AudioClip Musique;
     private GameObject _menuScripte; 
     
     private void Awake()
@@ -20,7 +22,8 @@ public class AsycSceneStarterComponent : MonoBehaviour
         GameManagerComponent.IsLose = false;
         if (_menuScripte != null)
         {
-            GameManagerComponent.Seed = _menuScripte.GetComponent<MainMenuManagerComponent>().Seed;
+            if (_menuScripte.GetComponent<MainMenuManagerComponent>().Seed == null) GameManagerComponent.Seed = Random.Range(0, 50).ToString();
+            else GameManagerComponent.Seed = _menuScripte.GetComponent<MainMenuManagerComponent>().Seed;
             _menuScripte.GetComponent<MainMenuManagerComponent>().SmoothTerrainLoading = SmoothTerrainLoading;
         }
         
@@ -31,7 +34,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
         GameManagerComponent.SetTerrain();
         SmoothTerrainLoading.GenerateSmoothMesh();
         GameManagerComponent.GetComponent<MeshRenderer>().enabled = false;
-        PlayerManagerComponent.Gold += startMoney;
+        PlayerManagerComponent.Gold = startMoney;
     }
 
     private void Update()
@@ -41,6 +44,7 @@ public class AsycSceneStarterComponent : MonoBehaviour
             //Destroy(_menuScripte);
             InGameUIManagerComponent.UISetStartDialogue();
             GameManagerComponent.CalculateFlowField();
+            if (Musique!=null)AudioManager.PlayMusic(Musique);
             Destroy(gameObject);
         }
     }

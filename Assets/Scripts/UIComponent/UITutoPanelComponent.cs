@@ -44,13 +44,13 @@ public class UITutoPanelComponent : UIElementComponent
     {
         InfoPanel[_panelIndex].SetActive(false);
         _panelIndex = index;
-        InfoPanelBackGround.DOAnchorMin(new Vector2(0.02f, MinY), 0.25f);
-        Invoke("ChangeInfo2", 0.25f);
+        InfoPanelBackGround.DOAnchorMin(new Vector2(0.02f, MinY), 0.25f).SetUpdate(true).OnComplete(delegate { ChangeInfo2(); });
+        //Invoke("ChangeInfo2", 0.25f);
     }
 
     private void ChangeInfo2()
     {
-        InfoPanelBackGround.DOAnchorMin(new Vector2(0.02f, MaxY), 0.25f).OnComplete(delegate {  InfoPanel[_panelIndex].SetActive(true);});
+        InfoPanelBackGround.DOAnchorMin(new Vector2(0.02f, MaxY), 0.25f).OnComplete(delegate {  InfoPanel[_panelIndex].SetActive(true);}).SetUpdate(true);
     }
     public void ChangeOnglet(int index)
     {

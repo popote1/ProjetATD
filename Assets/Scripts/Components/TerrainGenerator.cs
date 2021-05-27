@@ -208,6 +208,7 @@ namespace Components
                 {
                     playgrid.GetCell(pos).IsRoad = true;
                     playgrid.GetCell(pos).IsNonWalkable = false;
+                    playgrid.GetCell(pos).IsPlayble = true;
                     if (pos.y>97)SpawnZone.Add(pos);
                 }
                 road.UpdateRoad();

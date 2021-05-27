@@ -493,7 +493,7 @@ MonoBehaviour:
   VisualizerEffect: {fileID: 865115853323522242}
   ActiveCouldown: 5
   ActiveTimer: 0
-  AutoMagicDamages: 1
+  AutoMagicDamages: 3
   AutoFireRate: 0.5
   AutoRange: 6
   AutoCollider2D: {fileID: 4628152722939624086}
@@ -1212,6 +1212,10 @@ PrefabInstance:
       propertyPath: Rate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -6940742406256015412, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
+      propertyPath: AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 21045f155839aaa4d9440dfced5a916b, type: 3}
     - target: {fileID: 6075784463570340096, guid: fb83db6062737ea459aa7b11de75d23f, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1477,7 +1481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8379109903703099361, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8578395393313558526, guid: 6088257abd3d5c541adf0ca7d166184e, type: 3}
       propertyPath: m_Sprite

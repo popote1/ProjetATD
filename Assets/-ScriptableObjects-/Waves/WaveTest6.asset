@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8b515e51f383d74197eebc0ebc6f881, type: 3}
-  m_Name: WaveTest5
+  m_Name: WaveTest6
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 3130726305137273550, guid: 0ca547da57e2ed74faa8c83679233838, type: 3}
   OrcSO: {fileID: 11400000, guid: e7415b0632b85a4409311bc268ace3fd, type: 2}
@@ -18,9 +18,9 @@ MonoBehaviour:
   TrollSO: {fileID: 11400000, guid: 4b7fdf28b78fcc24f8c3fb8be378e9cc, type: 2}
   GhostSO: {fileID: 11400000, guid: 89a6da2ebba73f64a8fb59fd69544a79, type: 2}
   DrakeSO: {fileID: 11400000, guid: 8d81dece40fd46b478a4dac994ca65fd, type: 2}
-  NombreOrcs: 80
-  NombreGhost: 60
-  NombreWargs: 70
+  NombreOrcs: 0
+  NombreGhost: 120
+  NombreWargs: 100
   NombreTrolls: 30
   NombreDrake: 0
-  TimeToWait: 300
+  TimeToWait: 200

@@ -177,9 +177,9 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             //VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);
             if (pos.magnitude > ActiveRange)
             {
-                VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position;
+                VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position+new Vector3(0,0,-0.5f);
             }
-            else{VisualizerEffect.transform.position = _mousePosition;}
+            else{VisualizerEffect.transform.position = (Vector3)_mousePosition+new Vector3(0,0,-0.5f);}
             if (TopPart != null)
             {
                 TopPart.transform.up = (Vector2)( transform.position-VisualizerEffect.transform.position );

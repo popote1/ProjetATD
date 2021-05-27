@@ -125,6 +125,7 @@ namespace Bourg.Achetable.Tours
         {
             PowerEffect.transform.position = this.transform.position;
             PowerEffect.SetActive(true);
+            _powerEffectComponent.OnAwake();
             
             Collider2D[] affected = new Collider2D[50];
             

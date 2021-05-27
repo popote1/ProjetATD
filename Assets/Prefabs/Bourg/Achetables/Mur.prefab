@@ -208,7 +208,7 @@ MonoBehaviour:
   HealingEffect: {fileID: 8324906415018025235}
   SecurityRange: 0
   SecurityValue: 0
-  Prix: 10
+  Prix: 50
   RetrunMoney: 75
   OutLine: {fileID: 0}
   _camera: {fileID: 0}
@@ -679,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618249192489374991, guid: e4ff80545987e89439629dd3e9db265a, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4851309274127883536, guid: e4ff80545987e89439629dd3e9db265a, type: 3}
       propertyPath: m_Sprite

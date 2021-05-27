@@ -217,9 +217,9 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             VisualizerEffect.transform.localScale = Vector3.one*ActiveSize;
             if (pos.magnitude > ActiveRange)
             {
-                VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position;
+                VisualizerEffect.transform.position = pos.normalized * ActiveRange + transform.position+new Vector3(0,0,-0.5f);
             }
-            else{VisualizerEffect.transform.position = _mousePosition;}
+            else{VisualizerEffect.transform.position = (Vector3)_mousePosition+new Vector3(0,0,-0.5f);}
             //float Dist = Vector2.Distance(_mousePosition, transform.position);
             //if (!(Dist <= ActiveRange)) _mousePosition = _mousePosition.normalized * ActiveRange;
             //VisualizeEffect.transform.position = Vector2.Lerp(VisualizeEffect.transform.position, _mousePosition, VisualizeEffectSpeed * Time.deltaTime);

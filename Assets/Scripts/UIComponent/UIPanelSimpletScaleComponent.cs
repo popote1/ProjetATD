@@ -11,10 +11,10 @@ public class UIPanelSimpletScaleComponent : UIElementComponent
     public Vector3 DesactiveScale  = Vector3.zero;
 
     public override void Activate() {
-        transform.DOScale(DesactiveScale, AnimationTime);
+        transform.DOScale(DesactiveScale, AnimationTime).SetUpdate(true);
     }
 
     public override void Desactivat() {
-        transform.DOScale(ActiveScale, AnimationTime);
+        transform.DOScale(ActiveScale, AnimationTime).SetUpdate(true);
     }
 }

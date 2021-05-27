@@ -152,7 +152,7 @@ namespace Components
                 for (int y = 0; y < Height; y++) {
                     if (!PlayGrid.GetCell(new Vector2Int(x, y)).IsNonWalkable) {
                         PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile = Instantiate(ConstructionTiles,
-                            PlayGrid.GetCellCenterWorldPosByCell(new Vector2Int(x, y)), Quaternion.identity, transform);
+                            PlayGrid.GetCellCenterWorldPosByCell(new Vector2Int(x, y))+new Vector3(0,0,-0.5f), Quaternion.identity, transform);
                         PlayGrid.GetCell(new Vector2Int(x, y)).ConstructionTile.SetActive(false);
                     }
                 }
