@@ -190,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40.75
+  m_fontSize: 40.7
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1730,7 +1730,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790698743}
+        m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
+        m_MethodName: UIOnChangeVolumeMusique
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &165824002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,6 +2021,7 @@ MonoBehaviour:
   CanvasGroupLoading: {fileID: 132681927}
   SliderLoading: {fileID: 764909498}
   TxtLoadingValue: {fileID: 1642675720}
+  AudioManagere: {fileID: 0}
 --- !u!1 &203974433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,7 +2723,7 @@ GameObject:
   - component: {fileID: 250946688}
   - component: {fileID: 250946689}
   m_Layer: 5
-  m_Name: SliderMusicVolume (1)
+  m_Name: SliderSFXVolume (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2788,7 +2801,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1790698743}
+        m_TargetAssemblyTypeName: MainMenuManagerComponent, Assembly-CSharp
+        m_MethodName: UIOnChangeVolumeSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &252921755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,7 +3587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsSetByInspector: 1
-  MusicVolum: 1
+  MusicVolum: 0
   SFXVolum: 1
   NaratorVolum: 1
 --- !u!81 &316584419
@@ -3603,6 +3628,7 @@ MonoBehaviour:
   CanvasGroupLoading: {fileID: 0}
   SliderLoading: {fileID: 0}
   TxtLoadingValue: {fileID: 0}
+  AudioManagere: {fileID: 316584418}
 --- !u!1 &333413021
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,7 +3667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.66, y: 0.74}
   m_AnchorMax: {x: 0.92, y: 0.91}
-  m_AnchoredPosition: {x: 15.926018, y: -0.000061035156}
+  m_AnchoredPosition: {x: 15.926033, y: -0.000061035156}
   m_SizeDelta: {x: 13.155, y: 16.433}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333413023
@@ -6897,6 +6923,7 @@ MonoBehaviour:
   CanvasGroupLoading: {fileID: 0}
   SliderLoading: {fileID: 0}
   TxtLoadingValue: {fileID: 0}
+  AudioManagere: {fileID: 0}
 --- !u!1 &634907006
 GameObject:
   m_ObjectHideFlags: 0
@@ -8034,7 +8061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.50002, y: -29.688766}
+  m_AnchoredPosition: {x: 227.50003, y: -29.688766}
   m_SizeDelta: {x: 91.00001, y: 59.377533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685973649
@@ -8588,7 +8615,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
+  m_fontSize: 44.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -9058,7 +9085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.3}
   m_AnchorMax: {x: 0.8, y: 0.85}
-  m_AnchoredPosition: {x: -37.183975, y: 31.882004}
+  m_AnchoredPosition: {x: -37.183945, y: 31.882004}
   m_SizeDelta: {x: 111.333, y: 104.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747641094
@@ -18469,7 +18496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.9}
-  m_AnchoredPosition: {x: -18.599976, y: -5.400055}
+  m_AnchoredPosition: {x: -18.599976, y: -5.4000244}
   m_SizeDelta: {x: 80.001, y: 8.492}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553587797
@@ -21463,6 +21490,8 @@ MonoBehaviour:
   PolishFlag: {fileID: 21300000, guid: 9ada64cbe2ec83747bee4914d6863d07, type: 3}
   FrenshFlag: {fileID: 21300000, guid: 8ca09403afbe27c47b624054813087da, type: 3}
   EnglishFlag: {fileID: 21300000, guid: a5216ac074ea81c4ea5d158e9e61a009, type: 3}
+  SliderSound: {fileID: 250946689}
+  SliderMusic: {fileID: 155609386}
   InputFieldBorgName: {fileID: 1313841035}
   Seed: 
   CanvasLoading: {fileID: 181437476}
@@ -21470,6 +21499,7 @@ MonoBehaviour:
   SliderLoading: {fileID: 764909498}
   TxtLoadingValue: {fileID: 1642675720}
   FadeTime: 1
+  BackGroundMusic: {fileID: 8300000, guid: 9fe8c08ed11611e489d73e71dc493259, type: 3}
   AudioClip: {fileID: 8300000, guid: bd17d24f6c11c3c4d92f69365d765b27, type: 3}
   Volume: 1
   SmoothTerrainLoading: {fileID: 0}

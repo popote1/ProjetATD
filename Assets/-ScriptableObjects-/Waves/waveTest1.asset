@@ -22,5 +22,5 @@ MonoBehaviour:
   NombreGhost: 10
   NombreWargs: 10
   NombreTrolls: 10
-  NombreDrake: 0
+  NombreDrake: 1
   TimeToWait: 180

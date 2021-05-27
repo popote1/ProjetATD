@@ -569,7 +569,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.15
+  m_fontSize: 32.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5487,7 +5487,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.1
+  m_fontSize: 46.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6650,7 +6650,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.1
+  m_fontSize: 46.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7112,7 +7112,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.1
+  m_fontSize: 46.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10192,7 +10192,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.1
+  m_fontSize: 46.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10475,7 +10475,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.1
+  m_fontSize: 46.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11610,7 +11610,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 2426864061342925088, guid: 0ca547da57e2ed74faa8c83679233838, type: 3}
   EnemyPrefabOrc: {fileID: 2426864061342925088, guid: bb3bfb426e6e28e46aad5f235597cea2, type: 3}
   EnemyPrefabTroll: {fileID: 2426864061342925088, guid: 41a730cf8cb16964690775fa1c4efd01, type: 3}
-  EnemyPrefabWarg: {fileID: 2426864061342925088, guid: e09e5e665b8b6124c91dd7c19ead7b46, type: 3}
+  EnemyPrefabWarg: {fileID: 2426864061342925088, guid: 4b14b2b95d1300e43809c65ecb83796f, type: 3}
   EnemyPrefabGhost: {fileID: 2426864061342925088, guid: 9f0689babe51f7844ae358fe85910721, type: 3}
   EnemyPrefabDrake: {fileID: 2426864061342925088, guid: e09e5e665b8b6124c91dd7c19ead7b46, type: 3}
   DrakeAnimation: {fileID: 4312438477745152533, guid: e28d2992b5ef02946b8241686f6a22a3, type: 3}

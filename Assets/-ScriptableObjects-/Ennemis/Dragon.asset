@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dragon
   m_EditorClassIdentifier: 
   Speed: 7
-  HP: 1
-  Damages: 1
-  AttackSpeed: 1
+  HP: 100
+  Damages: 50
+  AttackSpeed: 1.2
   Size: {x: 5, y: 5, z: 5}
-  IsBoss: 0
+  IsBoss: 1
   MagicResistance: 0
   PhysicResistance: 0
   PrefabMorts: {fileID: 1888291906593131908, guid: 670f35f748724f64dae01927d5efb244, type: 3}

@@ -69,11 +69,7 @@ namespace Enemies
         //Replace w/ BetaUpdate
         void Update()
         {
-            if (!isBoss)
-            {
-                Move();
-            }
-
+            Move();
             if (isNotSetted)
             {
                 SetEnnemy();
@@ -145,7 +141,7 @@ namespace Enemies
       {
           if (_attackTimer >= Enemy.AttackSpeed)
           {
-              if ((AttackTarget.transform.position - transform.position).magnitude > 2)
+              if ((AttackTarget.transform.position - transform.position).magnitude > 2.5)
               {
                   AttackTarget = null;
                   _attackTimer = Enemy.AttackSpeed;
@@ -156,7 +152,7 @@ namespace Enemies
               }
               if (AttackTarget != null)
               {
-                  transform.up = (AttackTarget.transform.position - transform.position).normalized;
+                  transform.up = (Vector2)(AttackTarget.transform.position - transform.position).normalized;
                   _anim.SetBool("Walking", false);
                   _anim.SetBool("Attacking", true);
                   if (Enemy.IsMagic)AttackTarget.TakeMagicDamages(Enemy.Damages);
@@ -169,7 +165,7 @@ namespace Enemies
               _anim.SetBool("Walking", true);
               _anim.SetBool("Attacking", false);
           }
-          else transform.up = (AttackTarget.transform.position - transform.position).normalized;
+          else transform.up = (Vector2)(AttackTarget.transform.position - transform.position).normalized;
           _attackTimer +=Time.deltaTime;
       }
 

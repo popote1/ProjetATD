@@ -94,12 +94,12 @@ public class WaveSystemeV2Component : MonoBehaviour
             Vector3 randomSpawn = _spawns[Random.Range(0, _spawns.Count - 1)];
             if (NbTroll > 0)
             {
-                mob = Instantiate(EnemyPrefabTroll, randomSpawn, Quaternion.identity);
+                mob = Instantiate(EnemyPrefabTroll, randomSpawn-new Vector3(0,0,0.3f), Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].TrollSO;
                 NbTroll--;
             }
             else if (NbGhost > 0) {
-                mob= Instantiate(EnemyPrefabGhost, randomSpawn, Quaternion.identity);
+                mob= Instantiate(EnemyPrefabGhost, randomSpawn-new Vector3(0,0,0.3f), Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].GhostSO;
                 NbGhost--;
             }
@@ -145,13 +145,13 @@ public class WaveSystemeV2Component : MonoBehaviour
             
             else if (NbOrc > 0)
             {
-                mob= Instantiate(EnemyPrefabOrc, randomSpawn, Quaternion.identity);
+                mob= Instantiate(EnemyPrefabOrc, randomSpawn-new Vector3(0,0,0.3f), Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].OrcSO;
                 NbOrc--;
             
             }else if (NbWarg > 0)
             {
-                mob =  Instantiate(EnemyPrefabWarg, randomSpawn, Quaternion.identity);
+                mob =  Instantiate(EnemyPrefabWarg, randomSpawn-new Vector3(0,0,0.3f), Quaternion.identity);
                 mob.Enemy = WaveSo[WaveIndex].WargSO;
                 NbWarg--;
             }
@@ -190,6 +190,7 @@ public class WaveSystemeV2Component : MonoBehaviour
 
     public void EnnemiDie(EnemyComponent ennemi)
     {
+        if ( ennemi.Enemy.IsBoss)GameManagerComponent.SetWin();
         if (EnnemisAlive.Contains(ennemi)) EnnemisAlive.Remove(ennemi);
     }
 
@@ -238,7 +239,7 @@ public class WaveSystemeV2Component : MonoBehaviour
 
     private void SpawnDrake()
     {
-        EnemyComponent mob= Instantiate(EnemyPrefabDrake, DrakeSpawn, Quaternion.identity);
+        EnemyComponent mob= Instantiate(EnemyPrefabDrake, DrakeSpawn-new Vector3(0,0,2f), Quaternion.identity);
         mob.Enemy = WaveSo[WaveIndex].DrakeSO;
         mob.Playgrid = GameManagerComponent.PlayGrid;
         mob.WaveSystemeV2Component = this;
