@@ -14,6 +14,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public float AutoFireRate;
         public int AutoRange;
         public CircleCollider2D AutoCollider2D;
+        public AutoAttackProjectile Projectile;
 
 
         [Header("Active")]
@@ -51,6 +52,10 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private PowerEffectComponent _powerEffectComponent;
 
         //Initialisation
+        private void Awake()
+        {
+            Projectile.Setorigin();
+        }
         private void Start()
         {
             _camera = Camera.main;
@@ -86,6 +91,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         
         private void Update()
         {
+            Auto();
            // Auto();
             if (_isSelected)
             {
@@ -117,16 +123,23 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         //Auto Attack
         private void Auto()
         {
+            Debug.Log(enemiesInRange.Count + " ennemy dans la zone");
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
+                Debug.Log("peux faire des autoAttque");
                 enemiesInRange.RemoveAll(o => o == null);
-                if (enemiesInRange.Count > 0)
+                if (enemiesInRange.Count > 0&&!Projectile.gameObject.activeSelf)
                 {
-                    LineRenderer.enabled = true;
+                    Projectile.Damages = AutoMagicDamages;
+                    Projectile.IsMagic = true;
+                    Projectile.Target = enemiesInRange[0].transform;
+                    Projectile.EnnemyTarget = enemiesInRange[0];
+                    Projectile.gameObject.SetActive(true);
+                    /*LineRenderer.enabled = true;
                     LineRenderer.SetPosition(1,enemiesInRange[0].transform.position);
                     
-                    enemiesInRange[0].TakeMagicDamages(AutoMagicDamages);
-                    
+                    enemiesInRange[0].TakePhysicDamages(AutoPhysicDamages);
+                    */
                     _autoResetTimer = 0;
                     AudioSource.Play();
                 }
@@ -227,8 +240,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (enemiesInRange.Contains(other.GetComponent<EnemyComponent>()))
                 enemiesInRange.Remove( other.GetComponent<EnemyComponent>());
         }
-        
-        
+
         //Outline activator
         public override void OnSelect()
         {

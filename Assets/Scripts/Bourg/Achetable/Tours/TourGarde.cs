@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Bourg.Achetable.Tours;
 using Enemies;
@@ -44,7 +45,12 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private Vector2 _mousePosition;
         private List<EnemyComponent> enemiesInRange = new List<EnemyComponent>();
         private  PowerEffectComponent _powerEffectComponent;
-        
+
+
+        private void Awake()
+        {
+            Projectile.Setorigin();
+        }
 
         //Initialisation
         private void Start()

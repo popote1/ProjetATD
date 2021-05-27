@@ -16,10 +16,15 @@ public class AutoAttackProjectile : MonoBehaviour
 
     private float _traveled;
     private Vector3 _origin;
+    private Vector3 _lastPos;
 
-    private void Start()
+    public void Setorigin()
     {
         _origin = transform.position;
+    }
+    private void Start()
+    {
+        
     }
     private void Update()
     {
@@ -32,9 +37,11 @@ public class AutoAttackProjectile : MonoBehaviour
         }
         _traveled += Time.deltaTime * Speed;
         float height = _flightCurve.Evaluate(_traveled);
-        Vector2 originWithHeight = new Vector2(_origin.x, _origin.y + height);
-        Vector2 targetWithHeight = new Vector2(Target.position.x, Target.position.y + height);
-        transform.position = Vector2.Lerp(originWithHeight, targetWithHeight, _traveled);
+        //Vector3 originWithHeight = new Vector2(_origin.x, _origin.y ,-height);
+        //Vector3 targetWithHeight = new Vector2(Target.position.x, Target.position.y + height);
+        transform.position = Vector3.Lerp(_origin, Target.position, _traveled)-new Vector3(0,0,height);
+        transform.forward = transform.position - _lastPos;
+        _lastPos = transform.position;
         if (_traveled >= 1)
         {
             _traveled = 0;
@@ -63,6 +70,7 @@ public class AutoAttackProjectile : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = _origin;
+        _lastPos = _origin;
     }
     
 }

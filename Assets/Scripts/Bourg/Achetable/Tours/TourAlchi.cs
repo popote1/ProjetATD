@@ -13,6 +13,7 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         public float AutoFireRate;
         public float AutoRange;
         public CircleCollider2D AutoCollider2D;
+        public AutoAttackProjectile Projectile;
 
 
         [Header("Active")]
@@ -55,6 +56,10 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
         private PowerEffectComponent _powerEffectComponent;
 
         //Initialisation
+        private void Awake()
+        {
+            Projectile.Setorigin();
+        }
         private void Start()
         {
             _camera = Camera.main;
@@ -116,13 +121,18 @@ namespace Assets.Scripts.Bourg.Achetable.Tours
             if (_autoResetTimer >= AutoFireRate && enemiesInRange.Count > 0)
             {
                 enemiesInRange.RemoveAll(o => o == null);
-                if (enemiesInRange.Count > 0)
+                if (enemiesInRange.Count > 0&&!Projectile.gameObject.activeSelf)
                 {
-                    LineRenderer.enabled = true;
+                    Projectile.Damages = AutoPhysicDamages;
+                    Projectile.IsMagic = false;
+                    Projectile.Target = enemiesInRange[0].transform;
+                    Projectile.EnnemyTarget = enemiesInRange[0];
+                    Projectile.gameObject.SetActive(true);
+                    /*LineRenderer.enabled = true;
                     LineRenderer.SetPosition(1,enemiesInRange[0].transform.position);
                     
                     enemiesInRange[0].TakePhysicDamages(AutoPhysicDamages);
-                    
+                    */
                     _autoResetTimer = 0;
                     AudioSource.Play();
                 }
